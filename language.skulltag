@@ -1,0 +1,51 @@
+[enu default]
+//Weapons
+//minigun
+PICKUP_MINIGUN = "You got the minigun!";
+OB_MINIGUN = "%o was drilled by %k's minigun.";
+OB_MINIGUN_2 = "%o was pelted by %k's minigun.";
+
+//grenade launcher
+PICKUP_GRENADELAUNCHER = "You got the grenade launcher!";
+
+//railgun
+PICKUP_RAILGUN = "You got the railgun!";
+
+//bfg10k
+PICKUP_BFG10K = "You got the BFG10000!  Hell, yes!";
+OB_BFG10K = "%o was blasted by %k's BFG10K.";
+OB_BFG10K_RARE = "%o got a blast in the ass from %k's BFG10K.";
+OB_BFG10K_SELF = "%o got reckless with %p BFG10K.";
+
+
+//Monsters
+//obituaries
+OB_CACODEMON_MELEE_RARE = "%o tried to get friendly with a cacodemon.";
+OB_BARON_MELEE_RARE = "%o was bitchslapped by a Baron of Hell.";
+OB_DARKIMP_MELEE = "%o was slashed by a dark imp.";
+OB_DARKIMP = "%o was burned by a dark imp.";
+OB_BLOODDEMON_MELEE = "%o was chomped on by a blood demon.";
+OB_SSGGUY = "%o was jacked by a super shotgun guy.";
+OB_BELPHEGOR_MELEE = "%o was slain by a Belphegor.";
+OB_BELPHEGOR = "%o was slain by a Belphegor.";
+OB_CACOLANTERN_MELEE = "%o got too close to a cacolantern.";
+OB_CACOLANTERN = "%o was smitten by a cacolantern.";
+OB_ABADDON_MELEE = "%o became food for an abaddon.";
+OB_ABADDON = "%o was smitten by an abaddon.";
+OB_HECTEBUS = "%o was cremated by a hectebus.";
+
+//cast call
+CC_SSGGUY = "SUPER SHOTGUN GUY";
+CC_DARKIMP = "DARK IMP";
+CC_BLOODDEMON = "BLOOD DEMON";
+CC_CACOLANTERN = "CACOLANTERN";
+CC_HECTEBUS = "HECTEBUS";
+
+
+//Items
+PICKUP_REDARMOR = "Picked up the red armor!";
+
+
+//	{ str_notchanged, "STSTR_HISSYON", "Fearless Rage Mode ON", NULL },
+//	{ str_notchanged, "STSTR_HISSYOFF", "Fearless Rage Mode OFF", NULL },
+
