@@ -6,6 +6,7 @@
 
 ACTOR Minigun : Weapon 5014
 {
+	//$Category "Weapons"
 	Weapon.AmmoType "Clip" 
 	Weapon.AmmoGive 20
 	Weapon.AmmoUse 1
@@ -58,6 +59,7 @@ ACTOR Minigun : Weapon 5014
 
 ACTOR RailGun : DoomWeapon 5012
 {
+	//$Category "Weapons"
 	SpawnID 164
 	Radius 20
 	Height 16
@@ -123,6 +125,7 @@ ACTOR RailgunPuff : BulletPuff
 
 ACTOR BFG10K : DoomWeapon 5013
 {
+	//$Category "Weapons"
 	SpawnID 165
 	Radius 20
 	Height 20
@@ -231,6 +234,7 @@ ACTOR BFG10kShot
 
 ACTOR GrenadeLauncher : DoomWeapon 5011
 {
+	//$Category "Weapons"
 	SpawnID 163
 	Radius 20
 	Height 16

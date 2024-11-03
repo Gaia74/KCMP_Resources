@@ -15,6 +15,7 @@ class RandomPowerup : CustomInventory
 {
 	Default
 	{
+		//$Category "Powerups"
 		//$Arg0 "Powerup list"
 		//$Arg0ToolTip "Decide which powerups will this item have"
 		//$Arg0Type 12

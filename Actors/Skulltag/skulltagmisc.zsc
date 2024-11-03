@@ -8,6 +8,7 @@ Class Hissy : Actor //5057
 {
 	Default
 	{
+		//$Category "Decoration"
 		Radius 20;
 		Height 26;
 		+SOLID

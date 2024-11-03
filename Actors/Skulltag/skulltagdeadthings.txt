@@ -6,6 +6,8 @@
 
 actor DeadCyberdemon : Cyberdemon 5070
 {
+	//$Category "Decoration"
+	//$Sprite "CYBRP0"
 	Tag "Dead Cyberdemon"
 	Skip_Super
 	DropItem None

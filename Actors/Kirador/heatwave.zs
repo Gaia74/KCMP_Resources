@@ -8,6 +8,7 @@ class JGP_Heatwave : Weapon
 
 	Default
 	{
+		//$Category "Weapons"
 		Tag "Heatwave Generator";
 		Inventory.PickupMessage "$ID24_GOTCALAMITYBLADE";
 		Weapon.SlotNumber 7;

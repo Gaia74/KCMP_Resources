@@ -6,6 +6,7 @@
 
 actor DarkImp : DoomImp 5003 // [RT] Inherits from the DoomImp for convenience
 {
+	//$Category "Monsters"
   Tag "Dark imp"
   spawnid 155 // [RT] I think this is the right Spawnid, change if it isn't
   obituary "$OB_DARKIMP"
@@ -77,6 +78,7 @@ actor DarkImpBall : DoomImpBall // [RT] Inherits from DoomImpBall for convenienc
 
 ACTOR Cacolantern : Cacodemon 5006
 {
+	//$Category "Monsters"
 	Tag "Cacolantern"
 	SpawnID 159
 	Health 800
@@ -144,6 +146,7 @@ ACTOR CacolanternBall
 
 ACTOR Abaddon : Cacolantern 5015
 {
+	//$Category "Monsters"
 	Tag "Abaddon"
 	SpawnID 220
 	Health 1200
@@ -215,6 +218,7 @@ ACTOR AbaddonBall
 
 ACTOR Belphegor : HellKnight 5008
 {
+	//$Category "Monsters"
 	Tag "Belphegor"
 	SpawnID 215
 	Health 1500
@@ -272,8 +276,9 @@ ACTOR BelphegorBall : BaronBall
 //
 //=================================================================================================
 
-ACTOR BloodDemon : Demon 5004
+ACTOR BloodDemon : Demon 5016
 {
+	//$Category "Monsters"
 	Tag "Blood Demon"
 	SpawnID 156
 	Health 300
@@ -316,6 +321,7 @@ ACTOR BloodDemon : Demon 5004
 
 ACTOR Hectebus : Fatso 5007
 {
+	//$Category "Monsters"
    Tag "Hectebus"
    SpawnID 158
    Health 1200
@@ -395,6 +401,7 @@ ACTOR HectShot : FatShot
 
 ACTOR SuperShotgunGuy 5005
 {
+	//$Category "Monsters"
    Tag "SuperShotgun Guy"
    SpawnID 157
    Health 120

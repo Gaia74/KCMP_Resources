@@ -2,6 +2,7 @@ class JGP_Incinerator : Weapon
 {
 	Default
 	{
+		//$Category "Weapons"
 		Weapon.SlotNumber 6;
 		Weapon.AmmoType1 'JGP_FuelAmmoSmall';
 		Weapon.AmmoUse1 1;

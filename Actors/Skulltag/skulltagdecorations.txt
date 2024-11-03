@@ -6,6 +6,7 @@
 
 ACTOR GreyColumn 5051
 {
+	//$Category "Obstacles"
 	Radius 16
 	Height 40
 	+SOLID
@@ -26,6 +27,7 @@ ACTOR GreyColumn 5051
 
 ACTOR TallGreyColumn 5052
 {
+	//$Category "Obstacles"
 	Radius 16
 	Height 52
 	+SOLID
@@ -46,6 +48,7 @@ ACTOR TallGreyColumn 5052
 
 ACTOR GreyHeartColumn 5053
 {
+	//$Category "Obstacles"
 	Radius 16
 	Height 40
 	+SOLID
@@ -66,6 +69,7 @@ ACTOR GreyHeartColumn 5053
 
 ACTOR TallGothicColumn 5054
 {
+	//$Category "Obstacles"
 	Radius 16
 	Height 52
 	+SOLID
@@ -86,6 +90,7 @@ ACTOR TallGothicColumn 5054
 
 ACTOR RevenantHand 5055
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 16
 	+SOLID
@@ -105,6 +110,7 @@ ACTOR RevenantHand 5055
 
 ACTOR ImpHead 5056
 {
+	//$Category "Decoration"
 	Radius 8
 	Height 32
 	+SOLID
@@ -124,6 +130,7 @@ ACTOR ImpHead 5056
 
 ACTOR Impse 5058
 {
+	//$Category "Decoration"
 	Radius 20
 	Height 48
 	+SOLID
@@ -144,6 +151,8 @@ ACTOR Impse 5058
 
 ACTOR FloatingBobbingSkull : FloatingSkull 5009
 {
+	//$Title "Floating Skull rock (FLOATBOB)"
+	//$Category "Obstacles"
 	+FLOATBOB
 }
 
@@ -155,6 +164,7 @@ ACTOR FloatingBobbingSkull : FloatingSkull 5009
 
 ACTOR ImpalingSpike 5120
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 64
 	+SOLID
@@ -175,6 +185,7 @@ ACTOR ImpalingSpike 5120
 
 ACTOR ImpalingSpike2 5121
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 56
 	+SOLID
@@ -195,6 +206,7 @@ ACTOR ImpalingSpike2 5121
 
 ACTOR ImpalingSpike3 5122
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 56
 	+SOLID
@@ -215,6 +227,7 @@ ACTOR ImpalingSpike3 5122
 
 ACTOR WhiteTorch 5150
 {
+	//$Category "Light sources"
 	Radius 16
 	Height 68
 	+SOLID
@@ -235,6 +248,7 @@ ACTOR WhiteTorch 5150
 
 ACTOR ShortWhiteTorch 5151
 {
+	//$Category "Light sources"
 	Radius 16
 	Height 37
 	+SOLID
@@ -255,6 +269,7 @@ ACTOR ShortWhiteTorch 5151
 
 ACTOR YellowTorch 5152
 {
+	//$Category "Light sources"
 	Radius 16
 	Height 68
 	+SOLID
@@ -275,6 +290,7 @@ ACTOR YellowTorch 5152
 
 ACTOR ShortYellowTorch 5153
 {
+	//$Category "Light sources"
 	Radius 16
 	Height 37
 	+SOLID
@@ -295,6 +311,7 @@ ACTOR ShortYellowTorch 5153
 
 ACTOR RedEvilEye 5059
 {
+	//$Category "Obstacles"
 	Radius 16
 	Height 54
 	+SOLID
@@ -315,6 +332,7 @@ ACTOR RedEvilEye 5059
 
 ACTOR BlueEvilEye 5060
 {
+	//$Category "Obstacles"
 	Radius 16
 	Height 54
 	+SOLID
@@ -335,8 +353,9 @@ ACTOR BlueEvilEye 5060
 
 ACTOR RedCandleStick 5156
 {
-	Radius 20
-	Height 14
+	//$Category "Light sources"
+	Radius 8
+	Height 10
 	States
 	{
 	Spawn:
@@ -353,8 +372,9 @@ ACTOR RedCandleStick 5156
 
 ACTOR BlueCandleStick 5157
 {
-	Radius 20
-	Height 14
+	//$Category "Light sources"
+	Radius 8
+	Height 10
 	States
 	{
 	Spawn:
@@ -371,6 +391,7 @@ ACTOR BlueCandleStick 5157
 
 ACTOR RedTechLamp 5154
 {
+	//$Category "Light sources"
 	Radius 16
 	Height 80
 	+SOLID
@@ -391,6 +412,7 @@ ACTOR RedTechLamp 5154
 
 ACTOR RedTechLamp2 5155
 {
+	//$Category "Light sources"
 	Radius 16
 	Height 60
 	+SOLID
@@ -411,6 +433,7 @@ ACTOR RedTechLamp2 5155
 
 ACTOR RedColumn 5158
 {
+	//$Category "Obstacles"
 	Radius 16
 	Height 48
 	+SOLID
@@ -431,6 +454,7 @@ ACTOR RedColumn 5158
 
 ACTOR BlueColumn 5159
 {
+	//$Category "Obstacles"
 	Radius 16
 	Height 48
 	+SOLID
@@ -451,6 +475,7 @@ ACTOR BlueColumn 5159
 
 ACTOR ImpalingSpike4 5320
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 56
 	+SOLID
@@ -471,6 +496,7 @@ ACTOR ImpalingSpike4 5320
 
 ACTOR ImpalingSpike5 5321
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 64
 	+SOLID
@@ -491,6 +517,7 @@ ACTOR ImpalingSpike5 5321
 
 ACTOR ImpalingSpike6 5322
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 45
 	+SOLID
@@ -511,6 +538,7 @@ ACTOR ImpalingSpike6 5322
 
 ACTOR ImpalingSpike7 5323
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 54
 	+SOLID
@@ -531,6 +559,7 @@ ACTOR ImpalingSpike7 5323
 
 ACTOR ImpalingSpike8 5324
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 54
 	+SOLID
@@ -551,6 +580,7 @@ ACTOR ImpalingSpike8 5324
 
 ACTOR ImpalingSpike9 5325
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 64
 	+SOLID
@@ -572,6 +602,7 @@ ACTOR ImpalingSpike9 5325
 
 ACTOR ImpalingSpike10 5326
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 64
 	+SOLID
@@ -592,6 +623,7 @@ ACTOR ImpalingSpike10 5326
 
 ACTOR ImpalingSpike11 5327
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 64
 	+SOLID
@@ -612,6 +644,7 @@ ACTOR ImpalingSpike11 5327
 
 ACTOR MarineHelmetGibs 5328
 {
+	//$Category "Decoration"
 	Radius 16
 	Height 64
 	States
