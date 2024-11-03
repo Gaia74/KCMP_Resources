@@ -11,8 +11,8 @@ So far, this resource pack includes:
 * DrDoctor's texture pack
 * Some other random/custom resources submitted by our mappers
 * Incinerator and Calamity blade from Legacy of the Rust, Credits to Agent_Ash
-* A Test map showcasing all the custom resources
-
+* A Test map showcasing all the custom resources for all mapper to use
+* You can submit your own resources
 
 
 ## Current Monsters
