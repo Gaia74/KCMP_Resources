@@ -37,3 +37,21 @@ door1_end            d1_end
 
 $ambient 1 WindSound POINT CONTINUOUS 1.0
 $ambient 2 WaterFallSound POINT CONTINUOUS 1.0
+
+
+
+// Legacy of Rust
+
+$random DoomRR/incinerator/fire { DoomRR/incinerator/fire1 DoomRR/incinerator/fire2 }
+DoomRR/incinerator/fire1 DSINCFI1
+DoomRR/incinerator/fire2 DSINCFI2
+
+DoomRR/IncineratorFlame/burn DSINCBRN
+$random DoomRR/IncineratorFlame/death { DoomRR/IncineratorFlame/death1 DoomRR/IncineratorFlame/death2 }
+DoomRR/IncineratorFlame/death1 DSINCHT1
+DoomRR/IncineratorFlame/death2 DSINCHT2
+DoomRR/IncineratorFlame/fizzle DSINCHT3
+
+DoomRR/heatwave/charge DSHETCHG
+DoomRR/heatwave/fire DSHETSHT
+DoomRR/heatwave/explode DSHETXPL

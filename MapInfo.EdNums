@@ -1,0 +1,18 @@
+DoomEdNums
+{
+	5039 = "RandomPowerup"
+	5057 = "Hissy"
+	
+	/*900 = "Terreno"
+	901 = "KiradorTank"
+	902 = "Ariborito"*/
+	903 = "JGP_Incinerator"
+	904 = "JGP_Heatwave"
+	905 = "JGP_FuelAmmoSmall"
+	906 = "JGP_FuelAmmoLarge"
+	
+}
+SpawnNums
+{
+  176 = "RandomPowerup"
+}

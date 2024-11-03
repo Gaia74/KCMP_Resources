@@ -123,3 +123,7 @@ OB_REFLECTION = "%o was killed via %k's reflection rune.";
 
 
 
+ID24_GOTINCINERATOR = "You got the incinerator!";
+ID24_GOTCALAMITYBLADE = "You got the calamity blade!  Hot damn!";
+ID24_GOTFUELCAN = "Picked up a fuel can.";
+ID24_GOTFUELTANK = "Picked up a fuel tank.";

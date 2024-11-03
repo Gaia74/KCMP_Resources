@@ -1,2 +1,16 @@
 #Include "Actors/skulltagitems.zsc"
 #Include "Actors/skulltagmisc.zsc"
+
+
+
+// LoR
+const DOOMRR_INCINERATOR_FLAME_DAMAGE = 5;
+const DOOMRR_INCINERATOR_FLAME_VELOCITY = 40;
+const DOOMRR_INCINERATOR_BURN_DAMAGE = 5;
+const DOOMRR_INCINERATOR_BURN_RADIUS = 64;
+
+const DOOMRR_HEATWAVE_RIPPER_DAMAGE = 10;
+const DOOMRR_HEATWAVE_RIPPER_VELOCITY = 20;
+#include "Actors/Kirador/fuelammo.zs"
+#include "Actors/Kirador/incinerator.zs"
+#include "Actors/Kirador/heatwave.zs"
