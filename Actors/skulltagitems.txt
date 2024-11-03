@@ -1,0 +1,309 @@
+
+//=================================================================================================
+//
+// Max. armor bonus
+//
+//=================================================================================================
+
+ACTOR MaxArmorBonus : BasicArmorBonus 5091
+{
+	SpawnID 167
+	Radius 20
+	Height 16
+	Inventory.Pickupmessage "$PICKUP_MAXARMORBONUS"
+	Inventory.Icon "ARM1A0"
+	Armor.Savepercent 33.33333
+	Armor.Saveamount 1
+	Armor.Maxsaveamount 200
+	Armor.MaxBonus 1
+	Armor.MaxBonusMax 50
+	+COUNTITEM
+	+INVENTORY.ALWAYSPICKUP
+	States
+	{
+	Spawn:
+		BON4 ABCDCB 6
+		loop
+	}
+}
+//=================================================================================================
+//
+// Red Armor
+//
+//=================================================================================================
+
+ACTOR RedArmor : BasicArmorPickup 5040
+{
+	SpawnID 168
+	Radius 20
+	Height 16
+	Armor.Savepercent 66.66666
+	Armor.Saveamount 200
+	Inventory.Icon "ARM3A0"
+	Inventory.Pickupmessage "$PICKUP_REDARMOR"
+	DamageFactor "Normal", 0.8
+/*	DamageFactor "Fire", 0.125
+	DamageFactor "Rocket", 0.125
+	DamageFactor "Grenade", 0.125*/
+	States
+	{
+	Spawn:
+		ARM3 A 6
+		ARM3 B 6 bright
+		goto Spawn
+	}
+}
+
+//=================================================================================================
+//
+// Max. health bonus
+//
+//=================================================================================================
+
+ACTOR MaxHealthBonus : HealthBonus 5090
+{
+	SpawnID 166
+	+COUNTITEM
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.Amount 2
+	Inventory.MaxAmount 250
+	Inventory.PickupMessage "$PICKUP_MAXHEALTHBONUS"
+	States
+	{
+	Spawn:
+		BON3 ABCDCB 6
+		Loop
+	}
+}
+
+
+//=================================================================================================
+//
+// Turbosphere
+//
+//=================================================================================================
+
+// [BB] This shows a HUD icon while the Turbosphere is active.
+ACTOR PowerTurbo : PowerSpeed
+{
+	Inventory.Icon "ARTITU1"
+}
+
+ACTOR Turbosphere : PowerupGiver 5030
+{
+	SpawnID 169
+	+COUNTITEM
+	+NOGRAVITY
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.MaxAmount 0
+	Powerup.Type Turbo
+	Powerup.Duration 1050
+	Inventory.PickupMessage "$PICKUP_TURBOSPHERE"
+	Inventory.PickupAnnouncerEntry "turbosphere"
+	States
+	{
+	Spawn:
+		TURB ABCD 3 Bright
+		Loop
+	}
+}
+
+//=================================================================================================
+//
+// Time freeze sphere
+//
+//=================================================================================================
+
+ACTOR TimeFreezeSphere : PowerupGiver 5032
+{
+	SpawnID 171
+	+COUNTITEM
+	+NOGRAVITY
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.MaxAmount 0
+	Powerup.Type TimeFreezer
+	Powerup.Color GoldMap
+	Inventory.PickupMessage "$PICKUP_TIMEFREEZER"
+	Inventory.PickupAnnouncerEntry "timefreeze"
+	States
+	{
+	Spawn:
+		TIME ABCD 6 Bright
+		Loop
+	}
+}
+/*
+//=================================================================================================
+//
+// Skulltag's invisibility sphere. It's a little different in that it alters your alpha.
+//
+//=================================================================================================
+
+ACTOR InvisibilitySphere : PowerupGiver 5035
+{
+	SpawnID 174
+	+COUNTITEM
+	+NOGRAVITY
+	+VISIBILITYPULSE
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.MaxAmount 0
+	Powerup.Type Translucency
+	RenderStyle Translucent
+	Inventory.PickupMessage "$PICKUP_INVISIBILITY"
+	Inventory.PickupAnnouncerEntry "invisibility"
+	States
+	{
+	Spawn:
+		SINV ABCD 6 Bright
+		Loop
+	}
+}	
+*/
+//=================================================================================================
+//
+// Doomsphere
+//
+//=================================================================================================
+
+ACTOR PowerQuadDamage : PowerDamage
+{
+	Damagefactor "normal", 4
+}
+
+ACTOR Doomsphere : PowerupGiver 5036
+{
+	SpawnID 175
+	+COUNTITEM
+	+NOGRAVITY
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.MaxAmount 0
+	Powerup.Type QuadDamage
+	Powerup.Color RedMap
+	Inventory.PickupMessage "$PICKUP_DOOMSPHERE"
+	Inventory.PickupAnnouncerEntry "doomsphere"
+	States
+	{
+	Spawn:
+		DOOM A 10 Bright
+		DOOM B 15 Bright
+		DOOM C 8 Bright
+		DOOM D 6 Bright
+		Loop
+	}
+}
+
+//=================================================================================================
+//
+// Guardsphere
+//
+//=================================================================================================
+
+ACTOR PowerQuarterDamage: PowerProtection
+{
+	Damagefactor "normal", 0.25
+}
+
+ACTOR Guardsphere : PowerupGiver 5037
+{
+	SpawnID 0
+	+COUNTITEM
+	+NOGRAVITY
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.MaxAmount 0
+	Powerup.Type QuarterDamage
+	Powerup.Color GreenMap
+	Inventory.PickupMessage "$PICKUP_GUARDSPHERE"
+	Inventory.PickupAnnouncerEntry "guardsphere"
+	States
+	{
+	Spawn:
+		GARD ABCD 6 Bright
+		Loop
+	}
+}
+/*
+//=================================================================================================
+//
+// PowerTerminatorArtifact
+//
+//=================================================================================================
+
+ACTOR PowerTerminatorArtifact : Powerup native
+{
+	Powerup.Duration 0
+}
+
+//=================================================================================================
+//
+// [BB] ReturningPowerupGiver - Handles auto return of Terminator and PossessionStone
+//
+//=================================================================================================
+
+ACTOR ReturningPowerupGiver : PowerupGiver native
+{
+}*/
+/*
+//=================================================================================================
+//
+// Terminator
+//
+//=================================================================================================
+
+ACTOR Terminator : ReturningPowerupGiver -1
+{
+	SpawnID 0
+	+COUNTITEM
+	+NOGRAVITY
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.MaxAmount 0
+	Powerup.Type TerminatorArtifact
+	Inventory.PickupMessage "$PICKUP_TERMINATOR"
+	Inventory.PickupAnnouncerEntry "terminator"
+	States
+	{
+	Spawn:
+		ARNO ABCD 6 Bright
+		Loop
+	}
+}
+
+*/
+
+//=================================================================================================
+//
+// RandomPowerup
+//
+//=================================================================================================
+/*
+ACTOR RandomPowerup : Inventory 5039 native
+{
+	SpawnID 176
+	+COUNTITEM
+	+NOGRAVITY
+	+INVENTORY.AUTOACTIVATE
+	+INVENTORY.ALWAYSPICKUP
+	Inventory.MaxAmount 0
+
+	action native A_RandomPowerupFrame ();
+
+	States
+	{
+	Spawn:
+		MEGA A 6 Bright A_RandomPowerupFrame
+		SOUL A 6 Bright A_RandomPowerupFrame
+		GARD A 6 Bright A_RandomPowerupFrame
+		PINS A 6 Bright A_RandomPowerupFrame
+		TIME A 6 Bright A_RandomPowerupFrame
+		SINV A 6 Bright A_RandomPowerupFrame
+		DOOM A 6 Bright A_RandomPowerupFrame
+		TURB A 6 Bright A_RandomPowerupFrame
+		Loop
+	}
+}
+*/
