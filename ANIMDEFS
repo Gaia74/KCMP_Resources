@@ -1,0 +1,249 @@
+//===========================================================================
+//
+//  Dr Textures
+//
+//===========================================================================
+
+TEXTURE DRSPIN05
+Range DRSPIN11
+Tics 4
+Oscillate
+
+TEXTURE DRSPIN13
+Range DRSPIN20
+Tics 4
+Oscillate
+
+TEXTURE DRSPIN21
+Range DRSPIN28
+Tics 4
+Oscillate
+
+TEXTURE DRSPIN29
+Range DRSPIN36
+Tics 4
+Oscillate
+
+TEXTURE DRROCK01
+Range DRROCK04
+Tics 8
+
+switch DRSWC00A on sound Switch1 pic DRSWC00B tics 0
+switch DRSWC00B off sound Switch2 pic DRSWC00A tics 0
+
+switch DRSWC01A on sound Switch1 pic DRSWC01B tics 0
+switch DRSWC01B off sound Switch2 pic DRSWC01A tics 0
+
+switch DRSWC02A on sound Switch1 pic DRSWC02B tics 0
+switch DRSWC02B off sound Switch2 pic DRSWC02A tics 0
+
+switch DRSWC03A on sound Switch1 pic DRSWC03B tics 0
+switch DRSWC03B off sound Switch2 pic DRSWC03A tics 0
+
+switch DRSWC04A on sound Switch1 pic DRSWC04B tics 0
+switch DRSWC04B off sound Switch2 pic DRSWC04A tics 0
+
+switch DRSWC05A on sound Switch1 pic DRSWC05B tics 0
+switch DRSWC05B off sound Switch2 pic DRSWC05A tics 0
+
+switch DRSWC06A on sound Switch1 pic DRSWC06B tics 0
+switch DRSWC06B off sound Switch2 pic DRSWC06A tics 0
+
+switch DRSWC07A on sound Switch1 pic DRSWC07B tics 0
+switch DRSWC07B off sound Switch2 pic DRSWC07A tics 0
+
+switch DRSWC09A on sound Switch1 pic DRSWC09B tics 0
+switch DRSWC09B off sound Switch2 pic DRSWC09A tics 0
+
+switch DRSWC10A on sound Switch1 pic DRSWC10B tics 0
+switch DRSWC10B off sound Switch2 pic DRSWC10A tics 0
+
+switch DRSWC11A on sound Switch1 pic DRSWC11B tics 0
+switch DRSWC11B off sound Switch2 pic DRSWC11A tics 0
+
+switch DRSWC12A on sound Switch1 pic DRSWC12B tics 0
+switch DRSWC12B off sound Switch2 pic DRSWC12A tics 0
+
+switch DRSWC13A on sound Switch1 pic DRSWC13B tics 0
+switch DRSWC13B off sound Switch2 pic DRSWC13A tics 0
+
+switch DRSWC14A on sound Switch1 pic DRSWC14B tics 0
+switch DRSWC14B off sound Switch2 pic DRSWC14A tics 0
+
+switch DRSWC08A 
+on sound Switch1 
+pic DRSWC08B tics 8 
+pic DRSWC08C tics 8 
+pic DRSWC08D tics 8
+
+//===========================================================================
+//
+//  Skulltag
+//
+//===========================================================================
+
+// [SP] Duel surge compatibilty
+warp2 texture HYWATER
+warp2 texture HYNUKE
+
+// [BC] Some new switches for Skulltag.
+switch SW1STNE1 on pic SW2STNE1 tics 0
+switch SW1STNE2 on pic SW2STNE2 tics 0
+switch SW1SKUL2 on pic SW2SKUL2 tics 0
+
+// [BC] And here we have a boatload of new animations for ST.
+
+texture bluelava
+	pic bluelava tics 8
+	pic bluelav2 tics 8
+
+texture firewal2
+	pic firewal2 tics 8
+	pic firewalc tics 8
+	pic firewald tics 8
+
+texture lavfall1
+	pic lavfall1 tics 8
+	pic lavfall2 tics 8
+	pic lavfall3 tics 8
+	pic lavfall4 tics 8
+
+flat fan1
+	pic fan1 tics 1
+	pic fan2 tics 1
+	pic fan3 tics 1
+	pic fan4 tics 1
+
+flat flava1
+	pic flava1 tics 8
+	pic flava2 tics 8
+
+flat bwater1
+	pic bwater1 tics 8
+	pic bwater2 tics 8
+	pic bwater3 tics 8
+	pic bwater4 tics 8
+
+flat blblood1
+	pic blblood1 tics 8
+	pic blblood2 tics 8
+	pic blblood3 tics 8
+
+texture bbfall1
+	pic bbfall1 tics 8
+	pic bbfall2 tics 8
+	pic bbfall3 tics 8
+	pic bbfall4 tics 8
+
+texture gstfont4
+	pic gstfont4 tics 8
+	pic gstfont5 tics 8
+	pic gstfont6 tics 8
+
+texture cacbbl1
+	pic cacbbl1 tics 8
+	pic cacbbl2 tics 8
+	pic cacbbl3 tics 8
+
+texture cacrbl1
+	pic cacrbl1 tics 8
+	pic cacrbl2 tics 8
+	pic cacrbl3 tics 8
+
+texture snuke1
+	pic snuke1 tics 8
+	pic snuke2 tics 8
+	pic snuke3 tics 8
+
+flat granuke1
+	pic granuke1 tics 8
+	pic granuke2 tics 8
+	pic granuke3 tics 8
+
+texture telr1
+	pic telr1 tics 5
+	pic telr2 tics 5
+	pic telr3 tics 5
+	pic telr4 tics 5
+	pic telr5 tics 5
+	pic telr6 tics 5
+	pic telr7 tics 5
+	pic telr8 tics 5
+	pic telr9 tics 5
+
+texture bouncy1
+	pic bouncy1 tics 3
+	pic bouncy2 tics 3
+	pic bouncy3 tics 3
+	pic bouncy4 tics 3
+	pic bouncy5 tics 3
+	pic bouncy6 tics 3
+	pic bouncy7 tics 3
+	pic bouncy8 tics 3
+
+warp flat e1sky1
+warp flat e3sky1
+warp flat wslime01
+warp flat wblood1
+warp flat wfwater1
+warp flat wsflr6_4
+warp texture wsksnak2
+warp texture wsky2
+warp texture warpface
+warp flat wqlava
+
+cameratexture	camtx64 	384 384		fit	64 64
+cameratexture	camtx128	384 384		fit	128 128
+cameratexture 	CAMTEX1 	640 480 	fit 	128 72
+
+// [BB] Turbosphere inventory icon
+texture optional ARTITU1
+pic ARTITU1 tics 3
+pic ARTITU2 tics 3
+pic ARTITU3 tics 3
+pic ARTITU4 tics 3
+
+//===========================================================================
+//
+//  Cage
+//
+//===========================================================================
+
+
+texture CGCANI00
+    allowdecals
+    pic CGCANI00 tics 1.5
+    pic CGCANI01 tics 1.5
+    pic CGCANI02 tics 1.5
+    pic CGCANI03 tics 1.5
+    pic CGCANI04 tics 1.5
+    pic CGCANI05 tics 1.5
+    pic CGCANI06 tics 1.5
+    pic CGCANI07 tics 1.5
+    
+switch CGSWC00A on sound Switch1 pic CGSWC00B tics 0
+switch CGSWC00B off sound Switch2 pic CGSWC00A tics 0
+
+switch CGSWC01A on sound Switch1 pic CGSWC01B tics 0
+switch CGSWC01B off sound Switch2 pic CGSWC01A tics 0
+
+switch CGSWC02A on sound Switch1 pic CGSWC02B tics 0
+switch CGSWC02B off sound Switch2 pic CGSWC02A tics 0
+
+switch CGSWC03A on sound Switch1 pic CGSWC03B tics 0
+switch CGSWC03B off sound Switch2 pic CGSWC03A tics 0
+
+switch C2SWC01A on sound Switch1 pic C2SWC01B tics 0
+switch C2SWC01B off sound Switch2 pic C2SWC01A tics 0
+
+switch C2SWC02A on sound Switch1 pic C2SWC02B tics 0
+switch C2SWC02B off sound Switch2 pic C2SWC02A tics 0
+
+switch C2SWC03A on sound Switch1 pic C2SWC03B tics 0
+switch C2SWC03B off sound Switch2 pic C2SWC03A tics 0
+
+switch C2SWC04A on sound Switch1 pic C2SWC04B tics 0
+switch C2SWC04B off sound Switch2 pic C2SWC04A tics 0
+
+switch C2SWC05A on sound Switch1 pic C2SWC05B tics 0
+switch C2SWC05B off sound Switch2 pic C2SWC05A tics 0
