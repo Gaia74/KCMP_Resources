@@ -1,0 +1,138 @@
+
+Const	RPF_MEGASPHERE			=	1;
+Const	RPF_SOULSPHERE			=	2;
+Const	RPF_GUARDSPHERE			=	4;
+Const	RPF_PARTIALINVISIBILITY	=	8;
+Const	RPF_TIMEFREEZESPHERE	=	16;
+Const	RPF_INVISIBILITY		=	32;
+Const	RPF_DOOMSPHERE			=	64;
+Const	RPF_TURBOSPHERE			=	128;
+Const	RPF_ALL					=	( RPF_MEGASPHERE|RPF_SOULSPHERE|RPF_GUARDSPHERE|
+									  RPF_PARTIALINVISIBILITY|RPF_TIMEFREEZESPHERE|RPF_INVISIBILITY |
+									  RPF_DOOMSPHERE|RPF_TURBOSPHERE );
+
+class RandomPowerup : CustomInventory
+{
+	Default
+	{
+		//$Arg0 "Powerup list"
+		//$Arg0ToolTip "Decide which powerups will this item have"
+		//$Arg0Type 12
+		//$Arg0Enum { 1 = "Mega Sphere"; 2 = "Soul Sphere"; 4 = "Guard Sphere"; 8 = "Partial invisibility"; 16 = "Time Freeze Sphere"; 32 = "Invisibility (not actually usable)"; 64 = "Doom Sphere"; 128 = "Turbo Sphere"; }
+
+		//SpawnID 176;
+		+COUNTITEM
+		+NOGRAVITY
+		+INVENTORY.AUTOACTIVATE;
+		+INVENTORY.ALWAYSPICKUP;
+		+INVENTORY.QUIET
+		Inventory.MaxAmount 0;
+
+	}
+	override void PostBeginPlay( )
+	{
+		Super.PostBeginPlay( );
+
+		weaponspecial = args[0];
+		if ( weaponspecial == 0 )
+			weaponspecial |= RPF_ALL;
+			
+		// ulPowerupFlags = weaponspecial
+	}
+	Action bool IsFrameAllowed(int frame)
+	{
+		// No time freeze spheres in multiplayer games.
+		if (( Frame == 4 ) && multiplayer || frame == 5/*&& ( NETWORK_GetState( ) != NETSTATE_SINGLE )*/)
+			return ( false );
+
+		return !!( weaponspecial & ( 1 << frame ));
+	}
+
+
+	Action void A_RandomPowerupFrame ()
+	{
+		if(special2>=64)
+		{
+			//you just crashed the game!
+			Destroy();
+			return;
+		}
+		int frame=Spawnstate.DistanceTo(Curstate);
+		special1=frame;
+		//A_Log("frame ".. frame);
+		if(!IsFrameAllowed(frame))
+		{
+			//A_Log("frame "..frame.." skipped");
+			special2++;
+			SetState(Curstate+1);
+		}
+		else
+		special2=0;
+	}
+	States
+	{
+	Spawn:
+		MEGA A 6 Bright A_RandomPowerupFrame;
+		SOUL A 6 Bright A_RandomPowerupFrame;
+		GARD A 6 Bright A_RandomPowerupFrame;
+		PINS A 6 Bright A_RandomPowerupFrame;
+		TIME A 6 Bright A_RandomPowerupFrame;
+		SINV A 6 Bright A_RandomPowerupFrame;
+		DOOM A 6 Bright A_RandomPowerupFrame;
+		TURB A 6 Bright A_RandomPowerupFrame;
+		UNKN A 0;
+		Loop;
+	Pickup:
+		TNT1 A 0
+		{
+			name pType;
+			switch ( invoker.special1 )
+			{
+				// Megasphere.
+				case 0:
+				pType = "Megasphere";
+				break;
+				// Soulsphere.
+				case 1:
+				pType = "Soulsphere";
+				break;
+				// Guardsphere.
+				case 2:
+				pType = "Guardsphere";
+				break;
+				// Partial invisibility.
+				case 3:
+				pType = "Blursphere";
+				break;
+				// Time freeze.
+				case 4:
+				pType = "TimeFreezeSphere";
+				break;
+				// Invisibility.
+				case 5:
+				//pType = "InvisibilitySphere"; not implemented
+				pType = "Blursphere";
+				break;
+				// Doomsphere.
+				case 6:
+				pType = "Doomsphere";
+				break;
+				// Turbosphere.
+				case 7:
+				pType = "Turbosphere";
+				break;
+			}
+			let pItem=(Inventory(Spawn(pType,Pos,ALLOW_REPLACE)));
+			if(pItem)
+			{
+				if(pitem.bCountItem)
+				{
+					level.total_items--;
+					pItem.bCountItem=False;
+				}
+				pItem.Touch(self);
+			}
+		}
+		Stop;
+	}
+}
