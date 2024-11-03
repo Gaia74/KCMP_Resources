@@ -1,1 +1,2 @@
 #Include "Actors/skulltagitems.zsc"
+#Include "Actors/skulltagmisc.zsc"

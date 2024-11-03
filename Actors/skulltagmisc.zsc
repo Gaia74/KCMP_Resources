@@ -1,0 +1,30 @@
+//=================================================================================================
+//
+// Hissy
+//
+//=================================================================================================
+
+Class Hissy : Actor //5057
+{
+	Default
+	{
+		Radius 20;
+		Height 26;
+		+SOLID
+	}
+	Override Void Tick()
+	{
+		Super.Tick();
+		if(isFrozen()) return;
+		double dir=AngleTo(players[consoleplayer].mo,true);
+		spriterotation+=clamp(deltaangle(spriterotation,dir),-5,5);
+	}
+	States
+	{
+	Spawn:
+		HISY B 1;// A_FaceConsolePlayer(5);
+		wait;
+		HISY A 1;// A_FaceConsolePlayer(5);
+		Wait;
+	}
+}

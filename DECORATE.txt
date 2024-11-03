@@ -1,7 +1,7 @@
 
 #Include "Actors/skulltagdeadthings.txt"
 #Include "Actors/skulltagdecorations.txt"
-#Include "Actors/skulltagmisc.txt"
+//#Include "Actors/skulltagmisc.txt"
 #Include "Actors/skulltagstatues.txt"
 #Include "Actors/skulltagmonsters.txt"
 #Include "Actors/skulltagweapons.txt"
