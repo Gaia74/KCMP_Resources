@@ -1,7 +1,7 @@
 ﻿# KCMP_Resources
 
 
-Brought to you by Gaia74 an Kirador
+Brought to you by Gaia74 and Kirador
 
 
 So far, this resource pack includes:
