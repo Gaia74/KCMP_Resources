@@ -7,12 +7,14 @@ pointlight REDARMOR1
 {
     color 0.6 0.0 0.0
     size 48
+	attenuate 1
 }
 
 pointlight REDARMOR2
 {
     color 0.6 0.0 0.0
     size 32
+	attenuate 1
 }
 
 object RedArmor
@@ -31,6 +33,7 @@ pointlight BFG10kShot
 {
     color 0.0 1.0 0.0
     size 80
+	attenuate 1
 }
 
 flickerlight BFG10KSHOT_X1
@@ -39,6 +42,7 @@ flickerlight BFG10KSHOT_X1
     size 80
     secondarySize 88
     chance 0.3
+	attenuate 1
 }
 
 flickerlight BFG10KSHOT_X2
@@ -47,6 +51,7 @@ flickerlight BFG10KSHOT_X2
     size 104
     secondarySize 112
     chance 0.3
+	attenuate 1
 }
 
 flickerlight BFG10KSHOT_X3
@@ -55,6 +60,7 @@ flickerlight BFG10KSHOT_X3
     size 120
     secondarySize 128
     chance 0.3
+	attenuate 1
 }
 
 object BFG10kShot
@@ -88,6 +94,7 @@ flickerlight CACOLANTERNBALL
     size 56
     secondarySize 64
     chance 0.25
+	attenuate 1
 }
 
 flickerlight CACOLANTERNBALL_X1
@@ -96,6 +103,7 @@ flickerlight CACOLANTERNBALL_X1
     size 72
     secondarySize 80
     chance 0.25
+	attenuate 1
 }
 
 flickerlight CACOLANTERNBALL_X2
@@ -104,6 +112,7 @@ flickerlight CACOLANTERNBALL_X2
     size 88
     secondarySize 96
     chance 0.25
+	attenuate 1
 }
 
 flickerlight CACOLANTERNBALL_X3
@@ -112,6 +121,7 @@ flickerlight CACOLANTERNBALL_X3
     size 104
     secondarySize 112
     chance 0.25
+	attenuate 1
 }
 
 object CacolanternBall
@@ -131,6 +141,7 @@ flickerlight ABADBALL
     size 56
     secondarySize 64
     chance 0.5
+	attenuate 1
 }
 
 flickerlight ABADBALL_X1
@@ -139,6 +150,7 @@ flickerlight ABADBALL_X1
     size 72
     secondarySize 80
     chance 0.25
+	attenuate 1
 }
 
 flickerlight ABADBALL_X2
@@ -147,6 +159,7 @@ flickerlight ABADBALL_X2
     size 88
     secondarySize 96
     chance 0.25
+	attenuate 1
 }
 
 flickerlight ABADBALL_X3
@@ -155,6 +168,7 @@ flickerlight ABADBALL_X3
     size 104
     secondarySize 112
     chance 0.25
+	attenuate 1
 }
 
 object AbaddonBall
@@ -172,6 +186,7 @@ pointlight DIBALL
 {
     color 0.5 0.0 1.0
     size 64
+	attenuate 1
 }
 
 // Dark imp fireball explosion
@@ -181,6 +196,7 @@ flickerlight DIBALL_X1
     size 80
     secondarySize 88
     chance 0.25
+	attenuate 1
 }
 
 flickerlight DIBALL_X2
@@ -189,6 +205,7 @@ flickerlight DIBALL_X2
     size 96
     secondarySize 104
     chance 0.25
+	attenuate 1
 }
 
 flickerlight DIBALL_X3
@@ -197,6 +214,7 @@ flickerlight DIBALL_X3
     size 112
     secondarySize 120
     chance 0.25
+	attenuate 1
 }
 
 object DarkImpBall
@@ -214,6 +232,7 @@ pointlight HECTSHOT
 {
     color 0.0 1.0 0.0
     size 48
+	attenuate 1
 }
 flickerlight HECTSHOT_X1
 {
@@ -221,6 +240,7 @@ flickerlight HECTSHOT_X1
     size 48
     secondarySize 56
     chance 0.3
+	attenuate 1
 }
 
 flickerlight HECTSHOT_X2
@@ -229,6 +249,7 @@ flickerlight HECTSHOT_X2
     size 64
     secondarySize 72
     chance 0.3
+	attenuate 1
 }
 
 flickerlight HECTSHOT_X3
@@ -237,6 +258,7 @@ flickerlight HECTSHOT_X3
     size 80
     secondarySize 88
     chance 0.3
+	attenuate 1
 }
 
 object HectShot
@@ -254,6 +276,7 @@ pointlight BELPHEGORBALL
 {
     color 0.0 1.0 0.0
     size 64
+	attenuate 1
 }
 
 flickerlight BELPHEGORBALL_X1
@@ -262,6 +285,7 @@ flickerlight BELPHEGORBALL_X1
     size 80
     secondarySize 88
     chance 0.25
+	attenuate 1
 }
 
 flickerlight BELPHEGORBALL_X2
@@ -270,6 +294,7 @@ flickerlight BELPHEGORBALL_X2
     size 96
     secondarySize 104
     chance 0.25
+	attenuate 1
 }
 
 flickerlight BELPHEGORBALL_X3
@@ -278,6 +303,7 @@ flickerlight BELPHEGORBALL_X3
     size 112
     secondarySize 120
     chance 0.25
+	attenuate 1
 }
 
 object BelphegorBall
@@ -308,6 +334,7 @@ flickerlight2 SMALLWHITETORCH
     secondarySize 54
     interval 0.1
     offset 0 35 0
+	attenuate 1
 }
 
 object ShortWhiteTorch
@@ -323,6 +350,7 @@ flickerlight2 SMALLYELLOWTORCH
     secondarySize 54
     interval 0.1
     offset 0 35 0
+	attenuate 1
 }
 
 object ShortYellowTorch
@@ -338,6 +366,7 @@ flickerlight2 BIGWHITETORCH
     secondarySize 72
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object WhiteTorch
@@ -353,6 +382,7 @@ flickerlight2 BIGYELLOWTORCH
     secondarySize 72
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object YellowTorch
@@ -373,6 +403,7 @@ flickerlight2 RedEvilEye
     secondarySize 50
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object RedEvilEye
@@ -388,6 +419,7 @@ flickerlight2 BlueEvilEye
     secondarySize 50
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object BlueEvilEye
@@ -403,6 +435,7 @@ flickerlight2 RedCandleStick
     secondarySize 60
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object RedCandleStick
@@ -418,6 +451,7 @@ flickerlight2 BlueCandleStick
     secondarySize 60
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object BlueCandleStick
@@ -433,6 +467,7 @@ flickerlight2 RedTechLamp
     secondarySize 64
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object RedTechLamp
@@ -448,6 +483,7 @@ flickerlight2 RedTechLamp2
     secondarySize 64
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object RedTechLamp2
@@ -463,6 +499,7 @@ flickerlight2 RedColumn
     secondarySize 64
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object RedColumn
@@ -478,6 +515,7 @@ flickerlight2 BlueColumn
     secondarySize 64
     interval 0.1
     offset 0 60 0
+	attenuate 1
 }
 
 object BlueColumn
@@ -503,6 +541,7 @@ pulselight DOOMSPHERE
     secondarySize 42
     interval 2.0
     offset 0 16 0
+	attenuate 1
 }
 
 object DoomSphere
@@ -518,6 +557,7 @@ pulselight INVISIBILITYSPHERE
     secondarySize 42
     interval 2.0
     offset 0 16 0
+	attenuate 1
 }
 /*
 object InvisibilitySphere
@@ -533,6 +573,7 @@ pulselight GUARDSPHERE
     secondarySize 42
     interval 2.0
     offset 0 16 0
+	attenuate 1
 }
 
 object GuardSphere
@@ -548,6 +589,7 @@ pulselight TIMEFREEZESPHERE
     secondarySize 42
     interval 2.0
     offset 0 16 0
+	attenuate 1
 }
 
 object TimefreezeSphere
@@ -563,6 +605,7 @@ pulselight TURBOSPHERE
     secondarySize 42
     interval 2.0
     offset 0 16 0
+	attenuate 1
 }
 
 object TurboSphere
@@ -577,6 +620,7 @@ flickerlight POSSESSIONSTONE
     size 56
     secondarySize 64
     chance 0.25
+	attenuate 1
 }
 
 flickerlight POSSESSIONSTONE_X1
@@ -585,6 +629,7 @@ flickerlight POSSESSIONSTONE_X1
     size 72
     secondarySize 80
     chance 0.25
+	attenuate 1
 }
 
 flickerlight POSSESSIONSTONE_X2
@@ -593,6 +638,7 @@ flickerlight POSSESSIONSTONE_X2
     size 88
     secondarySize 96
     chance 0.25
+	attenuate 1
 }
 
 flickerlight POSSESSIONSTONE_X3
@@ -601,6 +647,7 @@ flickerlight POSSESSIONSTONE_X3
     size 104
     secondarySize 112
     chance 0.25
+	attenuate 1
 }
 /*
 object PossessionStone
@@ -622,6 +669,7 @@ flickerlight TERMINATORBALL
     size 56
     secondarySize 64
     chance 0.25
+	attenuate 1
 }
 
 flickerlight TERMINATORBALL_X1
@@ -630,6 +678,7 @@ flickerlight TERMINATORBALL_X1
     size 72
     secondarySize 80
     chance 0.25
+	attenuate 1
 }
 
 flickerlight TERMINATORBALL_X2
@@ -638,6 +687,7 @@ flickerlight TERMINATORBALL_X2
     size 88
     secondarySize 96
     chance 0.25
+	attenuate 1
 }
 
 flickerlight TERMINATORBALL_X3
@@ -646,6 +696,7 @@ flickerlight TERMINATORBALL_X3
     size 104
     secondarySize 112
     chance 0.25
+	attenuate 1
 }
 /*
 object Terminator
@@ -668,6 +719,7 @@ pulselight MAXHEALTHPOTION
     size 16
     secondarySize 18
     interval 2.0
+	attenuate 1
 }
 
 object MaxHealthBonus
@@ -682,6 +734,7 @@ pulselight MAXARMORBONUS
     size 16
     secondarySize 14
     interval 1.0
+	attenuate 1
 }
 
 object MaxArmorBonus
