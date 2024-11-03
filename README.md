@@ -9,6 +9,7 @@ So far, this resource pack includes:
 * A home made Skulltag Texture pack, with monsters, weapons and decorations included
 * Cage's texture pack Vol 1 & 2
 * DrDoctor's texture pack
+* Some other random/custom resources submitted by our mappers
 * Incinerator and Calamity blade from Legacy of the Rust, Credits to Agent_Ash
 * A Test map showcasing all the custom resources
 
