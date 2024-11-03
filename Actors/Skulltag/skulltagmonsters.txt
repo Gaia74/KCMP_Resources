@@ -10,7 +10,7 @@ actor DarkImp : DoomImp 5003 // [RT] Inherits from the DoomImp for convenience
   spawnid 155 // [RT] I think this is the right Spawnid, change if it isn't
   obituary "$OB_DARKIMP"
   hitobituary "$OB_DARKIMP_MELEE"
-  health 100
+  health 120
   missiletype DarkImpBall
   meleedamage 3
   meleesound "imp/melee"
@@ -79,7 +79,7 @@ ACTOR Cacolantern : Cacodemon 5006
 {
 	Tag "Cacolantern"
 	SpawnID 159
-	Health 450
+	Health 800
 	Obituary "$OB_CACOLANTERN"
 	HitObituary "$OB_CACOLANTERN_MELEE"
 	States
@@ -146,7 +146,7 @@ ACTOR Abaddon : Cacolantern 5015
 {
 	Tag "Abaddon"
 	SpawnID 220
-	Health 600
+	Health 1200
 	Speed 12
 	PainChance 40
 	Obituary "$OB_ABADDON"
@@ -217,7 +217,7 @@ ACTOR Belphegor : HellKnight 5008
 {
 	Tag "Belphegor"
 	SpawnID 215
-	Health 1200
+	Health 1500
 	PainChance 25
 	SeeSound "baron/sight"
 	PainSound "baron/pain"
@@ -318,7 +318,7 @@ ACTOR Hectebus : Fatso 5007
 {
    Tag "Hectebus"
    SpawnID 158
-   Health 800
+   Health 1200
    PainChance 20
    Obituary "$OB_HECTEBUS"
    States

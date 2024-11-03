@@ -1,5 +1,5 @@
-#Include "Actors/skulltagitems.zsc"
-#Include "Actors/skulltagmisc.zsc"
+#Include "Actors/skulltag/skulltagitems.zsc"
+#Include "Actors/skulltag/skulltagmisc.zsc"
 
 
 
