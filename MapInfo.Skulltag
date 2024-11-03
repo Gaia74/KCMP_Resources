@@ -2,3 +2,7 @@ DoomEdNums
 {
 	5039 = "RandomPowerup"
 }
+SpawnNums
+{
+  176 = "RandomPowerup"
+}
