@@ -193,7 +193,7 @@ class JGP_HeatWaveRipper : Actor
 		TNT1 A 0
 		{
 			FSpawnParticleParams p;
-			p.lifetime = frandom[incin](25, 35);
+			p.lifetime = random[incin](25, 35);
 			p.size = 18;
 			p.sizestep = -p.size / p.lifetime;
 			p.style = STYLE_Add;
