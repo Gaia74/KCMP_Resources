@@ -1,5 +1,6 @@
 #Include "Actors/skulltag/skulltagitems.zsc"
 #Include "Actors/skulltag/skulltagmisc.zsc"
+#Include "Actors/Kirador/Skybox.zsc"
 
 
 

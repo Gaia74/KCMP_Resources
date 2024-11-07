@@ -1,0 +1,48 @@
+Class KiradorParallaxSkyBox : SkyViewPoint
+{
+	Default {
+	//$Arg0 "Visibility / 4"
+	//$Arg0ToolTip "What does this thing even do in the first place?"
+	//$Arg1 "Scale"
+	//$Arg1ToolTip "Default Value: 16, controls how much the player's movement will alter the sky position"
+	//$Arg1Default 16
+	//$Arg2 "Inworld origin target"
+	//$Arg2ToolTip "The sky will be drawn on top of this actor, you should place it on the map itself and not the skybox"
+	//$Arg2Type 14
+	//-NOSECTOR
+	+NOINTERACTION
+ }
+	Override Void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if(!Args[1]) Args[1]=16; // prevent divison by zero
+		FindTracer();
+	}
+	Bool FindTracer()
+	{
+		ActorIterator it = Level.CreateActorIterator(Args[2]);
+		Actor spot = it.Next ();
+		if (spot != null)
+		{ Tracer=Spot; Return True; }
+		Else
+		A_Log("Could not find tag "..Args[2]);
+		Return False;
+	}
+	Override Void Tick()
+	{
+		//If(!Tracer)
+		//FindTracer();
+		Super.Tick();
+		PlayerInfo Playa=Players[consoleplayer];
+		If(Playa && Tracer)
+		{
+			//a_Log("uwu");
+			Vector3 Offs=Tracer.Pos+(playa.mo.pos.xy,playa.viewz);
+			SetOrigin(SpawnPoint+Offs/Args[1],true);
+			/*X= GetActorX(2000)/45-1024.0;
+			Y= GetActorY(2000)/45+1792.0;
+			Z= GetActorZ(2000)/45;
+			SetActorPosition(1000,X,Y,Z,0);*/
+		}
+	}
+}

@@ -10,7 +10,8 @@ DoomEdNums
 	904 = "JGP_Heatwave"
 	905 = "JGP_FuelAmmoSmall"
 	906 = "JGP_FuelAmmoLarge"
-	
+	907 = "JGP_FuelAmmoLarge"
+	908 = "KiradorParallaxSkyBox"
 }
 SpawnNums
 {

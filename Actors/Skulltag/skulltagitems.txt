@@ -40,10 +40,10 @@ ACTOR RedArmor : BasicArmorPickup 5040
 	Radius 20
 	Height 16
 	Armor.Savepercent 66.66666
-	Armor.Saveamount 200
+	Armor.Saveamount 250
 	Inventory.Icon "ARM3A0"
 	Inventory.Pickupmessage "$PICKUP_REDARMOR"
-	DamageFactor "Normal", 0.8
+	//DamageFactor "Normal", 0.8
 /*	DamageFactor "Fire", 0.125
 	DamageFactor "Rocket", 0.125
 	DamageFactor "Grenade", 0.125*/

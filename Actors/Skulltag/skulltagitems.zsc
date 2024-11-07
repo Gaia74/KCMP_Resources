@@ -7,9 +7,10 @@ Const	RPF_TIMEFREEZESPHERE	=	16;
 Const	RPF_INVISIBILITY		=	32;
 Const	RPF_DOOMSPHERE			=	64;
 Const	RPF_TURBOSPHERE			=	128;
+Const	RPF_INVULSPHERE			=	256;
 Const	RPF_ALL					=	( RPF_MEGASPHERE|RPF_SOULSPHERE|RPF_GUARDSPHERE|
 									  RPF_PARTIALINVISIBILITY|RPF_TIMEFREEZESPHERE|RPF_INVISIBILITY |
-									  RPF_DOOMSPHERE|RPF_TURBOSPHERE );
+									  RPF_DOOMSPHERE|RPF_TURBOSPHERE|RPF_INVULSPHERE );
 
 class RandomPowerup : CustomInventory
 {
@@ -19,7 +20,7 @@ class RandomPowerup : CustomInventory
 		//$Arg0 "Powerup list"
 		//$Arg0ToolTip "Decide which powerups will this item have"
 		//$Arg0Type 12
-		//$Arg0Enum { 1 = "Mega Sphere"; 2 = "Soul Sphere"; 4 = "Guard Sphere"; 8 = "Partial invisibility"; 16 = "Time Freeze Sphere"; 32 = "Invisibility (not actually usable)"; 64 = "Doom Sphere"; 128 = "Turbo Sphere"; }
+		//$Arg0Enum { 1 = "Mega Sphere"; 2 = "Soul Sphere"; 4 = "Guard Sphere"; 8 = "Partial invisibility"; 16 = "Time Freeze Sphere"; 32 = "Invisibility (not actually usable)"; 64 = "Doom Sphere"; 128 = "Turbo Sphere"; 256 = "Invulnerability Sphere"; }
 
 		//SpawnID 176;
 		+COUNTITEM
@@ -81,6 +82,7 @@ class RandomPowerup : CustomInventory
 		SINV A 6 Bright A_RandomPowerupFrame;
 		DOOM A 6 Bright A_RandomPowerupFrame;
 		TURB A 6 Bright A_RandomPowerupFrame;
+		PINV Z 6 Bright A_RandomPowerupFrame;
 		UNKN A 0;
 		Loop;
 	Pickup:
@@ -121,6 +123,10 @@ class RandomPowerup : CustomInventory
 				// Turbosphere.
 				case 7:
 				pType = "Turbosphere";
+				break;
+				// Invul.
+				case 8:
+				pType = "InvulnerabilitySphere";
 				break;
 			}
 			let pItem=(Inventory(Spawn(pType,Pos,ALLOW_REPLACE)));
