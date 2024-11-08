@@ -1,0 +1,71 @@
+//===========================================================================
+//
+//  Hades Sphere
+//
+//===========================================================================
+
+FlickerLight DON_HADESSPHERE_FX
+{
+    Color 1.0 0.0 0.0
+    Size 50
+    SecondarySize 43
+    Chance 0.75
+	attenuate 1
+}
+
+PointLight DON_HADESSPHERE_FX1
+{
+    Color 1.0 0.0 0.0
+    Size 70
+	attenuate 1
+}
+
+PointLight DON_HADESSPHERE_FX2
+{
+    Color 1.0 0.0 0.0
+    Size 60
+	attenuate 1
+}
+
+PointLight DON_HADESSPHERE_FX3
+{
+    Color 1.0 0.0 0.0
+    Size 50
+	attenuate 1
+}
+
+PointLight DON_HADESSPHERE_FX4
+{
+    Color 1.0 0.0 0.0
+    Size 35
+	attenuate 1
+}
+
+PointLight DON_HADESSPHERE_FX5
+{
+    Color 1.0 0.0 0.0
+    Size 20
+	attenuate 1
+}
+
+Object Don_HadesSphere
+{
+    Frame D018 { Light DON_HADESSPHERE_FX }
+	
+    Frame D018M { Light DON_HADESSPHERE_FX1 }
+    Frame D018N { Light DON_HADESSPHERE_FX2 }
+    Frame D018O { Light DON_HADESSPHERE_FX3 }
+    Frame D018P { Light DON_HADESSPHERE_FX4 }
+    Frame D018Q { Light DON_HADESSPHERE_FX5 }
+}
+
+Object Don_HadesSphere2
+{
+    Frame D018 { Light DON_HADESSPHERE_FX }
+	
+    Frame D018M { Light DON_HADESSPHERE_FX1 }
+    Frame D018N { Light DON_HADESSPHERE_FX2 }
+    Frame D018O { Light DON_HADESSPHERE_FX3 }
+    Frame D018P { Light DON_HADESSPHERE_FX4 }
+    Frame D018Q { Light DON_HADESSPHERE_FX5 }
+}

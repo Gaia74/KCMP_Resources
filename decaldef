@@ -1,0 +1,212 @@
+//===========================================================================
+//
+//  Skulltag
+//
+//===========================================================================
+generator Minigun               BulletChip
+generator BFG10K                BFGLightning
+generator Railgun               RailScorch
+
+generator SuperShotgunGuy       BulletChip
+generator BelphegorBall         BaronScorch
+generator CacolanternBall       CacoScorch
+generator DarkImpBall           DoomImpScorch
+generator HectShot              Scorch
+
+//===========================================================================
+//
+//  Don Decal Def
+//
+//===========================================================================
+
+DECAL Don_HellRazer_ScorchPulse1
+{
+	Pic BFGSCRC1
+	Shade "00 00 00"
+	X-Scale "0.67"
+	Y-Scale "0.67"
+	RandomFlipX
+	RandomFlipY
+}
+
+DECAL Don_HellRazer_ScorchPulse2
+{
+	Pic BFGSCRC2
+	Shade "00 00 00"
+	X-Scale "0.67"
+	Y-Scale "0.67"
+	RandomFlipX
+	RandomFlipY
+}
+
+DECALGROUP Don_HellRazer_ScorchPulse
+{
+	Don_HellRazer_ScorchPulse1	1
+	Don_HellRazer_ScorchPulse2	1
+}
+
+DECAL Don_HellRazer_DecalPulse1
+{
+	Pic BFGLITE1
+	Shade "FF 00 00"
+	X-Scale "0.67"
+	Y-Scale "0.67"
+	FullBright
+	RandomFlipX
+	Animator GoAway2
+	LowerDecal Don_HellRazer_ScorchPulse
+}
+
+DECAL Don_HellRazer_DecalPulse2
+{
+	Pic BFGLITE2
+	Shade "FF 00 00"
+	X-Scale "0.67"
+	Y-Scale "0.67"
+	FullBright
+	RandomFlipY
+	Animator GoAway2
+	LowerDecal Don_HellRazer_ScorchPulse
+}
+
+DECALGROUP Don_HellRazer_DecalPulse
+{
+	Don_HellRazer_DecalPulse1 1
+	Don_HellRazer_DecalPulse2 1
+}
+
+//  Hades Elemental Ball
+
+DECAL Don_HadesElemental_ScorchBall1
+{
+	Pic D046G0
+	Add 1.0
+	FullBright
+	Animator GoAway2
+	RandomFlipX
+	RandomFlipY
+}
+
+DECAL Don_HadesElemental_ScorchBall2
+{
+	Pic D046H0
+	Add 1.0
+	FullBright
+	Animator GoAway2
+	RandomFlipX
+	RandomFlipY
+}
+
+DECALGROUP Don_HadesElemental_ScorchBall
+{
+	Don_HadesElemental_ScorchBall1 1
+	Don_HadesElemental_ScorchBall2 1
+}
+
+//  Kronos Ball
+
+DECAL Don_Kronos_ScorchShot1
+{
+	Pic BFGSCRC1
+	Shade "00 00 00"
+	X-Scale "0.67"
+	Y-Scale "0.67"
+	RandomFlipX
+	RandomFlipY
+}
+
+DECAL Don_Kronos_ScorchShot2
+{
+	Pic BFGSCRC2
+	Shade "00 00 00"
+	X-Scale "0.67"
+	Y-Scale "0.67"
+	RandomFlipX
+	RandomFlipY
+}
+
+DECALGROUP Don_Kronos_ScorchShot
+{
+	Don_Kronos_ScorchShot1	1
+	Don_Kronos_ScorchShot2	1
+}
+
+DECAL Don_Kronos_DecalShot1
+{
+	Pic BFGLITE1
+	Shade "00 FF 00"
+	X-Scale "0.67"
+	Y-Scale "0.67"
+	FullBright
+	RandomFlipX
+	Animator GoAway2
+	LowerDecal Don_Kronos_ScorchShot
+}
+
+DECAL Don_Kronos_DecalShot2
+{
+	Pic BFGLITE2
+	Shade "00 FF 00"
+	X-Scale "0.67"
+	Y-Scale "0.67"
+	FullBright
+	RandomFlipY
+	Animator GoAway2
+	LowerDecal Don_Kronos_ScorchShot
+}
+
+DECALGROUP Don_Kronos_DecalShot
+{
+	Don_Kronos_DecalShot1 1
+	Don_Kronos_DecalShot2 1
+}
+
+//  BFG Cerebral Red Ball
+
+DECAL Don_CerebralBFGScorch1
+{
+	Pic BFGSCRC1
+	Shade "00 00 00"
+	RandomFlipX
+	RandomFlipY
+}
+
+DECAL Don_CerebralBFGScorch2
+{
+	Pic BFGSCRC2
+	Shade "00 00 00"
+	RandomFlipX
+	RandomFlipY
+}
+
+DECALGROUP Don_CerebralBFGScorch
+{
+	BFGScorch1	1
+	BFGScorch2	1
+}
+
+DECAL Don_CerebralBFGLight1
+{
+	Pic BFGLITE1
+	Shade "FF 25 00"
+	FullBright
+	RandomFlipX
+	Animator GoAway2
+	LowerDecal Don_CerebralBFGScorch
+}
+
+DECAL Don_CerebralBFGLight2
+{
+	Pic BFGLITE2
+	Shade "FF 25 00"
+	FullBright
+	RandomFlipY
+	Animator GoAway2
+	LowerDecal Don_CerebralBFGScorch
+}
+
+DECALGROUP Don_CerebralBFGLight
+{
+	Don_CerebralBFGLight1	1
+	Don_CerebralBFGLight2	1
+}

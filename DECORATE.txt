@@ -6,3 +6,49 @@
 #Include "Actors/skulltag/skulltagmonsters.txt"
 #Include "Actors/skulltag/skulltagweapons.txt"
 #Include "Actors/skulltag/skulltagitems.txt"
+
+#Include "Actors/Don/Gibs.don"
+
+#Include "Actors/Don/Zombies/SMG_Zombie.don"
+#Include "Actors/Don/Zombies/Assault_Zombie.don"
+#Include "Actors/Don/Zombies/Shotgun_Zombie.don"
+#Include "Actors/Don/Zombies/Chaingun_Zombie.don"
+#Include "Actors/Don/Zombies/Plasma_Zombie.don"
+
+#Include "Actors/Don/Dark Soldiers/Dark_Soldier1.don"
+#Include "Actors/Don/Dark Soldiers/Dark_Soldier2.don"
+#Include "Actors/Don/Dark Soldiers/Dark_Soldier3.don"
+#Include "Actors/Don/Dark Soldiers/Dark_Soldier4.don"
+
+#Include "Actors/Don/Forgotten/Forgotten.don"
+
+#Include "Actors/Don/Demon Lord/Demon_Lord.don"
+#Include "Actors/Don/Demon Lord/Cyber_Demon_Lord.don"
+
+#Include "Actors/Don/Hell Razer/Hell_Razer.don"
+
+#Include "Actors/Don/Tortured Soul/Tortured_Soul.don"
+
+#Include "Actors/Don/Hades Elemental/Hades_Elemental.don"
+#Include "Actors/Don/Hades Sphere/Hades_Sphere.don"
+
+#Include "Actors/Don/Death Bringer/Death_Bringer.don"
+
+#Include "Actors/Don/Warlord/Warlord.don"
+#Include "Actors/Don/Cyber Warlord/Cyber_Warlord.don"
+
+#Include "Actors/Don/Diabolist/Diabolist.don"
+
+#Include "Actors/Don/Arachnophobia/Arachnophobia(Land).don"
+#Include "Actors/Don/Arachnophobia/Arachnophobia(Fly).don"
+
+#Include "Actors/Don/Hellcubus/Hellcubus.don"
+
+#Include "Actors/Don/Kronos/Kronos.don"
+
+#Include "Actors/Don/Overlord/Overlord.don"
+
+#Include "Actors/Don/Krieger/Krieger.don"
+
+#Include "Actors/Don/Cerebral Sentient/Cerebral_Sentient(Land).don"
+#Include "Actors/Don/Cerebral Sentient/Cerebral_Sentient(Fly).don"

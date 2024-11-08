@@ -1,0 +1,104 @@
+//===========================================================================
+//
+//  Forgotten
+//
+//===========================================================================
+
+FlickerLight Don_Forgotten_FX
+{
+    Color 1.0 0.25 0.0
+    Size 56
+    Secondarysize 64
+    Chance 0.1
+    Offset 0 10 0
+	attenuate 1
+}
+
+FlickerLight Don_Forgotten_FX1
+{
+    Color 1.0 0.3 0.0
+    Size 46
+    SecondarySize 53
+    Chance 0.25
+    Offset 0 10 0
+	attenuate 1
+}
+
+FlickerLight Don_Forgotten_FX2
+{
+    Color 1.0 0.4 0.0
+    Size 54
+    SecondarySize 55
+    Chance 0.25
+    Offset 0 10 0
+	attenuate 1
+}
+
+FlickerLight Don_Forgotten_FX3
+{
+    Color 1.0 0.5 0.0
+    Size 58
+    SecondarySize 56
+    Chance 0.25
+    Offset 0 10 0
+	attenuate 1
+}
+
+FlickerLight Don_Forgotten_FX4
+{
+    Color 1.0 0.6 0.0
+    Size 62
+    SecondarySize 60
+    Chance 0.25
+    Offset 0 10 0
+	attenuate 1
+}
+
+FlickerLight Don_Forgotten_FX5
+{
+    Color 1.0 0.7 0.0
+    Size 74
+    SecondarySize 72
+    Chance 0.3
+    Offset 0 10 0
+	attenuate 1
+}
+
+FlickerLight Don_Forgotten_FX6
+{
+    Color 0.5 0.4 0.0
+    Size 80
+    SecondarySize 88
+    Chance 0.3
+    Offset 0 10 0
+	attenuate 1
+}
+
+FlickerLight Don_Forgotten_FX7
+{
+    Color 0.3 0.2 0.0
+    Size 96
+    SecondarySize 104
+    Chance 0.3
+    Offset 0 10 0
+	attenuate 1
+}
+
+Object Don_Forgotten
+{
+    Frame D012A { Light Don_Forgotten_FX }
+    Frame D012B { Light Don_Forgotten_FX }
+    Frame D012C { Light Don_Forgotten_FX }
+    Frame D012D { Light Don_Forgotten_FX }
+    Frame D012E { Light Don_Forgotten_FX }
+    Frame D012F { Light Don_Forgotten_FX }
+    Frame D012G { Light Don_Forgotten_FX }
+
+    Frame D012H { Light Don_Forgotten_FX1 }
+    Frame D012I { Light Don_Forgotten_FX2 }
+    Frame D012J { Light Don_Forgotten_FX3 }
+    Frame D012K { Light Don_Forgotten_FX4 }
+    Frame D012L { Light Don_Forgotten_FX5 }
+    Frame D012M { Light Don_Forgotten_FX6 }
+    Frame D012N { Light Don_Forgotten_FX7 }
+}

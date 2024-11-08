@@ -1,0 +1,414 @@
+//===========================================================================
+//
+//  Diabolist
+//
+//===========================================================================
+
+FlickerLight DON_DIABOLIST_FX1
+{
+    Color 1.0 0.2 0.0
+    Size 32
+    SecondarySize 48
+    Chance 0.3
+    Offset 0 80 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLIST_FX2
+{
+    Color 1.0 0.3 0.0
+    Size 56
+    SecondarySize 64
+    Chance 0.3
+    Offset 0 80 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLIST_FX3
+{
+    Color 1.0 0.3 0.0
+    Size 56
+    SecondarySize 64
+    Chance 0.3
+    Offset 0 64 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLIST_FX4
+{
+    Color 1.0 0.3 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+    Offset 0 48 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLIST_FX5
+{
+    Color 1.0 0.3 0.0
+    Size 80
+    SecondarySize 88
+    Chance 0.3
+    Offset 0 40 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLIST_FX6
+{
+    Color 0.7 0.1 0.0
+    Size 96
+    SecondarySize 104
+    Chance 0.3
+    Offset 0 40 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLIST_FX7
+{
+    Color 0.3 0.0 0.0
+    Size 104
+    SecondarySize 112
+    Chance 0.3
+    Offset 0 40 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLIST_FX 
+{
+    Color 0.8 0.3 0.0
+    Size 64
+    SecondarySize 70
+    Chance 0.5
+    Offset 0 40 0
+	attenuate 1
+}
+
+Object Don_Diabolist
+{
+    Frame D024H { Light DON_DIABOLIST_FX1 }
+    Frame D024I { Light DON_DIABOLIST_FX2 }
+    Frame D024J { Light DON_DIABOLIST_FX3 }
+    Frame D024K { Light DON_DIABOLIST_FX4 }
+    Frame D024L { Light DON_DIABOLIST_FX4 }
+    Frame D024M { Light DON_DIABOLIST_FX4 }
+    Frame D024N { Light DON_DIABOLIST_FX5 }
+    Frame D024O { Light DON_DIABOLIST_FX6 }
+    Frame D024P { Light DON_DIABOLIST_FX7 }
+
+    Frame D024[ { Light DON_DIABOLIST_FX }
+    Frame D024\ { Light DON_DIABOLIST_FX }
+    Frame D024] { Light DON_DIABOLIST_FX }
+}
+
+PointLight DON_DIABOLISTTRACER_FX1
+{
+    Color 0.7 0.2 0.0
+    Size 8
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX2
+{
+    Color 0.8 0.5 0.0
+    Size 16
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX3
+{
+    Color 0.8 0.6 0.0
+    Size 32
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX4
+{
+    Color 0.8 0.5 0.0
+    Size 28
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX5
+{
+    Color 0.7 0.2 0.0
+    Size 24
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX6
+{
+    Color 0.7 0.2 0.0
+    Size 20
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX7
+{
+    Color 0.6 0.2 0.0
+    Size 16
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX8
+{
+    Color 0.5 0.1 0.0
+    Size 12
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX9
+{
+    Color 0.4 0.0 0.0
+    Size 8
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX10
+{
+    Color 0.3 0.0 0.0
+    Size 4
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX11
+{
+    Color 0.8 0.6 0.0
+    Size 48
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX12
+{
+    Color 1.0 0.8 0.0
+    Size 64
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX13
+{
+    Color 0.8 0.3 0.0
+    Size 56
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX14
+{
+    Color 0.6 0.0 0.0
+    Size 48
+	attenuate 1
+}
+
+PointLight DON_DIABOLISTTRACER_FX15
+{
+    Color 0.3 0.0 0.0
+    Size 24
+	attenuate 1
+}
+
+Object Don_DiabolistTracer
+{
+    Frame D054K { Light DON_DIABOLISTTRACER_FX11 }
+    Frame D054L { Light DON_DIABOLISTTRACER_FX12 }
+    Frame D054M { Light DON_DIABOLISTTRACER_FX13 }
+    Frame D054N { Light DON_DIABOLISTTRACER_FX14 }
+    Frame D054O { Light DON_DIABOLISTTRACER_FX15 }
+}
+
+Object Don_DiabolistTracerTrail
+{
+    Frame D054A { Light DON_DIABOLISTTRACER_FX1 }
+    Frame D054B { Light DON_DIABOLISTTRACER_FX2 }
+    Frame D054C { Light DON_DIABOLISTTRACER_FX3 }
+    Frame D054D { Light DON_DIABOLISTTRACER_FX4 }
+    Frame D054E { Light DON_DIABOLISTTRACER_FX5 }
+    Frame D054F { Light DON_DIABOLISTTRACER_FX6 }
+    Frame D054G { Light DON_DIABOLISTTRACER_FX7 }
+    Frame D054H { Light DON_DIABOLISTTRACER_FX8 }
+    Frame D054I { Light DON_DIABOLISTTRACER_FX9 }
+    Frame D054J { Light DON_DIABOLISTTRACER_FX10 }
+}
+
+FlickerLight DON_DIABOLISTSPREAD_FX1
+{
+    Color 1.0 1.0 0.0
+    Size 24
+    SecondarySize 32
+    Chance 0.3
+    Offset 0 8 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTSPREAD_FX2
+{
+    Color 1.0 1.0 0.0
+    Size 40
+    SecondarySize 48
+    Chance 0.3
+    Offset 0 24 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTSPREAD_FX3
+{
+    Color 1.0 1.0 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+    Offset 0 32 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTSPREAD_FX4
+{
+    Color 0.8 0.8 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+    Offset 0 40 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTSPREAD_FX5
+{
+    Color 0.8 0.8 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+    Offset 0 48 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTSPREAD_FX6
+{
+    Color 0.6 0.6 0.0
+    Size 48
+    SecondarySize 56
+    Chance 0.3
+    Offset 0 64 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTSPREAD_FX7
+{
+    Color 0.4 0.4 0.0
+    Size 32
+    SecondarySize 40
+    Chance 0.3
+    Offset 0 72 0
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTSPREAD_FX8
+{
+    Color 0.2 0.2 0.0
+    Size 16
+    SecondarySize 24
+    Chance 0.3
+    Offset 0 80 0
+	attenuate 1
+}
+
+Object Don_DiabolistSpread
+{
+    Frame D053A { Light DON_DIABOLISTSPREAD_FX1 }
+    Frame D053B { Light DON_DIABOLISTSPREAD_FX2 }
+    Frame D053C { Light DON_DIABOLISTSPREAD_FX3 }
+    Frame D053D { Light DON_DIABOLISTSPREAD_FX4 }
+    Frame D053E { Light DON_DIABOLISTSPREAD_FX5 }
+    Frame D053F { Light DON_DIABOLISTSPREAD_FX6 }
+    Frame D053G { Light DON_DIABOLISTSPREAD_FX7 }
+    Frame D053H { Light DON_DIABOLISTSPREAD_FX8 }
+}
+
+Object Don_DiabolistFire
+{
+    Frame D053A { Light DON_DIABOLISTSPREAD_FX1 }
+    Frame D053B { Light DON_DIABOLISTSPREAD_FX2 }
+    Frame D053C { Light DON_DIABOLISTSPREAD_FX3 }
+    Frame D053D { Light DON_DIABOLISTSPREAD_FX4 }
+    Frame D053E { Light DON_DIABOLISTSPREAD_FX5 }
+    Frame D053F { Light DON_DIABOLISTSPREAD_FX6 }
+    Frame D053G { Light DON_DIABOLISTSPREAD_FX7 }
+    Frame D053H { Light DON_DIABOLISTSPREAD_FX8 }
+}
+
+Object Don_DiabolistDeathFire
+{
+    Frame D055A { Light DON_DIABOLISTSPREAD_FX1 }
+    Frame D055B { Light DON_DIABOLISTSPREAD_FX2 }
+    Frame D055C { Light DON_DIABOLISTSPREAD_FX3 }
+    Frame D055D { Light DON_DIABOLISTSPREAD_FX3 }
+    Frame D055E { Light DON_DIABOLISTSPREAD_FX4 }
+    Frame D055F { Light DON_DIABOLISTSPREAD_FX4 }
+    Frame D055G { Light DON_DIABOLISTSPREAD_FX5 }
+    Frame D055H { Light DON_DIABOLISTSPREAD_FX5 }
+	Frame D055I { Light DON_DIABOLISTSPREAD_FX6 }
+	Frame D055J { Light DON_DIABOLISTSPREAD_FX6 }
+	Frame D055K { Light DON_DIABOLISTSPREAD_FX7 }
+	Frame D055L { Light DON_DIABOLISTSPREAD_FX7 }
+	Frame D055M { Light DON_DIABOLISTSPREAD_FX8 }
+}
+
+PointLight DON_DIABOLISTCIRCLE_FX
+{
+    Color 1.0 0.3 0.0
+    Size 24
+	attenuate 1
+}
+
+Object Don_DiabolistCircleFlame
+{
+    Frame D056 { Light DON_DIABOLISTCIRCLE_FX }
+}
+
+FlickerLight DON_DIABOLISTFLAMETRAIL_FX1
+{
+    Color 1.0 0.2 0.0
+    Size 40
+    SecondarySize 44
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTFLAMETRAIL_FX2
+{
+    Color 1.0 0.2 0.0
+    Size 25
+    SecondarySize 19
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight DON_DIABOLISTFLAMETRAIL_FX3
+{
+    Color 1.0 0.2 0.0
+    Size 10
+    SecondarySize 8
+    Chance 0.5
+	attenuate 1
+}
+
+Object Don_DiabolistFlameTrail
+{
+    Frame D055N { Light DON_DIABOLISTFLAMETRAIL_FX1 }
+	Frame D055O { Light DON_DIABOLISTFLAMETRAIL_FX2 }
+	Frame D055P { Light DON_DIABOLISTFLAMETRAIL_FX3 }
+}
+
+Object Don_DiabolistFlame
+{
+    Frame D055A { Light DON_DIABOLISTSPREAD_FX1 }
+    Frame D055B { Light DON_DIABOLISTSPREAD_FX2 }
+    Frame D055C { Light DON_DIABOLISTSPREAD_FX3 }
+    Frame D055D { Light DON_DIABOLISTSPREAD_FX3 }
+    Frame D055E { Light DON_DIABOLISTSPREAD_FX4 }
+    Frame D055F { Light DON_DIABOLISTSPREAD_FX4 }
+    Frame D055G { Light DON_DIABOLISTSPREAD_FX5 }
+    Frame D055H { Light DON_DIABOLISTSPREAD_FX5 }
+	Frame D055I { Light DON_DIABOLISTSPREAD_FX6 }
+	Frame D055J { Light DON_DIABOLISTSPREAD_FX6 }
+	Frame D055K { Light DON_DIABOLISTSPREAD_FX7 }
+	Frame D055L { Light DON_DIABOLISTSPREAD_FX7 }
+	Frame D055M { Light DON_DIABOLISTSPREAD_FX8 }
+}

@@ -1,0 +1,129 @@
+//===========================================================================
+//
+//  Zombies
+//
+//===========================================================================
+
+FlickerLight Don_Zombie_FX1
+{
+    Color 1.0 0.6 0.3
+    Size 45
+    SecondarySize 55
+    Chance 0.1
+    Offset 0 32 0
+}
+
+FlickerLight Don_Zombie_FX2
+{
+    Color 1.0 0.6 0.3
+    Size 60
+    SecondarySize 70
+    Chance 0.1
+    Offset 0 32 0
+}
+
+FlickerLight Don_Zombie_FX3
+{
+    Color 0.2 0.2 0.6
+    Size 45
+    SecondarySize 55
+    Chance 0.1
+    Offset 0 32 0
+}
+
+Object Don_AssaultZombie1
+{
+	Frame D000F { Light Don_Zombie_FX1 }
+}
+
+Object Don_AssaultZombie2
+{
+	Frame D001F { Light Don_Zombie_FX1 }
+}
+
+Object Don_AssaultZombie3
+{
+	Frame D002F { Light Don_Zombie_FX1 }
+}
+
+Object Don_ChaingunZombie
+{
+	Frame D003F { Light Don_Zombie_FX2 }
+}
+
+Object Don_PlasmaZombie1
+{
+	Frame D004F { Light Don_Zombie_FX3 }
+}
+
+Object Don_PlasmaZombie2
+{
+	Frame D005F { Light Don_Zombie_FX3 }
+}
+
+Object Don_ShotgunZombie
+{
+	Frame D006F { Light Don_Zombie_FX2 }
+}
+
+Object Don_SMGZombie
+{
+	Frame D007F { Light Don_Zombie_FX1 }
+}
+
+PointLight Don_PlasmaZombie_FX1
+{
+    Color 0.2 0.2 0.6
+    Size 58
+}
+
+FlickerLight Don_PlasmaZombie_FX2
+{
+    Color 0.2 0.2 0.6
+    Size 64
+    SecondarySize 72
+    Chance 0.4
+}
+
+FlickerLight Don_PlasmaZombie_FX3
+{
+    Color 00.2 0.2 0.6
+    Size 70
+    SecondarySize 78
+    Chance 0.4
+}
+
+FlickerLight Don_PlasmaZombie_FX4
+{
+    Color 0.2 0.2 0.6
+    Size 54
+    SecondarySize 52
+    Chance 0.4
+}
+
+FlickerLight Don_PlasmaZombie_FX5
+{
+    Color 0.2 0.2 0.6
+    Size 38
+    SecondarySize 36
+    Chance 0.4
+}
+
+FlickerLight Don_PlasmaZombie_FX6
+{
+    Color 0.2 0.2 0.6
+    Size 26
+    SecondarySize 22
+    Chance 0.4
+}
+
+Object Don_PlasmaZombieBall
+{
+    Frame D034A { Light Don_PlasmaZombie_FX1 }
+	Frame D034B { Light Don_PlasmaZombie_FX1 }
+	Frame D034C { Light Don_PlasmaZombie_FX2 }
+	Frame D034D { Light Don_PlasmaZombie_FX3 }
+	Frame D034E { Light Don_PlasmaZombie_FX4 }
+	Frame D034F { Light Don_PlasmaZombie_FX5 }
+	Frame D034G { Light Don_PlasmaZombie_FX6 }
+}

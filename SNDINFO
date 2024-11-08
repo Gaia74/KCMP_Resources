@@ -1,0 +1,844 @@
+
+//===========================================================================
+//
+//  Skulltag
+//
+//===========================================================================
+
+//minigun
+weapons/minigun			dsminign
+
+// [BC] Some new sounds for Skulltag.
+//grenade launcher/missile
+weapons/grbnce			dsbounce
+weapons/grenlx			dsgrnexp
+weapons/grenlf			dsglaunc
+
+//bfg10k
+weapons/bfg10kf			dsbfg10k
+weapons/bfg10kx                 dsbarexp
+weapons/bfg10kcool		ds10kcdn
+weapons/bfg10kidle		ds10kidl
+
+// [BC] Don't limit the number of BFG10K explosions we can hear.
+$limit weapons/bfg10kx 0
+// [Dusk] Neither do limit the grenade launcher explosions
+$limit weapons/grenlx 0
+
+// [BC] Super Shotgun Guy
+ssgguy/attack                   dssggatk
+
+/***************************************************************************/
+/*									   */
+/* ADDITIONAL SOUNDS FROM TCTF.WAD FOR SKULLTAG				   */
+/*									   */
+/***************************************************************************/
+
+WindSound            wind
+Thunder	             thndr1
+WaterFallSound       waters1
+door1_start	         d1_start
+door1_mid            d1_mid
+door1_end            d1_end
+
+$ambient 1 WindSound POINT CONTINUOUS 1.0
+$ambient 2 WaterFallSound POINT CONTINUOUS 1.0
+
+//===========================================================================
+//
+//  Legacy of Rust
+//
+//===========================================================================
+
+$random DoomRR/incinerator/fire { DoomRR/incinerator/fire1 DoomRR/incinerator/fire2 }
+DoomRR/incinerator/fire1 DSINCFI1
+DoomRR/incinerator/fire2 DSINCFI2
+
+DoomRR/IncineratorFlame/burn DSINCBRN
+$random DoomRR/IncineratorFlame/death { DoomRR/IncineratorFlame/death1 DoomRR/IncineratorFlame/death2 }
+DoomRR/IncineratorFlame/death1 DSINCHT1
+DoomRR/IncineratorFlame/death2 DSINCHT2
+DoomRR/IncineratorFlame/fizzle DSINCHT3
+
+DoomRR/heatwave/charge DSHETCHG
+DoomRR/heatwave/fire DSHETSHT
+DoomRR/heatwave/explode DSHETXPL
+
+//===========================================================================
+//
+//  Don Sound Info
+//
+//===========================================================================
+
+//  Zombies
+
+$Random Don_ZombieOther/Sight { Don_ZombieOther/Sight1
+                                Don_ZombieOther/Sight2
+								Don_ZombieOther/Sight3 }
+
+Don_ZombieOther/Sight1                       D000SIG1
+Don_ZombieOther/Sight2                       D000SIG2
+Don_ZombieOther/Sight3                       D000SIG3
+
+Don_ZombieOther/Active                       D000ACT
+Don_ZombieOther/Pain                         D000PAI
+
+$Random Don_ZombieOther/Death { Don_ZombieOther/Death1
+                                Don_ZombieOther/Death2
+								Don_ZombieOther/Death3 }
+
+Don_ZombieOther/Death1                       D000DTH1
+Don_ZombieOther/Death2                       D000DTH2
+Don_ZombieOther/Death3                       D000DTH3
+
+$Limit Don_ZombieOther/Sight 0
+$Limit Don_ZombieOther/Active 0
+$Limit Don_ZombieOther/Pain 0
+$Limit Don_ZombieOther/Death 0
+
+$Random Don_ZombieMale/Sight { Don_ZombieMale/Sight1
+                               Don_ZombieMale/Sight2
+							   Don_ZombieMale/Sight3 }
+
+Don_ZombieMale/Sight1                        D001SIG1
+Don_ZombieMale/Sight2                        D001SIG2
+Don_ZombieMale/Sight3                        D001SIG3
+
+Don_ZombieMale/Active                        D001ACT
+Don_ZombieMale/Pain                          D001PAI
+
+$Random Don_ZombieMale/Death { Don_ZombieMale/Death1
+                               Don_ZombieMale/Death2
+							   Don_ZombieMale/Death3 }
+
+Don_ZombieMale/Death1                        D001DTH1
+Don_ZombieMale/Death2                        D001DTH2
+Don_ZombieMale/Death3                        D001DTH3
+
+$Limit Don_ZombieMale/Sight 0
+$Limit Don_ZombieMale/Active 0
+$Limit Don_ZombieMale/Pain 0
+$Limit Don_ZombieMale/Death 0
+
+$Random Don_ZombieFemale/Sight { Don_ZombieFemale/Sight1
+                                 Don_ZombieFemale/Sight2 }
+
+Don_ZombieFemale/Sight1                      D002SIG1
+Don_ZombieFemale/Sight2                      D002SIG2
+
+Don_ZombieFemale/Active                      D002ACT
+Don_ZombieFemale/Pain                        D002PAI
+Don_ZombieFemale/Death                       D002DTH
+
+$Limit Don_ZombieFemale/Sight 0
+$Limit Don_ZombieFemale/Active 0
+$Limit Don_ZombieFemale/Pain 0
+$Limit Don_ZombieFemale/Death 0
+
+$Random Don_Zombie/Plasma { Don_Zombie/Plasma1
+                            Don_Zombie/Plasma2 }
+
+Don_Zombie/Plasma1                           D000FIR1
+Don_Zombie/Plasma2                           D000FIR2
+
+$Random Don_Zombie/PlasmaHit { Don_Zombie/PlasmaHit1
+                               Don_Zombie/PlasmaHit2
+							   Don_Zombie/PlasmaHit3 }
+
+Don_Zombie/PlasmaHit1                        D000HIT1
+Don_Zombie/PlasmaHit2                        D000HIT2
+Don_Zombie/PlasmaHit3                        D000HIT3
+
+Don_Zombie/SMG                               D000FIR3
+Don_Zombie/Rifle                             D000FIR4
+Don_Zombie/Shotgun                           D000FIR5
+Don_Zombie/ShotgunReload                     D000RELO
+Don_Zombie/Chaingun                          D000FIR6
+
+Don_Zombie/ChaingunReady                     D000READ
+Don_Zombie/ChaingunLoop                      D000LOOP
+Don_Zombie/ChaingunStop1                     D000STO1
+Don_Zombie/ChaingunStop2                     D000STO2
+
+$Limit Don_Zombie/Plasma 0
+$Limit Don_Zombie/PlasmaHit 0
+$Limit Don_Zombie/SMG 0
+$Limit Don_Zombie/Rifle 0
+$Limit Don_Zombie/Shotgun 0
+$Limit Don_Zombie/ShotgunReload 0
+$Limit Don_Zombie/Chaingun 0
+$Limit Don_Zombie/ChaingunReady 0
+$Limit Don_Zombie/ChaingunLoop 0
+$Limit Don_Zombie/ChaingunStop1 0
+$Limit Don_Zombie/ChaingunStop2 0
+
+//  Dark Soldier
+
+$Random Don_DarkSoldier/Sight { Don_DarkSoldier/Sight1
+                                Don_DarkSoldier/Sight2 }
+
+Don_DarkSoldier/Sight1                       D008SIG1
+Don_DarkSoldier/Sight2                       D008SIG2
+
+Don_DarkSoldier/Active                       D008ACT
+
+$Random Don_DarkSoldier/Pain { Don_DarkSoldier/Pain1
+                               Don_DarkSoldier/Pain2
+							   Don_DarkSoldier/Pain3 }
+
+Don_DarkSoldier/Pain1                        D008PAI1
+Don_DarkSoldier/Pain2                        D008PAI2
+Don_DarkSoldier/Pain3                        D008PAI3
+
+$Random Don_DarkSoldier/Death { Don_DarkSoldier/Death1
+                                Don_DarkSoldier/Death2 }
+
+Don_DarkSoldier/Death1                       D008DTH1
+Don_DarkSoldier/Death2                       D008DTH2
+
+Don_DarkSoldier/Melee                        D008CLAW
+Don_DarkSoldier/Ball1                        D008FIR1
+Don_DarkSoldier/Ball2                        D008FIR2
+Don_DarkSoldier/BallHit1                     D008EXP1
+Don_DarkSoldier/BallHit2                     D008EXP2
+Don_DarkSoldier/BallHit3                     D008EXP3
+
+$Limit Don_DarkSoldier/Sight 0
+$Limit Don_DarkSoldier/Active 0
+$Limit Don_DarkSoldier/Pain 0
+$Limit Don_DarkSoldier/Death 0
+$Limit Don_DarkSoldier/Melee 0
+$Limit Don_DarkSoldier/Ball1 0
+$Limit Don_DarkSoldier/Ball2 0
+$Limit Don_DarkSoldier/BallHit1 0
+$Limit Don_DarkSoldier/BallHit2 0
+$Limit Don_DarkSoldier/BallHit3 0
+
+//  Forgotten
+
+Don_Forgotten/Sight                          D012SIG
+
+$Random Don_Forgotten/Active { Don_Forgotten/Active1
+                               Don_Forgotten/Active2 
+                               Don_Forgotten/Active3 }
+
+Don_Forgotten/Active1                        D012ACT1
+Don_Forgotten/Active2                        D012ACT2
+Don_Forgotten/Active3                        D012ACT3
+
+$Random Don_Forgotten/Attack { Don_Forgotten/Attack1
+                               Don_Forgotten/Attack2 }
+
+Don_Forgotten/Attack1                        D012ATK1
+Don_Forgotten/Attack2                        D012ATK2
+
+Don_Forgotten/Pain                           D012PAI
+
+$Random Don_Forgotten/Death { Don_Forgotten/Death2
+                              Don_Forgotten/Death2 }
+
+Don_Forgotten/Death1                         D012DTH1
+Don_Forgotten/Death2                         D012DTH2
+
+$Limit Don_Forgotten/Sight 0
+$Limit Don_Forgotten/Active 0
+$Limit Don_Forgotten/Attack 0
+$Limit Don_Forgotten/Pain 0
+$Limit Don_Forgotten/Death 0
+
+//  Demon Lord
+
+Don_DemonLord/Sight                          D013SIGH
+Don_DemonLord/Melee1                         D013ATK1
+Don_DemonLord/Melee2                         D013ATK2
+Don_DemonLord/Active                         D013ACT
+Don_DemonLord/Pain                           D013PAI
+Don_DemonLord/Death                          D013DTH
+	
+$Limit Don_DemonLord/Sight 0
+$Limit Don_DemonLord/Melee1 0
+$Limit Don_DemonLord/Melee2 0
+$Limit Don_DemonLord/Active 0
+$Limit Don_DemonLord/Pain 0
+$Limit Don_DemonLord/Death 0
+
+//  Hell Razer
+
+Don_HellRazer/Sight                          D015SIGH
+Don_HellRazer/Active                         D015ACTI
+
+$Random Don_HellRazer/Pain { Don_HellRazer/Pain1
+                             Don_HellRazer/Pain2 }
+
+Don_HellRazer/Pain1                          D015PAI1
+Don_HellRazer/Pain2                          D015PAI2
+
+$Random Don_HellRazer/Death { Don_HellRazer/Death1
+                              Don_HellRazer/Death2 }
+
+Don_HellRazer/Death1                         D015DTH1
+Don_HellRazer/Death2                         D015DTH2
+
+Don_HellRazer/Fire1                          D015FIR1
+Don_HellRazer/Hit1                           D015HIT1
+Don_HellRazer/Fire2                          D015FIR2
+Don_HellRazer/Hit2                           D015HIT2
+
+$Limit Don_HellRazer/Sight 0
+$Limit Don_HellRazer/Active 0
+$Limit Don_HellRazer/Pain 0
+$Limit Don_HellRazer/Death 0
+$Limit Don_HellRazer/Fire1 0
+$Limit Don_HellRazer/Hit1 0
+$Limit Don_HellRazer/Fire2 0
+$Limit Don_HellRazer/Hit2 0
+
+//  Tortured Soul
+
+Don_TorturedSoul/Sight                       D016SIGH
+Don_TorturedSoul/Active                      D016ACTI
+Don_TorturedSoul/Pain                        D016PAIN
+Don_TorturedSoul/Death                       D016DETH
+Don_TorturedSoul/Fire                        D016FIRE
+Don_TorturedSoul/Hit                         D016HIT
+Don_TorturedSoul/Explode                     D016EXPL
+
+$Limit Don_TorturedSoul/Sight 0
+$Limit Don_TorturedSoul/Active 0
+$Limit Don_TorturedSoul/Pain 0
+$Limit Don_TorturedSoul/Death 0
+$Limit Don_TorturedSoul/Fire 0
+$Limit Don_TorturedSoul/Hit 0
+$Limit Don_TorturedSoul/Explode 0
+
+//  Hades Elemental
+
+Don_HadesElemental/Sight                     D017SIGH
+Don_HadesElemental/Active                    D017ACTI
+Don_HadesElemental/Melee                     D017MELE
+Don_HadesElemental/Pain                      D017PAIN
+Don_HadesElemental/Death                     D017DETH
+Don_HadesElemental/Teleport                  D017TELE
+Don_HadesElemental/Fire                      D017FIRE
+Don_HadesElemental/Hit                       D017HIT
+
+$Limit Don_HadesElemental/Sight 0
+$Limit Don_HadesElemental/Active 0
+$Limit Don_HadesElemental/Melee 0
+$Limit Don_HadesElemental/Pain 0
+$Limit Don_HadesElemental/Death 0
+$Limit Don_HadesElemental/Teleport 0
+$Limit Don_HadesElemental/Fire 0
+$Limit Don_HadesElemental/Hit 0
+
+//  Hades Sphere
+
+Don_HadesSphere/Sight                        D018SIGH
+Don_HadesSphere/Active                       D018ACTI
+Don_HadesSphere/Teleport                     D018TELE
+Don_HadesSphere/Death                        D018DETH
+Don_HadesSphere/Explode                      D018EXPL
+
+$Limit Don_HadesSphere/Sight 0
+$Limit Don_HadesSphere/Active 0
+$Limit Don_HadesSphere/Teleport 0
+$Limit Don_HadesSphere/Death 0
+$Limit Don_HadesSphere/Explode 0
+
+//  Death Bringer
+
+Don_DeathBringer/Sight                       D019SIGH
+
+$Random Don_DeathBringer/Active { Don_DeathBringer/Active1
+                                  Don_DeathBringer/Active2 }
+
+Don_DeathBringer/Active1                     D019ACT1
+Don_DeathBringer/Active2                     D019ACT2
+
+Don_DeathBringer/Loop                        D019LOOP
+Don_DeathBringer/Melee                       D017MELE
+Don_DeathBringer/Fire                        D019FIRE
+Don_DeathBringer/Pain                        D019PAIN
+Don_DeathBringer/Death                       D019DETH
+
+$Limit Don_DeathBringer/Sight 0
+$Limit Don_DeathBringer/Active 0
+$Limit Don_DeathBringer/Loop 0
+$Limit Don_DeathBringer/Melee 0
+$Limit Don_DeathBringer/Fire 0
+$Limit Don_DeathBringer/Pain 0
+$Limit Don_DeathBringer/Death 0
+
+//  Warlord
+
+Don_Warlord/Sight                            D020SIGH
+Don_Warlord/Active                           D020ACTI
+Don_Warlord/Pain                             D020PAIN
+Don_Warlord/Death                            D020DETH
+Don_DarkWarlord/Fire                         D020FIRE
+Don_DarkWarlord/Hit                          D008EXP1
+
+$Limit Don_Warlord/Sight 0
+$Limit Don_Warlord/Active 0
+$Limit Don_Warlord/Fire 0
+$Limit Don_Warlord/Pain 0
+$Limit Don_Warlord/Death 0
+$Limit Don_DarkWarlord/Fire 0
+$Limit Don_DarkWarlord/Hit 0
+
+//  Cyber Warlord
+
+Don_CyberWarlord/Sight                       D022SIGH
+Don_CyberWarlord/Active                      D022ACTI
+Don_CyberWarlord/Pain                        D022PAIN
+Don_CyberWarlord/Death                       D022DETH
+Don_CyberWarlord/Fire                        D022FIRE
+
+$Random Don_CyberWarlord/Explode { Don_CyberWarlord/Explode1
+                                   Don_CyberWarlord/Explode2
+								   Don_CyberWarlord/Explode3
+								   Don_CyberWarlord/Explode4
+								   Don_CyberWarlord/Explode5
+								   Don_CyberWarlord/Explode6
+								   Don_CyberWarlord/Explode7 }
+								  
+Don_CyberWarlord/Explode1                    D022EXP1
+Don_CyberWarlord/Explode2                    D022EXP2
+Don_CyberWarlord/Explode3                    D022EXP3
+Don_CyberWarlord/Explode4                    D022EXP4
+Don_CyberWarlord/Explode5                    D022EXP5
+Don_CyberWarlord/Explode6                    D022EXP6
+Don_CyberWarlord/Explode7                    D022EXP7
+	
+$Limit Don_CyberWarlord/Sight 0
+$Limit Don_CyberWarlord/Active 0
+$Limit Don_CyberWarlord/Pain 0
+$Limit Don_CyberWarlord/Death 0
+$Limit Don_CyberWarlord/Fire 0
+$Limit Don_CyberWarlord/Explode 0
+
+//  Diabolist
+
+Don_Diabolist/Sight                          D024SIGH
+Don_Diabolist/Active                         D024ACTI
+Don_Diabolist/Pain                           D024PAIN
+
+$Random Don_Diabolist/Death { Don_Diabolist/Death1
+                              Don_Diabolist/Death2 }
+								   
+Don_Diabolist/Death1                         D024DTH1
+Don_Diabolist/Death2                         D024DTH2
+
+Don_Diabolist/Fire1                          D024FIR1
+Don_Diabolist/Fire2                          D024FIR2
+Don_Diabolist/Hit1                           D024HIT1
+Don_Diabolist/Hit2                           D024HIT2
+Don_Diabolist/Hit3                           D024HIT3
+Don_Diabolist/Hit4                           D024HIT4
+
+$Limit Don_Diabolist/Sight 0
+$Limit Don_Diabolist/Active 0
+$Limit Don_Diabolist/Pain 0
+$Limit Don_Diabolist/Death 0
+$Limit Don_Diabolist/Fire1 0
+$Limit Don_Diabolist/Fire2 0
+$Limit Don_Diabolist/Hit1 0
+$Limit Don_Diabolist/Hit2 0
+$Limit Don_Diabolist/Hit3 0
+$Limit Don_Diabolist/Hit4 0
+
+//  Arachnophobia
+
+Don_Arachnophobia/Sight                      D025SIGH
+Don_Arachnophobia/Active                     D025ACTI
+Don_Arachnophobia/Pain                       D025PAIN
+Don_Arachnophobia/Death                      D025DETH
+Don_Arachnophobia/Fire1                      D025FIR1
+
+$Random Don_Arachnophobia/Explode1 { Don_Arachnophobia/ExplodeA
+                                     Don_Arachnophobia/ExplodeB
+									 Don_Arachnophobia/ExplodeC }
+								   
+Don_Arachnophobia/ExplodeA                   D025EXP1
+Don_Arachnophobia/ExplodeB                   D025EXP2
+Don_Arachnophobia/ExplodeC                   D025EXP3
+
+Don_Arachnophobia/Fire2                      D025FIR2
+Don_Arachnophobia/Explode2                   D025EXP4
+Don_Arachnophobia/Charge1                    D025CHR1
+Don_Arachnophobia/Charge2                    D025CHR2
+Don_Arachnophobia/Projectile1                D025PRO1
+Don_Arachnophobia/Projectile2                D025PRO2
+Don_Arachnophobia/Fly                        D025FLY
+
+$Limit Don_Arachnophobia/Sight 0
+$Limit Don_Arachnophobia/Active 0
+$Limit Don_Arachnophobia/Pain 0
+$Limit Don_Arachnophobia/Death 0
+$Limit Don_Arachnophobia/Fire1 0
+$Limit Don_Arachnophobia/Explode1 0
+$Limit Don_Arachnophobia/Fire2 0
+$Limit Don_Arachnophobia/Explode2 0
+$Limit Don_Arachnophobia/Charge1 0
+$Limit Don_Arachnophobia/Charge2 0
+$Limit Don_Arachnophobia/Projectile1 0
+$Limit Don_Arachnophobia/Projectile2 0
+$Limit Don_Arachnophobia/Fly 0
+
+//  Hellcubus
+
+Don_Hellcubus/Sight                          D027SIGH
+
+$Random Don_Hellcubus/Active { Don_Hellcubus/Active1
+                               Don_Hellcubus/Active2 }
+								   
+Don_Hellcubus/Active1                        D027ACT1
+Don_Hellcubus/Active2                        D027ACT2
+
+$Random Don_Hellcubus/Attack { Don_Hellcubus/Attack1
+                               Don_Hellcubus/Attack2 }
+								   
+Don_Hellcubus/Attack1                        D027ATK1
+Don_Hellcubus/Attack2                        D027ATK2
+
+$Random Don_Hellcubus/Pain { Don_Hellcubus/Pain1
+                             Don_Hellcubus/Pain2 }
+								   
+Don_Hellcubus/Pain1                          D027PAI1
+Don_Hellcubus/Pain2                          D027PAI2
+
+Don_Hellcubus/Death                          D027DETH
+Don_Hellcubus/Fire                           D027FIRE
+Don_Hellcubus/Hit                            D027HIT
+
+$Limit Don_Hellcubus/Sight 0
+$Limit Don_Hellcubus/Active 0
+$Limit Don_Hellcubus/Attack 0
+$Limit Don_Hellcubus/Pain 0
+$Limit Don_Hellcubus/Death 0
+$Limit Don_Hellcubus/Fire 0
+$Limit Don_Hellcubus/Hit 0
+
+//  Kronos 
+
+Don_Kronos/Sight                             D028SIGH
+
+$Random Don_Kronos/Active { Don_Kronos/Active1
+                            Don_Kronos/Active2 }
+
+Don_Kronos/Active1                           D028SIGH
+Don_Kronos/Active2                           D028ACTI
+
+Don_Kronos/Spawn                             D028OPIT
+Don_Kronos/Cube                              D028OCUB
+Don_Kronos/Death                             D028ACTI
+Don_Kronos/TeleFog                           D028TEFO
+Don_Kronos/Fire                              D015FIR2
+Don_Kronos/Curse                             D028CURS
+
+$Limit Don_Kronos/Sight 0
+$Limit Don_Kronos/Active 0
+$Limit Don_Kronos/Spawn 0
+$Limit Don_Kronos/Death 0
+$Limit Don_Kronos/Cube 0
+$Limit Don_Kronos/Fire 0
+$Limit Don_Kronos/TeleFog 0
+$Limit Don_Kronos/Curse 0
+
+//  Overlord
+
+Don_Overlord/Sight                           D029SIGH
+Don_Overlord/Active                          D029ACTI
+Don_Overlord/Pain                            D029PAIN
+Don_Overlord/Melee                           D017MELE
+Don_Overlord/Death                           D029DETH
+Don_Overlord/Fire                            D017FIRE
+Don_Overlord/Teleport                        D017TELE
+Don_Overlord/Explode                         D029EXPL
+Don_Overlord/Fade                            D029FADE
+Don_Overlord/Zap                             D029ZAP
+Don_Overlord/DeathExp                        D030HIT3
+
+$Limit Don_Overlord/Sight 0
+$Limit Don_Overlord/Active 0
+$Limit Don_Overlord/Pain 0
+$Limit Don_Overlord/Melee 0
+$Limit Don_Overlord/Death 0
+$Limit Don_Overlord/Fire 0
+$Limit Don_Overlord/Teleport 0
+$Limit Don_Overlord/Explode 0
+$Limit Don_Overlord/Fade 0
+$Limit Don_Overlord/Zap 0
+$Limit Don_Overlord/DeathExp 0
+
+//  Krieger
+
+$Random Don_Krieger/Sight { Don_Krieger/Sight1
+                            Don_Krieger/Sight2
+                            Don_Krieger/Sight3 }
+								   
+Don_Krieger/Sight1                           D030SIG1
+Don_Krieger/Sight2                           D030SIG2
+Don_Krieger/Sight3                           D030SIG3
+
+Don_Krieger/Active                           D030ACTI
+Don_Krieger/Pain                             D030PAIN
+Don_Krieger/Death                            D030DETH
+
+$Random Don_Krieger/FireA { Don_Krieger/Fire1
+                            Don_Krieger/Fire2 }
+
+Don_Krieger/Fire1                            D030FIR1
+Don_Krieger/Fire2                            D030FIR2
+				
+$Random Don_Krieger/FireB { Don_Krieger/Fire3
+                            Don_Krieger/Fire4
+                            Don_Krieger/Fire5 }
+
+Don_Krieger/Fire3                            D030FIR3
+Don_Krieger/Fire4                            D030FIR4
+Don_Krieger/Fire5                            D030FIR5
+
+$Random Don_Krieger/HitA { Don_Krieger/Hit1
+                           Don_Krieger/Hit2 }
+
+Don_Krieger/Hit1                             D030HIT1
+Don_Krieger/Hit2                             D030HIT2
+
+Don_Krieger/HitB                             D030HIT3
+
+$Limit Don_Krieger/Sight 0
+$Limit Don_Krieger/Active 0
+$Limit Don_Krieger/Pain 0
+$Limit Don_Krieger/Death 0
+$Limit Don_Krieger/FireA 0
+$Limit Don_Krieger/FireB 0
+$Limit Don_Krieger/HitA 0
+$Limit Don_Krieger/HitB 0
+
+//  Cerebral Sentient
+
+Don_Cerebral/Sight                           D031SIGH
+
+$Random Don_Cerebral/Active { Don_Cerebral/Active1
+                              Don_Cerebral/Active2
+                              Don_Cerebral/Active3
+							  Don_Cerebral/Active4 }
+								   
+Don_Cerebral/Active1                         D031ACT1
+Don_Cerebral/Active2                         D031ACT2
+Don_Cerebral/Active3                         D031ACT3
+Don_Cerebral/Active4                         D031ACT4
+
+$Random Don_Cerebral/Pain { Don_Cerebral/Pain1
+                            Don_Cerebral/Pain2
+                            Don_Cerebral/Pain3 }
+								   
+Don_Cerebral/Pain1                           D031PAI1
+Don_Cerebral/Pain2                           D031PAI2
+Don_Cerebral/Pain3                           D031PAI3
+
+Don_Cerebral/Death                           D031DETH
+Don_Cerebral/Fly                             D031FLY
+Don_Cerebral/Shoot                           D031SHOT
+Don_Cerebral/Charge                          D031CHAR
+Don_Cerebral/Cooldown                        D031COLD
+Don_Cerebral/Fire1                           D031FIR1
+Don_Cerebral/Fire2                           D031FIR2
+Don_Cerebral/Hit1                            D031HIT1
+Don_Cerebral/Hit2                            D031HIT2
+Don_Cerebral/BFGBall                         D031BFG
+
+$Limit Don_Cerebral/Sight 0
+$Limit Don_Cerebral/Active 0
+$Limit Don_Cerebral/Pain 0
+$Limit Don_Cerebral/Death 0
+$Limit Don_Cerebral/Fly 0
+$Limit Don_Cerebral/Shoot 0
+$Limit Don_Cerebral/Charge 0
+$Limit Don_Cerebral/Cooldown 0
+$Limit Don_Cerebral/Fire1 0
+$Limit Don_Cerebral/Fire2 0
+$Limit Don_Cerebral/Hit1 0
+$Limit Don_Cerebral/Hit2 0
+$Limit Don_Cerebral/BFGBall 0
+
+//  Steps
+
+$Random Don_Zombie0/Step { Don_Zombie0/Step1
+                           Don_Zombie0/Step2
+						   Don_Zombie0/Step3
+						   Don_Zombie0/Step4 }
+
+Don_Zombie0/Step1                            D000STE1
+Don_Zombie0/Step2                            D000STE2
+Don_Zombie0/Step3                            D000STE3
+Don_Zombie0/Step4                            D000STE4
+
+$Random Don_Zombie1/Step { Don_Zombie1/Step1
+                           Don_Zombie1/Step2
+						   Don_Zombie1/Step3
+						   Don_Zombie1/Step4 }
+
+Don_Zombie1/Step1                            D001STE1
+Don_Zombie1/Step2                            D001STE2
+Don_Zombie1/Step3                            D001STE3
+Don_Zombie1/Step4                            D001STE4
+
+$Random Don_Zombie2/Step { Don_Zombie2/Step1
+                           Don_Zombie2/Step2
+						   Don_Zombie2/Step3
+						   Don_Zombie2/Step4 }
+
+Don_Zombie2/Step1                            D002STE1
+Don_Zombie2/Step2                            D002STE2
+Don_Zombie2/Step3                            D002STE3
+Don_Zombie2/Step4                            D002STE4
+
+$Random Don_Zombie3/Step { Don_Zombie3/Step1
+                           Don_Zombie3/Step2
+						   Don_Zombie3/Step3
+						   Don_Zombie3/Step4
+						   Don_Zombie3/Step5
+						   Don_Zombie3/Step6 }
+
+Don_Zombie3/Step1                            D003STE1
+Don_Zombie3/Step2                            D003STE2
+Don_Zombie3/Step3                            D003STE3
+Don_Zombie3/Step4                            D003STE4
+Don_Zombie3/Step5                            D003STE5
+Don_Zombie3/Step6                            D003STE6
+
+$Random Don_Zombie4/Step { Don_Zombie4/Step1
+                           Don_Zombie4/Step2
+						   Don_Zombie4/Step3
+						   Don_Zombie4/Step4 }
+
+Don_Zombie4/Step1                            D004STE1
+Don_Zombie4/Step2                            D004STE2
+Don_Zombie4/Step3                            D004STE3
+Don_Zombie4/Step4                            D004STE4
+
+$Random Don_Soldier/Step { Don_Soldier/Step1
+                           Don_Soldier/Step2
+						   Don_Soldier/Step3
+						   Don_Soldier/Step4 }
+
+Don_Soldier/Step1                            D005STE1
+Don_Soldier/Step2                            D005STE2
+Don_Soldier/Step3                            D005STE3
+Don_Soldier/Step4                            D005STE4
+
+$Random Don_Demon1/Step { Don_Demon1/Step1
+                          Don_Demon1/Step2
+						  Don_Demon1/Step3
+						  Don_Demon1/Step4 }
+
+Don_Demon1/Step1                             D006STE1
+Don_Demon1/Step2                             D006STE2
+Don_Demon1/Step3                             D006STE3
+Don_Demon1/Step4                             D006STE4
+
+Don_Demon2/Step                              D007STEP
+
+Don_CyberWarlord/Step                        D022STEP
+
+Don_Arachnophobia/Step                       D025STEP
+
+$Random Don_Hellcubus/Step { Don_Hellcubus/Step1
+                             Don_Hellcubus/Step2
+							 Don_Hellcubus/Step3 }
+						  
+Don_Hellcubus/Step1                          D027STE1
+Don_Hellcubus/Step2                          D027STE2
+Don_Hellcubus/Step3                          D027STE3
+
+$Random Don_Krieger/Step { Don_Krieger/Step1
+                           Don_Krieger/Step2
+						   Don_Krieger/Step3 }
+						  
+Don_Krieger/Step1                            D030STE1
+Don_Krieger/Step2                            D030STE2
+Don_Krieger/Step3                            D030STE3
+
+Don_Cerebral/Step                            D031STEP
+
+$Limit Don_Zombie0/Step 0
+$Limit Don_Zombie1/Step 0
+$Limit Don_Zombie2/Step 0
+$Limit Don_Zombie3/Step 0
+$Limit Don_Zombie4/Step 0
+$Limit Don_Soldier/Step 0
+$Limit Don_Demon1/Step 0
+$Limit Don_Demon2/Step 0
+$Limit Don_CyberWarlord/Step 0
+$Limit Don_Arachnophobia/Step 0
+$Limit Don_Hellcubus/Step 0
+$Limit Don_Krieger/Step 0
+$Limit Don_Cerebral/Step 0
+
+//  Gibs
+
+$Random Don_XDeath/Explode { Don_XDeath/Explode1
+                             Don_XDeath/Explode2
+							 Don_XDeath/Explode3
+							 Don_XDeath/Explode4 }
+
+Don_XDeath/Explode1                          D000XDT1
+Don_XDeath/Explode2                          D000XDT2
+Don_XDeath/Explode3                          D000XDT3
+Don_XDeath/Explode4                          D000XDT4
+
+$Random Don_Body/Fall { Don_Body/Fall1
+                        Don_Body/Fall2 }
+
+Don_Body/Fall1                               D000FBD1
+Don_Body/Fall2                               D000FBD2
+
+$Random Don_Body2/Fall { Don_Body2/Fall1
+                         Don_Body2/Fall2 }
+                         Don_Body2/Fall3 }
+                         Don_Body2/Fall4 }
+
+Don_Body2/Fall1                              D000FBD3
+Don_Body2/Fall2                              D000FBD4
+Don_Body2/Fall3                              D000FBD5
+Don_Body2/Fall4                              D000FBD6
+
+$Random Don_Gib/Part { Don_Gib/Part1
+                       Don_Gib/Part2
+					   Don_Gib/Part3 }
+
+Don_Gib/Part1                                D000PAT1
+Don_Gib/Part2                                D000PAT2
+Don_Gib/Part3                                D000PAT3
+
+$Random Don_Gib/Fall { Don_Gib/Fall1
+                       Don_Gib/Fall2
+					   Don_Gib/Fall3 }
+
+Don_Gib/Fall1                                D000GIB1
+Don_Gib/Fall2                                D000GIB2
+Don_Gib/Fall3                                D000GIB3
+
+$Random Don_Metal1/Part { Don_Metal1/Part1
+                          Don_Metal1/Part2
+					      Don_Metal1/Part3 }
+
+Don_Metal1/Part1                             D000MET1
+Don_Metal1/Part2                             D000MET2
+Don_Metal1/Part3                             D000MET3
+
+$Random Don_Metal2/Part { Don_Metal2/Part1
+                          Don_Metal2/Part2 }
+
+Don_Metal2/Part1                             D000MET4
+Don_Metal2/Part2                             D000MET5
+
+$Limit Don_XDeath/Explode 0
+$Limit Don_Body/Fall 0
+$Limit Don_Body2/Fall 0
+$Limit Don_Gib/Part 0
+$Limit Don_Gib/Fall 0
+$Limit Don_Metal1/Fall 0
+$Limit Don_Metal2/Fall 0

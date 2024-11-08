@@ -1,0 +1,483 @@
+//===========================================================================
+//
+//  Krieger
+//
+//===========================================================================
+
+FlickerLight DON_KRIEGER_FX1
+{
+	Color 1.0 0.6 0.3
+    Size 80
+    SecondarySize 90
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX2
+{
+	Color 1.0 0.6 0.3
+    Size 90
+    SecondarySize 100
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX3
+{
+	Color 1.0 0.6 0.3
+    Size 110
+    SecondarySize 120
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX4
+{
+	Color 1.0 0.6 0.3
+    Size 148
+    SecondarySize 130
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX5
+{
+	Color 1.0 0.6 0.3
+    Size 120
+    SecondarySize 115
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX6
+{
+	Color 1.0 0.6 0.3
+    Size 115
+    SecondarySize 110
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX7
+{
+	Color 1.0 0.6 0.3
+    Size 110
+    SecondarySize 105
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX8
+{
+	Color 1.0 0.6 0.3
+    Size 105
+    SecondarySize 100
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX9
+{
+	Color 1.0 0.6 0.3
+    Size 90
+    SecondarySize 80
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX10
+{
+	Color 1.0 0.6 0.3
+    Size 80
+    SecondarySize 70
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX11
+{
+	Color 1.0 0.6 0.3
+    Size 70
+    SecondarySize 60
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX12
+{
+	Color 1.0 0.6 0.3
+    Size 60
+    SecondarySize 50
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX13
+{
+	Color 1.0 0.6 0.3
+    Size 50
+    SecondarySize 40
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX14
+{
+	Color 1.0 0.6 0.3
+    Size 40
+    SecondarySize 30
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX15
+{
+	Color 1.0 0.6 0.3
+    Size 30
+    SecondarySize 20
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX16
+{
+	Color 1.0 0.6 0.3
+    Size 20
+    SecondarySize 10
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGER_FX17
+{
+	Color 1.0 0.6 0.3
+    Size 10
+    SecondarySize 5
+    Chance 0.12
+	OffSet 0 56 0
+	attenuate 1
+}
+
+Object Don_Krieger
+{
+    Frame D030 { Light DON_KRIEGER_FX1 }
+	
+	Frame D03AA { Light DON_KRIEGER_FX2 }
+	Frame D03AB { Light DON_KRIEGER_FX3 }
+	Frame D03AC { Light DON_KRIEGER_FX4 }
+	Frame D03AD { Light DON_KRIEGER_FX5 }
+	Frame D03AE { Light DON_KRIEGER_FX6 }
+	Frame D03AF { Light DON_KRIEGER_FX7 }
+	Frame D03AG { Light DON_KRIEGER_FX8 }
+	Frame D03AH { Light DON_KRIEGER_FX9 }
+	Frame D03AI { Light DON_KRIEGER_FX10 }
+	Frame D03AJ { Light DON_KRIEGER_FX11 }
+	Frame D03AK { Light DON_KRIEGER_FX12 }
+	Frame D03AL { Light DON_KRIEGER_FX13 }
+	Frame D03AM { Light DON_KRIEGER_FX14 }
+	Frame D03AN { Light DON_KRIEGER_FX15 }
+	Frame D03AO { Light DON_KRIEGER_FX16 }
+	Frame D03AP { Light DON_KRIEGER_FX17 }
+}
+
+PointLight DON_KRIEGERBALL1_FX
+{
+    Color 1.0 1.0 0.0
+    Size 64
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX1
+{
+    Color 1.0 1.0 0.0
+    Size 67
+    SecondarySize 77
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX2
+{
+    Color 0.95 0.95 0.0
+    Size 70
+    SecondarySize 80
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX3
+{
+    Color 0.90 0.90 0.0
+    Size 73
+    SecondarySize 83
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX4
+{
+    Color 0.85 0.85 0.0
+    Size 76
+    SecondarySize 86
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX5
+{
+    Color 0.80 0.80 0.0
+    Size 79
+    SecondarySize 89
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX6
+{
+    Color 0.76 0.76 0.0
+    Size 81
+    SecondarySize 91
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX7
+{
+    Color 0.70 0.70 0.0
+    Size 84
+    SecondarySize 94
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX8
+{
+    Color 0.65 0.65 0.0
+    Size 87
+    SecondarySize 97
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX9
+{
+    Color 0.60 0.60 0.0
+    Size 90
+    SecondarySize 100
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX10
+{
+    Color 0.55 0.55 0.0
+    Size 93
+    SecondarySize 103
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX11
+{
+    Color 0.50 0.50 0.0
+    Size 96
+    SecondarySize 106
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX12
+{
+    Color 0.45 0.45 0.0
+    Size 99
+    SecondarySize 109
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX13
+{
+    Color 0.40 0.40 0.0
+    Size 101
+    SecondarySize 111
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX14
+{
+    Color 0.35 0.35 0.0
+    Size 104
+    SecondarySize 114
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX15
+{
+    Color 0.30 0.30 0.0
+    Size 107
+    SecondarySize 117
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX16
+{
+    Color 0.25 0.25 0.0
+    Size 110
+    SecondarySize 120
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX17
+{
+    Color 0.20 0.20 0.0
+    Size 113
+    SecondarySize 123
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX18
+{
+    Color 0.15 0.15 0.0
+    Size 116
+    SecondarySize 126
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL1_FX19
+{
+    Color 0.1 0.1 0.0
+    Size 119
+    SecondarySize 129
+    Chance 0.25
+	attenuate 1
+}
+
+Object Don_KriegerBall1
+{
+    Frame D074 { Light DON_KRIEGERBALL1_FX }
+    
+	Frame D075A { Light DON_KRIEGERBALL1_FX1 }
+    Frame D075B { Light DON_KRIEGERBALL1_FX2 }
+    Frame D075C { Light DON_KRIEGERBALL1_FX3 }
+    Frame D075D { Light DON_KRIEGERBALL1_FX4 }
+    Frame D075E { Light DON_KRIEGERBALL1_FX5 }
+    Frame D075F { Light DON_KRIEGERBALL1_FX6 }
+	Frame D075G { Light DON_KRIEGERBALL1_FX7 }
+	Frame D075H { Light DON_KRIEGERBALL1_FX8 }
+	Frame D075I { Light DON_KRIEGERBALL1_FX9 }
+	Frame D075J { Light DON_KRIEGERBALL1_FX10 }
+	Frame D075K { Light DON_KRIEGERBALL1_FX11 }
+	Frame D075L { Light DON_KRIEGERBALL1_FX12 }
+	Frame D075M { Light DON_KRIEGERBALL1_FX13 }
+	Frame D075N { Light DON_KRIEGERBALL1_FX14 }
+	Frame D075O { Light DON_KRIEGERBALL1_FX15 }
+	Frame D075P { Light DON_KRIEGERBALL1_FX16 }
+	Frame D075Q { Light DON_KRIEGERBALL1_FX17 }
+	Frame D075R { Light DON_KRIEGERBALL1_FX18 }
+	Frame D075S { Light DON_KRIEGERBALL1_FX19 }
+}
+
+PointLight DON_KRIEGERBALL2_FX
+{
+    Color 1.0 0.5 0.0
+    Size 64
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL2_FX1
+{
+    Color 1.0 0.5 0.0
+    Size 67
+    SecondarySize 77
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL2_FX2
+{
+    Color 1.0 0.6 0.3
+    Size 70
+    SecondarySize 80
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL2_FX3
+{
+    Color 1.0 0.6 0.3
+    Size 73
+    SecondarySize 83
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL2_FX4
+{
+    Color 1.0 0.6 0.3
+    Size 76
+    SecondarySize 86
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight DON_KRIEGERBALL2_FX5
+{
+    Color 1.0 0.6 0.3
+    Size 79
+    SecondarySize 89
+    Chance 0.25
+	attenuate 1
+}
+
+Object Don_KriegerBall2
+{
+    Frame D076A { Light DON_KRIEGERBALL2_FX }
+	Frame D076B { Light DON_KRIEGERBALL2_FX }
+	Frame D076C { Light DON_KRIEGERBALL2_FX }
+	Frame D076D { Light DON_KRIEGERBALL2_FX }
+	Frame D076E { Light DON_KRIEGERBALL2_FX }
+	Frame D076F { Light DON_KRIEGERBALL2_FX }
+	Frame D076G { Light DON_KRIEGERBALL2_FX }
+    Frame D076H { Light DON_KRIEGERBALL2_FX }
+	 
+	Frame D076I { Light DON_KRIEGERBALL2_FX1 }
+	Frame D076J { Light DON_KRIEGERBALL2_FX2 }
+	Frame D076K { Light DON_KRIEGERBALL2_FX3 }
+	Frame D076L { Light DON_KRIEGERBALL2_FX4 }
+	Frame D076M { Light DON_KRIEGERBALL2_FX5 }
+}
+
+Object Don_KriegerDeathComet
+{
+    Frame D061A { Light DON_HELLCUBUS_FX1 }
+    Frame D061B { Light DON_HELLCUBUS_FX1 }
+    Frame D061C { Light DON_HELLCUBUS_FX1 }
+    Frame D061D { Light DON_HELLCUBUS_FX2 }
+    Frame D061E { Light DON_HELLCUBUS_FX3 }
+    Frame D061F { Light DON_HELLCUBUS_FX4 }
+    Frame D061G { Light DON_HELLCUBUS_FX5 }
+    Frame D061H { Light DON_HELLCUBUS_FX6 }
+    Frame D061I { Light DON_HELLCUBUS_FX7 }
+}

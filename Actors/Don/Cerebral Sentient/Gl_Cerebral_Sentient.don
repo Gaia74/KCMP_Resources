@@ -1,0 +1,581 @@
+//===========================================================================
+//
+//  Cerebral Centient
+//
+//===========================================================================
+
+FlickerLight2 DON_CEREBRAL1_FX1
+{
+	Color 1.0 0.8 0.2
+    Size 92
+    SecondarySize 96
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+FlickerLight2 DON_CEREBRAL1_FX2
+{
+	Color 1.0 0.8 0.2
+    Size 104
+    SecondarySize 112
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+FlickerLight2 DON_CEREBRAL1_FX3
+{
+	Color 0.1 0.9 0.0
+    Size 72
+    SecondarySize 76
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+FlickerLight2 DON_CEREBRAL1_FX4
+{
+	Color 0.1 0.9 0.0
+    Size 84
+    SecondarySize 92
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+FlickerLight2 DON_CEREBRAL1_FX5
+{
+	Color 1.0 0.8 0.2
+    Size 102
+    SecondarySize 116
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+
+FlickerLight2 DON_CEREBRAL1_FX6
+{
+	Color 1.0 0.8 0.2
+    Size 112
+    SecondarySize 126
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+
+FlickerLight2 DON_CEREBRAL1_FX7
+{
+	Color 1.0 0.8 0.2
+    Size 122
+    SecondarySize 136
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+
+FlickerLight2 DON_CEREBRAL1_FX8
+{
+	Color 1.0 0.8 0.2
+    Size 142
+    SecondarySize 156
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+
+FlickerLight2 DON_CEREBRAL1_FX9
+{
+	Color 1.0 0.8 0.2
+    Size 152
+    SecondarySize 166
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+FlickerLight2 DON_CEREBRAL1_FX10
+{
+    Color 1.0 0.35 0.0
+    Size 92
+    SecondarySize 96
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+FlickerLight2 DON_CEREBRAL1_FX11
+{
+    Color 1.0 0.35 0.0
+    Size 104
+    SecondarySize 112
+    Interval 1
+    OffSet 0 38 0
+	attenuate 1
+}
+
+Object Don_CerebralSentient1
+{
+	Frame D031G { Light DON_CEREBRAL1_FX1 }
+	Frame D031H { Light DON_CEREBRAL1_FX2 }
+	Frame D031J { Light DON_CEREBRAL1_FX3 }
+	Frame D031K { Light DON_CEREBRAL1_FX4 }
+	Frame D031L { Light DON_CEREBRAL1_FX10 }
+	Frame D031M { Light DON_CEREBRAL1_FX11 }
+	
+	Frame D031O { Light DON_CEREBRAL1_FX5 }
+	Frame D031P { Light DON_CEREBRAL1_FX5 }
+	Frame D031Q { Light DON_CEREBRAL1_FX6 }
+	Frame D031R { Light DON_CEREBRAL1_FX6 }
+	Frame D031S { Light DON_CEREBRAL1_FX7 }
+	Frame D031T { Light DON_CEREBRAL1_FX7 }
+	Frame D031U { Light DON_CEREBRAL1_FX8 }
+	Frame D031V { Light DON_CEREBRAL1_FX9 }
+}
+
+FlickerLight DON_CEREBRAL2_FX
+{
+	Color 1.0 0.7 0.0
+    Size 95
+    SecondarySize 105
+    Chance 0.15
+	OffSet 0 43 0
+	attenuate 1
+}
+
+Object Don_CerebralSentient2
+{
+	Frame D032A { Light DON_CEREBRAL2_FX }
+	Frame D032B { Light DON_CEREBRAL2_FX }
+	Frame D032C { Light DON_CEREBRAL2_FX }
+	Frame D032D { Light DON_CEREBRAL2_FX }
+	Frame D032E { Light DON_CEREBRAL2_FX }
+	Frame D032F { Light DON_CEREBRAL2_FX }
+	Frame D032G { Light DON_CEREBRAL2_FX }
+	Frame D032H { Light DON_CEREBRAL2_FX }
+	Frame D032I { Light DON_CEREBRAL2_FX }
+	Frame D032J { Light DON_CEREBRAL2_FX }
+	
+	Frame D032Q { Light DON_CEREBRAL1_FX5 }
+	Frame D032K { Light DON_CEREBRAL1_FX5 }
+	Frame D032L { Light DON_CEREBRAL1_FX6 }
+	Frame D032M { Light DON_CEREBRAL1_FX7 }
+	Frame D032N { Light DON_CEREBRAL1_FX8 }
+	Frame D032O { Light DON_CEREBRAL1_FX9 }
+}
+
+Object Don_CerebralBomb1
+{
+    Frame MISLB { Light ROCKET_X1 }
+    Frame MISLC { Light ROCKET_X2 }
+    Frame MISLD { Light ROCKET_X3 }
+}
+
+FlickerLight DON_CEREBRAL1BALL1_FX
+{
+    Color 0.1 1.0 0.1
+    Size 36
+    SecondarySize 42
+    Chance 0.2
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL1_FX1
+{
+    Color 0.1 1.0 0.1
+    Size 45
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL1_FX2
+{
+    Color 0.1 1.0 0.1
+    Size 40
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL1_FX3
+{
+    Color 0.1 1.0 0.1
+    Size 50
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL1_FX4
+{
+    Color 0.1 1.0 0.1
+    Size 45
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL1_FX5
+{
+    Color 0.1 1.0 0.1
+    Size 38
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL1_FX6
+{
+    Color 0.1 1.0 0.1
+    Size 22
+	attenuate 1
+}
+
+Object Don_Cerebral1Ball1
+{
+    Frame D080 { Light DON_CEREBRAL1BALL1_FX }
+	
+    Frame D081A { Light DON_CEREBRAL1BALL1_FX1 }
+    Frame D081B { Light DON_CEREBRAL1BALL1_FX1 }
+    Frame D081C { Light DON_CEREBRAL1BALL1_FX2 }
+    Frame D081D { Light DON_CEREBRAL1BALL1_FX2 }
+    Frame D081E { Light DON_CEREBRAL1BALL1_FX3 }
+    Frame D081F { Light DON_CEREBRAL1BALL1_FX3 }
+    Frame D081G { Light DON_CEREBRAL1BALL1_FX4 }
+    Frame D081H { Light DON_CEREBRAL1BALL1_FX4 }
+    Frame D081I { Light DON_CEREBRAL1BALL1_FX5 }
+    Frame D081J { Light DON_CEREBRAL1BALL1_FX5 }
+    Frame D081K { Light DON_CEREBRAL1BALL1_FX6 }
+}
+
+FlickerLight DON_CEREBRAL2BALL1_FX
+{
+    Color 1.0 0.35 0.0
+    Size 36
+    SecondarySize 42
+    Chance 0.2
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL1_FX1
+{
+    Color 1.0 0.35 0.0
+    Size 45
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL1_FX2
+{
+    Color 1.0 0.35 0.0
+    Size 40
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL1_FX3
+{
+    Color 1.0 0.35 0.0
+    Size 50
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL1_FX4
+{
+    Color 1.0 0.35 0.0
+    Size 45
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL1_FX5
+{
+    Color 1.0 0.35 0.0
+    Size 38
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL1_FX6
+{
+    Color 1.0 0.35 0.0
+    Size 22
+	attenuate 1
+}
+
+Object Don_Cerebral2Ball1
+{
+    Frame D077 { Light DON_CEREBRAL2BALL1_FX }
+	
+    Frame D078A { Light DON_CEREBRAL2BALL1_FX1 }
+    Frame D078B { Light DON_CEREBRAL2BALL1_FX1 }
+    Frame D078C { Light DON_CEREBRAL2BALL1_FX2 }
+    Frame D078D { Light DON_CEREBRAL2BALL1_FX2 }
+    Frame D078E { Light DON_CEREBRAL2BALL1_FX3 }
+    Frame D078F { Light DON_CEREBRAL2BALL1_FX3 }
+    Frame D078G { Light DON_CEREBRAL2BALL1_FX4 }
+    Frame D078H { Light DON_CEREBRAL2BALL1_FX4 }
+    Frame D078I { Light DON_CEREBRAL2BALL1_FX5 }
+    Frame D078J { Light DON_CEREBRAL2BALL1_FX5 }
+    Frame D078K { Light DON_CEREBRAL2BALL1_FX6 }
+}
+
+FlickerLight DON_CEREBRAL1BALL2_FX
+{
+    Color 0.1 1.0 0.1
+    Size 56
+    SecondarySize 62
+    Chance 0.2
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL2_FX1
+{
+    Color 0.1 1.0 0.1
+    Size 72
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL2_FX2
+{
+    Color 0.1 1.0 0.1
+    Size 80
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL2_FX3
+{
+    Color 0.1 1.0 0.1
+    Size 90
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL2_FX4
+{
+    Color 0.1 1.0 0.1
+    Size 70
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL2_FX5
+{
+    Color 0.1 1.0 0.1
+    Size 54
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL1BALL2_FX6
+{
+    Color 0.1 1.0 0.1
+    Size 32
+	attenuate 1
+}
+
+Object Don_Cerebral1Ball2
+{
+    Frame D080 { Light DON_CEREBRAL1BALL2_FX }
+	
+    Frame D081A { Light DON_CEREBRAL1BALL2_FX1 }
+    Frame D081B { Light DON_CEREBRAL1BALL2_FX1 }
+    Frame D081C { Light DON_CEREBRAL1BALL2_FX2 }
+    Frame D081D { Light DON_CEREBRAL1BALL2_FX2 }
+    Frame D081E { Light DON_CEREBRAL1BALL2_FX3 }
+    Frame D081F { Light DON_CEREBRAL1BALL2_FX3 }
+    Frame D081G { Light DON_CEREBRAL1BALL2_FX4 }
+    Frame D081H { Light DON_CEREBRAL1BALL2_FX4 }
+    Frame D081I { Light DON_CEREBRAL1BALL2_FX5 }
+    Frame D081J { Light DON_CEREBRAL1BALL2_FX5 }
+    Frame D081K { Light DON_CEREBRAL1BALL2_FX6 }
+}
+
+
+FlickerLight DON_CEREBRAL2BALL2_FX
+{
+    Color 1.0 0.35 0.0
+    Size 56
+    SecondarySize 62
+    Chance 0.2
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL2_FX1
+{
+    Color 1.0 0.35 0.0
+    Size 72
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL2_FX2
+{
+    Color 1.0 0.35 0.0
+    Size 80
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL2_FX3
+{
+    Color 1.0 0.35 0.0
+    Size 90
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL2_FX4
+{
+    Color 1.0 0.35 0.0
+    Size 70
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL2_FX5
+{
+    Color 1.0 0.35 0.0
+    Size 54
+	attenuate 1
+}
+
+PointLight DON_CEREBRAL2BALL2_FX6
+{
+    Color 1.0 0.35 0.0
+    Size 32
+	attenuate 1
+}
+
+Object Don_Cerebral2Ball2
+{
+    Frame D077 { Light DON_CEREBRAL2BALL2_FX }
+	
+    Frame D078A { Light DON_CEREBRAL2BALL2_FX1 }
+    Frame D078B { Light DON_CEREBRAL2BALL2_FX1 }
+    Frame D078C { Light DON_CEREBRAL2BALL2_FX2 }
+    Frame D078D { Light DON_CEREBRAL2BALL2_FX2 }
+    Frame D078E { Light DON_CEREBRAL2BALL2_FX3 }
+    Frame D078F { Light DON_CEREBRAL2BALL2_FX3 }
+    Frame D078G { Light DON_CEREBRAL2BALL2_FX4 }
+    Frame D078H { Light DON_CEREBRAL2BALL2_FX4 }
+    Frame D078I { Light DON_CEREBRAL2BALL2_FX5 }
+    Frame D078J { Light DON_CEREBRAL2BALL2_FX5 }
+    Frame D078K { Light DON_CEREBRAL2BALL2_FX6 }
+}
+
+PointLight DON_CEREBRALSPRAY1_FX1
+{
+    Color 0.1 1.0 0.1
+    Size 52
+	attenuate 1
+}
+
+PointLight DON_CEREBRALSPRAY1_FX2
+{
+    Color 0.1 1.0 0.1
+    Size 54
+	attenuate 1
+}
+
+PointLight DON_CEREBRALSPRAY1_FX3
+{
+    Color 0.1 1.0 0.1
+    Size 46
+	attenuate 1
+}
+
+PointLight DON_CEREBRALSPRAY1_FX4
+{
+    Color 0.1 1.0 0.1
+    Size 42
+	attenuate 1
+}
+
+PointLight DON_CEREBRALSPRAY1_FX5
+{
+    Color 0.1 1.0 0.1
+    Size 36
+	attenuate 1
+}
+
+Object Don_CerebralSpray1
+{
+    Frame D082A { Light DON_CEREBRALSPRAY1_FX1 }
+    Frame D082B { Light DON_CEREBRALSPRAY1_FX1 }
+    Frame D082C { Light DON_CEREBRALSPRAY1_FX1 }
+    Frame D082D { Light DON_CEREBRALSPRAY1_FX1 }
+    Frame D082E { Light DON_CEREBRALSPRAY1_FX2 }
+    Frame D082F { Light DON_CEREBRALSPRAY1_FX2 }
+    Frame D082G { Light DON_CEREBRALSPRAY1_FX2 }
+    Frame D082H { Light DON_CEREBRALSPRAY1_FX3 }
+    Frame D082I { Light DON_CEREBRALSPRAY1_FX3 }
+    Frame D082J { Light DON_CEREBRALSPRAY1_FX3 }
+    Frame D082K { Light DON_CEREBRALSPRAY1_FX4 }
+    Frame D082L { Light DON_CEREBRALSPRAY1_FX4 }
+    Frame D082M { Light DON_CEREBRALSPRAY1_FX4 }
+    Frame D082N { Light DON_CEREBRALSPRAY1_FX5 }
+    Frame D082O { Light DON_CEREBRALSPRAY1_FX5 }
+}
+
+PointLight DON_CEREBRALSPRAY2_FX1
+{
+    Color 1.0 0.35 0.0
+    Size 52
+	attenuate 1
+}
+
+PointLight DON_CEREBRALSPRAY2_FX2
+{
+    Color 1.0 0.35 0.0
+    Size 54
+	attenuate 1
+}
+
+PointLight DON_CEREBRALSPRAY2_FX3
+{
+    Color 1.0 0.35 0.0
+    Size 46
+	attenuate 1
+}
+
+PointLight DON_CEREBRALSPRAY2_FX4
+{
+    Color 1.0 0.35 0.0
+    Size 42
+	attenuate 1
+}
+
+PointLight DON_CEREBRALSPRAY2_FX5
+{
+    Color 1.0 0.35 0.0
+    Size 36
+	attenuate 1
+}
+
+Object Don_CerebralSpray2
+{
+    Frame D079A { Light DON_CEREBRALSPRAY2_FX1 }
+    Frame D079B { Light DON_CEREBRALSPRAY2_FX1 }
+    Frame D079C { Light DON_CEREBRALSPRAY2_FX1 }
+    Frame D079D { Light DON_CEREBRALSPRAY2_FX1 }
+    Frame D079E { Light DON_CEREBRALSPRAY2_FX2 }
+    Frame D079F { Light DON_CEREBRALSPRAY2_FX2 }
+    Frame D079G { Light DON_CEREBRALSPRAY2_FX2 }
+    Frame D079H { Light DON_CEREBRALSPRAY2_FX3 }
+    Frame D079I { Light DON_CEREBRALSPRAY2_FX3 }
+    Frame D079J { Light DON_CEREBRALSPRAY2_FX3 }
+    Frame D079K { Light DON_CEREBRALSPRAY2_FX4 }
+    Frame D079L { Light DON_CEREBRALSPRAY2_FX4 }
+    Frame D079M { Light DON_CEREBRALSPRAY2_FX4 }
+    Frame D079N { Light DON_CEREBRALSPRAY2_FX5 }
+    Frame D079O { Light DON_CEREBRALSPRAY2_FX5 }
+}
+
+FlickerLight DON_BPUFF1
+{
+    Color 0.5 0.5 0.0
+    Size 6
+    SecondarySize 8
+    Chance 0.8
+	attenuate 1
+}
+
+FlickerLight DON_BPUFF2
+{
+    color 0.5 0.5 0.0
+    Size 3
+    SecondarySize 4
+    Chance 0.8
+	attenuate 1
+}
+
+Object Don_BulletPuff
+{
+    Frame PUFFA { light DON_BPUFF1 }
+    Frame PUFFB { light DON_BPUFF2 }
+}
