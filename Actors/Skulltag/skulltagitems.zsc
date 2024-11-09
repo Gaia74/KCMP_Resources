@@ -20,7 +20,7 @@ class RandomPowerup : CustomInventory
 		//$Arg0 "Powerup list"
 		//$Arg0ToolTip "Decide which powerups will this item have"
 		//$Arg0Type 12
-		//$Arg0Enum { 1 = "Mega Sphere"; 2 = "Soul Sphere"; 4 = "Guard Sphere"; 8 = "Partial invisibility"; 16 = "Time Freeze Sphere"; 32 = "Invisibility (not actually usable)"; 64 = "Doom Sphere"; 128 = "Turbo Sphere"; }
+		//$Arg0Enum { 1 = "Mega Sphere"; 2 = "Soul Sphere"; 4 = "Guard Sphere"; 8 = "Partial invisibility"; 16 = "Time Freeze Sphere"; 32 = "Invisibility (not actually usable)"; 64 = "Doom Sphere"; 128 = "Turbo Sphere"; 256 = "Invulnerability Sphere"; }
 
 		//SpawnID 176;
 		+COUNTITEM

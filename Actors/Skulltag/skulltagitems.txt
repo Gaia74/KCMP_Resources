@@ -14,9 +14,9 @@ ACTOR MaxArmorBonus : BasicArmorBonus 5091
 	Inventory.Pickupmessage "$PICKUP_MAXARMORBONUS"
 	Inventory.Icon "ARM1A0"
 	Armor.Savepercent 33.33333
-	Armor.Saveamount 1
+	Armor.Saveamount 2
 	Armor.Maxsaveamount 200
-	Armor.MaxBonus 1
+	Armor.MaxBonus 2
 	Armor.MaxBonusMax 50
 	+COUNTITEM
 	+INVENTORY.ALWAYSPICKUP
