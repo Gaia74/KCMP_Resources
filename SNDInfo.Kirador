@@ -1,0 +1,55 @@
+/////////////////////////////
+//
+// Kirador
+//
+/////////////////////////////
+/* Aún no se han agregado estos archivos
+$Random Kirador/HitMetal { Kirador/Metal1 Kirador/Metal3 }
+Kirador/Metal1				"Sounds/kirador/hlmetal1.wav"
+Kirador/Metal2				"Sounds/kirador/hlmetal2.wav"
+Kirador/Metal3				"Sounds/kirador/hlmetal3.wav"
+Kirador/Metal4				"Sounds/kirador/hlmetal4.wav"
+Kirador/Metal5				"Sounds/kirador/hlmetal5.wav"
+Kirador/Metal6				"Sounds/kirador/hlmetal6.wav"
+$Random Kirador/BurstMetal { Kirador/BurstMetal1 Kirador/BurstMetal2 }
+Kirador/BurstMetal1				"Sounds/kirador/hlbustmetal1.wav"
+Kirador/BurstMetal2				"Sounds/kirador/hlbustmetal2.wav"
+$Volume Kirador/HitMetal 0.6
+
+$Random Kirador/Woodbreak { Kirador/Woodbreak1 Kirador/Woodbreak2 Kirador/Woodbreak3 Kirador/Woodbreak4 }
+Kirador/Woodbreak1		"Sounds/Kirador/KirerWBreak1.ogg"
+Kirador/Woodbreak2		"Sounds/Kirador/KirerWBreak2.ogg"
+Kirador/Woodbreak3		"Sounds/Kirador/KirerWBreak3.ogg"
+Kirador/Woodbreak4		"Sounds/Kirador/KirerWBreak4.ogg"
+
+KTnk/Death	"Sounds/Kirador/KirerBTKDETH.wav"
+KTnk/Loop	"Sounds/Kirador/KirerBTKLOOP.wav"
+$Random KTnk/Pain { KTnk/Pain1 KTnk/Pain2 KTnk/Pain3 }
+KTnk/Pain1	"Sounds/Kirador/KirerBTKPN1.wav"
+KTnk/Pain2	"Sounds/Kirador/KirerBTKPN2.wav"
+KTnk/Pain3	"Sounds/Kirador/KirerBTKPN3.wav"
+$Random KTnk/Sigh { KTnk/Sigh1 KTnk/Sigh2 }
+KTnk/Sigh1	"Sounds/Kirador/KirerBTKSIG1.wav"
+KTnk/Sigh2	"Sounds/Kirador/KirerBTKSIG2.wav"
+
+$Random KiradorMotora { KiradorMotora1 KiradorMotora2 KiradorMotora3 }
+KiradorMotora1		"Sounds/Kirador/KirerMotora1.ogg"
+KiradorMotora2		"Sounds/Kirador/KirerMotora2.ogg"
+KiradorMotora3		"Sounds/Kirador/KirerMotora3.ogg"
+KTnk/GunFire	"Sounds/Kirador/giant_heavy_gunfire.wav"
+KTnk/GunSpin	"Sounds/Kirador/giant_heavy_gunspin.wav"
+KTnk/GunSpindown	"Sounds/Kirador/giant_heavy_gunwinddown.wav"
+KTnk/GunSpinUp	"Sounds/Kirador/giant_heavy_gunwindup.wav"
+
+Kirador/sgun1		qsgun1
+Kirador/r_exp3		qr_exp3
+*/
+Kirador/TripodUse		"Sounds/Kirador/shotgun_cock.wav"
+Kirador/Broc			"Sounds/Kirador/wpn_select.wav"
+$Random Kirador/M60 { Kirador/M601 Kirador/M602 Kirador/M603 Kirador/M604 Kirador/M605 }
+Kirador/M601				"Sounds/Kirador/km60_1.wav"
+Kirador/M602				"Sounds/Kirador/km60_2.wav"
+Kirador/M603				"Sounds/Kirador/km60_3.wav"
+Kirador/M604				"Sounds/Kirador/km60_4.wav"
+Kirador/M605				"Sounds/Kirador/km60_5.wav"
+Kirador/Explode2			"Sounds/Kirador/hl2explode_2.wav"

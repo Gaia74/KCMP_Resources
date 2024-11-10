@@ -1,0 +1,161 @@
+
+Class KiradorEffect : Actor
+{
+	Default
+	{
+		RenderStyle "Add";
+		+NOINTERACTION
+		+CLIENTSIDEONLY
+		+FORCEXYBILLBOARD
+		+NOBLOCKMAP
+		+DONTSPLASH
+		+THRUACTORS
+		+NOTRIGGER
+		//-ACTIVATEPCROSS
+		//-ACTIVATEIMPACT
+		+NOBLOCKMONST
+		+NOTONAUTOMAP
+		+CANNOTPUSH
+		+ROLLSPRITE
+		+DONTGIB
+		+INTERPOLATEANGLES
+		+DONTBLAST
+		+SYNCHRONIZED // begone stupid rng call
+		FloatBobPhase 0;  // begone stupid rng call
+		Radius 0.5;
+		Height 1;
+		Gravity 0.66;
+		Species "VFX";
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 10;
+		Stop;
+	}
+}
+Class KiradorSegment : KiradorEffect
+{
+	Default
+	{
+		+BRIGHT
+		XScale 10;
+		YScale 1;
+	}
+	Override Void Tick()
+	{
+		Actor.Tick();
+	}
+	/*EnvBeamSegment prev, next;
+	Override Void OnDestroy()
+	{
+		if(prev) prev.next=next;
+		if(next && prev) next.prev=prev;
+	}*/
+	//int special1; //index
+	//double specialf11; // interpolated index
+	//double specialf12; // interpolation factor
+	States
+	{
+	Spawn:
+		NULL A -1;
+		Stop;
+	}
+}
+class KiradorLib : Actor Abstract
+{
+	static clearscope vector2 FaceVector(vector3 source, vector3 dest)
+	{
+		Vector3 Diff=Level.Vec3Diff(Dest,Source);
+		double a=VectorAngle(diff.x,diff.y);
+		double p=-VectorAngle(sqrt((diff.x*diff.x)+(diff.y*diff.y)),diff.z);
+		Return (a,p);
+	}
+	static clearscope Bool V3InFOV(Vector3 Source, Vector3 Dest, Vector2 SrcDir, Vector2 FOV)
+	{
+		Vector2 Dir=KiradorLib.FaceVector(Dest,Source);
+		If(abs(actor.deltaangle(SrcDir.X,Dir.X))<=Fov.X && abs(actor.deltaangle(SrcDir.Y,Dir.Y))<=FOV.Y)
+		Return True;
+		Return False;
+	}
+	Static clearscope Vector3 RotatedVec(Vector3 Offs=(0,0,0), Double Angle=0,Double Pitch=0,Double Roll=0)
+	{
+		/*Double Extra=(Offs.X*0.5)*Cos(Pitch);
+		Offs.X+=Extra;
+		Offs.Y*=0.5;*/
+		
+		Vector2 SSS=actor.RotateVector((Offs.Y,Offs.Z),Roll);
+		Offs.Y=SSS.X;
+		Offs.Z=SSS.Y;
+		Vector2 R=actor.RotateVector((Offs.X*Cos(-Pitch) + Sin(Pitch)*Offs.Z,Offs.Y),Angle);
+		Vector3 SpawnOffs=(R,Offs.Z*Cos(Pitch)  +  Offs.X*Sin(-Pitch));
+		Return SpawnOffs;
+	}
+	static clearscope Vector3 Vec3ToDir(Double Speed, Double Angle, Double Pitch)
+	{
+		Return (
+		(Cos(Angle)*Speed)*Cos(Pitch),
+		(Sin(Angle)*Speed)*Cos(Pitch),
+		Sin(-Pitch)*Speed);
+	}
+}
+Class KiradorBulletTracer : KiradorEffect
+{
+	Default
+	{
+		+NOINTERACTION
+		+NOSECTOR +NOBLOCKMAP
+		+NOTRIGGER +BLOODLESSIMPACT
+		+CLIENTSIDEONLY
+	}
+	Override Void Tick()
+	{
+		Super.Tick();
+	}
+	Override Void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if(GetAge() || !Tracer) { Destroy(); Return; }
+		
+		Vector3 EndPos=Tracer.Pos;
+		Vector3 StartPos=Pos;
+		Vector2 Dir=KiradorLib.FaceVector(EndPos,StartPos);
+		Double Dist=(EndPos-StartPos).Length();
+		double stepsize=0.05;
+		for(double i=0;i<1.0;i+=stepsize)
+		{
+			Actor mo=Spawn("KiradorSegment",StartPos+(EndPos-StartPos)*i);
+			mo.A_ChangeModel("",0,"","",0,"","Models/Kirador/tankertracer.png");
+			mo.tics=2;
+			mo.Angle=Dir.X;
+			mo.Pitch=Dir.Y+90;
+			mo.Scale.Y=Dist*stepsize/64;
+			Double Sine=Sin(180*i);
+			mo.Scale.X=4+Sine*Sine*14;
+			mo.Alpha=0.4;
+			//mo.A_SetRenderStyle(0.5*sqrt(i)*sqrt(i)+0.1,STYLE_AddShaded);
+			//mo.SetShade(0xff4a20);
+		}
+		Destroy();
+	}
+}
+Class KiradorTankPuff : BulletPuff
+{
+	Default
+	{
+		+PUFFONACTORS
+		+ALWAYSPUFF
+		+NOBLOCKMONST
+		+NOINTERACTION
+		VSpeed 0;
+		RenderStyle "Normal";
+		Scale 1.5;
+		Decal "Bulletchip";
+	}
+	States
+	{
+	Spawn:
+		POW3 ABCDEFGH 2 Bright;
+		Stop;
+	}
+}

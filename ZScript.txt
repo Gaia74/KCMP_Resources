@@ -1,9 +1,10 @@
+Version "4.10"
+
 #Include "Actors/skulltag/skulltagitems.zsc"
 #Include "Actors/skulltag/skulltagmisc.zsc"
 #Include "Actors/Kirador/Skybox.zsc"
-
-
-
+#Include "Actors/Kirador/KiradorTank.zsc"
+#Include "Actors/Kirador/Tripod.zsc"
 // LoR
 const DOOMRR_INCINERATOR_FLAME_DAMAGE = 5;
 const DOOMRR_INCINERATOR_FLAME_VELOCITY = 40;

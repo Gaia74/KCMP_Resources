@@ -1,0 +1,214 @@
+
+Class KiradorTripod : Actor
+{
+	Default
+	{
+		//$Arg0 "Max turning angle (Left)"
+		//$Arg1 "Max turning angle (Right)"
+		//$Arg2 "Max turning angle (Down)"
+		//$Arg3 "Max turning angle (Up)"
+		Radius 20;
+		Height 32;
+		+NOBLOOD
+		+NODAMAGE
+		+DONTTHRUST
+		+SOLID
+		+SHOOTABLE
+		Mass 0x7fffffff;
+		Decal "Bulletchip";
+	}
+	Double UseAnim;
+	Name LastWeapon;
+	Override Bool Used (Actor user)
+	{
+		if(Distance3D(user)-user.Radius>64 || !user.player) return false;
+		if(master)
+		{
+			if(master!=user)
+			A_StartSound("Kirador/Broc",CHAN_ITEM);
+			return false;
+		}
+		Weapon Pending=user.player.PendingWeapon;
+		user.A_StartSound("Kirador/Broc",CHAN_ITEM);
+		int cheats=user.player.cheats;
+		user.player.cheats|=CF_INSTANTWEAPSWITCH;
+		user.A_GiveInventory("NoWeapon");
+		//user.player.mo.TickPSprites();
+		if(!(user.player.WeaponState & WF_DISABLESWITCH) && (user.player.WeaponState & WF_WEAPONSWITCHOK))
+		{
+			LastWeapon=user.player.ReadyWeapon.GetClassName();
+			let w=Weapon(user.FindInventory("NoWeapon"));
+			user.player.ReadyWeapon=W;
+			A_StartSound("Kirador/TripodUse");
+			Master=User;
+			UseAnim=1.0;
+			ReactionTime=15;
+		}
+		Else
+		{
+			user.player.PendingWeapon=Pending;
+			A_TakeInventory("NoWeapon");
+		}
+		
+		user.player.cheats=cheats;
+		Return True;
+	}
+	Actor Parts[3];
+	Override Void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if(GetAge()) return;
+		for(int i=0;i<3;i++)
+		{
+			Parts[i]=Spawn("KiradorTripodPart",Pos);
+			Parts[i].Angle=Angle;
+		}
+		Parts[0].frame=frame;
+		StartAngle=Angle;
+		CurAngle=Angle;
+		bInvisible=True;
+		MaxAngle=(Args[0],Args[1]);
+		MaxPitch=(Args[2],Args[3]);
+	}
+	Double StartAngle, CurAngle, CurPitch, Recoil;
+	Vector2 MaxAngle, MaxPitch;
+	Override Void Tick()
+	{
+		Super.Tick();
+		for(int i=0;i<3;i++)
+		{
+			Vector3 Pos=Self.Pos;
+			if(!i) Pos.Z+=26;
+			Parts[i].SetOrigin(Pos,true);
+			
+			//Double Angle=Angle;
+			if(i)
+			{
+				Parts[i].Angle=i*90+Angle+45;
+				Parts[i].Pitch=-90;
+			}
+		}
+		Double DesiredAngle;
+		Double DesiredPitch;
+		Parts[0].Angle=CurAngle;
+		Parts[0].Pitch=CurPitch;
+		if(master)
+		{
+			int bt=master.GetPlayerInput(MODINPUT_BUTTONS);
+			if(!reactiontime && (bt & BT_USE) || Distance3D(master)-master.Radius>80 || master.health<1)
+			{
+				master.A_TakeInventory("NoWeapon");
+				master.A_SelectWeapon(LastWeapon);
+				master=null;
+				return;
+			}
+			if(reactiontime) reactiontime--;
+			if(weaponspecial) weaponspecial--;
+			Recoil*=0.7;
+			
+			Vector3 RecoilOffset=KiradorLib.RotatedVec((-Recoil,0,0),CurAngle,CurPitch);
+			
+			if(!weaponspecial && (bt & BT_ATTACK))
+			{
+				weaponspecial=3; //fire rate
+				Recoil=4;
+				A_StartSound("Kirador/M60",CHAN_WEAPON);
+				
+				Vector3 Origin=(40,0,5);
+				Origin=KiradorLib.RotatedVec(Origin,CurAngle,CurPitch);
+				Actor mo=Spawn("KiradorEffect",Pos+Origin+(0,0,26));
+				mo.A_SetRenderStyle(1.0,STYLE_NORMAL);
+				mo.bBright=True;
+				mo.sprite=sprite;
+				mo.frame=Random[kiradorfx](8,11);
+				mo.bXFlip=FRandomPick[kiradorfx](0,1);
+				mo.bYFlip=FRandomPick[kiradorfx](0,1);
+				mo.tics=2;
+				mo.A_AttachLight('Muzzle',DYNAMICLIGHT.PointLight,0x7ffaa20,64,64,0,(0,0,10));
+				//A_QuakeEx(0.25,0.25,0.25,10,0,128,"",QF_SCALEDOWN,falloff:64);
+				
+				Vector3 Orientation=KiradorLib.RotatedVec((-1,0,0)*0.25,CurAngle,CurPitch);
+				master.A_QuakeEx(2,2,2,8,0,1,"",QF_WAVE,Orientation.X,Orientation.Y,Orientation.Z);
+				FTranslatedLineTarget t;
+				target=master;
+				Actor Puff=LineAttack(CurAngle+FRandom(-2,2),PLAYERMISSILERANGE,CurPitch+FRandom(-2,2),25,'Hitscan',"KiradorTankPuff",LAF_TARGETISSOURCE|LAF_OVERRIDEZ,t,32);
+				if(Puff)
+				{
+					//Vector3 Origin=(RotateVector((80,i?80:-75),Angle),150);
+					Actor t=Spawn("KiradorBulletTracer",mo.Pos);
+					t.tracer=Puff;
+				}
+				master.A_AlertMonsters();
+			}
+			Parts[0].SetOrigin(Parts[0].Pos+RecoilOffset,1);
+			
+			if(MaxAngle.X+MaxAngle.Y==0)
+			DesiredAngle=Master.Angle;
+			Else
+			DesiredAngle=StartAngle+Clamp(deltaangle(StartAngle,Master.Angle),-MaxAngle.Y,MaxAngle.X);
+			
+			if(MaxPitch.X+MaxPitch.Y==0)
+			DesiredPitch=Master.Pitch;
+			Else
+			DesiredPitch=Clamp(Master.Pitch,-MaxPitch.Y,MaxPitch.X);
+			
+			DesiredPitch=Clamp(DesiredPitch,-60,60);
+		}
+		else
+		{
+			DesiredAngle=StartAngle;
+			DesiredPitch=0;
+		}
+		CurAngle-=DeltaAngle(DesiredAngle,CurAngle)*0.2;
+		CurPitch-=DeltaAngle(DesiredPitch,CurPitch)*0.2;
+		
+		if(useAnim>0)
+		{
+			useanim-=0.05;
+			Double t=UseAnim;
+			Double ExtraPitch=Sin(360*t)*3;
+			Vector3 ExtraOffset=(-Sin(180*t)*5,0,Sin(360*t)*2);
+			ExtraOffset=KiradorLib.RotatedVec(ExtraOffset,CurAngle,CurPitch);
+			Parts[0].SetOrigin(Parts[0].Pos+ExtraOffset,1);
+			CurPitch-=ExtraPitch;
+		}
+	}
+	States
+	{
+	Spawn:
+		KR00 H -1;
+		Stop;
+	}
+}
+Class KiradorTripodPart : KiradorEffect
+{
+	Default
+	{
+		RenderStyle "Normal";
+		+FLATSPRITE
+		+INTERPOLATEANGLES
+		YScale 1.1;
+	}
+	States
+	{
+	Spawn:
+		KR00 G -1;
+		Stop;
+	}
+}
+Class NoWeapon : Weapon
+{
+	States
+	{
+	Select:
+	Ready:
+		TNT1 A -1;
+		Stop;
+	Deselect:
+		TNT1 A 1 A_Lower(WEAPONBOTTOM);
+		Wait;
+	Fire:
+		TNT1 A 5;
+		Goto Ready;
+	}
+}

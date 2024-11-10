@@ -1,0 +1,39 @@
+/*Model Terreno
+{
+	Model 0 "Models/Kirador/Terreno.obj"
+	Skin 0 "Models/Kirador/Terreno.png"
+	ZOffset -8
+	USEACTORPITCH
+	USEACTORROLL
+	Angleoffset 90
+   
+	FrameIndex NULL A 0 0
+}*/
+
+Model KiradorSegment
+{
+	Path "Models/Kirador"
+	Model 0 "lightning.md3"
+	Scale 1 1 1.2
+	USEACTORPITCH
+
+	Skin 0 "elpepe.png"		FrameIndex NULL A 0 0 //0
+}/*
+Model KiradorTankRocket
+{
+	Path "Models/Kirador"
+	Model 0 "Rocket.md2"
+	Skin 0 "Rocket.png"
+	Scale 2.5 2.5 2.5
+	PITCHFROMMOMENTUM
+	FrameIndex MISL A 0 0
+}*/
+Model KiradorTripodPart
+{
+	Path "Models/Kirador"
+	Model 0 "turret.md3"
+	Skin 0 "turret.png"
+	Scale 10 10 10
+	USEACTORPITCH
+	FrameIndex KR00 H 0 0
+}
