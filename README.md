@@ -40,6 +40,169 @@ So far, this resource pack includes:
   * Shoots 4 green fireballs instead of 2
   * Last attack shoots 5
 
+Here’s the documentation styled to match the example format for GitHub:
+
+---
+
+* SMG Zombie
+  * Health: 50
+  * Attack: 4 consecutive hitscan shots
+
+* Assault Zombie 1 - 3
+  * Health: 70 - 60 - 50
+  * Attack: Consecutive hitscan shots
+
+* Shotgun Zombie 
+  * Health: 75
+  * Attack: Fires a shot that launches 6 hitscan
+
+* Chaingun Zombie
+  * Health: 80
+  * Attack: Faster chaingun zombie but with less dmg
+
+* Plasma Zombie 1
+  * Health: 60
+  * Attack: 4-14 small plasma shots
+
+* Plasma Zombie 2
+  * Health: 75
+  * Attack: 4-17 small plasma shots
+
+* Dark Soldier 1
+  * Health: 70
+  * Attack: Scratches and launches a low-damage projectile
+
+* Dark Soldier 2
+  * Health: 60
+  * Attack: Scratches and launches a low-damage projectile
+
+* Dark Soldier 3
+  * Health: 100
+  * Attack: Scratches and launches a medium-damage projectile
+
+* Dark Soldier 4 (Ghost)
+  * Health: 80
+  * Attack: Scratches, launches a medium-damage seeker projectile
+
+* Forgotten
+  * Health: 100
+  * Attack: A Lost Soul that inflicts damage in area upon death
+
+* Demon Lord
+  * Health: 175
+  * Attack: Bite, is faster than vanilla pinky
+
+* Cyber Demon Lord
+  * Health: 200
+  * Attack: Bite, can make a jump
+
+* Hell Razer
+  * Health: 100
+  * Attack: 3-11 medium-damage pulse balls
+  * Additional: May launch a large, high-damage pulse ball
+
+* Tortured Soul (Ghost)
+  * Health: 150
+  * Attack: Flying creature that launches a medium-damage projectile and poisons
+  * Additional: Can fire a homing projectile
+  * Additional: Releases poison gas upon death
+
+* Hades Sphere
+  * Health: 50
+  * Attack: Kamikaze flyer with area damage (Does not explode if killed)
+  * Additional: Can teleport
+
+* Hades Elemental
+  * Health: 400
+  * Attack: Flying creature that bites and launches 3 medium-damage projectiles
+  * Additional: Can teleport
+  * Additional: Releases a "Hades Sphere" upon death
+
+* Death Bringer
+  * Health: 700
+  * Attack: Flying creature that bites, launches a high-damage projectile, and frequently dodges
+  * Additional: Immune to area damage
+
+* Warlord
+  * Health: 1000
+  * Attack: Scratches and launches a fast, high-damage projectile
+
+* Dark Warlord
+  * Health: 1000
+  * Attack: Scratches, launches a fast, high-damage projectile
+  * Additional: is more aggresive
+
+* Cyber Warlord
+  * Health: 1250
+  * Attack: Scratches, launches a fast, high-damage projectile + mini rockets with area damage
+  * Additional: Deals area damage upon death
+
+* Cyber Dark Warlord
+  * Health: 1250
+  * Attack: Scratches, launches a fast, high-damage projectile + mini rockets with area damage
+  * Additional: Is more aggresive
+  * Additional: Deals area damage upon death
+
+* Diabolist
+  * Health: 700
+  * Attack: An archvile that cannot revive, launches two high-damage, area-effect projectiles on the ground, and a very fast, very high-damage, area-effect projectile
+  * Additional: Leaves a large flame upon death
+
+* Arachnophobia
+  * Health: 625
+  * Attack: Has a charge attack that launches a very fast projectile (low accuracy)
+  * Additional: The longer it charges, the faster and more damaging the projectile becomes
+
+* Flying Arachnophobia
+  * Health: 625
+  * Attack: A flying Arachnophobia that can dodge and deals area damage upon death
+
+* Hellcubus
+  * Health: 650
+  * Attack: Fires 3 bursts of 2 meteors simultaneously (very inaccurate), each with very high damage
+  * Additional: May fire homing meteors
+
+* Kronos (Arena)
+  * Health: 800
+  * Attack: Launches a red sphere that resurrects several enemies
+  * Additional: Can summon any of the previously mentioned monsters
+  * Additional: May launch a high-damage homing projectile
+  * Additional: Immune to area damage
+
+* Kronos (Doom)
+  * Health: 800
+  * Attack: Same as "Kronos (Arena)" but now summons any Doom monster (except bosses)
+
+* The Overlord (Boss)
+  * Health: 3000
+  * Attack: Bites, launches several consecutive high-damage projectiles
+  * Additional: Fires an energy ball that releases multiple projectiles to the sides
+  * Additional: At half health, can summon "Hades Elementals" and "Hades Spheres"
+  * Additional: Can teleport
+  * Additional: Deals area damage upon death
+
+* The Krieger (Boss)
+  * Health: 4000
+  * Attack: Scratches, launches large fireballs with very high damage and area effect
+  * Additional: Fires between 1-3-5 large meteors with very high damage and area effect
+  * Additional: Immune to area damage
+  * Additional: Unaffected by time freeze
+  * Additional: Releases multiple high-damage, area-effect meteors upon death
+
+* The Cerebral Sentient (Boss)
+  * Health: 5000
+  * Attack: A Spider Mastermind with double chaingun, launches consecutive, fast, high-damage plasma projectiles
+  * Additional: Fires an enhanced BFG ball
+  * Additional: At half health, plasma projectiles and BFG turn red, becoming faster and more damaging
+  * Additional: Immune to area damage
+  * Additional: Unaffected by time freeze
+  * Additional: BFG spray does not harm it
+  * Additional: Deals area damage upon death
+
+* The Flying Cerebral Sentient (Boss)
+  * Health: 5000
+  * Attack: Same as "The Cerebral Sentient" but now flies and is slightly more aggressive
+
 ## Weapons
 
   * Minigun (from skulltag)
