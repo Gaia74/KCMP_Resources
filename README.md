@@ -40,10 +40,6 @@ So far, this resource pack includes:
   * Shoots 4 green fireballs instead of 2
   * Last attack shoots 5
 
-Here’s the documentation styled to match the example format for GitHub:
-
----
-
 * SMG Zombie
   * Health: 50
   * Attack: 4 consecutive hitscan shots
