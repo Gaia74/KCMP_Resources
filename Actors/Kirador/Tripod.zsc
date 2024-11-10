@@ -17,11 +17,13 @@ Class KiradorTripod : Actor
 		Mass 0x7fffffff;
 		Decal "Bulletchip";
 	}
+	Override void Activate(Actor activator) { bAmbush=False; }
+	Override void Deactivate(Actor activator) { bAmbush=True; }
 	Double UseAnim;
 	Name LastWeapon;
 	Override Bool Used (Actor user)
 	{
-		if(Distance3D(user)-user.Radius>64 || !user.player) return false;
+		if(bAmbush || Distance3D(user)-user.Radius>64 || !user.player) return false;
 		if(master)
 		{
 			if(master!=user)
@@ -30,10 +32,7 @@ Class KiradorTripod : Actor
 		}
 		Weapon Pending=user.player.PendingWeapon;
 		user.A_StartSound("Kirador/Broc",CHAN_ITEM);
-		int cheats=user.player.cheats;
-		user.player.cheats|=CF_INSTANTWEAPSWITCH;
 		user.A_GiveInventory("NoWeapon");
-		//user.player.mo.TickPSprites();
 		if(!(user.player.WeaponState & WF_DISABLESWITCH) && (user.player.WeaponState & WF_WEAPONSWITCHOK))
 		{
 			LastWeapon=user.player.ReadyWeapon.GetClassName();
@@ -49,8 +48,6 @@ Class KiradorTripod : Actor
 			user.player.PendingWeapon=Pending;
 			A_TakeInventory("NoWeapon");
 		}
-		
-		user.player.cheats=cheats;
 		Return True;
 	}
 	Actor Parts[3];
@@ -64,13 +61,18 @@ Class KiradorTripod : Actor
 			Parts[i].Angle=Angle;
 		}
 		Parts[0].frame=frame;
-		StartAngle=Angle;
-		CurAngle=Angle;
-		bInvisible=True;
 		MaxAngle=(Args[0],Args[1]);
 		MaxPitch=(Args[2],Args[3]);
+		StartAngle=Angle;
+		StartPitch=Clamp(-Pitch,-60,60);
+		DesiredPitch=StartPitch;
+		DesiredAngle=StartAngle;
+		CurAngle=Angle;
+		bInvisible=True;
 	}
-	Double StartAngle, CurAngle, CurPitch, Recoil;
+	Double StartAngle, StartPitch, CurAngle, CurPitch, Recoil;
+	Double DesiredAngle;
+	Double DesiredPitch;
 	Vector2 MaxAngle, MaxPitch;
 	Override Void Tick()
 	{
@@ -88,8 +90,6 @@ Class KiradorTripod : Actor
 				Parts[i].Pitch=-90;
 			}
 		}
-		Double DesiredAngle;
-		Double DesiredPitch;
 		Parts[0].Angle=CurAngle;
 		Parts[0].Pitch=CurPitch;
 		if(master)
@@ -98,6 +98,7 @@ Class KiradorTripod : Actor
 			if(!reactiontime && (bt & BT_USE) || Distance3D(master)-master.Radius>80 || master.health<1)
 			{
 				master.A_TakeInventory("NoWeapon");
+				if(master.health)
 				master.A_SelectWeapon(LastWeapon);
 				master=null;
 				return;
@@ -150,14 +151,15 @@ Class KiradorTripod : Actor
 			if(MaxPitch.X+MaxPitch.Y==0)
 			DesiredPitch=Master.Pitch;
 			Else
-			DesiredPitch=Clamp(Master.Pitch,-MaxPitch.Y,MaxPitch.X);
+			DesiredPitch=StartPitch+Clamp(deltaangle(StartPitch,Master.Pitch),-MaxPitch.Y,MaxPitch.X);
 			
 			DesiredPitch=Clamp(DesiredPitch,-60,60);
 		}
 		else
 		{
-			DesiredAngle=StartAngle;
-			DesiredPitch=0;
+			
+			if(MaxAngle.X+MaxAngle.Y) DesiredAngle=StartAngle;
+			if(MaxPitch.X+MaxPitch.Y) DesiredPitch=StartPitch;
 		}
 		CurAngle-=DeltaAngle(DesiredAngle,CurAngle)*0.2;
 		CurPitch-=DeltaAngle(DesiredPitch,CurPitch)*0.2;
