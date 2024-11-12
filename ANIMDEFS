@@ -247,3 +247,26 @@ switch C2SWC04B off sound Switch2 pic C2SWC04A tics 0
 
 switch C2SWC05A on sound Switch1 pic C2SWC05B tics 0
 switch C2SWC05B off sound Switch2 pic C2SWC05A tics 0
+
+
+//===========================================================================
+//
+//  Madcat
+//
+//===========================================================================
+
+
+switch SW1SMK01 on sound Switch1 pic SW2SMK01 tics 0
+switch SW2SMK01 off sound Switch2 pic SW1SMK01 tics 0
+
+switch SW1SMK02 on sound Switch1 pic SW2SMK02 tics 0
+switch SW2SMK02 off sound Switch2 pic SW1SMK02 tics 0
+
+switch SW1SMK03 on sound Switch1 pic SW2SMK03 tics 0
+switch SW2SMK03 off sound Switch2 pic SW1SMK03 tics 0
+
+switch SW1SMK04 on sound Switch1 pic SW2SMK04 tics 0
+switch SW2SMK04 off sound Switch2 pic SW1SMK04 tics 0
+
+switch SW1SMK05 on sound Switch1 pic SW2SMK05 tics 0
+switch SW2SMK05 off sound Switch2 pic SW1SMK05 tics 0
