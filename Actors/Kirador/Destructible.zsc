@@ -1,0 +1,40 @@
+
+Class KiradorEventHandler : EventHandler
+{
+	Actor Emitter;
+    Override void WorldSectorDamaged(WorldEvent e)
+	{
+		if(e.damage<1 || e.DamageSector.GetHealth(e.DamageSectorPart)<1) return;
+		Sound snd=e.DamageSector.GetUDMFString("user_hitsound");
+		if(!Emitter)
+		Emitter=Actor.Spawn("KiradorEffect",e.DamagePosition);
+		Emitter.SetOrigin(e.DamagePosition,true);
+		Emitter.A_StartSound(snd);
+		Emitter.tics=35;
+		Emitter.bNoTimeFreeze=True;
+		Emitter.bNoInteraction=True;
+		//console.printf("snd="..snd);
+		/*Class<Actor> cls=e.DamageSector.GetUDMFString("user_hiteffect");
+		if(cls)
+		Actor.Spawn(cls,e.DamagePosition,ALLOW_REPLACE);*/
+	}
+    Override void WorldLineDamaged(WorldEvent e)
+	{
+		if(e.damage<1 || e.DamageLine.GetHealth()<1) return;
+		Sound snd=e.DamageLine.GetUDMFString("user_hitsound");
+		if(!Emitter)
+		Emitter=Actor.Spawn("KiradorEffect",e.DamagePosition);
+		Emitter.SetOrigin(e.DamagePosition,true);
+		Emitter.A_StartSound(snd);
+		Emitter.tics=35;
+		Emitter.bNoTimeFreeze=True;
+		Emitter.bNoInteraction=True;
+		//console.printf("snd="..snd);
+		/*Class<Actor> cls=e.DamageLine.GetUDMFString("user_hiteffect");
+		Actor mo;
+		if(cls)
+		mo=Actor.Spawn(cls,e.DamagePosition,ALLOW_REPLACE);
+		if(!mo) return;
+		mo.BlockingLine=e.DamageLine;*/
+	}
+}

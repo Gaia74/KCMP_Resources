@@ -3,7 +3,7 @@
 // Kirador
 //
 /////////////////////////////
-/* Aún no se han agregado estos archivos
+
 $Random Kirador/HitMetal { Kirador/Metal1 Kirador/Metal3 }
 Kirador/Metal1				"Sounds/kirador/hlmetal1.wav"
 Kirador/Metal2				"Sounds/kirador/hlmetal2.wav"
@@ -14,8 +14,17 @@ Kirador/Metal6				"Sounds/kirador/hlmetal6.wav"
 $Random Kirador/BurstMetal { Kirador/BurstMetal1 Kirador/BurstMetal2 }
 Kirador/BurstMetal1				"Sounds/kirador/hlbustmetal1.wav"
 Kirador/BurstMetal2				"Sounds/kirador/hlbustmetal2.wav"
-$Volume Kirador/HitMetal 0.6
+$Volume Kirador/HitMetal 0.5
 
+$Random Kirador/HitWood { Kirador/HitWood1 Kirador/HitWood2 Kirador/HitWood3 }
+Kirador/HitWood1			"Sounds/kirador/hlwood1.wav"
+Kirador/HitWood2			"Sounds/kirador/hlwood2.wav"
+Kirador/HitWood3			"Sounds/kirador/hlwood3.wav"
+
+Kirador/BurstCrate1			"Sounds/kirador/bustcrate1.wav"
+Kirador/BurstCrate2			"Sounds/kirador/bustcrate2.wav"
+
+/* Aún no se han agregado estos archivos
 $Random Kirador/Woodbreak { Kirador/Woodbreak1 Kirador/Woodbreak2 Kirador/Woodbreak3 Kirador/Woodbreak4 }
 Kirador/Woodbreak1		"Sounds/Kirador/KirerWBreak1.ogg"
 Kirador/Woodbreak2		"Sounds/Kirador/KirerWBreak2.ogg"

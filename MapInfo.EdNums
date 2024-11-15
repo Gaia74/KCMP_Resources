@@ -17,3 +17,8 @@ SpawnNums
 {
   176 = "RandomPowerup"
 }
+
+GameInfo 
+{
+	AddEventHandlers = "KiradorEventHandler"
+}
