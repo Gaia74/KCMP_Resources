@@ -162,6 +162,7 @@ class JGP_HeatWaveRipper : Actor
 		+BRIGHT
 		RenderStyle 'Add';
 		Deathsound "DoomRR/heatwave/explode";
+		Damagetype "Fire";
 	}
 
 	States {

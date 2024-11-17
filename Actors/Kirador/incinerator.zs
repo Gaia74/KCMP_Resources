@@ -108,6 +108,7 @@ class JGP_IncineratorFlame : Actor
 		+FORCERADIUSDMG
 		+BRIGHT
 		RenderStyle 'Add';
+		Damagetype "Fire";
 		Alpha 0.75;
 	}
 
