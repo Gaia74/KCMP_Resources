@@ -12,6 +12,39 @@ DoomEdNums
 	906 = "JGP_FuelAmmoLarge"
 	907 = "KiradorTripod"
 	908 = "KiradorParallaxSkyBox"
+	
+	
+	
+		15000 = FishyPlatformNode
+	15001 = FishyPlatformGeneric
+
+	//Demomap
+	15100 = DemoCavePlat
+	15101 = DemoTwistingLift
+	15102 = DemoSpinningSegment1
+	15103 = DemoSpinningSegment2
+	15104 = DemoSlidingFloor
+	15105 = DemoWobblyMeatFloor
+	15106 = DemoWobblyMeatFloorNoEyes
+	15107 = DemoFirebluSegment
+	15108 = DemoFirebluSegmentTiny
+	15109 = DemoDiabolicalCube
+
+	//Testmap
+	15500 = TESTMooPlatform
+	15501 = TESTFloaty
+	15502 = TESTFlyingDoor
+	15503 = TESTSprite
+	15504 = TESTBlueishPlatform
+	15505 = TESTPushCrate
+	15506 = TESTTorchZombo	//This is not a platform
+	15507 = TESTPushable1	//Ditto
+	15508 = TESTPushable2	//Ditto
+	15509 = TESTNoDeathSeq	//Ditto
+	15510 = TESTNastyHeart
+	15511 = TESTCybie
+	
+	
 }
 SpawnNums
 {
@@ -22,3 +55,21 @@ GameInfo
 {
 	AddEventHandlers = "KiradorEventHandler"
 }
+
+
+map fMAP01 "Fishy's 3D Platforms: Demo" { Music = D_ROMERO }
+map fTEST01 "A very crappy test map" { UsePlayerStartZ }
+map fTEST02 "Stress test" {}
+map fTEST03 "Another crappy test map" {}
+map fVMABORT "Don't do that! test" {}
+map fSPEED "Platform racing" {}
+map fPLATATAK "Fireblu Heartache" {}
+
+episode TESTMAP { name = "KCMP Resources test" }
+episode fMAP01 { name = "3D Plats Demo map" }
+episode fTEST01 { name = "3D Plats Test map #1" }
+episode fTEST03 { name = "3D Plats Test map #2" }
+episode fTEST02 { name = "3D Plats Stress test" }
+episode fSPEED { name = "3D Plats Speed test" }
+episode fPLATATAK { name = "3D Plats Hostile test" }
+episode fVMABORT { name = "3D Plats VM abort test" }

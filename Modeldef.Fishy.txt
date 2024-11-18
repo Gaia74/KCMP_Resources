@@ -1,0 +1,167 @@
+Model TESTMooPlatform
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "MooPlatform.obj"
+	Offset 0 0 -32
+	AngleOffset 90
+	RollOffset 45
+	FrameIndex MODL A 0 0
+}
+
+Model TESTFloaty
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "Floaty.obj"
+	AngleOffset 90
+	FrameIndex MODL A 0 0
+}
+
+Model TESTFlyingDoor
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "FlyingDoor.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model TESTBlueishPlatform
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "TESTBlueishPlatform.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model TESTPushCrate
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "TESTPushCrate.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model DemoCavePlat
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoCavePlat.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model DemoTwistingLift
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoTwistingLift.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model DemoSpinningSegment1
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoSpinningSegment1.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model DemoSpinningSegment2
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoSpinningSegment2.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model DemoSlidingFloor
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoSlidingFloor.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model DemoWobblyMeatFloor
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoWobblyMeatFloorA.obj"
+	FrameIndex MODL A 0 0
+	Model 1 "DemoWobblyMeatFloorB.obj"
+	FrameIndex MODL B 1 0
+}
+
+Model DemoWobblyMeatFloorNoEyes
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoWobblyMeatFloorC.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model DemoFirebluSegment
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoFirebluSegment.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model DemoFirebluSegmentTiny
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoFirebluSegment.obj"
+	FrameIndex MODL A 0 0
+}
+
+Model TESTNastyHeart
+{
+	USEACTORPITCH
+	USEACTORROLL
+
+	Path "models"
+	Model 0 "DemoFirebluSegment.obj"
+	FrameIndex MODL A 0 0
+}
+
+//This actor needs a modeldef entry or else
+//it can't use A_ChangeModel() properly.
+Model FishyPlatformGeneric
+{
+	USEACTORPITCH	//This along with FrameIndex
+	USEACTORROLL	//is all that GZDoom needs.
+
+	Path "models"	//While UDB needs an actual model defined.
+	Model 0 "generic-platform.obj"
+	FrameIndex MODL A 0 0
+}

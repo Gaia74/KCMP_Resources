@@ -1,0 +1,384 @@
+#library "fplat"
+#include "zcommon.acs"
+
+// All that's here are wrapper functions for the ACS utility functions of the FishyPlatform class.
+// This allows for neater ACS code, but otherwise isn't essential at all.
+// So instead of
+// ScriptCall("FishyPlatform", "DoThing", a, b, c);
+// You'd use
+// FishyPlat_DoThing(a, b, c);
+//
+// Please note that "double" in ZScript are fixed point numbers in ACS.
+// Meaning while 0 is interpreted as 0.0, 90 is NOT interpreted as 90.0
+//
+// Also, ACS functions can't be defined with arguments that have default values
+// so to make this work there will be multiple functions that call the same
+// function from FishyPlatform. There is deliberate redundancy.
+// (Yes, this was compiled with acc.exe)
+//
+// Lastly, the order of arguments here may not match the order of arguments
+// of the function being ScriptCall()'d. See FishyPlat_MoveAndRotate().
+
+
+//Bitfield values to be used with FishyPlat_SetOptions() and FishyPlat_GetOptions().
+//These are the same as the ones in platform-base.zs sans the FPLAT_ prefix.
+#libdefine FPLAT_OPTFLAG_LINEAR			1
+#libdefine FPLAT_OPTFLAG_ANGLE			(1<<1)
+#libdefine FPLAT_OPTFLAG_PITCH			(1<<2)
+#libdefine FPLAT_OPTFLAG_ROLL			(1<<3)
+#libdefine FPLAT_OPTFLAG_FACEMOVE		(1<<4)
+#libdefine FPLAT_OPTFLAG_IGNOREGEO		(1<<5)
+#libdefine FPLAT_OPTFLAG_STARTACTIVE	(1<<6)
+#libdefine FPLAT_OPTFLAG_MIRROR			(1<<7)
+#libdefine FPLAT_OPTFLAG_ADDVELJUMP		(1<<8)
+#libdefine FPLAT_OPTFLAG_ADDVELSTOP		(1<<9)
+#libdefine FPLAT_OPTFLAG_GOTONODE		(1<<10)
+#libdefine FPLAT_OPTFLAG_RESUMEPATH		(1<<11)
+#libdefine FPLAT_OPTFLAG_HURTFULPUSH	(1<<12)
+#libdefine FPLAT_OPTFLAG_NOPITCHROLL	(1<<13)
+#libdefine FPLAT_OPTFLAG_PASSCANPUSH	(1<<14)
+#libdefine FPLAT_OPTFLAG_DIFFPASSCOLL	(1<<15)
+#libdefine FPLAT_OPTFLAG_PASSCANCROSS	(1<<16)
+#libdefine FPLAT_OPTFLAG_REALTIMEBMAP	(1<<17)
+
+function void FishyPlat_Move (int platTid, int/*fixed*/ x, int/*fixed*/ y, int/*fixed*/ z, bool exactPos, int travelTime)
+{
+	/*********************************************************************************
+	**Moves all platforms with tid "platTid"**
+
+	- platTid = TID of the platform(s) to move. if 0 then this is the script activator.
+
+	- x/y/z = See exactPos.
+
+	- exactPos = if "false" x/y/z are offsets from the platform's current position.
+	  If "true" x/y/z are absolute map coordinates to move to.
+
+	- travelTime = How many tics until platform completes the move.
+	  if this is a negative number then this is speed in map units per tic instead.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncMove", platTid, x, y, z, exactPos, travelTime);
+}
+
+function void FishyPlat_Rotate (int platTid, int/*fixed*/ ang, int/*fixed*/ pi, int/*fixed*/ ro, bool exactAngs, int travelTime)
+{
+	/*********************************************************************************
+	**Rotates all platforms with tid "platTid"**
+
+	- platTid = TID of the platform(s) to rotate. if 0 then this is the script activator.
+
+	- ang/pi/ro = See exactAngs.
+
+	- exactAngs = if "false" ang/pi/ro are offsets.
+	  If "true" ang/pi/ro are exact values.
+
+	  Note: if "true" the platform will take the shortest rotation direction until its
+	  angle/pitch/roll matches the given values. If "false" the rotation direction is maintained.
+
+	  Eg. if "false" and "ang" is 360.0, platform will rotate 360 degrees counterclockwise,
+	  while -360.0 will rotate 360 degrees clockwise.
+
+	  In addition, the FPLAT_OPTFLAG_FACEMOVE (face movement direction) option in combination
+	  with the FPLAT_OPTFLAG_ANGLE/PITCH/ROLL options takes precedence over any rotations
+	  on the affected axes.
+
+	- travelTime = How many tics until platform completes the rotation.
+	  if this is a negative number then this is speed in map units per tic instead.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncMove", platTid, 0, 0, 0, false, travelTime, ang, pi, ro, exactAngs);
+}
+
+function void FishyPlat_MoveAndRotate (int platTid, int/*fixed*/ x, int/*fixed*/ y, int/*fixed*/ z, bool exactPos, int/*fixed*/ ang, int/*fixed*/ pi, int/*fixed*/ ro, bool exactAngs, int travelTime)
+{
+	/*********************************************************************************
+	**Moves and/or rotates all platforms with tid "platTid"**
+
+	- platTid = TID of the platform(s) to move/rotate. if 0 then this is the script activator.
+
+	- x/y/z = See exactPos.
+
+	- exactPos = if "false" x/y/z are offsets from the platform's current position.
+	  If "true" x/y/z are absolute map coordinates to move to.
+
+	- ang/pi/ro = See exactAngs.
+
+	- exactAngs = if "false" ang/pi/ro are offsets.
+	  If "true" ang/pi/ro are exact values.
+
+	  Note: if "true" the platform will take the shortest rotation direction until its
+	  angle/pitch/roll matches the given values. If "false" the rotation direction is maintained.
+
+	  Eg. if "false" and "ang" is 360.0, platform will rotate 360 degrees counterclockwise,
+	  while -360.0 will rotate 360 degrees clockwise.
+
+	  In addition, the FPLAT_OPTFLAG_FACEMOVE (face movement direction) option in combination
+	  with the FPLAT_OPTFLAG_ANGLE/PITCH/ROLL options takes precedence over any rotations
+	  on the affected axes.
+
+	- travelTime = How many tics until platform completes the move and/or rotation.
+	  if this is a negative number then this is speed in map units per tic instead.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncMove", platTid, x, y, z, exactPos, travelTime, ang, pi, ro, exactAngs);
+}
+
+function void FishyPlat_MoveToSpot (int platTid, int spotTid, int travelTime)
+{
+	/*********************************************************************************
+	**Moves all platforms with tid "platTid" to the first found actor with tid "spotTid" (eg. MapSpot).**
+
+	- platTid = TID of the platform(s) to move. if 0 then this is the script activator.
+
+	- spotTid = TID of actor to move to. if 0 then this is the script activator.
+
+	- travelTime = How many tics until platform completes the move.
+	  if this is a negative number then this is speed in map units per tic instead.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncMoveToSpot", platTid, spotTid, travelTime, true);
+}
+
+function void FishyPlat_MoveToSpotAndRotate (int platTid, int spotTid, int travelTime)
+{
+	/*********************************************************************************
+	**Moves all platforms with tid "platTid" to the first found actor with tid "spotTid" (eg. MapSpot).
+	The platforms will also rotate (the shortest direction) to match the spot's angle/pitch/roll.**
+
+	- platTid = TID of the platform(s) to move/rotate. if 0 then this is the script activator.
+
+	- spotTid = TID of actor to move to and match its angle/pitch/roll. if 0 then this is the script activator.
+
+	  Regarding rotations, the FPLAT_OPTFLAG_FACEMOVE (face movement direction) option in combination
+	  with the FPLAT_OPTFLAG_ANGLE/PITCH/ROLL options takes precedence over any rotations
+	  on the affected axes.
+
+	- travelTime = How many tics until platform completes the move and/or rotation.
+	  if this is a negative number then this is speed in map units per tic instead.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncMoveToSpot", platTid, spotTid, travelTime, false);
+}
+
+function bool FishyPlat_IsActive (int platTid)
+{
+	/*********************************************************************************
+	**Returns "true" when it finds the first active platform with tid "platTid",
+	otherwise returns "false". Being "active" also implies velocity based movement. (eg. being pushed)
+	(Please note if the platform is in a group then what's actually checked is the group origin.)**
+
+	- platTid = TID of the platform to check. if 0 then this is the script activator.
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncIsActive", platTid);
+}
+
+function bool FishyPlat_HasMoved (int platTid, bool posOnly)
+{
+	/*********************************************************************************
+	**Returns "true" when it finds the first active platform with tid "platTid" that has moved since last tic,
+	otherwise returns "false". Being "active" also implies velocity based movement. (eg. being pushed)
+	(Please note if the platform is in a group then what's actually checked is the group origin.)**
+
+	- platTid = TID of the platform to check. if 0 then this is the script activator.
+
+	- posOnly = if true, only checks if position has changed since last tic.
+	  If false, checks if position/angle/pitch/roll has changed since last tic.
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncHasMoved", platTid, posOnly);
+}
+
+function void FishyPlat_SetNodePath (int platTid, int nodeTid)
+{
+	/*********************************************************************************
+	**Finds all platforms with tid "platTid" and makes them target the first found
+	interpolation point with tid "nodeTid". Specifically, this is the path to follow when Thing_Activate()-ing
+	the platform. It won't stop/change an active platform.**
+
+	- platTid = TID of the platform(s) whose path to set. If 0 then this is the script activator.
+
+	- nodeTid = TID of the interpolation point for platform(s) to target.
+
+	NOTE: When SetNodePath and SetOptions are used together, SetOptions should be called first.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncSetNodePath", platTid, nodeTid);
+}
+
+function void FishyPlat_SetOptions (int platTid, int toSet, int toClear)
+{
+	/*********************************************************************************
+	**Finds all platforms with tid "platTid" and sets and/or clears their options (thing argument 2).**
+
+	- platTid = TID of the platform(s) whose options to set/clear. If 0 then this is the script activator.
+
+	- toSet = the option-flags (bitfield) to set. (Please use the FPLAT_OPTFLAG_* macros, see above.)
+
+	- toClear = the option-flags (bitfield) to clear.
+
+	NOTE: When SetNodePath and SetOptions are used together, SetOptions should be called first.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncSetOptions", platTid, toSet, toClear);
+}
+
+function int FishyPlat_GetOptions (int platTid)
+{
+	/*********************************************************************************
+	**Finds the first platform with tid "platTid" and returns its options. (This is a bitfield).**
+
+	- platTid = TID of the platform whose options to get. If 0 then this is the script activator.
+
+	NOTE: If checking the script activator and it's not a platform class, this returns 0.
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncGetOptions", platTid);
+}
+
+function void FishyPlat_SetCrushDamage (int platTid, int damage)
+{
+	/*********************************************************************************
+	**Finds all platforms with tid "platTid" and sets their crush damage.**
+
+	- platTid = TID of the platform(s) whose damage to set. If 0 then this is the script activator.
+
+	- damage = the crush damage to set.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncSetCrushDamage", platTid, damage);
+}
+
+function int FishyPlat_GetCrushDamage (int platTid)
+{
+	/*********************************************************************************
+	**Finds the first platform with tid "platTid" and returns its crush damage.**
+
+	- platTid = TID of the platform whose crush damage to get. If 0 then this is the script activator.
+
+	NOTE: If checking the script activator and it's not a platform class, this returns 0.
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncGetCrushDamage", platTid);
+}
+
+function void FishyPlat_MakeGroup (int platTid, int otherPlatTid)
+{
+	/*********************************************************************************
+	**Find all platforms with tid "platTid" and all platforms with tid "otherPlatTid" and groups them together.**
+
+	- platTid = TID of the first platform(s) to group. If 0 then this is the script activator.
+
+	- otherPlatTid = TID of the other platform(s) to group. If 0 then this is the script activator.
+
+	NOTE: If each platform already belongs to their own group, those two groups end up
+	merging together. Meaning all members of group A will join with all members of group B.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncMakeGroup", platTid, otherPlatTid);
+}
+
+function void FishyPlat_LeaveGroup (int platTid)
+{
+	/*********************************************************************************
+	**Find all platforms with tid "platTid" and makes them leave their group.**
+
+	- platTid = TID of the platform(s) who will leave its/their group(s). If 0 then this is the script activator.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncLeaveGroup", platTid);
+}
+
+function void FishyPlat_DisbandGroup (int platTid)
+{
+	/*********************************************************************************
+	**Find all platforms with tid "platTid" and disbands their group.**
+
+	- platTid = TID of the platform(s) whose group(s) will disband. If 0 then this is the script activator.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncDisbandGroup", platTid);
+}
+
+function void FishyPlat_SetAirFriction (int platTid, int/*fixed*/ fric)
+{
+	/*********************************************************************************
+	**Finds all platforms with tid "platTid" and sets their "AirFriction" property.**
+
+	- platTid = TID of the platform(s) whose "AirFriction" to set. If 0 then this is the script activator.
+
+	- fric = The friction to set.
+	*********************************************************************************/
+	ScriptCall("FishyPlatform", "ACSFuncSetAirFriction", platTid, fric);
+}
+
+function int/*fixed*/ FishyPlat_GetAirFriction (int platTid)
+{
+	/*********************************************************************************
+	**Finds the first platform with tid "platTid" and returns its "AirFriction" property.**
+
+	- platTid = TID of the platform whose "AirFriction" to get. If 0 then this is the script activator.
+
+	NOTE: If checking the script activator and it's not a platform class, this returns 0.
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncGetAirFriction", platTid);
+}
+
+function bool FishyPlat_HasPassenger (int platTid, int passTid)
+{
+	/*********************************************************************************
+	**Returns "true" if any platform with "platTid" has a passenger with "passTid".**
+
+	- platTid = TID of the platform(s) whose passengers to check. If 0 then this is the script activator.
+
+	- passTid = TID of the passanger(s) to check for. If 0 then this is the script activator.
+
+	NOTE: If both TIDs are zero then this returns "false". (A platform can't be its own passenger.)
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncHasPassenger", platTid, passTid);
+}
+
+function int FishyPlat_Interpolate (int platTid, int/*fixed*/ time, bool teleMove)
+{
+	/*********************************************************************************
+	** For each platform with "platTid", sets the platform's position to a point between its current pair of interpolation points.
+	(The platform's angle/pitch/roll will likewise change depending on its options.)
+	Returns how many platforms have moved successfully.**
+
+	- platTid = TID of the platform(s) whose position to set. If 0 then this is the script activator.
+
+	- time = Determines where the platform(s) should be. The accepted range is from 0.0 to 1.0
+	0.0 represents the "current" interpolation point's location (as well as angle/pitch/roll - depending on platform's options)
+	1.0 represents the "next" interpolation point's location (as well as angle/pitch/roll - depending on platform's options)
+	So a value of 0.5 would be at the middle between the two points.
+
+	- teleMove = If true the platform will teleport to its new position.
+	If false it will try to get there "normally."
+	(The subtle difference is a telemove won't care about obstacles between
+	where the platform currently is and where it's supposed to end up.)
+
+	NOTE: The interpolation data is set internally so it's possible to use this function
+	after using any of the Move/Rotate/MoveAndRotate() functions.
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncInterpolate", platTid, time, teleMove);
+}
+
+function int FishyPlat_NextNode (int platTid)
+{
+	/*********************************************************************************
+	** For each platform with "platTid", sets the platform's "current" interpolation point to its "next" interpolation point.
+	(Does nothing if there is no "next" point.)
+	Returns how many platforms have switched to their "next" point.**
+
+	- platTID = TID of the platform(s) who will switch to the "next" point. If 0 then this is the script activator.
+
+	NOTE: The following applies for non-looping paths:
+	If the "next" point is the last one then it won't switch.
+	If the path is a spline and the point after the "next" point is the last one then it won't switch.
+
+	NOTE: Switching interpolation points will not trigger interpolation specials.
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncNextNode", platTid);
+}
+
+function int FishyPlat_PrevNode (int platTid)
+{
+	/*********************************************************************************
+	** For each platform with "platTid", sets the platform's "current" interpolation point to its "previous" interpolation point.
+	(Does nothing if there is no "previous" point.)
+	Returns how many platforms have switched to their "previous" point.**
+
+	- platTID = TID of the platform(s) who will switch to the "previous" point. If 0 then this is the script activator.
+
+	NOTE: The following applies for non-looping paths:
+	If the path is a spline and the "previous" point is the first one then it won't switch.
+
+	NOTE: Switching interpolation points will not trigger interpolation specials.
+	*********************************************************************************/
+	return ScriptCall("FishyPlatform", "ACSFuncPrevNode", platTid);
+}
