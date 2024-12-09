@@ -1,0 +1,111 @@
+//===========================================================================
+//
+//  Guardian Cube
+//
+//===========================================================================
+
+ACTOR Torm_GuardianCube 1240
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Guardian Cube"
+	
+    Health 30
+    Mass 150
+    Speed 9
+    Radius 16
+    Height 32
+	Scale 0.75
+    PainChance 0
+    SeeSound "Torm_GuardianCube/Sight"
+    ActiveSound "Torm_GuardianCube/Active"
+    DeathSound "Torm_GuardianCube/Death"
+    Obituary "%o got fried by a Guardian Cube."
+    Species "Dark"
+	Monster
+	
+	DamageFactor "Fire2", 0.0
+	
+	+FLOAT
+	+NOPAIN
+	+NOBLOOD
+	+DONTFALL
+    +NOGRAVITY
+	+NOICEDEATH
+    +QUICKTORETALIATE
+	
+    States
+    {
+    Spawn:
+        D200 ABC 4  A_Look
+        Loop
+    See:
+		D200 ABC 4 A_Chase
+        Loop
+    Missile:  
+        D200 D 5 A_FaceTarget 
+		D200 D 0 A_PlaySound("Torm_GuardianCube/Shot")
+        D200 E 0 A_CustomMissile("Torm_GuardianCubeBall",10,4,0,1)
+        D200 E 4 Bright A_CustomMissile("Torm_GuardianCubeBall",10,-4,0,1)
+        D200 D 4 A_FaceTarget 
+		D200 D 0 A_PlaySound("Torm_GuardianCube/Shot")
+        D200 E 0 A_CustomMissile("Torm_GuardianCubeBall",10,4,0,1)
+        D200 E 4 Bright A_CustomMissile("Torm_GuardianCubeBall",10,-4,0,1)
+        D200 D 4 A_FaceTarget  
+		D200 D 0 A_PlaySound("Torm_GuardianCube/Shot")
+        D200 E 0 A_CustomMissile("Torm_GuardianCubeBall",10,4,0,1)
+        D200 E 4 Bright A_CustomMissile("Torm_GuardianCubeBall",10,-4,0,1)
+        D200 D 4 A_FaceTarget
+		Goto See
+    Death:    
+        D200 E 5 Bright A_Scream 
+	    D200 F 5 Bright A_NoBlocking
+        D200 G 5 Bright A_SetFloorClip
+        D200 HI 5 Bright
+        Stop 
+    }
+}
+
+ACTOR Torm_GuardianCubeBall
+{
+    Radius 5
+    Height 5
+    Speed 17
+    FastSpeed 22
+    Damage 1
+    Alpha 0.85
+    Projectile
+    RenderStyle Add
+    DeathSound "Torm_GuardianCube/Hit"
+    Decal "RailScorchLower"
+	
+    States
+    {
+    Spawn:	    	    
+        D201 AB 3 Bright A_SpawnItem("Torm_GuardianCubeBallPuff", 0, 0)
+        Loop
+    Death:
+        D201 CDEFG 3 Bright
+        Stop
+    }
+}
+
+ACTOR Torm_GuardianCubeBallPuff
+{   
+    Radius 2
+    Height 2
+    Speed 0
+    Scale 1.0
+    Alpha 0.67
+    Projectile
+    Renderstyle Add
+	
+    +CLIENTSIDEONLY
+	
+    States
+    {
+    Spawn:
+        D201 HIJ 3 Bright
+        Stop 
+    }
+}

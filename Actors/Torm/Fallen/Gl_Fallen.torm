@@ -1,0 +1,230 @@
+FlickerLight TORM_FALLEN_FX1
+{
+    Color 1.0 1.0 0.0
+    Size 78
+    SecondarySize 86
+    Chance 0.4
+    Offset 0 32 0
+	attenuate 1
+}
+
+FlickerLight TORM_FALLEN_FX2
+{
+    Color 1.0 1.0 0.0
+    Size 84
+    SecondarySize 90
+    Chance 0.4
+    Offset 0 32 0
+	attenuate 1
+}
+
+FlickerLight TORM_FALLEN_FX3
+{
+    Color 1.0 1.0 0.0
+    Size 66
+    SecondarySize 62
+    Chance 0.4
+    Offset 0 32 0
+	attenuate 1
+}
+
+FlickerLight TORM_FALLEN_FX4
+{
+    Color 1.0 1.0 0.0
+    Size 78
+    SecondarySize 48
+    Chance 0.4
+    Offset 0 32 0
+	attenuate 1
+}
+
+FlickerLight TORM_FALLEN_FX5
+{
+    Color 1.0 1.0 0.0
+    Size 56
+    SecondarySize 35
+    Chance 0.4
+    Offset 0 32 0
+	attenuate 1
+}
+
+Object Torm_Fallen
+{
+	Frame D243A { Light TORM_FALLEN_FX1 }
+	Frame D243B { Light TORM_FALLEN_FX1 }
+	Frame D243C { Light TORM_FALLEN_FX1 }
+	Frame D243D { Light TORM_FALLEN_FX1 }
+	Frame D243E { Light TORM_FALLEN_FX2 }
+	Frame D243F { Light TORM_FALLEN_FX2 }
+	Frame D243G { Light TORM_FALLEN_FX1 }
+	Frame D243H { Light TORM_FALLEN_FX3 }
+	Frame D243I { Light TORM_FALLEN_FX4 }
+	Frame D243J { Light TORM_FALLEN_FX5 }
+}
+
+Object Torm_FallenShot
+{
+    Frame D244A { Light TORM_HIEROPHANTBALL1_FX1 }
+    Frame D244B { Light TORM_HIEROPHANTBALL1_FX1 }
+    Frame D244J { Light TORM_HIEROPHANTBALL1_FX2 }
+    Frame D244K { Light TORM_HIEROPHANTBALL1_FX3 }
+    Frame D244L { Light TORM_HIEROPHANTBALL1_FX4 }
+    Frame D244M { Light TORM_HIEROPHANTBALL1_FX5 }
+    Frame D244N { Light TORM_HIEROPHANTBALL1_FX6 }
+}
+
+Object Torm_FallenHornShot
+{
+    Frame D233A { Light TORM_HORNBEASTBALL_FX }
+    Frame D233B { Light TORM_HORNBEASTBALL_FX }
+	
+    Frame D234A { Light TORM_HORNBEASTBALL_FX1 }
+    Frame D234B { Light TORM_HORNBEASTBALL_FX1 }
+    Frame D234C { Light TORM_HORNBEASTBALL_FX1 }
+    Frame D234D { Light TORM_HORNBEASTBALL_FX1 }
+    Frame D234E { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234F { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234G { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234H { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234I { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234J { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234K { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234L { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234M { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234N { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234O { Light TORM_HORNBEASTBALL_FX4 }
+    Frame D234P { Light TORM_HORNBEASTBALL_FX4 }
+    Frame D234Q { Light TORM_HORNBEASTBALL_FX4 }
+    Frame D234R { Light TORM_HORNBEASTBALL_FX4 }
+    Frame D234S { Light TORM_HORNBEASTBALL_FX4 }
+}
+
+Pointlight TORM_FALLENFIRE_FX
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 25
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX2
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 35
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX3
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 55
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX4
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 54
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX5
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 52
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX6
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 50
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX7
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 45
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX8
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 40
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX9
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 35
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX10
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 25
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX11
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 24
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX12
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 13
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX13
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 12
+	attenuate 1
+}
+
+Pointlight TORM_FALLENFIRE_FX14
+{
+    Color 1.0 0.5 0.0
+    Offset 0 8 0
+    Size 11
+	attenuate 1
+}
+
+Object Torm_FallenFire2
+{
+    Frame D247A { Light TORM_FALLENFIRE_FX1 }
+    Frame D247B { Light TORM_FALLENFIRE_FX2 }
+    Frame D247C { Light TORM_FALLENFIRE_FX3 }
+    Frame D247D { Light TORM_FALLENFIRE_FX4 }
+    Frame D247E { Light TORM_FALLENFIRE_FX5 }
+    Frame D247F { Light TORM_FALLENFIRE_FX6 }
+    Frame D247G { Light TORM_FALLENFIRE_FX7 }
+    Frame D247H { Light TORM_FALLENFIRE_FX8 }
+    Frame D247I { Light TORM_FALLENFIRE_FX9 }
+    Frame D247J { Light TORM_FALLENFIRE_FX10 }
+    Frame D247K { Light TORM_FALLENFIRE_FX11 }
+    Frame D247L { Light TORM_FALLENFIRE_FX12 }
+    Frame D247M { Light TORM_FALLENFIRE_FX13 }
+    Frame D247N { Light TORM_FALLENFIRE_FX14 }
+}

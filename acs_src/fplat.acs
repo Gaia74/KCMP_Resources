@@ -382,3 +382,4 @@ function int FishyPlat_PrevNode (int platTid)
 	*********************************************************************************/
 	return ScriptCall("FishyPlatform", "ACSFuncPrevNode", platTid);
 }
+

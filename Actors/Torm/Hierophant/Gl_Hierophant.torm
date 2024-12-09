@@ -1,0 +1,188 @@
+Pointlight TORM_HIEROPHANT_FX
+{
+    Color 1.0 1.0 0.3
+    Size 66
+    Offset 64 48 0
+	attenuate 1
+}
+
+Object Torm_Hierophant1
+{
+    Frame D237N { Light TORM_HIEROPHANT_FX }
+}
+
+Object Torm_Hierophant2
+{
+    Frame D237N { Light TORM_HIEROPHANT_FX }
+}
+
+Pointlight TORM_HIEROPHANTBALL1_FX1
+{
+    Color 0.6 0.5 0.0
+    Size 50
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL1_FX2
+{
+    Color 0.8 0.7 0.0
+    Size 50
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL1_FX3
+{
+    Color 0.8 0.7 0.0
+    Size 58
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL1_FX4
+{
+    Color 0.6 0.5 0.0
+    Size 62
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL1_FX5
+{
+    Color 0.4 0.3 0.0
+    Size 66
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL1_FX6
+{
+    Color 0.2 0.1 0.0
+    Size 66
+	attenuate 1
+}
+
+Object Torm_HierophantBall1
+{
+    Frame D238A { Light TORM_HIEROPHANTBALL1_FX1 }
+    Frame D238B { Light TORM_HIEROPHANTBALL1_FX1 }
+    Frame D238C { Light TORM_HIEROPHANTBALL1_FX2 }
+    Frame D238D { Light TORM_HIEROPHANTBALL1_FX3 }
+    Frame D238E { Light TORM_HIEROPHANTBALL1_FX4 }
+    Frame D238F { Light TORM_HIEROPHANTBALL1_FX5 }
+    Frame D238G { Light TORM_HIEROPHANTBALL1_FX6 }
+}
+
+Pointlight TORM_HIEROPHANTBALL2_FX1
+{
+    Color 1.0 1.0 0.4
+    Size 42
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL2_FX2
+{
+    Color 0.9 0.9 0.3
+    Size 40
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL2_FX3
+{
+    Color 0.8 0.8 0.2
+    Size 38
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL2_FX4
+{
+    Color 0.7 0.7 0.1
+    Size 36
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL2_FX5
+{
+    Color 0.6 0.6 0.0
+    Size 34
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL2_FX6
+{
+    Color 0.5 0.5 0.0
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL2_FX7
+{
+    Color 0.4 0.4 0.0
+    Size 30
+	attenuate 1
+}
+
+Object Torm_HierophantBall2
+{
+    Frame D239A { Light TORM_HIEROPHANTBALL2_FX1 }
+    Frame D239B { Light TORM_HIEROPHANTBALL2_FX1 }
+    Frame D239C { Light TORM_HIEROPHANTBALL2_FX1 }
+    Frame D239D { Light TORM_HIEROPHANTBALL2_FX1 }
+    Frame D239E { Light TORM_HIEROPHANTBALL2_FX2 }
+    Frame D239F { Light TORM_HIEROPHANTBALL2_FX3 }
+    Frame D239G { Light TORM_HIEROPHANTBALL2_FX4 }
+    Frame D239H { Light TORM_HIEROPHANTBALL2_FX5 }
+    Frame D239I { Light TORM_HIEROPHANTBALL2_FX6 }
+    Frame D239J { Light TORM_HIEROPHANTBALL2_FX7 }
+}
+
+Pointlight TORM_HIEROPHANTBALL3_FX1
+{
+    Color 0.7 0.0 0.7
+    Size 66
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL3_FX2
+{
+    Color 0.6 0.0 0.6
+    Size 64
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL3_FX3
+{
+    Color 0.6 0.0 0.6
+    Size 62
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL3_FX4
+{
+    Color 0.5 0.0 0.5
+    Size 58
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL3_FX5
+{
+    Color 0.4 0.0 0.4
+    Size 54
+	attenuate 1
+}
+
+Pointlight TORM_HIEROPHANTBALL3_FX6
+{
+    Color 0.3 0.0 0.3
+    Size 50
+	attenuate 1
+}
+
+Object Torm_HierophantBall3
+{
+    Frame D240A { Light TORM_HIEROPHANTBALL3_FX1 }
+    Frame D240B { Light TORM_HIEROPHANTBALL3_FX1 }
+    Frame D240C { Light TORM_HIEROPHANTBALL3_FX1 }
+    Frame D240D { Light TORM_HIEROPHANTBALL3_FX1 }
+    Frame D240E { Light TORM_HIEROPHANTBALL3_FX2 }
+    Frame D240F { Light TORM_HIEROPHANTBALL3_FX3 }
+    Frame D240G { Light TORM_HIEROPHANTBALL3_FX4 }
+    Frame D240H { Light TORM_HIEROPHANTBALL3_FX5 }
+    Frame D240I { Light TORM_HIEROPHANTBALL3_FX6 }
+}

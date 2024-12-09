@@ -1,0 +1,107 @@
+Pointlight TORM_FLESHSPAWNBALL_FX1
+{
+    Color 0.6 0.2 0.4
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX2
+{
+    Color 0.6 0.2 0.4
+    Size 24
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX3
+{
+    Color 0.6 0.2 0.4
+    Size 28
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX4
+{
+    Color 0.6 0.2 0.4
+    Size 40
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX5
+{
+    Color 0.8 0.4 0.3
+    Size 36
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX6
+{
+    Color 0.8 0.3 0.2
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX7
+{
+    Color 0.6 0.2 0.0
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX8
+{
+    Color 0.4 0.1 0.0
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX9
+{
+    Color 0.6 0.2 0.4
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX10
+{
+    Color 0.5 0.2 0.3
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX11
+{
+    Color 0.4 0.1 0.2
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX12
+{
+    Color 0.3 0.1 0.1
+    Size 32
+	attenuate 1
+}
+
+Pointlight TORM_FLESHSPAWNBALL_FX13
+{
+    Color 0.2 0.0 0.0
+    Size 32
+	attenuate 1
+}
+
+Object Torm_FleshSpawnBall
+{
+    Frame D209A { Light TORM_FLESHSPAWNBALL_FX1 }
+    Frame D209B { Light TORM_FLESHSPAWNBALL_FX2 }
+    Frame D209C { Light TORM_FLESHSPAWNBALL_FX3 }
+    Frame D209D { Light TORM_FLESHSPAWNBALL_FX4 }
+    Frame D209E { Light TORM_FLESHSPAWNBALL_FX5 }
+    Frame D209F { Light TORM_FLESHSPAWNBALL_FX6 }
+    Frame D209G { Light TORM_FLESHSPAWNBALL_FX7 }
+    Frame D209H { Light TORM_FLESHSPAWNBALL_FX8 }
+    Frame D209I { Light TORM_FLESHSPAWNBALL_FX9 }
+    Frame D209J { Light TORM_FLESHSPAWNBALL_FX10 }
+    Frame D209K { Light TORM_FLESHSPAWNBALL_FX11 }
+    Frame D209L { Light TORM_FLESHSPAWNBALL_FX12 }
+    Frame D209M { Light TORM_FLESHSPAWNBALL_FX13 }
+}

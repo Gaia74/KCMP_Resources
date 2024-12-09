@@ -1,0 +1,75 @@
+PointLight TORM_MINISENTINEL_FX
+{
+    Color 0.8 0.7 0.1
+    Size 38
+    Offset 0 13 0
+	attenuate 1
+}
+
+PointLight TORM_MINISENTINEL_FX1
+{
+    Color 1.0 0.6 0.2
+    Size 51
+    Offset 0 13 0
+	attenuate 1
+}
+
+PointLight TORM_MINISENTINEL_FX2
+{
+    Color 0.7 0.4 0.0
+    Size 58
+    Offset 0 13 0
+	attenuate 1
+}
+
+PointLight TORM_MINISENTINEL_FX3
+{
+    Color 0.6 0.3 0.0
+    Size 64
+    Offset 0 13 0
+	attenuate 1
+}
+
+PointLight TORM_MINISENTINEL_FX4
+{
+    Color 0.5 0.2 0.0
+    Size 72
+    Offset 0 13 0
+	attenuate 1
+}
+
+PointLight TORM_MINISENTINEL_FX5
+{
+    Color 0.5 0.2 0.0
+    Size 60
+    Offset 0 13 0
+	attenuate 1
+}
+
+PointLight TORM_MINISENTINEL_FX6
+{
+    Color 0.5 0.2 0.0
+    Size 52
+    Offset 0 13 0
+	attenuate 1
+}
+
+PointLight TORM_MINISENTINEL_FX7
+{
+    Color 0.5 0.2 0.0
+    Size 42
+    Offset 0 13 0
+	attenuate 1
+}
+
+Object Torm_MiniSentinel
+{
+	Frame D210B { Light TORM_MINISENTINEL_FX }
+	Frame D210C { Light TORM_MINISENTINEL_FX1 }
+	Frame D210D { Light TORM_MINISENTINEL_FX2 }
+	Frame D210E { Light TORM_MINISENTINEL_FX3 }
+	Frame D210F { Light TORM_MINISENTINEL_FX4 }
+	Frame D210G { Light TORM_MINISENTINEL_FX5 }
+	Frame D210H { Light TORM_MINISENTINEL_FX6 }
+	Frame D210I { Light TORM_MINISENTINEL_FX7 }
+}

@@ -1,0 +1,40 @@
+//=================================================================================================
+//
+//  Ultra Sphere
+//
+//=================================================================================================
+
+ACTOR Ultrasphere : CustomInventory 1239
+{
+	//$Category "Health and Armor"
+    Inventory.PickupMessage "UltraSphere!"
+    Inventory.PickupSound "misc/p_pkup"
+	Inventory.PickupAnnouncerEntry "ultrasphere"
+  
+    +COUNTITEM
+    +INVENTORY.ALWAYSPICKUP
+  
+    States
+    {
+    Spawn:
+        ULSP ABCD 6 Bright
+        Loop
+    Pickup:
+        TNT1 A 0 A_GiveInventory("RedArmorForUltrasphere", 1)
+        TNT1 A 0 A_GiveInventory("UltrasphereHealth", 1)
+        Stop
+    }
+}
+
+ACTOR UltrasphereHealth : Health
+{
+    Inventory.Amount 250
+    Inventory.MaxAmount 250
+    +INVENTORY.ALWAYSPICKUP
+}
+
+ACTOR RedArmorForUltrasphere : RedArmor
+{
+	Armor.SavePercent 66.66666
+	Armor.SaveAmount 250
+}

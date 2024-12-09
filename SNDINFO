@@ -842,3 +842,613 @@ $Limit Don_Gib/Part 0
 $Limit Don_Gib/Fall 0
 $Limit Don_Metal1/Fall 0
 $Limit Don_Metal2/Fall 0
+
+//===========================================================================
+//
+//  Torm Sound Info
+//
+//===========================================================================
+
+//  Guardian Cube
+
+Torm_GuardianCube/Sight                      D200SIGH
+Torm_GuardianCube/Active                     D200ACTI
+Torm_GuardianCube/Shot                       D200SHOT
+Torm_GuardianCube/Hit                        D200HIT
+Torm_GuardianCube/Death                      D200DETH
+
+$Limit Torm_GuardianCube/Sight 0
+$Limit Torm_GuardianCube/Active 0
+$Limit Torm_GuardianCube/Shot 0
+$Limit Torm_GuardianCube/Hit 0
+$Limit Torm_GuardianCube/Death 0
+
+//  Flesh Spawn
+
+Torm_FleshSpawn/Sight                        D202SIGH
+Torm_FleshSpawn/Active                       D202ACTI
+Torm_FleshSpawn/Attack                       D202ATTK
+Torm_FleshSpawn/Pain                         D202PAIN
+Torm_FleshSpawn/Death                        D202DETH
+
+$Random Torm_FleshSpawn/XDeath { Torm_FleshSpawn/XDeath1
+                                 Torm_FleshSpawn/XDeath2
+								 Torm_FleshSpawn/XDeath3
+								 Torm_FleshSpawn/XDeath4 }
+								 
+Torm_FleshSpawn/XDeath1                      D202SPL1
+Torm_FleshSpawn/XDeath2                      D202SPL2
+Torm_FleshSpawn/XDeath3                      D202SPL3
+Torm_FleshSpawn/XDeath4                      D202SPL4
+
+$Limit Torm_FleshSpawn/Sight 0
+$Limit Torm_FleshSpawn/Active 0
+$Limit Torm_FleshSpawn/Attack 0
+$Limit Torm_FleshSpawn/Pain 0
+$Limit Torm_FleshSpawn/Death 0
+$Limit Torm_FleshSpawn/XDeath 0
+
+//  Mini Sentinel
+
+Torm_MiniSentinel/Sight                      D210SIGH
+Torm_MiniSentinel/Active                     D210ACTI
+Torm_MiniSentinel/Pain                       D210PAIN
+Torm_MiniSentinel/Death                      D210DETH
+Torm_MiniSentinel/Ready                      D210READ
+Torm_MiniSentinel/Explode                    D210EXPL
+Torm_MiniSentinel/Explode2                   D210EXDH
+
+$Random Torm_MiniSentinel/Fire { Torm_MiniSentinel/Fire1
+                                 Torm_MiniSentinel/Fire2
+								 Torm_MiniSentinel/Fire3
+								 Torm_MiniSentinel/Fire4
+								 Torm_MiniSentinel/Fire5 }
+
+Torm_MiniSentinel/Fire1                      D210FIR1
+Torm_MiniSentinel/Fire2                      D210FIR2
+Torm_MiniSentinel/Fire3                      D210FIR3
+Torm_MiniSentinel/Fire4                      D210FIR4
+Torm_MiniSentinel/Fire5                      D210FIR5
+
+$Limit Torm_MiniSentinel/Sight 0
+$Limit Torm_MiniSentinel/Active 0
+$Limit Torm_MiniSentinel/Pain 0
+$Limit Torm_MiniSentinel/Death 0
+$Limit Torm_MiniSentinel/Ready 0
+$Limit Torm_MiniSentinel/Explode 0
+$Limit Torm_MiniSentinel/Explode2 0
+$Limit Torm_MiniSentinel/Fire 0
+
+//  Fire Mini Sentinel
+
+Torm_FireMiniSentinel/Sight                  D211SIGH
+
+$Random Torm_FireMiniSentinel/Active { Torm_FireMiniSentinel/Active1
+                                       Torm_FireMiniSentinel/Active2
+								       Torm_FireMiniSentinel/Active3 }
+
+Torm_FireMiniSentinel/Active1                D211ACT1
+Torm_FireMiniSentinel/Active2                D211ACT2
+Torm_FireMiniSentinel/Active3                D211ACT3
+
+Torm_FireMiniSentinel/Pain                   D210PAIN
+Torm_FireMiniSentinel/Flame                  D211FLAM
+Torm_FireMiniSentinel/Death                  D210DETH
+Torm_FireMiniSentinel/Ready                  D211READ
+Torm_FireMiniSentinel/Explode                D210EXPL
+
+$Random Torm_FireMiniSentinel/Fire { Torm_FireMiniSentinel/Fire1
+                                     Torm_FireMiniSentinel/Fire2
+								     Torm_FireMiniSentinel/Fire3 }
+
+Torm_FireMiniSentinel/Fire1                  D211FIR1
+Torm_FireMiniSentinel/Fire2                  D211FIR2
+Torm_FireMiniSentinel/Fire3                  D211FIR3
+
+$Limit Torm_FireMiniSentinel/Sight 0
+$Limit Torm_FireMiniSentinel/Active 0
+$Limit Torm_FireMiniSentinel/Pain 0
+$Limit Torm_FireMiniSentinel/Flame 0
+$Limit Torm_FireMiniSentinel/Death 0
+$Limit Torm_FireMiniSentinel/Ready 0
+$Limit Torm_FireMiniSentinel/Explode 0
+$Limit Torm_FireMiniSentinel/Fire 0
+
+//  Nightshade
+
+$Random Torm_Nightshade/Sight { Torm_Nightshade/Sight1
+                                Torm_Nightshade/Sight2 }
+
+Torm_Nightshade/Sight1                       D213SIG1
+Torm_Nightshade/Sight2                       D213SIG2
+
+Torm_Nightshade/Pain                         D213PAIN
+Torm_Nightshade/Fade                         D213FADE
+Torm_Nightshade/Active                       D213ACTI
+Torm_Nightshade/Melee                        D213MELE
+Torm_Nightshade/Fire                         D213ATTK
+Torm_Nightshade/Hit                          D213HIT
+Torm_Nightshade/Death                        D213DETH
+
+$Limit Torm_Nightshade/Sight1 0
+$Limit Torm_Nightshade/Sight2 0
+$Limit Torm_Nightshade/Pain 0
+$Limit Torm_Nightshade/Fade 0
+$Limit Torm_Nightshade/Active 0
+$Limit Torm_Nightshade/Melee 0
+$Limit Torm_Nightshade/Fire 0
+$Limit Torm_Nightshade/Hit 0
+$Limit Torm_Nightshade/Death 0
+
+//  Slime Worm
+
+Torm_SlimeWorm/Sight                         D216SIGH
+Torm_SlimeWorm/Active                        D216ACTI
+Torm_SlimeWorm/Melee                         D216MELE
+
+$Random Torm_SlimeWorm/Vomit { Torm_SlimeWorm/Vomit1
+                               Torm_SlimeWorm/Vomit2
+                               Torm_SlimeWorm/Vomit3 }
+
+Torm_SlimeWorm/Vomit1                        D216VOM1
+Torm_SlimeWorm/Vomit2                        D216VOM2
+Torm_SlimeWorm/Vomit3                        D216VOM3
+
+Torm_SlimeWorm/Hit                           D216HIT
+
+$Random Torm_SlimeWorm/Pain { Torm_SlimeWorm/Pain1
+                              Torm_SlimeWorm/Pain2 }
+
+Torm_SlimeWorm/Pain1                         D216PAI1
+Torm_SlimeWorm/Pain2                         D216PAI2
+
+Torm_SlimeWorm/Death                         D216DETH
+
+$Limit Torm_SlimeWorm/Sight 0
+$Limit Torm_SlimeWorm/Active 0
+$Limit Torm_SlimeWorm/Melee 0
+$Limit Torm_SlimeWorm/Vomit 0
+$Limit Torm_SlimeWorm/Hit 0
+$Limit Torm_SlimeWorm/Pain 0
+$Limit Torm_SlimeWorm/Death 0
+
+// Sentry Gun
+
+Torm_SentryGun/Sight                         D218ACTI
+Torm_SentryGun/Active                        D218ACTI
+Torm_SentryGun/Shot                          D218SHOT
+Torm_SentryGun/Pain                          D218PAIN
+Torm_SentryGun/Death                         D218DETH
+
+$Limit Torm_SentryGun/Sight 0
+$Limit Torm_SentryGun/Active 0
+$Limit Torm_SentryGun/Shot 0
+$Limit Torm_SentryGun/Pain 0
+$Limit Torm_SentryGun/Death 0
+
+// Fire Sentry Gun
+
+Torm_FireSentryGun/Sight                     D219ACTI
+Torm_FireSentryGun/Active                    D219ACTI
+Torm_FireSentryGun/Shot                      D219SHOT
+Torm_FireSentryGun/Flame                     D219FLAM
+
+$Random Torm_FireSentryGun/Pain { Torm_FireSentryGun/Pain1
+                                  Torm_FireSentryGun/Pain2
+                                  Torm_FireSentryGun/Pain3 }
+
+Torm_FireSentryGun/Pain1                     D219PAI1
+Torm_FireSentryGun/Pain2                     D219PAI2
+Torm_FireSentryGun/Pain3                     D219PAI2
+
+Torm_FireSentryGun/Death                     D218DETH
+
+$Limit Torm_FireSentryGun/Sight 0
+$Limit Torm_FireSentryGun/Active 0
+$Limit Torm_FireSentryGun/Shot 0
+$Limit Torm_FireSentryGun/Pain 0
+$Limit Torm_FireSentryGun/Death 0
+$Limit Torm_FireSentryGun/Flame 0
+
+// Shadow
+
+$Random Torm_Shadow/Sight { Torm_Shadow/Sight1
+                            Torm_Shadow/Sight2
+                            Torm_Shadow/Sight3 }
+
+Torm_Shadow/Sight1                           D221SIG1
+Torm_Shadow/Sight2                           D221SIG2
+Torm_Shadow/Sight3                           D221SIG3
+
+$Random Torm_Shadow/Active { Torm_Shadow/Active1
+                             Torm_Shadow/Active2 }
+
+Torm_Shadow/Active1                          D221ACT1
+Torm_Shadow/Active2                          D221ACT2
+
+Torm_Shadow/Hit                              D221HIT
+
+$Random Torm_Shadow/Pain { Torm_Shadow/Pain1
+                           Torm_Shadow/Pain2 }
+
+Torm_Shadow/Pain1                            D221PAI1
+Torm_Shadow/Pain2                            D221PAI2
+
+Torm_Shadow/Death                            D221DETH
+
+$Limit Torm_Shadow/Sight 0
+$Limit Torm_Shadow/Active 0
+$Limit Torm_Shadow/Hit 0
+$Limit Torm_Shadow/Pain 0
+$Limit Torm_Shadow/Death 0
+
+// Flesh Wizard
+
+Torm_FleshWizard/Sight                       D223SIGH
+Torm_FleshWizard/Active                      D223SIGH
+Torm_FleshWizard/Stealth1                    D223STE1
+Torm_FleshWizard/Stealth2                    D223STE2
+Torm_FleshWizard/Pain                        D223PAIN
+Torm_FleshWizard/Death                       D223DETH
+
+$Limit Torm_FleshWizard/Sight 0
+$Limit Torm_FleshWizard/Active 0
+$Limit Torm_FleshWizard/Stealth1 0
+$Limit Torm_FleshWizard/Stealth2 0
+$Limit Torm_FleshWizard/Pain 0
+$Limit Torm_FleshWizard/Death 0
+
+// Wicked
+
+Torm_Wicked/Sight                            D225SIGH 
+
+$Random Torm_Wicked/Active { Torm_Wicked/Active1
+                             Torm_Wicked/Active2
+                             Torm_Wicked/Active3 }
+
+Torm_Wicked/Active1                          D225ACT1
+Torm_Wicked/Active2                          D225ACT2
+Torm_Wicked/Active3                          D225ACT3
+
+Torm_Wicked/Pain                             D225PAIN
+Torm_Wicked/Fire                             D225FIRE
+Torm_Wicked/Hit                              D225HIT
+Torm_Wicked/Death                            D225DETH
+
+$Limit Torm_Wicked/Sight 0
+$Limit Torm_Wicked/Active 0
+$Limit Torm_Wicked/Pain 0
+$Limit Torm_Wicked/Fire 0
+$Limit Torm_Wicked/Hit 0
+$Limit Torm_Wicked/Death 0
+
+// Terminator
+
+Torm_Terminator/Sight                        D227SIGH 
+
+$Random Torm_Terminator/Active { Torm_Terminator/Active1
+                                 Torm_Terminator/Active2 }
+
+Torm_Terminator/Active1                      D227ACT1
+Torm_Terminator/Active2                      D227ACT2
+
+Torm_Terminator/Shot                         D227SHOT
+Torm_Terminator/Pain                         D227PAIN
+Torm_Terminator/Fire                         D227FIRE
+Torm_Terminator/Hit                          D227HIT
+Torm_Terminator/Death                        D227DETH
+
+$Limit Torm_Terminator/Sight 0
+$Limit Torm_Terminator/Active 0
+$Limit Torm_Terminator/Pain 0
+$Limit Torm_Terminator/Shot 0
+$Limit Torm_Terminator/Fire 0
+$Limit Torm_Terminator/Hit 0
+$Limit Torm_Terminator/Death 0
+
+// Horn Beast
+
+Torm_HornBeast/Sight                         D232SIGH
+Torm_HornBeast/Active                        D232SIGH
+Torm_HornBeast/Fire                          D232FIRE
+Torm_HornBeast/Hit                           D232HIT
+Torm_HornBeast/Pain                          D232PAIN
+Torm_HornBeast/Death                         D232DETH
+Torm_HornBeast/Blast                         D232BLAS
+
+$Limit Torm_HornBeast/Sight 0
+$Limit Torm_HornBeast/Active 0
+$Limit Torm_HornBeast/Fire 0
+$Limit Torm_HornBeast/Hit 0
+$Limit Torm_HornBeast/Pain 0
+$Limit Torm_HornBeast/Death 0
+$Limit Torm_HornBeast/Blast 0                      
+
+// Hierophant
+
+Torm_Hierophant/Sight                        D237SIGH
+Torm_Hierophant/Active                       D237ACTI
+Torm_Hierophant/Fire                         D237FIRE
+Torm_Hierophant/Hit                          D237HIT
+Torm_Hierophant/Curse1                       D237CUR1
+Torm_Hierophant/Curse2                       D237CUR2
+Torm_Hierophant/Pain                         D237PAIN
+Torm_Hierophant/Death                        D237DETH
+
+$Limit Torm_Hierophant/Sight 0
+$Limit Torm_Hierophant/Active 0
+$Limit Torm_Hierophant/Fire 0
+$Limit Torm_Hierophant/Hit 0
+$Limit Torm_Hierophant/Curse1 0
+$Limit Torm_Hierophant/Curse2 0
+$Limit Torm_Hierophant/Pain 0
+$Limit Torm_Hierophant/Death 0
+
+// UAC Walker
+
+Torm_UACWalker/Sight                         D241SIGH
+Torm_UACWalker/Active                        D241ACTI
+Torm_UACWalker/Shot                          D241SHOT
+Torm_UACWalker/Step                          D241STEP
+Torm_UACWalker/Fire                          D241FIRE
+Torm_UACWalker/Pop                           D241POP
+Torm_UACWalker/Death                         D241DETH
+
+$Limit Torm_UACWalker/Sight 0
+$Limit Torm_UACWalker/Active 0
+$Limit Torm_UACWalker/Shot 0
+$Limit Torm_UACWalker/Step 0
+$Limit Torm_UACWalker/Fire 0
+$Limit Torm_UACWalker/Pop 0
+$Limit Torm_UACWalker/Death 0
+
+// Fallen
+
+Torm_Fallen/Sight                            D242SIGH
+Torm_Fallen/Wing                             D242WING
+Torm_Fallen/Active                           D242ACTI
+Torm_Fallen/Fire                             D242FIRE
+Torm_Fallen/Hit                              D242HIT
+Torm_Fallen/Pain                             D242PAIN
+Torm_Fallen/Death                            D242DETH
+Torm_Fallen/Fall                             D242FALL
+Torm_Fallen/Body                             D242BODY
+
+$Limit Torm_Fallen/Sight 0
+$Limit Torm_Fallen/Wing 0
+$Limit Torm_Fallen/Active 0
+$Limit Torm_Fallen/Fire 0
+$Limit Torm_Fallen/Hit 0
+$Limit Torm_Fallen/Pain 0
+$Limit Torm_Fallen/Death 0
+$Limit Torm_Fallen/Fall 0
+$Limit Torm_Fallen/Body 0
+
+// Maephisto
+
+$Random Torm_Maephisto/Sight { Torm_Maephisto/Sight1
+                               Torm_Maephisto/Sight2 }
+
+Torm_Maephisto/Sight1                        D247SIG1
+Torm_Maephisto/Sight2                        D247SIG2
+  
+$Random Torm_Maephisto/Active { Torm_Maephisto/Active1
+                                Torm_Maephisto/Active2
+                                Torm_Maephisto/Active3
+                                Torm_Maephisto/Active4
+                                Torm_Maephisto/Active5 }
+
+Torm_Maephisto/Active1                       D247ACT1
+Torm_Maephisto/Active2                       D247ACT2
+Torm_Maephisto/Active3                       D247ACT3
+Torm_Maephisto/Active4                       D247ACT4
+Torm_Maephisto/Active5                       D247ACT5
+						 
+Torm_Maephisto/Step                          D247STEP
+Torm_Maephisto/Pain                          D247PAIN
+Torm_Maephisto/Shot                          D247SHOT
+Torm_Maephisto/Fire                          D247FIRE
+Torm_Maephisto/Hit                           D247HIT
+Torm_Maephisto/Charge                        D247CHAR
+Torm_Maephisto/Laser                         D247LASE
+Torm_Maephisto/Death                         D247DETH
+
+$Limit Torm_Maephisto/Sight 0
+$Limit Torm_Maephisto/Active 0
+$Limit Torm_Maephisto/Step 0
+$Limit Torm_Maephisto/Pain 0
+$Limit Torm_Maephisto/Shot 0
+$Limit Torm_Maephisto/Fire 0
+$Limit Torm_Maephisto/Hit 0
+$Limit Torm_Maephisto/Charge 0
+$Limit Torm_Maephisto/Laser 0
+$Limit Torm_Maephisto/Death 0
+
+//===========================================================================
+//
+//  Paladin
+//
+//===========================================================================
+				
+$Random Torm_Paladin/Sight { Torm_Paladin/Sight1 
+                             Torm_Paladin/Sight2
+                             Torm_Paladin/Sight3
+                             Torm_Paladin/Sight4
+							 Torm_Paladin/Sight5 }
+
+Torm_Paladin/Sight1			                 D254SIG1
+Torm_Paladin/Sight2			                 D254SIG2
+Torm_Paladin/Sight3			                 D254SIG3
+Torm_Paladin/Sight4			                 D254SIG4
+Torm_Paladin/Sight5			                 D254SIG5
+
+$Random Torm_Paladin/Taunt { Torm_Paladin/Taunt1 
+                             Torm_Paladin/Taunt2 
+							 Torm_Paladin/Taunt3
+                             Torm_Paladin/Taunt4
+							 Torm_Paladin/Taunt5
+							 Torm_Paladin/Taunt6
+						     Torm_Paladin/Taunt7
+							 Torm_Paladin/Taunt8
+							 Torm_Paladin/Taunt9
+						     Torm_Paladin/Taunt10
+							 Torm_Paladin/Taunt11
+							 Torm_Paladin/Taunt12
+						     Torm_Paladin/Taunt13 }
+
+Torm_Paladin/Taunt1			                 D254TA01
+Torm_Paladin/Taunt2			                 D254TA02
+Torm_Paladin/Taunt3			                 D254TA03
+Torm_Paladin/Taunt4			                 D254TA04
+Torm_Paladin/Taunt5			                 D254TA05
+Torm_Paladin/Taunt6			                 D254TA06
+Torm_Paladin/Taunt7			                 D254TA07
+Torm_Paladin/Taunt8			                 D254TA08
+Torm_Paladin/Taunt9			                 D254TA09
+Torm_Paladin/Taunt10			             D254TA10
+Torm_Paladin/Taunt11			             D254TA11
+Torm_Paladin/Taunt12			             D254TA12
+Torm_Paladin/Taunt13			             D254TA13
+
+$Random Torm_Paladin/Active { Torm_Paladin/Active1
+                              Torm_Paladin/Active2 }
+
+Torm_Paladin/Active1			             D254ACT1
+Torm_Paladin/Active2			             D254ACT2
+
+$Random Torm_Paladin/Pain { Torm_Paladin/Pain1 
+                            Torm_Paladin/Pain2 
+					        Torm_Paladin/Pain3 
+					        Torm_Paladin/Pain4
+                            Torm_Paladin/Pain5 
+					        Torm_Paladin/Pain6 
+					        Torm_Paladin/Pain7 
+					        Torm_Paladin/Pain8
+					        Torm_Paladin/Pain9 
+					        Torm_Paladin/Pain10 
+					        Torm_Paladin/Pain11 
+					        Torm_Paladin/Pain12 }
+
+Torm_Paladin/Pain1			                 D254PA01
+Torm_Paladin/Pain2			                 D254PA02
+Torm_Paladin/Pain3			                 D254PA03
+Torm_Paladin/Pain4			                 D254PA04
+Torm_Paladin/Pain5			                 D254PA05
+Torm_Paladin/Pain6			                 D254PA06
+Torm_Paladin/Pain7			                 D254PA07
+Torm_Paladin/Pain8			                 D254PA08
+Torm_Paladin/Pain9			                 D254PA09
+Torm_Paladin/Pain10			                 D254PA10
+Torm_Paladin/Pain11			                 D254PA11
+Torm_Paladin/Pain12			                 D254PA12
+
+$Random Torm_Paladin/Death { Torm_Paladin/Death1 
+                             Torm_Paladin/Death2 
+							 Torm_Paladin/Death3
+                             Torm_Paladin/Death4 }
+	
+Torm_Paladin/Death1			                 D254DTH1
+Torm_Paladin/Death2			                 D254DTH2
+Torm_Paladin/Death3			                 D254DTH3
+Torm_Paladin/Death4			                 D254DTH4	
+
+Torm_Paladin/Fire1	                         D254FIR1
+Torm_Paladin/Hit1		                     D254HIT1
+Torm_Paladin/Ready2	                         D254RDY2
+Torm_Paladin/Fire2	                         D254FIR2
+Torm_Paladin/Hit2	                         D254HIT2
+Torm_Paladin/Fire3	                         D254FIR3
+Torm_Paladin/Hit3	                         D254HIT3
+
+Torm_Paladin/Step                            D254STEP
+Torm_Paladin/Fall                            D254FALL
+Torm_Paladin/ThrowMine                       D254LMIN
+
+$Limit Torm_Paladin/Sight 0
+$Limit Torm_Paladin/Taunt 0
+$Limit Torm_Paladin/Active 0
+$Limit Torm_Paladin/Pain 0
+$Limit Torm_Paladin/Death 0	
+$Limit Torm_Paladin/Fire1 0
+$Limit Torm_Paladin/Hit1 0
+$Limit Torm_Paladin/Ready2 0
+$Limit Torm_Paladin/Fire2 0
+$Limit Torm_Paladin/Hit2 0
+$Limit Torm_Paladin/Fire3 0
+$Limit Torm_Paladin/Hit3 0
+$Limit Torm_Paladin/Step 0
+$Limit Torm_Paladin/Fall 0
+
+//===========================================================================
+//
+//  Land Mine
+//
+//===========================================================================
+
+Torm_Mine/Bounce                             D258BOUN
+Torm_Mine/Beep                               D258BEEP
+Torm_Mine/Explode                            D258EXPL
+
+$Limit Torm_Mine/Bounce 0
+$Limit Torm_Mine/Beep 0
+$Limit Torm_Mine/Explode 0
+
+//===========================================================================
+//
+//  Ethereal Soul
+//
+//===========================================================================
+
+Torm_EtherealSoul/Sight                      D262SIGH
+Torm_EtherealSoul/Active                     D262ACTI
+Torm_EtherealSoul/Attack                     D262ATTK
+Torm_EtherealSoul/Pain                       D262PAIN
+Torm_EtherealSoul/Death                      D262DETH
+
+$Limit Torm_EtherealSoul/Sight 0
+$Limit Torm_EtherealSoul/Active 0
+$Limit Torm_EtherealSoul/Attack 0
+$Limit Torm_EtherealSoul/Pain 0
+$Limit Torm_EtherealSoul/Death 0
+
+//===========================================================================
+//
+//  Nightmare
+//
+//===========================================================================
+
+Torm_Nightmare/Sight                         D262SIGH
+Torm_Nightmare/Active                        D262ACTI
+Torm_Nightmare/Attack                        D263ATTK
+Torm_Nightmare/Pain                          D262PAIN
+Torm_Nightmare/Death                         D262DETH
+
+$Limit Torm_Nightmare/Sight 0
+$Limit Torm_Nightmare/Active 0
+$Limit Torm_Nightmare/Attack 0
+$Limit Torm_Nightmare/Pain 0
+$Limit Torm_Nightmare/Death 0
+
+//===========================================================================
+//
+//  Darkness Rift
+//
+//===========================================================================
+
+Torm_DarknessRift/Sight                      D264SIGH
+Torm_DarknessRift/Loop                       D264LOOP
+
+$Random Torm_DarknessRift/Active { Torm_DarknessRift/Active1 
+                                   Torm_DarknessRift/Active2 }
+
+Torm_DarknessRift/Active1                    D264ACT1 
+Torm_DarknessRift/Active2                    D264ACT2 
+					 
+Torm_DarknessRift/Attack                     D264ATTK
+Torm_DarknessRift/Death                      D264DETH
+
+$Limit Torm_DarknessRift/Sight 0
+$Limit Torm_DarknessRift/Loop 0
+$Limit Torm_DarknessRift/Active 0
+$Limit Torm_DarknessRift/Attack 0
+$Limit Torm_DarknessRift/Death 0

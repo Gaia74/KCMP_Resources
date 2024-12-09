@@ -213,13 +213,13 @@ ACTOR BFG10kShot
 	Renderstyle Add
 	Alpha 0.75
 	SeeSound "weapons/bfg10kx"
-	AttackSound "Don_Cerebral/Hit1"
 	Obituary "$OB_BFG10K"
 	//SelfObituary "$OB_BFG10K_SELF" // [SB]
 	States
 	{
 	Spawn:
 		BFE1 A 0 bright
+		BFE1 A 0 A_PlaySound("Don_Cerebral/Hit1")
 		BFE1 A 3 bright A_Detonate
 		BFE1 BCDEF 3 bright
 		Stop

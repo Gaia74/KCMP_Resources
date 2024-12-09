@@ -1,0 +1,308 @@
+PointLight TORM_MAEPHISTO_FX
+{
+    Color 1.0 0.6 0.1
+    Size 48
+    Offset 0 65 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTO_FXB
+{
+    Color 1.0 0.6 0.1
+    Size 54
+    Offset 0 65 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOATTACK_FX1
+{
+    Color 0.3 0.3 1.0
+    Size 56
+    Offset 0 35 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOATTACK_FX2
+{
+    Color 0.3 0.3 1.0
+    Size 32
+    Offset 0 35 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOATTACK_FX3
+{
+    Color 1.0 1.0 0.0
+    Size 42
+    Offset 0 40 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOATTACK_FX4
+{
+    Color 1.0 1.0 0.0
+    Size 54
+    Offset 0 40 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOATTACK_FX5
+{
+    Color 1.0 1.0 0.0
+    Size 66
+    Offset 0 40 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOATTACK_FX6
+{
+    Color 1.0 1.0 0.0
+    Size 82
+    Offset 0 40 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOATTACK_FX7
+{
+    Color 1.0 1.0 0.0
+    Size 86
+    Offset 0 40 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOATTACK_FX8
+{
+    Color 1.0 1.0 0.0
+    Size 28
+    Offset 0 40 0
+	attenuate 1
+}
+
+FlickerLight TORM_MAEPHISTO_FX2
+{
+    Color 1.0 0.0 0.0
+    Size 68
+    SecondarySize 76
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_MAEPHISTO_FX3
+{
+    Color 1.0 0.0 0.0
+    Size 76
+    SecondarySize 84
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_MAEPHISTO_FX4
+{
+    Color 1.0 0.0 0.0
+    Size 84
+    SecondarySize 92
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_MAEPHISTO_FX5
+{
+    Color 1.0 0.0 0.0
+    Size 52
+    SecondarySize 44
+    Chance 0.4
+	attenuate 1
+}
+
+Object Torm_Maephisto
+{
+	Frame D248H { Light TORM_MAEPHISTO_FX }
+	Frame D248I { Light TORM_MAEPHISTO_FXB }
+	
+	Frame D248F { Light TORM_MAEPHISTOATTACK_FX1 }		
+	Frame D248G { Light TORM_MAEPHISTOATTACK_FX2 }
+	
+	Frame D248J { Light TORM_MAEPHISTOATTACK_FX3 }
+	Frame D248K { Light TORM_MAEPHISTOATTACK_FX4 }
+	Frame D248L { Light TORM_MAEPHISTOATTACK_FX5 }	
+	Frame D248M { Light TORM_MAEPHISTOATTACK_FX6 }
+	Frame D248N { Light TORM_MAEPHISTOATTACK_FX7 }
+	Frame D248O { Light TORM_MAEPHISTOATTACK_FX8 }
+	
+	Frame D248P { Light TORM_MAEPHISTO_FX2 }
+	Frame D248Q { Light TORM_MAEPHISTO_FX3 }
+	Frame D248R { Light TORM_MAEPHISTO_FX4 }	
+	Frame D248S { Light TORM_MAEPHISTO_FX3 }
+	Frame D248T { Light TORM_MAEPHISTO_FX2 }
+	Frame D248U { Light TORM_MAEPHISTO_FX5 }
+}
+
+FlickerLight TORM_MAEPHISTOENERGYBOLTBALL
+{
+    Color 0.3 0.3 1.0
+    Size 42
+    SecondarySize 38
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_MAEPHISTOENERGYBOLT_X1
+{
+    Color 0.3 0.3 1.0
+    Size 56
+    SecondarySize 60
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_MAEPHISTOENERGYBOLT_X2
+{
+    Color 0.3 0.3 1.0
+    Size 78
+    SecondarySize 64
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_MAEPHISTOENERGYBOLT_X3
+{
+    Color 0.3 0.3 1.0
+    Size 42
+    SecondarySize 56
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_MAEPHISTOENERGYBOLT_X4
+{
+    Color 0.3 0.3 1.0
+    Size 8
+    SecondarySize 16
+    Chance 0.4
+	attenuate 1
+}
+
+Object Torm_MaephistoEnergyBolt
+{
+	Frame D249A { Light TORM_MAEPHISTOENERGYBOLTBALL }
+	Frame D249B { Light TORM_MAEPHISTOENERGYBOLTBALL }
+	
+	Frame D249C { Light TORM_MAEPHISTOENERGYBOLT_X1 }
+	Frame D249D { Light TORM_MAEPHISTOENERGYBOLT_X2 }
+	Frame D249E { Light TORM_MAEPHISTOENERGYBOLT_X1 }
+	Frame D249F { Light TORM_MAEPHISTOENERGYBOLT_X3 }
+	Frame D249G { Light TORM_MAEPHISTOENERGYBOLT_X4 }
+}
+	
+PointLight TORM_MAEPHISTOLASERBEAM_FX1
+{
+    Color 1.0 1.0 0.2
+    Size 107
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX2
+{
+    Color 1.0 1.0 0.2
+    Size 78
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX3
+{
+    Color 1.0 1.0 0.2
+    Size 92
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX4
+{
+    Color 1.0 1.0 0.2
+    Size 96
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX5
+{
+    Color 1.0 1.0 0.2
+    Size 100
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX6
+{
+    Color 1.0 1.0 0.2
+    Size 104
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX7
+{
+    Color 1.0 1.0 0.2
+    Size 108
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX8
+{
+    Color 1.0 1.0 0.2
+    Size 112
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX9
+{
+    Color 1.0 1.0 0.2
+    Size 102
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX10
+{
+    Color 1.0 1.0 0.2
+    Size 89
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX11
+{
+    Color 1.0 1.0 0.2
+    Size 77
+    Offset 0 0 0
+	attenuate 1
+}
+
+PointLight TORM_MAEPHISTOLASERBEAM_FX12
+{
+    Color 1.0 1.0 0.2
+    Size 62
+    Offset 0 0 0
+	attenuate 1
+}
+
+Object Torm_MaephistoLaserbeam
+{
+	Frame TNT1A { Light TORM_MAEPHISTOLASERBEAM_FX1 }
+	
+	Frame D253C { Light TORM_MAEPHISTOLASERBEAM_FX2 }
+	Frame D253D { Light TORM_MAEPHISTOLASERBEAM_FX3 }
+	Frame D253E { Light TORM_MAEPHISTOLASERBEAM_FX4 }
+	Frame D253F { Light TORM_MAEPHISTOLASERBEAM_FX5 }
+	Frame D253G { Light TORM_MAEPHISTOLASERBEAM_FX6 }
+	Frame D253H { Light TORM_MAEPHISTOLASERBEAM_FX7 }
+	Frame D253I { Light TORM_MAEPHISTOLASERBEAM_FX8 }
+	Frame D253J { Light TORM_MAEPHISTOLASERBEAM_FX9 }
+	Frame D253K { Light TORM_MAEPHISTOLASERBEAM_FX10 }
+	Frame D253L { Light TORM_MAEPHISTOLASERBEAM_FX11 }
+	Frame D253M { Light TORM_MAEPHISTOLASERBEAM_FX12 }
+}

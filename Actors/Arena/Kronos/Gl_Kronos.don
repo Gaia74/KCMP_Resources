@@ -1,0 +1,390 @@
+//===========================================================================
+//
+//  Kronos
+//
+//===========================================================================
+
+FlickerLight DON_KRONO_FX1
+{
+	Color 1.0 0.2 0.0
+    Size 55
+    SecondarySize 65
+    Chance 0.12
+	OffSet 0 35 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONO_FX2
+{
+	Color 0.1 1.0 0.1
+    Size 55
+    SecondarySize 65
+    Chance 0.12
+	OffSet 0 35 0
+	attenuate 1
+}
+
+Object Don_Kronos_Arena
+{
+    Frame D028G { Light DON_KRONO_FX1 }
+    Frame D028H { Light DON_KRONO_FX2 }
+}
+
+Object Don_Kronos_Doom
+{
+    Frame D028G { Light DON_KRONO_FX1 }
+    Frame D028H { Light DON_KRONO_FX2 }
+}
+
+Object Don_KronosCubeFire1
+{
+    Frame D053A { Light DON_DIABOLISTSPREAD_FX1 }
+    Frame D053B { Light DON_DIABOLISTSPREAD_FX2 }
+    Frame D053C { Light DON_DIABOLISTSPREAD_FX3 }
+    Frame D053D { Light DON_DIABOLISTSPREAD_FX4 }
+    Frame D053E { Light DON_DIABOLISTSPREAD_FX5 }
+    Frame D053F { Light DON_DIABOLISTSPREAD_FX6 }
+    Frame D053G { Light DON_DIABOLISTSPREAD_FX7 }
+    Frame D053H { Light DON_DIABOLISTSPREAD_FX8 }
+}
+
+Object Don_KronosCubeFire3
+{
+    Frame D053A { Light DON_DIABOLISTSPREAD_FX1 }
+    Frame D053B { Light DON_DIABOLISTSPREAD_FX2 }
+    Frame D053C { Light DON_DIABOLISTSPREAD_FX3 }
+    Frame D053D { Light DON_DIABOLISTSPREAD_FX4 }
+    Frame D053E { Light DON_DIABOLISTSPREAD_FX5 }
+    Frame D053F { Light DON_DIABOLISTSPREAD_FX6 }
+    Frame D053G { Light DON_DIABOLISTSPREAD_FX7 }
+    Frame D053H { Light DON_DIABOLISTSPREAD_FX8 }
+}
+
+FlickerLight DON_KRONOSDOOMFIRE_FX1
+{
+    Color 1.0 1.0 0.0
+    Size 24
+    SecondarySize 32
+    Chance 0.3
+    Offset 0 8 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSDOOMFIRE_FX2
+{
+    Color 1.0 1.0 0.0
+    Size 40
+    SecondarySize 48
+    Chance 0.3
+    Offset 0 24 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSDOOMFIRE_FX3
+{
+    Color 1.0 1.0 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+    Offset 0 32 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSDOOMFIRE_FX4
+{
+    Color 0.8 0.8 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+    Offset 0 40 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSDOOMFIRE_FX5
+{
+    Color 0.8 0.8 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+    Offset 0 48 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSDOOMFIRE_FX6
+{
+    Color 0.6 0.6 0.0
+    Size 48
+    SecondarySize 56
+    Chance 0.3
+    Offset 0 64 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSDOOMFIRE_FX7
+{
+    Color 0.4 0.4 0.0
+    Size 32
+    SecondarySize 40
+    Chance 0.3
+    Offset 0 72 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSDOOMFIRE_FX8
+{
+    Color 0.2 0.2 0.0
+    Size 16
+    SecondarySize 24
+    Chance 0.3
+    Offset 0 80 0
+	attenuate 1
+}
+
+Object Don_KronosCubeFire2
+{
+    Frame FIREA { light DON_KRONOSDOOMFIRE_FX1 }
+    Frame FIREB { light DON_KRONOSDOOMFIRE_FX2 }
+    Frame FIREC { light DON_KRONOSDOOMFIRE_FX3 }
+    Frame FIRED { light DON_KRONOSDOOMFIRE_FX4 }
+    Frame FIREE { light DON_KRONOSDOOMFIRE_FX5 }
+    Frame FIREF { light DON_KRONOSDOOMFIRE_FX6 }
+    Frame FIREG { light DON_KRONOSDOOMFIRE_FX7 }
+    Frame FIREH { light DON_KRONOSDOOMFIRE_FX8 }
+}
+
+PointLight DON_KRONOSSHOT_FX1
+{
+    Color 0.0 1.0 0.0
+    Size 70
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX2
+{
+    Color 0.0 1.0 0.0
+    Size 78
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX3
+{
+    Color 0.0 0.9 0.0
+    Size 74
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX4
+{
+    Color 0.0 0.8 0.0
+    Size 70
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX5
+{
+    Color 0.0 0.7 0.0
+    Size 66
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX6
+{
+    Color 0.0 0.6 0.0
+    Size 62
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX7
+{
+    Color 0.0 0.5 0.0
+    Size 48
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX8
+{
+    Color 0.0 0.4 0.0
+    Size 44
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX9
+{
+    Color 0.0 0.3 0.0
+    Size 30
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX10
+{
+    Color 0.0 0.2 0.0
+    Size 26
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX11
+{
+    Color 0.0 0.1 0.0
+    Size 22
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX12
+{
+    Color 0.0 0.1 0.0
+    Size 18
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX13
+{
+    Color 0.0 0.1 0.0
+    Size 14
+	attenuate 1
+}
+
+PointLight DON_KRONOSSHOT_FX14
+{
+    Color 0.0 0.1 0.0
+    Size 8
+	attenuate 1
+}
+
+Object Don_KronosShot
+{
+    Frame D065A { Light DON_KRONOSSHOT_FX1 }
+    Frame D065B { Light DON_KRONOSSHOT_FX1 }
+    Frame D065C { Light DON_KRONOSSHOT_FX1 }
+    Frame D065D { Light DON_KRONOSSHOT_FX1 }
+    Frame D065E { Light DON_KRONOSSHOT_FX1 }
+    Frame D065F { Light DON_KRONOSSHOT_FX1 }
+    Frame D065G { Light DON_KRONOSSHOT_FX1 }
+    Frame D065H { Light DON_KRONOSSHOT_FX1 }
+    Frame D065I { Light DON_KRONOSSHOT_FX1 }
+    Frame D065J { Light DON_KRONOSSHOT_FX1 }
+	
+    Frame D065K { Light DON_KRONOSSHOT_FX2 }
+    Frame D065L { Light DON_KRONOSSHOT_FX3 }
+    Frame D065M { Light DON_KRONOSSHOT_FX4 }
+    Frame D065N { Light DON_KRONOSSHOT_FX5 }
+    Frame D065O { Light DON_KRONOSSHOT_FX6 }
+    Frame D065P { Light DON_KRONOSSHOT_FX7 }
+    Frame D065Q { Light DON_KRONOSSHOT_FX8 }
+    Frame D065R { Light DON_KRONOSSHOT_FX9 }
+    Frame D065S { Light DON_KRONOSSHOT_FX10 }
+    Frame D065T { Light DON_KRONOSSHOT_FX11 }
+    Frame D065U { Light DON_KRONOSSHOT_FX12}
+    Frame D065V { Light DON_KRONOSSHOT_FX13}
+    Frame D065W { Light DON_KRONOSSHOT_FX14 }
+}
+
+FlickerLight DON_KRONOSCURSE_FX1
+{
+    Color 1.0 0.2 0.0
+    Size 48
+    SecondarySize 56
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSCURSE_FX2
+{
+    Color 1.0 0.5 0.1
+    Size 58
+    SecondarySize 66
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSCURSE_FX3
+{
+    Color 1.0 0.5 0.1
+    Size 68
+    SecondarySize 76
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSCURSE_FX4
+{
+    Color 1.0 0.5 0.1
+    Size 78
+    SecondarySize 86
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSCURSE_FX5
+{
+    Color 1.0 0.5 0.1
+    Size 88
+    SecondarySize 96
+    Chance 0.3
+	attenuate 1
+}
+
+Object Don_KronosHellOrb
+{
+	Frame D066 { Light DON_KRONOSCURSE_FX1 }
+	
+	Frame D067A { Light DON_KRONOSCURSE_FX1 }
+	Frame D067B { Light DON_KRONOSCURSE_FX2 }
+	Frame D067C { Light DON_KRONOSCURSE_FX2 }
+	Frame D067D { Light DON_KRONOSCURSE_FX3 }
+	Frame D067E { Light DON_KRONOSCURSE_FX3 }
+	Frame D067F { Light DON_KRONOSCURSE_FX4 }
+	Frame D067G { Light DON_KRONOSCURSE_FX4 }
+	Frame D067H { Light DON_KRONOSCURSE_FX5 }
+	Frame D067I { Light DON_KRONOSCURSE_FX5 }
+}
+
+FlickerLight DON_KRONOSTELEFOG_FX1
+{
+    Color 0.2 1.0 0.2
+    Size 10
+    SecondarySize 16
+    Chance 0.4
+	OffSet 0 35 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSTELEFOG_FX2
+{
+    Color 0.2 1.0 0.2
+    Size 24
+    SecondarySize 32
+    Chance 0.4
+	OffSet 0 35 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSTELEFOG_FX3
+{
+    Color 0.2 1.0 0.2
+    Size 40
+    SecondarySize 48
+    Chance 0.4
+	OffSet 0 35 0
+	attenuate 1
+}
+
+FlickerLight DON_KRONOSTELEFOG_FX4
+{
+    Color 0.2 1.0 0.2
+    Size 56
+    SecondarySize 64
+    Chance 0.4
+	OffSet 0 35 0
+	attenuate 1
+}
+
+Object Don_KronosTeleFog
+{
+    Frame D028Q { Light DON_KRONOSTELEFOG_FX1 }
+    Frame D028R { Light DON_KRONOSTELEFOG_FX1 }
+    Frame D028S { Light DON_KRONOSTELEFOG_FX2 }
+    Frame D028T { Light DON_KRONOSTELEFOG_FX2 }
+    Frame D028U { Light DON_KRONOSTELEFOG_FX3 }
+    Frame D028V { Light DON_KRONOSTELEFOG_FX3 }
+    Frame D028W { Light DON_KRONOSTELEFOG_FX4 }
+}

@@ -1,0 +1,65 @@
+Object Torm_FireMiniSentinel
+{
+	Frame D211B { Light TORM_MINISENTINEL_FX }
+	Frame D211C { Light TORM_MINISENTINEL_FX1 }
+	Frame D211D { Light TORM_MINISENTINEL_FX2 }
+	Frame D211E { Light TORM_MINISENTINEL_FX3 }
+	Frame D211F { Light TORM_MINISENTINEL_FX4 }
+	Frame D211G { Light TORM_MINISENTINEL_FX5 }
+	Frame D211H { Light TORM_MINISENTINEL_FX6 }
+}
+
+pointlight TORM_MINISENTINELFIRE_FX
+{
+    color 1.0 0.7 0.0
+    size 56
+	attenuate 1
+}
+
+pointlight TORM_MINISENTINELFIRE_FX1
+{
+    color 1.0 0.7 0.0
+    size 52
+	attenuate 1
+}
+
+pointlight TORM_MINISENTINELFIRE_FX2
+{
+    color 0.8 0.56 0.0
+    size 46
+	attenuate 1
+}
+
+pointlight TORM_MINISENTINELFIRE_FX3
+{
+    color 0.6 0.42 0.0
+    size 38
+	attenuate 1
+}
+
+pointlight TORM_MINISENTINELFIRE_FX4
+{
+    color 0.4 0.28 0.0
+    size 24
+	attenuate 1
+}
+
+pointlight TORM_MINISENTINELFIRE_FX5
+{
+    color 0.2 0.14 0.0
+    size 16
+	attenuate 1
+}
+
+object Torm_FireMiniSentinelFire
+{
+    Frame FRBLA { Light TORM_MINISENTINELFIRE_FX }
+    Frame FRBLB { Light TORM_MINISENTINELFIRE_FX1 }
+    Frame FRBLC { Light TORM_MINISENTINELFIRE_FX2 }
+
+    Frame FRBLD { Light TORM_MINISENTINELFIRE_FX1 }
+    Frame FRBLE { Light TORM_MINISENTINELFIRE_FX2 }
+    Frame FRBLF { Light TORM_MINISENTINELFIRE_FX3 }
+    Frame FRBLG { Light TORM_MINISENTINELFIRE_FX4 }
+    Frame FRBLH { Light TORM_MINISENTINELFIRE_FX5 }
+}

@@ -1,0 +1,126 @@
+#Library "D000TORM"
+#Include "ZCommon.ACS"
+
+Script "Torm_GetShooterSpecies" (Void)
+{
+    str species = "Null";
+
+    If(SetActivator(0, AAPTR_TARGET))
+    {
+        species = GetActorProperty(0, APROP_Species);
+    }
+
+    SetResultValue(species);
+}
+ 
+//===========================================================================
+//
+//  Shadow Stun
+//
+//===========================================================================
+
+Script "Torm_IsStun" (Void)
+{
+    str shootspecies = ACS_NamedExecuteWithResult("Torm_GetShooterSpecies");
+
+    SetResultValue(SetActivator(0, AAPTR_MASTER) &&
+
+                   (ClassifyActor(0) & (ACTOR_PLAYER | ACTOR_MONSTER)) &&
+                   (ClassifyActor(0) & ACTOR_ALIVE) &&
+                   !CheckFlag(0, "INVULNERABLE") &&
+                   StrIcmp(GetActorProperty(0, APROP_Species), shootspecies));
+}
+
+#Define TORM_STUNNUM       2
+
+#Define TORM_STUN_GIVER    0
+#Define TORM_STUN_POWER    1
+#Define TORM_STUN_MESSAGE  2
+
+Str Torm_Stunned[TORM_STUNNUM][3] =
+{
+    { "Torm_HumanStun",   "PowerTorm_HumanSpeed",  "\c[Purple]You have been stunned." },
+    { "Torm_HumanStun2",  "PowerTorm_HumanSpeed2", "\c[Purple]You have been stunned." }
+};
+
+Script "Torm_InflictStun" (void)
+{
+    If(ACS_NamedExecuteWithResult("Torm_IsStun"))
+    {
+        SetActivator(0, AAPTR_MASTER);
+
+        int Stun = Random(0, TORM_STUNNUM - 1);
+
+        If(!(ClassifyActor(0) & ACTOR_PLAYER))
+        {
+            While(Stun == 2)
+            {
+                Stun = Random(0, TORM_STUNNUM - 1);
+            }
+        }
+
+        If(!CheckInventory(Torm_Stunned[Stun][TORM_STUN_POWER]))
+        {
+            HudMessage(s:Torm_Stunned[Stun][TORM_STUN_MESSAGE];
+                       HUDMSG_FADEOUT | HUDMSG_LOG, 5742891, -1, 0.5, 0.32, 3.0, 0.25);
+        }
+
+        GiveInventory(Torm_Stunned[Stun][TORM_STUN_GIVER], 1);
+    }
+}
+
+//===========================================================================
+//
+//  Hierophant Curse
+//
+//===========================================================================
+
+Script "Torm_IsCurseable" (void)
+{
+    str shootspecies = ACS_NamedExecuteWithResult("Torm_GetShooterSpecies");
+
+    SetResultValue(SetActivator(0, AAPTR_MASTER) &&
+
+                   (ClassifyActor(0) & (ACTOR_PLAYER | ACTOR_MONSTER)) &&
+                   (ClassifyActor(0) & ACTOR_ALIVE) &&
+                   !CheckFlag(0, "INVULNERABLE") &&
+                   StrIcmp(GetActorProperty(0, APROP_Species), shootspecies));
+}
+
+#Define TORM_CURSENUM       2 
+
+#Define TORM_CURSE_GIVER    0
+#Define TORM_CURSE_POWER    1
+#Define TORM_CURSE_MESSAGE  2
+
+Str Torm_Curses[TORM_CURSENUM][3] =
+{
+    { "Torm_HumanCurse",  "PowerTorm_HumanDMG",  "\c[Orange]Your defenses weaken." }, 
+    { "Torm_HumanCurse2", "PowerTorm_HumanSlow", "\c[Yellow]Your legs feel heavy." }  
+};
+
+Script "Torm_InflictCurse" (void)
+{
+    If(ACS_NamedExecuteWithResult("Torm_IsCurseable"))
+    {
+        SetActivator(0, AAPTR_MASTER);
+
+        int curse = Random(0, TORM_CURSENUM - 1);
+
+        If(!(ClassifyActor(0) & ACTOR_PLAYER))
+        {
+            While(curse == 2)
+            {
+                curse = Random(0, TORM_CURSENUM - 1);
+            }
+        }
+
+        If(!CheckInventory(Torm_curses[curse][TORM_CURSE_POWER]))
+        {
+            HudMessage(s:Torm_curses[curse][TORM_CURSE_MESSAGE];
+                       HUDMSG_FADEOUT | HUDMSG_LOG, 5742891, -1, 0.5, 0.32, 3.0, 0.25);
+        }
+
+        GiveInventory(Torm_curses[curse][TORM_CURSE_GIVER], 1);
+    }
+}

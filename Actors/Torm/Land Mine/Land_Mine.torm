@@ -1,0 +1,190 @@
+//===========================================================================
+//
+//  Land Mine
+//
+//===========================================================================
+
+ACTOR Torm_LandMine1 1258
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Landmine"
+	
+    Health 1
+	Speed 0
+    Scale 0.86
+    Radius 12
+    Height 9
+	Mass 0x7FFFFFFF
+    Meleerange 70
+	SeeSound ""
+	DeathSound "Torm_Mine/Explode"
+    Obituary "%o stepped on a Land Mine."
+    Monster
+	
+	-SOLID
+    +NOBLOOD
+    -COUNTKILL
+    +FLOORCLIP
+	+DONTMORPH
+    +STANDSTILL
+	+NOICEDEATH
+    +LOOKALLAROUND
+    +QUICKTORETALIATE
+	
+    States
+    {
+	Spawn:
+        D258 A 1 A_JumpIfInventory("Torm_LandMineCheck", 1, "Spawn2") 
+        D258 A 1 A_JumpIf(FloorZ-Z==0,2)
+        Goto Spawn+1
+		D258 A 0
+		D258 A 0 A_Stop
+		D258 A 0 A_PlaySound("Torm_Mine/Bounce", CHAN_VOICE)
+		D258 A 1 A_GiveInventory("Torm_LandMineCheck",1)
+	Spawn2:
+        D258 AAAAAAAAAAAAAAAAAAAA 1 A_Look
+        D258 BBBBBBBBBB 1 Bright A_Look
+        Loop
+    See:
+        D258 AAAAAAAAAAAAAAAAAAAA 1 A_Chase
+        D258 BBBBBBBBBB 1 Bright A_Chase
+        Loop
+	Melee:
+		D258 B 1 Bright A_Die("DieMelee")
+        Goto See
+    Death.DieMelee:
+	    D258 B 2 Bright A_PlaySound("Torm_Mine/Beep", CHAN_BODY)
+	    D258 A 2 
+	    D258 B 2 Bright 
+	    D258 A 2
+	    D258 B 2 Bright A_Scream
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_StopSound(CHAN_BODY)
+        TNT1 AAAA 0 A_CustomMissile("Torm_LandMineExplosion", 10, 0, FRandom(0,360), 2, FRandom(20,160))
+	    TNT1 AAAA 0 A_CustomMissile("Torm_LandMineSmoke", 10, 0, FRandom(0,360), 2, FRandom(20,160))
+	    TNT1 AAAA 0 A_SpawnItemEx("Torm_LandMineExSpark", 0, 0, 10, FRandom(6,-6), FRandom(6,-6), FRandom(8,12))
+        TNT1 A 1 A_SpawnItemEx("Torm_LandMineSplode", 0, 0, 5, 0, 0, 0, 0)
+		TNT1 A 35 
+        Stop
+    Death:
+	    D258 B 2 Bright A_Scream
+		TNT1 A 0 A_NoBlocking
+		TNT1 A 0 A_StopSound(CHAN_BODY)
+        TNT1 AAAA 0 A_CustomMissile("Torm_LandMineExplosion", 10, 0, FRandom(0,360), 2, FRandom(20,160))
+	    TNT1 AAAA 0 A_CustomMissile("Torm_LandMineSmoke", 10, 0, FRandom(0,360), 2, FRandom(20,160))
+	    TNT1 AAAA 0 A_SpawnItemEx("Torm_LandMineExSpark", 0, 0, 10, FRandom(6,-6), FRandom(6,-6), FRandom(8,12))
+        TNT1 A 1 A_SpawnItemEx("Torm_LandMineSplode", 0, 0, 5, 0, 0, 0, 0)
+		TNT1 A 35 
+        Stop
+    }
+}
+
+ACTOR Torm_LandMine2 : Torm_LandMine1 1259
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Landmine Indestructible"
+	
+	+SPECTRAL
+}
+
+ACTOR Torm_LandMineSplode 
+{
+    Speed 0
+    Height 5
+    Radius 5
+	Scale 1.25
+    Projectile
+    RenderStyle Add
+	
+    +FOILINVUL
+    +EXTREMEDEATH
+	
+    States
+    {
+    Spawn:
+        TNT1 A 1
+    Death:
+	    D259 A 0
+        D259 A 3 Bright A_Explode(156, 196, 0)
+	    D259 BCDEF 3 Bright A_FadeOut(0.04)
+	    D259 GHI 2 Bright A_FadeOut(0.06)
+	    Stop
+	}
+}
+
+ACTOR Torm_LandMineExplosion
+{    
+    Radius 2
+    Height 2
+    Speed 4
+    Damage 0
+    Scale 1.15
+    Renderstyle Add
+    Alpha 0.75
+    Projectile
+	
+    +NOCLIP
+    +CLIENTSIDEONLY
+	
+    States
+    {
+    Spawn:
+	    TNT1 A 0
+	    D261 AABBCDEFGHIJKLM 1 Bright A_FadeOut(0.05)
+	    Stop
+	}
+}
+
+ACTOR Torm_LandMineSmoke
+{
+    Radius 2
+    Height 2
+    Speed 3
+    Damage 0
+    Scale 0.85
+    Renderstyle Translucent
+    Alpha 0.75
+    Projectile
+	
+    +NOCLIP
+    +CLIENTSIDEONLY
+	
+    States
+    {
+    Spawn:
+	    TNT1 A 0
+	    D260 ABCDEFGHIJKLM 5 A_FadeOut(0.025)
+	    Stop
+	}
+}
+
+ACTOR Torm_LandMineExSpark
+{    
+    Height 2
+    Radius 2
+    Gravity 1.0
+	Damage 0
+    Speed 6
+    Projectile
+	
+    +RIPPER
+	-NOGRAVITY
+    +BLOODLESSIMPACT
+	
+	States
+	{
+	Spawn:
+		TNT1 A 2 A_SpawnItemEx("Torm_WickedBallDX", 0, 0, 0, 0, 0, 0, 0, 128)
+		Loop
+	Death:
+		TNT1 A 1 
+		Stop
+	}
+}
+
+ACTOR Torm_LandMineCheck : Inventory
+{
+    Inventory.Maxamount 1
+}

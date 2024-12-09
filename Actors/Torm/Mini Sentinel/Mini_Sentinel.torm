@@ -1,0 +1,110 @@
+//===========================================================================
+//
+//  Mini Sentinel
+//
+//===========================================================================
+
+ACTOR Torm_MiniSentinel 1242
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Mini Sentinel"
+	
+    Health 25
+	Painchance 200
+	Speed 6
+    Radius 12
+    Height 26
+	Mass 165
+    SeeSound "Torm_MiniSentinel/Sight"
+    ActiveSound "Torm_MiniSentinel/Active"
+    PainSound "Torm_MiniSentinel/Pain"
+    DeathSound "Torm_MiniSentinel/Death"
+    Obituary "%o was gunned down by a Mini Sentinel."
+	Species "Tech"
+	Monster
+	
+    +FLOAT
+	+NOBLOOD
+	+DROPOFF
+    +NOGRAVITY
+	+FIRERESIST
+	+NOICEDEATH
+    +QUICKTORETALIATE
+	
+    States
+    {
+    Spawn:
+		D210 A 4 A_Look
+		Loop
+    See:
+		D210 A 3 A_SentinelBob
+		D210 A 3 A_Chase
+		Loop
+    Missile: 
+	    D210 A 4 A_PlaySound("Torm_MiniSentinel/Ready")
+		D210 A 0 A_Jumpifcloser(200, "Missile2")
+		D210 A 4 A_FaceTarget
+		D210 B 0 A_PlaySound("Torm_MiniSentinel/Fire")
+		D210 B 1 Bright A_CustomMissile("Torm_MiniSentinelHitcan1",10,0,FRandom(-10,10))
+		D210 B 2 Bright
+		D210 A 0 A_MonsterRefire(70, "See")
+        Goto Missile+1 
+    Missile2: 
+		D210 A 4 A_FaceTarget
+		D210 B 0 A_PlaySound("Torm_MiniSentinel/Fire")
+		D210 B 1 Bright A_CustomMissile("Torm_MiniSentinelHitcan2",10,0,FRandom(-10,10))
+		D210 B 2 Bright
+		D210 A 0 A_MonsterRefire(70, "See")
+        Goto Missile+1 
+    Pain:
+        D210 A 4 
+        D210 A 4 A_Pain
+        Goto See
+    Death:    
+		D210 C 2 Bright A_Scream
+        D210 C 3 Bright A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(6,18), 0, 0, 0, 0, 128)
+		D210 D 5 Bright A_PlaySound("Torm_MiniSentinel/Explode") 
+		D210 D 0 A_PlaySound("Torm_MiniSentinel/Explode2",CHAN_ITEM) 
+		D210 DD 0 A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(6,18), 0, 0, 0, 0, 128)
+		D210 E 5 Bright A_Fall
+	    D210 E 0 A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(6,18), 0, 0, 0, 0, 128)
+		D210 FGHI 5 Bright 
+        Stop 
+    }
+}
+
+ACTOR Torm_MiniSentinelHitcan1 
+{
+    Damage 1
+    Radius 7
+    Height 7
+    Speed 150
+    Projectile
+    Decal "Bulletchip"
+	
+	+NOGRAVITY
+	+DONTBLAST
+	+NOBLOCKMAP
+    +DONTREFLECT
+    +BLOODSPLATTER
+	
+    States
+    {
+    Spawn:
+        TNT1 A 1
+        Loop
+	Crash:
+	Death:
+        TNT1 A 1 A_SpawnItemEx("BulletPuff", 0, 0, 0, 0, 0, 1, 0, SXF_NOCHECKPOSITION)
+        Stop
+	XDeath:
+	    TNT1 A 1
+        Stop
+    }
+}
+
+ACTOR Torm_MiniSentinelHitcan2 : Torm_MiniSentinelHitcan1
+{
+    Speed 35
+}

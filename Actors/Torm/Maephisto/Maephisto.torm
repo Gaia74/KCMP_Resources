@@ -1,0 +1,311 @@
+//===========================================================================
+//
+//  Maephisto
+//
+//===========================================================================
+
+ACTOR Torm_Maephisto 1256
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Maephisto"
+	
+    Health 1000
+    Mass 1600
+    Speed 10
+    Radius 40 
+    Height 75 
+    Scale 0.85
+    PainChance 0
+	SeeSound "Torm_Maephisto/Sight"
+    ActiveSound "Torm_Maephisto/Active"
+    DeathSound "Torm_Maephisto/Death"
+	Species "Tech"
+    Monster    
+	
+	+NOBLOOD
+    +FLOORCLIP
+    +DONTMORPH
+    +NODROPOFF
+	+NOICEDEATH
+	+FIRERESIST
+    +NORADIUSDMG
+	+DONTHARMSPECIES
+    +QUICKTORETALIATE 
+	
+    States
+    {
+    Spawn: 
+		D248 A 10 A_Look
+		Loop
+    See:
+        D248 AABB 4 A_Chase
+	    D248 B 0 A_PlaySound("Torm_Maephisto/Step")
+        D248 CCDD 4 A_Chase
+	    D248 D 0 A_PlaySound("Torm_Maephisto/Step")
+        Loop
+    Missile:
+        D248 E 0 
+        D248 E 0 A_JumpIfCloser(1000,"CloseRangeDecision")
+    LongRangeDecision:
+	    D248 E 0 A_Jump(72,"Laser")
+        Goto Bolt
+    CloseRangeDecision:
+	    D248 E 0 A_Jump(256,"Bolt","Chaingun")
+	Chaingun:
+		D248 E 10 A_Facetarget
+		D248 E 0 A_Jumpifcloser(200, "Chaingun2")
+		D248 E 0 A_PlaySound("Torm_Maephisto/Shot")
+		D248 H 0 A_Facetarget
+        D248 H 4 Bright A_CustomMissile("Torm_MaephistoHitcan1",67,0,FRandom(-6,6))
+		D248 H 0 A_Facetarget
+        D248 I 4 Bright A_CustomMissile("Torm_MaephistoHitcan1",67,0,FRandom(-6,6))
+		D248 I 0 A_Facetarget
+        D248 H 4 Bright A_CustomMissile("Torm_MaephistoHitcan1",67,0,FRandom(-6,6))
+		D248 H 0 A_Facetarget
+        D248 I 4 Bright A_CustomMissile("Torm_MaephistoHitcan1",67,0,FRandom(-6,6))
+        D248 I 0 A_Jump(12,"Bolt")
+        D248 I 0 A_MonsterRefire(20, "See")
+        Goto Chaingun+1
+    Chaingun2: 
+		D248 E 0 A_PlaySound("Torm_Maephisto/Shot")
+		D248 H 0 A_Facetarget
+        D248 H 4 Bright A_CustomMissile("Torm_MaephistoHitcan2",67,0,FRandom(-6,6))
+		D248 H 0 A_Facetarget
+        D248 I 4 Bright A_CustomMissile("Torm_MaephistoHitcan2",67,0,FRandom(-6,6))
+		D248 I 0 A_Facetarget
+        D248 H 4 Bright A_CustomMissile("Torm_MaephistoHitcan2",67,0,FRandom(-6,6))
+		D248 H 0 A_Facetarget
+        D248 I 4 Bright A_CustomMissile("Torm_MaephistoHitcan2",67,0,FRandom(-6,6))
+        D248 I 0 A_Jump(12,"Bolt")
+        D248 I 0 A_MonsterRefire(20, "See")
+        Goto Chaingun+1 
+    Bolt:
+        D248 EEE 5 A_Facetarget
+        D248 F 0 bright A_CustomMissile("Torm_MaephistoEnergyBolt",50,30)
+        D248 F 8 bright A_CustomMissile("Torm_MaephistoEnergyBolt",50,-30)
+        D248 GG 2 bright A_Facetarget
+	    D248 E 5 A_Facetarget
+        D248 F 0 bright A_CustomMissile("Torm_MaephistoEnergyBolt",50,30)
+        D248 F 8 bright A_CustomMissile("Torm_MaephistoEnergyBolt",50,-30)
+        D248 GG 2 bright A_Facetarget
+	    D248 E 5 A_Facetarget
+        D248 F 0 bright A_CustomMissile("Torm_MaephistoEnergyBolt",50,30)
+        D248 F 8 bright A_CustomMissile("Torm_MaephistoEnergyBolt",50,-30)
+        D248 GG 2 bright A_Facetarget
+        Goto See
+    Laser:
+        D248 EEEE 5 A_Facetarget
+        D248 E 0 A_PlaySound("Torm_Maephisto/Charge",5)
+        D248 JKLKJ 5 Bright A_Facetarget
+        D248 JKLKJ 4 Bright A_Facetarget
+        D248 JKLKJ 3 Bright A_Facetarget
+        D248 JKLKJ 2 Bright A_Facetarget
+        D248 JKLKJ 1 Bright A_Facetarget 
+        D248 JKLKJ 1 Bright A_Facetarget 
+        D248 M 0 A_PlaySound("Torm_Maephisto/Laser",5)
+	    D248 M 0 A_Custommissile("Torm_MaephistoLaserbeam",58,0,0)
+        D248 MNO 1 Bright
+	    D248 A 0 A_Recoil(6)
+	    D248 OOOOOOOO 1 Bright 
+	    D248 E 15
+        Goto See       
+    Death:
+		D248 P 10 Bright A_Scream
+	    D248 P 0 A_NoBlocking
+        D248 QQQQQ 2 Bright A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(15,48), 0, 0, 0, 0, 128)
+        D248 RRRRR 2 Bright A_SpawnItemEx("Torm_MetalRandom2", 0, 0, FRandom(15,48), 0, 0, 0, 0, 128)
+        D248 SSSSS 2 Bright A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(15,48), 0, 0, 0, 0, 128)
+        D248 TTTTT 2 Bright A_SpawnItemEx("Torm_MetalRandom2", 0, 0, FRandom(15,48), 0, 0, 0, 0, 128)
+        D248 UV 10 
+        D248 W -1
+        Stop
+    }
+}
+
+ACTOR Torm_MaephistoHitcan1 
+{
+    Damage 2
+    Radius 7
+    Height 7
+    Speed 150
+    Projectile
+    Obituary "%o was ripped into gibs by a Maephisto."
+    Decal "Bulletchip"
+	
+	+NOGRAVITY
+	+DONTBLAST
+	+NOBLOCKMAP
+    +DONTREFLECT
+    +BLOODSPLATTER
+	
+    States
+    {
+    Spawn:
+        TNT1 A 1
+        Loop
+	Crash:
+	Death:
+        TNT1 A 1 A_SpawnItemEx("BulletPuff", 0, 0, 0, 0, 0, 1, 0, SXF_NOCHECKPOSITION)
+        Stop
+	XDeath:
+	    TNT1 A 1
+        Stop
+    }
+}
+
+ACTOR Torm_MaephistoHitcan2 : Torm_MaephistoHitcan1
+{
+    Speed 35
+}
+
+ACTOR Torm_MaephistoEnergyBolt
+{
+    Radius 9
+    Height 9
+    Speed 33
+    VSpeed 38
+    Damage 4
+    RenderStyle Add
+    Alpha 1
+    SeeSound "Torm_Maephisto/Fire"
+    DeathSound "Torm_Maephisto/Hit"
+    Obituary "%o was vaporized by a Maephisto."
+    Decal "Torm_EnergyBoltDecal"
+    Projectile
+	
+    States
+    {
+    Spawn:
+	    D249 A 2 Bright A_SpawnItemEx("Torm_MaephistoTeslaExtra1",0,0,0,random(-4,4),random(-4,4),random(-4,4),random(1,360))
+	    D249 A 2 Bright A_SpawnItemEx("Torm_MaephistoTeslaExtra2",0,0,0,random(-4,4),random(-4,4),random(-4,4),random(1,360))
+	    D249 B 2 Bright A_SpawnItemEx("Torm_MaephistoTeslaExtra3",0,0,0,random(-4,4),random(-4,4),random(-4,4),random(1,360))
+	    D249 B 2 Bright A_SpawnItemEx("Torm_MaephistoTeslaExtra4",0,0,0,random(-4,4),random(-4,4),random(-4,4),random(1,360))
+	    Loop
+    Death:
+        D249 C 3 Bright A_SpawnItemEx("Torm_MaephistoEnergyBoltExplode",0,0)
+		D249 DEFG 3 Bright
+        Stop
+    }
+}
+
+ACTOR Torm_MaephistoLaserbeam
+{
+    Radius 14
+    Height 14
+    Speed 40
+    VSpeed 46
+    Damage 25
+    RenderStyle Add
+    Scale 0.75
+    Alpha 1
+    DeathSound "Weapons/BfgX"
+    Obituary "%o was rendered a smoke and a memory by a Maephisto."
+	Decal "BigScorch"	
+    Projectile
+	
+	+FOILINVUL
+	+DONTREFLECT
+	+EXTREMEDEATH
+	
+    States
+    {
+    Spawn:
+        TNT1 A 1 A_SpawnItemEx("Torm_MaephistoLaserBeamTrail",0,0)
+		TNT1 A 0 A_Explode(32,128,0)
+        Loop
+    Death:
+        D253 C 3 Bright A_Explode(256,196,0)
+        D253 DEFGHIJKLM 3 Bright
+        Stop
+    }
+}
+
+ACTOR Torm_MaephistoTeslaExtra1
+{
+	Radius 1
+	Height 1
+	Scale 0.3
+	Projectile
+	RenderStyle Add
+	
+	+BLOODLESSIMPACT
+	
+	States
+	{
+	Spawn:
+		D251 ABC 1 Bright
+		TNT1 A 0 A_Jump(160,1)
+		Loop
+		D251 ABC 1 Bright
+		D251 DE 1 Bright A_FadeOut
+		Wait
+	Death:
+		TNT1 A 1
+		Stop
+	}
+}
+
+ACTOR Torm_MaephistoTeslaExtra2 : Torm_MaephistoTeslaExtra1
+{
+    Scale 0.4
+}
+
+ACTOR Torm_MaephistoTeslaExtra3 : Torm_MaephistoTeslaExtra1
+{
+    Scale 0.6
+}
+
+ACTOR Torm_MaephistoTeslaExtra4 : Torm_MaephistoTeslaExtra1
+{
+    Scale 0.8
+}
+
+ACTOR Torm_MaephistoEnergyBoltExplode
+{
+    Radius 1
+	Height 1
+	RenderStyle Add
+	Scale 0.40
+    Speed 0
+	
+    +NOINTERACTION
+    +NOBLOCKMAP
+	
+	States
+	{
+	Spawn:
+	    D250 ABCDEFGHIJKLMNOP 1 Bright A_FadeOut(0.06)
+		Stop
+	}
+}
+
+ACTOR Torm_MaephistoLaserBeamTrail
+{
+    Scale 0.70
+    Renderstyle Add
+	
+    +NOINTERACTION
+    +CLIENTSIDEONLY
+	
+    States
+    {
+    Spawn:
+        D252 B 0 
+        D252 B 0 A_SetScale(0.70,0.70)
+        D252 B 1 Bright A_FadeOut(0.05)
+        D252 B 0 A_SetScale(0.60,0.60)
+        D252 B 1 Bright A_FadeOut(0.05)
+        D252 B 0 A_SetScale(0.50,0.50)
+        D252 B 1 Bright A_FadeOut(0.05)
+        D252 B 0 A_SetScale(0.40,0.40)
+        D252 B 1 Bright A_FadeOut(0.05)
+        D252 B 0 A_SetScale(0.30,0.30)
+        D252 B 1 Bright A_FadeOut(0.05)
+        D252 B 0 A_SetScale(0.20,0.20)
+        D252 B 1 Bright A_FadeOut(0.05)
+        D252 B 0 A_SetScale(0.10,0.10)
+        D252 B 1 Bright A_FadeOut(0.05)
+        Stop
+    }
+}

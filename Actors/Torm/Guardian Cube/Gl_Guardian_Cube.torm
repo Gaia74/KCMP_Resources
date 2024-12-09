@@ -1,0 +1,101 @@
+PointLight TORM_GUARDIANCUBE_FX1
+{
+    Color 1.0 0.8 0.2
+    Size 42
+    Offset 0 16 0
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBE_FX2
+{
+    Color 1.0 0.6 0.2
+    Size 64
+    Offset 0 16 0
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBE_FX3
+{
+    Color 0.7 0.4 0.0
+    Size 72
+    Offset 0 16 0
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBE_FX4
+{
+    Color 0.6 0.3 0.0
+    Size 72
+    Offset 0 16 0
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBE_FX5
+{
+    Color 0.5 0.2 0.0
+    Size 64
+    Offset 0 16 0
+	attenuate 1
+}
+
+Object Torm_GuardianCube
+{
+    Frame D200E { Light TORM_GUARDIANCUBE_FX1 }
+    Frame D200F { Light TORM_GUARDIANCUBE_FX2 }
+    Frame D200G { Light TORM_GUARDIANCUBE_FX3 }
+    Frame D200H { Light TORM_GUARDIANCUBE_FX4 }
+    Frame D200I { Light TORM_GUARDIANCUBE_FX5 }
+}   
+
+PointLight TORM_GUARDIANCUBEFIRE_FX1
+{
+    Color 1.0 0.2 0.0
+    Size 32
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBEFIRE_FX2
+{
+    Color 1.0 0.4 0.0
+    Size 48
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBEFIRE_FX3
+{
+    Color 1.0 0.4 0.0
+    Size 40
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBEFIRE_FX4
+{
+    Color 0.8 0.3 0.0
+    Size 32
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBEFIRE_FX5
+{
+    Color 0.6 0.2 0.0
+    Size 24
+	attenuate 1
+}
+
+PointLight TORM_GUARDIANCUBEFIRE_FX6
+{
+    Color 0.5 0.1 0.0
+    Size 16
+	attenuate 1
+}
+
+Object Torm_GuardianCubeBall
+{
+    Frame D201A { Light TORM_GUARDIANCUBEFIRE_FX1 }
+    Frame D201B { Light TORM_GUARDIANCUBEFIRE_FX1 }
+    Frame D201C { Light TORM_GUARDIANCUBEFIRE_FX2 }
+    Frame D201D { Light TORM_GUARDIANCUBEFIRE_FX3 }
+    Frame D201E { Light TORM_GUARDIANCUBEFIRE_FX4 }
+    Frame D201F { Light TORM_GUARDIANCUBEFIRE_FX5 }
+    Frame D201G { Light TORM_GUARDIANCUBEFIRE_FX6 }
+}

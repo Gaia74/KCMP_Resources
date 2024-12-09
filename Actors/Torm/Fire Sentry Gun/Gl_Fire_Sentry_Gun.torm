@@ -1,0 +1,150 @@
+PointLight TORM_FIRESENTRYGUN_FX
+{
+    Color 0.8 0.7 0.1
+    Size 52
+    Offset 0 32 0
+	attenuate 1
+}
+
+Object Torm_FireSentryGun
+{
+	Frame D219B { Light TORM_FIRESENTRYGUN_FX }
+}
+	
+FlickerLight TORM_SENTRYGBOMB_FX2
+{
+    Color 1.0 0.6 0.0
+    Size 48
+    SecondarySize 56
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_SENTRYGBOMB_FX3
+{
+    Color 0.8 0.4 0.0
+    Size 56
+    SecondarySize 64
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_SENTRYGBOMB_FX4
+{
+    Color 0.6 0.2 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_SENTRYGBOMB_FX5
+{
+    Color 0.4 0.0 0.0
+    Size 72
+    SecondarySize 80
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_SENTRYGBOMB_FX6
+{
+    Color 0.2 0.0 0.0
+    Size 80
+    SecondarySize 88
+    Chance 0.3
+	attenuate 1
+}
+
+Object Torm_SentryGunBoom
+{
+	Frame D218D { Light TORM_SENTRYGBOMB_FX1 }
+	Frame D218E { Light TORM_SENTRYGBOMB_FX2 }
+	Frame D218F { Light TORM_SENTRYGBOMB_FX3 }
+	Frame D218G { Light TORM_SENTRYGBOMB_FX4 }
+	Frame D218H { Light TORM_SENTRYGBOMB_FX5 }
+	Frame D218I { Light TORM_SENTRYGBOMB_FX6 }
+}
+
+PointLight TORM_FIRESENTRYFLAME_FX
+{
+    Color 0.5 0.5 0.0
+    Size 38
+	attenuate 1
+}
+
+FlickerLight TORM_FIRESENTRYFLAME_FX1
+{
+    Color 0.6 0.6 0.0
+    Size 44
+    SecondarySize 52
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_FIRESENTRYFLAME_FX2
+{
+    Color 0.6 0.6 0.0
+    Size 60
+    SecondarySize 68
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_FIRESENTRYFLAME_X3
+{
+    Color 0.65 0.5 0.0
+    Size 76
+    SecondarySize 84
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_FIRESENTRYFLAME_X4
+{
+    Color 0.65 0.4 0.0
+    Size 86
+    SecondarySize 94
+    Chance 0.4
+	attenuate 1
+}
+
+Object Torm_FireSentryGunFlame1
+{
+    Frame D220A { light TORM_FIRESENTRYFLAME_FX }
+    Frame D220B { light TORM_FIRESENTRYFLAME_FX }
+    Frame D220C { light TORM_FIRESENTRYFLAME_FX }
+    Frame D220D { light TORM_FIRESENTRYFLAME_FX1 }
+	Frame D220E { light TORM_FIRESENTRYFLAME_FX1 }
+    Frame D220F { light TORM_FIRESENTRYFLAME_FX1 }
+    Frame D220G { light TORM_FIRESENTRYFLAME_FX2 }
+    Frame D220H { light TORM_FIRESENTRYFLAME_FX2 }
+	Frame D220I { light TORM_FIRESENTRYFLAME_FX2 }
+    Frame D220J { light TORM_FIRESENTRYFLAME_FX3 }
+    Frame D220K { light TORM_FIRESENTRYFLAME_FX3 }
+    Frame D220L { light TORM_FIRESENTRYFLAME_FX3 }
+    Frame D220M { light TORM_FIRESENTRYFLAME_FX4 }
+    Frame D220N { light TORM_FIRESENTRYFLAME_FX4 }
+    Frame D220O { light TORM_FIRESENTRYFLAME_FX4 }
+    Frame D220P { light TORM_FIRESENTRYFLAME_FX }
+}
+
+Object Torm_FireSentryGunFlame2
+{
+    Frame D220A { light TORM_FIRESENTRYFLAME_FX }
+    Frame D220B { light TORM_FIRESENTRYFLAME_FX }
+    Frame D220C { light TORM_FIRESENTRYFLAME_FX }
+    Frame D220D { light TORM_FIRESENTRYFLAME_FX1 }
+	Frame D220E { light TORM_FIRESENTRYFLAME_FX1 }
+    Frame D220F { light TORM_FIRESENTRYFLAME_FX1 }
+    Frame D220G { light TORM_FIRESENTRYFLAME_FX2 }
+    Frame D220H { light TORM_FIRESENTRYFLAME_FX2 }
+	Frame D220I { light TORM_FIRESENTRYFLAME_FX2 }
+    Frame D220J { light TORM_FIRESENTRYFLAME_FX3 }
+    Frame D220K { light TORM_FIRESENTRYFLAME_FX3 }
+    Frame D220L { light TORM_FIRESENTRYFLAME_FX3 }
+    Frame D220M { light TORM_FIRESENTRYFLAME_FX4 }
+    Frame D220N { light TORM_FIRESENTRYFLAME_FX4 }
+    Frame D220O { light TORM_FIRESENTRYFLAME_FX4 }
+    Frame D220P { light TORM_FIRESENTRYFLAME_FX }
+}

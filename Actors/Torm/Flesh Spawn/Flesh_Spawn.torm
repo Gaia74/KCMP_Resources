@@ -1,0 +1,265 @@
+//===========================================================================
+//
+//  Flesh Spawn
+//
+//===========================================================================
+
+ACTOR Torm_FleshSpawn 1241
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Flesh Spawn"
+	
+    Health 50
+    Mass 100
+    Speed 10
+    Radius 14
+    Height 30
+    PainChance 164
+    SeeSound "Torm_FleshSpawn/Sight"
+    ActiveSound "Torm_FleshSpawn/Active"
+	AttackSound "Torm_FleshSpawn/Attack"
+    PainSound "Torm_FleshSpawn/Pain"
+    DeathSound "Torm_FleshSpawn/Death"
+    BloodColor "Blue"
+    Species "Flesh"
+	Monster
+	
+    +FLOAT
+    +NOGRAVITY
+    +QUICKTORETALIATE
+	
+    States
+    {
+    Spawn:
+        D202 A 0
+		D202 AB 4 A_LookEx(0, 0, 0, 0, 0, "See2")
+		Loop
+    See:
+	    D202 D 1 A_CustomMissile("Torm_FleshSpawnMissile", 10, 0, 0, 1) 
+		Goto See2
+	See2:
+		D202 AABBAABB 2 A_Chase
+        Loop
+    Missile:
+		D202 A 0
+		D202 A 0 A_JumpIfCloser(325,"Charge")
+		Goto FireBall
+	FireBall:
+        D202 C 8 A_FaceTarget
+        D202 G 4 A_FaceTarget
+        D202 H 4 Bright A_CustomMissile("Torm_FleshSpawnBall", 12, 0, 0)
+        Goto See2
+	Charge:
+    	D202 C 8 A_FaceTarget
+    	D202 D 4 A_FaceTarget   
+    	D202 E 4 A_SkullAttack(25)
+    	D202 FE 4
+    	Goto Charge+3
+    Pain:
+        D202 I 3
+        D202 I 3 A_Pain
+        Goto See2
+    Death:
+        D202 I 5 
+        D202 J 5 A_Scream 
+        D202 K 5 
+        D202 L 5 A_NoBlocking
+        D202 MN 5 
+		D202 O -1 A_SetFloorClip
+        Stop 
+	XDeath:
+        D202 P 3 
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib1", 14, 0, FRandom(-180,180), 2, FRandom(10,40))
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib2", 6, 2, FRandom(-180,180), 2, FRandom(0,25))
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib2B", 10, -2, FRandom(-180,180), 2, FRandom(0,25))
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib3", 8, 0, FRandom(-180,180), 2, FRandom(0,35))
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib4", 12, 5, FRandom(-180,180), 2, FRandom(-5,40))
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib4B", 5, -5, FRandom(-180,180), 2, FRandom(0,30))
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib5", 6, 3, FRandom(-180,180), 2, FRandom(10,60))
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib5", 8, 0, FRandom(-180,180), 2, FRandom(-10,55))
+        D202 Q 0 A_CustomMissile("Torm_FleshSpawnGib6", 12, 0, 0, 2, 0)
+        D202 Q 3 A_PlaySound("Torm_FleshSpawn/XDeath",CHAN_BODY)
+        D202 R 3 A_NoBlocking  
+        D202 STU 3
+        Stop
+    Raise:
+        D202 O 5 A_UnSetFloorClip
+        D202 NMLKJI 5
+        Goto See2
+    }
+}
+
+ACTOR Torm_FleshSpawnMissile
+{
+    Radius 10
+    Height 10
+    Speed 20
+    Health 1
+    Damage 3
+	Obituary "%o was caught by a Forgotten Spirit." 
+	
+    +MISSILE
+    +DROPOFF
+    +NOGRAVITY
+    +NOTELEPORT	
+	+DONTREFLECT
+	+NOEXTREMEDEATH
+    +ACTIVATEIMPACT
+    +ACTIVATEPCROSS
+	
+    States
+    {
+    Spawn:
+        TNT1 A 4
+    Death:
+        TNT1 A 1
+        Stop
+    }
+}
+
+ACTOR Torm_FleshSpawnBall
+{
+    Damage 2
+    Speed 12
+	FastSpeed 17
+    Radius 3
+    Height 5
+    SeeSound "Caco/Attack"
+    DeathSound "Caco/Shotx"
+    RenderStyle Add
+    Alpha 0.9
+    Projectile
+    Obituary "%o was devoured by a Flesh Spawn." 
+    Decal "RailScorchLower"
+	
+    States
+    {
+    Spawn:
+        D209 ABCB 4 Bright
+        Loop
+    Death:
+        D209 DEFGH 4 Bright
+        Stop
+    }
+}
+
+ACTOR Torm_FleshSpawnGib1
+{
+    Speed 8
+    Mass 100
+    Radius 1
+    Height 1
+    Projectile
+    -NOGRAVITY
+    +DROPOFF
+    States
+    {
+    Spawn:
+        D203 ABCD 4 
+        Loop
+    Death:
+        D203 E 300
+        D203 E 2 A_FadeOut(0.1)
+        Wait      
+    }
+}
+
+ACTOR Torm_FleshSpawnGib2 : Torm_GibBase
+{
+    States
+    {
+    Spawn:
+        D204 ABCD 4 
+        Loop
+    Death:
+        D204 I 300
+        D204 I 2 A_FadeOut(0.1)
+        Wait      
+    }
+}
+
+ACTOR Torm_FleshSpawnGib2B : Torm_FleshSpawnGib1
+{
+    States
+    {
+    Spawn:
+        D204 EFGH 4 
+        Loop
+    Death:
+        D204 J 300
+        D204 J 2 A_FadeOut(0.1)
+        Wait       
+    }
+}
+
+ACTOR Torm_FleshSpawnGib3 : Torm_FleshSpawnGib1
+{
+    States
+    {
+    Spawn:
+        D205 ABCD 4 
+        Loop
+    Death:
+        D205 E 300
+        D205 E 2 A_FadeOut(0.1)
+        Wait      
+    }
+}
+
+ACTOR Torm_FleshSpawnGib4 : Torm_FleshSpawnGib1
+{
+    States
+    {
+    Spawn:
+        D206 ABCD 4 
+        Loop
+    Death:
+        D206 I 300
+        D206 I 2 A_FadeOut(0.1)
+        Wait      
+    }
+}
+
+ACTOR Torm_FleshSpawnGib4B : Torm_FleshSpawnGib1
+{
+    States
+    {
+    Spawn:
+        D206 EFGH 4 
+        Loop
+    Death:
+        D206 J 300
+        D206 J 2 A_FadeOut(0.1)
+        Wait     
+    }
+}
+
+ACTOR Torm_FleshSpawnGib5 : Torm_FleshSpawnGib1
+{
+    States
+    {
+    Spawn:
+        D207 ABCD 4 
+        Loop
+    Death:
+        D207 E 300
+        D207 E 2 A_FadeOut(0.1)
+        Wait 
+    }
+}
+
+ACTOR Torm_FleshSpawnGib6 : Torm_FleshSpawnGib1
+{
+    States
+    {
+    Spawn:
+        D208 A 4 
+        Loop
+    Death:
+        D208 BC 4
+        D208 D 300
+        D208 D 2 A_FadeOut(0.1)
+        Wait   
+    }
+}

@@ -1,0 +1,202 @@
+//===========================================================================
+//
+//  Shadow
+//
+//===========================================================================
+
+ACTOR Torm_Shadow 1248
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Shadow"
+	
+    Health 125
+    Mass 200
+    Speed 9
+    Radius 19
+    Height 48
+    PainChance 90
+    MeleeRange 68
+    Monster
+	SeeSound "Torm_Shadow/Sight"
+    PainSound "Torm_Shadow/Pain"
+    DeathSound "Torm_Shadow/Death"
+    BloodColor "Black"
+    Obituary "%o was engulfed by a Shadow."
+    Species "Dark"
+	
+	DamageFactor "Fire2", 0.0
+	
+	+GHOST	
+	+STEALTH
+	+FLOORCLIP
+    +NOBLOODDECALS
+    +NODAMAGETHRUST
+    +QUICKTORETALIATE
+	
+    States
+    {
+    Spawn:
+        D221 A 10 A_Look
+        Loop
+    See:
+		D221 BBCCDDEE 2 A_Chase
+		D221 A 0 A_Jump(1,"Voice")
+        Loop
+	Voice:
+		D221 A 0 A_PlaySound("Torm_Shadow/Active",CHAN_VOICE)
+		Goto See
+	Melee:
+	    D221 AF 3 A_FaceTarget
+		D221 G 0 A_PlaySound("Torm_Shadow/Hit",CHAN_WEAPON) 
+		D221 G 0 A_FaceTarget  
+		D221 GGGG 0 A_SpawnItemEx ("Torm_ShadowSmoke", 20, 0, FRandom(36, 42), 0, FRandom(-1, 1), FRandom(-1, 1), 0, 160)
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+		D221 G 0 A_FaceTarget  
+		D221 GGGG 0 A_SpawnItemEx ("Torm_ShadowSmoke", 20, 0, FRandom(36, 42), 0, FRandom(-1, 1), FRandom(-1, 1), 0, 160)
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+		D221 G 0 A_FaceTarget  
+		D221 GGGG 0 A_SpawnItemEx ("Torm_ShadowSmoke", 20, 0, FRandom(36, 42), 0, FRandom(-1, 1), FRandom(-1, 1), 0, 160)
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+		D221 G 0 A_FaceTarget  
+		D221 GGGG 0 A_SpawnItemEx ("Torm_ShadowSmoke", 20, 0, FRandom(36, 42), 0, FRandom(-1, 1), FRandom(-1, 1), 0, 160)
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+		D221 G 0 A_FaceTarget  
+		D221 GGGG 0 A_SpawnItemEx ("Torm_ShadowSmoke", 20, 0, FRandom(36, 42), 0, FRandom(-1, 1), FRandom(-1, 1), 0, 160)
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 G 1 A_CustomMissile("Torm_ShadowMissile", 25, 0, 0, 1) 
+	    D221 FA 2
+        Goto See
+    Pain:
+        D221 H 4
+        D221 H 4 A_Pain
+        Goto See
+    Death:    
+		D221 I 7 A_Scream
+        D221 J 6 A_NoBlocking
+		D221 KL 6 
+		D221 M -1 
+        Stop 
+	XDeath:
+	    D221 I 7 A_Scream
+	    D221 N 6 A_NoBlocking
+		D221 OPQRS 6 
+        D221 T -1
+        Stop
+	Raise:
+        D221 MLKJI 5
+        Goto See
+    }
+}
+
+ACTOR Torm_ShadowMissile
+{
+    Radius 10
+    Height 10
+    Speed 16
+    Health 1
+    Damage (Random(1,2))
+	
+    +MISSILE
+    +DROPOFF
+    +NOGRAVITY
+    +HITMASTER
+    +NOTELEPORT	
+	+DONTREFLECT
+	+NOEXTREMEDEATH
+    +ACTIVATEIMPACT
+    +ACTIVATEPCROSS
+	
+    States
+    {
+    Spawn:
+        TNT1 A 3
+    Death:
+        TNT1 A 1 ACS_NamedExecuteWithResult("Torm_InflictStun")
+        Stop
+    }
+}
+
+ACTOR Torm_ShadowSmoke : Torm_NightshadeSmoke
+{
+    Scale 1.0
+}
+
+ACTOR Torm_HumanStun : PowerupGiver
+{
+    Inventory.MaxAmount 0
+    PowerUp.Duration -10
+    PowerUp.Color "40 00 40", 0.4
+    PowerUp.Type "PowerTorm_HumanSpeed"
+ 
+    +Inventory.AutoActivate
+    +Inventory.AlwaysPickup
+	
+    States
+    {
+    Spawn:
+        TNT1 A -1
+        Stop
+    }
+}
+
+ACTOR PowerTorm_HumanSpeed : PowerSpeed
+{
+    Speed 0.3
+}
+
+ACTOR Torm_HumanStun2 : PowerupGiver
+{
+    Inventory.MaxAmount 0
+    PowerUp.Duration -5
+    PowerUp.Color "40 00 40", 0.4
+    PowerUp.Type "PowerTorm_HumanSpeed2"
+ 
+    +Inventory.AutoActivate
+    +Inventory.AlwaysPickup
+	
+    States
+    {
+    Spawn:
+        TNT1 A -1
+        Stop
+    }
+}
+
+ACTOR PowerTorm_HumanSpeed2 : PowerSpeed
+{
+    Speed 0.3
+}
+
+ACTOR Torm_Shadowsample 1264
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Shadow (Sample only) Dont Work"
+	
+    Radius 19
+    Height 48
+	
+	-SOLID
+	
+	States
+	{
+	Spawn:
+		D221 A -1
+		Stop
+	}
+}

@@ -1,0 +1,133 @@
+//===========================================================================
+//
+//  Dark Soldiers
+//
+//===========================================================================
+
+PointLight Don_DarkSoldierBall1_FX1
+{
+    Color 0.5 0.2 0.8
+    Size 58
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall1_FX2
+{
+    Color 0.4 0.2 0.8
+    Size 74
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall1_FX3
+{
+    Color 0.2 0.2 0.8
+    Size 66
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall1_FX4
+{
+    Color 0.0 0.0 0.5
+    Size 42
+	attenuate 1
+}
+
+Object Don_DarkSoldierBall1
+{
+    Frame D035A { Light Don_DarkSoldierBall1_FX1 }
+    Frame D035B { Light Don_DarkSoldierBall1_FX1 }
+    Frame D035C { Light Don_DarkSoldierBall1_FX2 }
+    Frame D035D { Light Don_DarkSoldierBall1_FX3 }
+    Frame D035E { Light Don_DarkSoldierBall1_FX4 }
+}
+
+PointLight Don_DarkSoldierBall2_FX1
+{
+    Color 0.8 0.2 0.8
+    Size 58
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall2_FX2
+{
+    Color 0.6 0.1 0.6
+    Size 74
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall2_FX3
+{
+    Color 0.5 0.0 0.2
+    Size 66
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall2_FX4
+{
+    Color 0.3 0.0 0.0
+    Size 42
+	attenuate 1
+}
+
+Object Don_DarkSoldierBall2
+{
+    Frame D037A { Light Don_DarkSoldierBall2_FX1 }
+    Frame D037B { Light Don_DarkSoldierBall2_FX1 }
+    Frame D037C { Light Don_DarkSoldierBall2_FX2 }
+    Frame D037D { Light Don_DarkSoldierBall2_FX3 }
+    Frame D037E { Light Don_DarkSoldierBall2_FX4 }
+}
+
+PointLight Don_DarkSoldierBall3_FX
+{
+    Color 0.8 0.0 0.1
+    Size 42
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall3_FX1
+{
+    Color 0.8 0.0 0.1
+    Size 48
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall3_FX2
+{
+    Color 0.8 0.0 0.1
+    Size 53
+	attenuate 1
+}
+
+PointLight Don_DarkSoldierBall3_FX3
+{
+    Color 0.8 0.0 0.1
+    Size 42
+	attenuate 1
+}
+		
+PointLight Don_DarkSoldierBall3_FX4
+{
+    Color 0.8 0.0 0.1
+    Size 36
+	attenuate 1
+}
+		
+PointLight Don_DarkSoldierBall3_FX5
+{
+    Color 0.8 0.0 0.1
+    Size 30
+	attenuate 1
+}
+
+Object Don_DarkSoldierBall3
+{
+	Frame D038A { Light Don_DarkSoldierBall3_FX }
+	Frame D038B { Light Don_DarkSoldierBall3_FX }
+	Frame D038H { Light Don_DarkSoldierBall3_FX1 }
+	Frame D038I { Light Don_DarkSoldierBall3_FX1 }
+	Frame D038J { Light Don_DarkSoldierBall3_FX2 }
+	Frame D038K { Light Don_DarkSoldierBall3_FX3 }
+	Frame D038L { Light Don_DarkSoldierBall3_FX4 }
+	Frame D038M { Light Don_DarkSoldierBall3_FX5 }
+}

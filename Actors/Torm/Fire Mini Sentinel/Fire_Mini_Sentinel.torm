@@ -1,0 +1,96 @@
+//===========================================================================
+//
+//  Fire Mini Sentinel
+//
+//===========================================================================
+
+ACTOR Torm_FireMiniSentinel : Torm_MiniSentinel 1243
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Fire Mini Sentinel"
+	
+    Health 40
+    Scale 0.65
+	Painchance 100
+	Mass 200
+    SeeSound "Torm_FireMiniSentinel/Sight"
+    ActiveSound "Torm_FireMiniSentinel/Active"
+    PainSound "Torm_FireMiniSentinel/Pain"
+    DeathSound "Torm_FireMiniSentinel/Death"
+    Obituary "%o was gunned down by a Fire Mini Sentinel."
+	Species "Tech"
+	
+	+FIRERESIST
+    +MISSILEMORE
+	
+    States
+    {
+    Spawn:
+		D211 A 4 A_Look
+		Loop
+    See:
+		D211 A 3 A_SentinelBob
+		D211 A 3 A_Chase
+		Loop
+    Missile: 
+	    D211 A 4 A_PlaySound("Torm_FireMiniSentinel/Ready")
+		D211 A 0 A_Jumpifcloser(325, "Missile2")
+		D211 A 3 A_FaceTarget
+		D211 B 0 A_PlaySound("Torm_FireMiniSentinel/Fire")
+		D211 B 1 Bright A_CustomMissile("Torm_MiniSentinelHitcan1",10,0,FRandom(-9,9))
+		D211 B 2 Bright
+		D211 A 0 A_MonsterRefire(50, "See")
+        Goto Missile+1 
+    Missile2: 
+		D211 A 3 A_FaceTarget
+		D211 B 1 Bright A_CustomMissile("Torm_FireMiniSentinelFire",12,0,FRandom(-5,5))
+		D211 B 2 Bright
+		D211 A 0 A_MonsterRefire(50, "See")
+        Goto Missile+1 
+    Pain:
+        D211 A 3 
+        D211 A 3 A_Pain
+        Goto See
+    Death:    
+		D211 C 2 Bright A_Scream
+        D211 CCC 1 Bright A_SpawnItemEx("Torm_LandMineExSpark", 0, 0, FRandom(6,18), FRandom(6,-6), FRandom(6,-6), FRandom(8,12))
+        D211 C 0 A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(6,18), 0, 0, 0, 0, 128)
+		D211 D 5 Bright A_PlaySound("Torm_FireMiniSentinel/Explode") 
+		D211 D 0 A_PlaySound("Torm_MiniSentinel/Explode2",CHAN_ITEM) 
+		D211 DD 0 A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(6,18), 0, 0, 0, 0, 128)
+		D211 E 5 Bright A_Fall
+	    D211 E 0 A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(6,18), 0, 0, 0, 0, 128)
+		D211 FGH 5 Bright 
+        Stop 
+    }
+}
+
+ACTOR Torm_FireMiniSentinelFire : FlameMissile
+{
+	Speed 30
+	Height 6
+	Radius 6
+	Mass 10
+	Damage 4
+	Projectile	
+	RenderStyle Add
+    DamageType "Fire"
+	SeeSound "Torm_FireMiniSentinel/Flame"
+    Decal "CacoScorch"
+	
+	-NOGRAVITY
+	-STRIFEDAMAGE
+	
+	States
+	{
+	Spawn:
+		FRBL AB 3 Bright
+		FRBL C 3 Bright A_Countdown
+		Loop
+	Death:
+		FRBL D 5 Bright A_FlameDie
+		FRBL EFGHI 5 Bright
+		Stop
+	}
+}

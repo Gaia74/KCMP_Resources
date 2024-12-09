@@ -1,0 +1,132 @@
+//===========================================================================
+//
+//  Tortured Soul
+//
+//===========================================================================
+
+FlickerLight DON_TORTUREDSOUL_FX1
+{
+    Color 0.3 0.8 0.3
+    Size 50
+    SecondarySize 58
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight DON_TORTUREDSOUL_FX2
+{
+    Color 0.3 1.0 0.3
+    Size 84
+    SecondarySize 72
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight DON_TORTUREDSOUL_FX3
+{
+    Color 0.2 0.6 0.2
+    Size 76
+    SecondarySize 64
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight DON_TORTUREDSOUL_FX4
+{
+    Color 0.0 0.3 0.0
+    Size 68
+    SecondarySize 56
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight DON_TORTUREDSOUL_FX5
+{
+    Color 0.0 0.3 0.0
+    Size 56
+    SecondarySize 42
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight DON_TORTUREDSOUL_FX6
+{
+    Color 0.3 1.0 0.3
+    Size 96
+    SecondarySize 88
+    Chance 0.5
+	attenuate 1
+}
+
+Object Don_TorturedSoul
+{
+    Frame D016E { Light DON_TORTUREDSOUL_FX5 }
+	Frame D016F { Light DON_TORTUREDSOUL_FX1 }
+	
+    Frame D016J { Light DON_TORTUREDSOUL_FX5 }
+    Frame D016K { Light DON_TORTUREDSOUL_FX4 }
+    Frame D016L { Light DON_TORTUREDSOUL_FX3 }
+    Frame D016M { Light DON_TORTUREDSOUL_FX2 }
+	Frame D016N { Light DON_TORTUREDSOUL_FX6 }
+}
+
+FlickerLight DON_TORTUREDSOULBALL_FX1
+{
+    Color 0 0.8 0
+    Size 45
+    SecondarySize 50
+    Chance 0.2
+	attenuate 1
+}
+
+PointLight DON_TORTUREDSOULBALL_FX2
+{
+    Color 0 0.8 0
+    Size 52
+	attenuate 1
+}
+
+PointLight DON_TORTUREDSOULBALL_FX3
+{
+    Color 0 0.8 0
+    Size 56
+	attenuate 1
+}
+
+PointLight DON_TORTUREDSOULBALL_FX4
+{
+    Color 0 0.8 0
+    Size 60
+	attenuate 1
+}
+
+PointLight DON_TORTUREDSOULBALL_FX5
+{
+    Color 0 0.8 0
+    Size 64
+	attenuate 1
+}
+
+Object Don_TorturedSoulBall1
+{
+    Frame D043A { Light DON_TORTUREDSOULBALL_FX1 }
+    Frame D043B { Light DON_TORTUREDSOULBALL_FX1 }
+    Frame D043C { Light DON_TORTUREDSOULBALL_FX1 }
+	
+    Frame D043D { Light DON_TORTUREDSOULBALL_FX2 }
+    Frame D043E { Light DON_TORTUREDSOULBALL_FX3 }
+    Frame D043F { Light DON_TORTUREDSOULBALL_FX4 }
+    Frame D043G { Light DON_TORTUREDSOULBALL_FX5 }
+}
+
+Object Don_TorturedSoulBall2
+{
+    Frame D043A { Light DON_TORTUREDSOULBALL_FX1 }
+    Frame D043B { Light DON_TORTUREDSOULBALL_FX1 }
+    Frame D043C { Light DON_TORTUREDSOULBALL_FX1 }
+	
+    Frame D043D { Light DON_TORTUREDSOULBALL_FX2 }
+    Frame D043E { Light DON_TORTUREDSOULBALL_FX3 }
+    Frame D043F { Light DON_TORTUREDSOULBALL_FX4 }
+    Frame D043G { Light DON_TORTUREDSOULBALL_FX5 }
+}

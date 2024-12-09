@@ -1,0 +1,53 @@
+PointLight TORM_NIGHTMISSILE_FX
+{
+    Color 0.8 0.0 0.1
+    Size 38
+	attenuate 1
+}
+
+PointLight TORM_NIGHTMISSILE_FX1
+{
+    Color 0.8 0.0 0.1
+    Size 40
+	attenuate 1
+}
+
+PointLight TORM_NIGHTMISSILE_FX2
+{
+    Color 0.8 0.0 0.1
+    Size 36
+	attenuate 1
+}
+
+PointLight TORM_NIGHTMISSILE_FX3
+{
+    Color 0.8 0.0 0.1
+    Size 34
+	attenuate 1
+}
+		
+PointLight TORM_NIGHTMISSILE_FX4
+{
+    Color 0.8 0.0 0.1
+    Size 30
+	attenuate 1
+}
+		
+PointLight TORM_NIGHTMISSILE_FX5
+{
+    Color 0.8 0.0 0.1
+    Size 27
+	attenuate 1
+}
+
+Object Torm_NightshadeMissile
+{
+	Frame D215A { Light TORM_NIGHTMISSILE_FX }
+	Frame D215B { Light TORM_NIGHTMISSILE_FX }
+	Frame D215C { Light TORM_NIGHTMISSILE_FX }
+	Frame D215D { Light TORM_NIGHTMISSILE_FX1 }
+	Frame D215E { Light TORM_NIGHTMISSILE_FX2 }
+	Frame D215F { Light TORM_NIGHTMISSILE_FX3 }
+	Frame D215G { Light TORM_NIGHTMISSILE_FX4 }
+	Frame D215H { Light TORM_NIGHTMISSILE_FX5 }
+}

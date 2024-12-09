@@ -1,0 +1,82 @@
+PointLight TORM_PALADINBALL_FX
+{
+    Color 1.0 0.1 0.0
+    Size 52
+	attenuate 1
+}
+
+PointLight TORM_PALADINBALL_FX1
+{
+    Color 1.0 0.2 0.2
+    Size 66
+	attenuate 1
+}
+
+PointLight TORM_PALADINBALL_FX2
+{
+    Color 0.8 0.2 0.2
+    Size 88
+	attenuate 1
+}
+
+PointLight TORM_PALADINBALL_FX3
+{
+    Color 0.5 0.1 0.1
+    Size 52
+	attenuate 1
+}
+
+PointLight TORM_PALADINBALL_FX4
+{
+    Color 0.2 0.0 0.0
+    Size 28
+	attenuate 1
+}
+
+Object Torm_LaserBolt
+{
+	Frame D255A { Light TORM_PALADINBALL_FX }
+	
+	Frame D255L { Light TORM_PALADINBALL_FX1 }
+	Frame D255M { Light TORM_PALADINBALL_FX3 }
+	Frame D255N { Light TORM_PALADINBALL_FX4 }
+}	
+
+Object Torm_Redstar
+{
+	Frame D256A { Light TORM_PALADINBALL_FX }
+	Frame D256B { Light TORM_PALADINBALL_FX }
+	Frame D256C { Light TORM_PALADINBALL_FX }
+	Frame D256D { Light TORM_PALADINBALL_FX }
+	
+	Frame D256E { Light TORM_PALADINBALL_FX1 }
+	Frame D256F { Light TORM_PALADINBALL_FX1 }
+	Frame D256G { Light TORM_PALADINBALL_FX1 }
+	Frame D256H { Light TORM_PALADINBALL_FX2 }
+	Frame D256I { Light TORM_PALADINBALL_FX2 }
+	Frame D256J { Light TORM_PALADINBALL_FX2 }
+	Frame D256K { Light TORM_PALADINBALL_FX3 }
+	Frame D256L { Light TORM_PALADINBALL_FX3 }
+	Frame D256M { Light TORM_PALADINBALL_FX3 }
+	Frame D256N { Light TORM_PALADINBALL_FX4 }
+	Frame D256O { Light TORM_PALADINBALL_FX4 }
+}	
+
+Object Torm_LaserBlast
+{
+	Frame D257A { Light TORM_PALADINBALL_FX }
+	Frame D257B { Light TORM_PALADINBALL_FX }
+	Frame D257C { Light TORM_PALADINBALL_FX }
+	
+	Frame D257D { Light TORM_PALADINBALL_FX1 }
+	Frame D257E { Light TORM_PALADINBALL_FX2 }
+	Frame D257F { Light TORM_PALADINBALL_FX3 }
+	Frame D257G { Light TORM_PALADINBALL_FX4 }
+}	
+
+Object Torm_PaladinBomb
+{
+    Frame MISLB { Light ROCKET_X1 }
+    Frame MISLC { Light ROCKET_X2 }
+    Frame MISLD { Light ROCKET_X3 }
+}

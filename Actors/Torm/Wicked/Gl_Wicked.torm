@@ -1,0 +1,82 @@
+Flickerlight2 TORM_WICKEDBALL_FX1
+{
+    Color 1.0 0.0 0.0
+    Offset 0 4 0
+    Size 40
+    SecondarySize 45
+    Interval 0.005
+	attenuate 1
+}
+
+Flickerlight2 TORM_WICKEDBALL_FX2
+{
+    Color 1.0 0.0 0.0
+    Offset 0 4 0
+    Size 50
+    SecondarySize 55
+    Interval 0.005
+	attenuate 1
+}
+
+Flickerlight2 TORM_WICKEDBALL_FX3
+{
+    Color 0.9 0.0 0.0
+    Offset 0 4 0
+    Size 60
+    SecondarySize 65
+    Interval 0.005
+	attenuate 1
+}
+
+Flickerlight2 TORM_WICKEDBALL_FX4
+{
+    Color 0.8 0.0 0.0
+    Offset 0 4 0
+    Size 65
+    SecondarySize 70
+    Interval 0.005
+	attenuate 1
+}
+
+Flickerlight2 TORM_WICKEDBALL_FX5
+{
+    Color 0.4 0.0 0.0
+    Offset 0 4 0
+    Size 78
+    SecondarySize 84
+    Interval 0.005
+	attenuate 1
+}
+
+Flickerlight2 TORM_WICKEDBALL_FX6
+{
+    Color 0.2 0.0 0.0
+    Offset 0 4 0
+    Size 80
+    SecondarySize 86
+    Interval 0.005
+	attenuate 1
+}
+
+Flickerlight2 TORM_WICKEDBALL_FX7
+{
+    Color 0.1 0.0 0.0
+    Offset 0 4 0
+    Size 81
+    SecondarySize 87
+    Interval 0.005
+	attenuate 1
+}
+		
+Object Torm_WickedBall
+{
+    Frame D226A { Light TORM_WICKEDBALL_FX1 }
+    Frame D226B { Light TORM_WICKEDBALL_FX2 }
+    Frame D226C { Light TORM_WICKEDBALL_FX1 }
+    Frame D226D { Light TORM_WICKEDBALL_FX2 }
+    Frame D226J { Light TORM_WICKEDBALL_FX3 }
+    Frame D226K { Light TORM_WICKEDBALL_FX4 }
+    Frame D226L { Light TORM_WICKEDBALL_FX5 }
+    Frame D226M { Light TORM_WICKEDBALL_FX6 }
+    Frame D226N { Light TORM_WICKEDBALL_FX7 }
+}

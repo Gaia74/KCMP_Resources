@@ -210,3 +210,107 @@ DECALGROUP Don_CerebralBFGLight
 	Don_CerebralBFGLight1	1
 	Don_CerebralBFGLight2	1
 }
+
+//===========================================================================
+//
+//  Tormentor
+//
+//===========================================================================
+
+//===========================================================================
+//
+//  Maephisto Energy Bolt Decal
+//
+//===========================================================================
+
+DECAL Torm_BFGScorch3
+{
+	Pic "BFGSCRC1"
+	Shade "00 00 00"
+	RandomFlipX
+	RandomFlipY
+	X-Scale "0.5"
+	Y-Scale "0.5"
+}
+
+DECAL Torm_BFGScorch4
+{
+	Pic "BFGSCRC2"
+	Shade "00 00 00"
+	RandomFlipX
+	RandomFlipY
+	X-Scale "0.5"
+	Y-Scale "0.5"
+}
+
+DECALGROUP Torm_BFGScorchx
+{
+	Torm_BFGScorch3 1
+	Torm_BFGScorch4 1
+}
+
+DECAL Torm_EnergyBoltDecal1
+{
+    Pic "BFGLITE1"
+	Shade "00 44 FF"
+	FullBright
+	RandomFlipX
+	Animator "GoAway2"
+	X-Scale 0.5
+	Y-Scale 0.5
+	LowerDecal "Torm_BFGScorchx"
+}
+
+DECAL Torm_EnergyBoltDecal2
+{
+	Pic "BFGLITE2"
+	Shade "00 44 FF"
+	Fullbright
+	RandomFlipY
+	Animator "GoAway2"
+	X-Scale 0.5
+	Y-Scale 0.5
+	LowerDecal "Torm_BFGScorchx"
+}
+
+DECALGROUP Torm_EnergyBoltDecal
+{
+	Torm_EnergyBoltDecal1 10
+	Torm_EnergyBoltDecal2 10
+}
+
+//===========================================================================
+//
+//  Red Star Decal
+//
+//===========================================================================
+
+DECAL Torm_RedstarScorch1
+{
+    Pic "BFGLITE1"
+	Shade "FF 00 00"
+	FullBright
+	RandomFlipX
+	Animator "GoAway2"
+	X-Scale 0.5
+	Y-Scale 0.5
+	LowerDecal "Torm_BFGScorchx"
+}
+
+DECAL Torm_RedstarScorch2
+{
+	Pic "BFGLITE2"
+	Shade "FF 00 00"
+	Fullbright
+	RandomFlipY
+	Animator "GoAway2"
+	X-Scale 0.5
+	Y-Scale 0.5
+	LowerDecal "Torm_BFGScorchx"
+}
+
+DECALGROUP Torm_RedstarScorch
+{
+	Torm_RedstarScorch1 10
+	Torm_RedstarScorch2 10
+}

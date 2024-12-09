@@ -1,0 +1,314 @@
+//===========================================================================
+//
+//  Paladin
+//
+//===========================================================================
+
+ACTOR Torm_Paladin 1257
+{
+	//$Category "Tormentor Monsters"
+	
+	Tag "Paladin"
+	
+    Health 3000
+    Mass 15000
+    Speed 14
+    Radius 32
+    Height 115
+    PainChance 20
+    MinMissileChance 70
+	Scale 0.95
+	SeeSound "Torm_Paladin/Sight"
+    ActiveSound "Torm_Paladin/Active"
+    PainSound "Torm_Paladin/Pain"
+    DeathSound "Torm_Paladin/Death"	
+    Obituary "%o was suppressed by the Paladin."
+	DamageFactor "BFG10k", 0.5
+	Species "Tech"
+    Monster    
+	
+	+BOSS
+    +DONTRIP
+    +NOBLOOD
+    +FLOORCLIP
+    +DONTMORPH   
+    +NODROPOFF
+	+BOSSDEATH
+	+FIRERESIST
+	+NOICEDEATH
+	+NORADIUSDMG
+    +MISSILEMORE
+    +QUICKTORETALIATE 
+	
+    States
+    {
+    Spawn: 
+        D254 B 10 A_Look
+        Loop
+	See:
+	    D254 A 0 A_ChangeFlag("NOPAIN",False)
+        D254 A 4 A_Chase
+        D254 A 0 A_PlaySound("Torm_Paladin/Step")
+        D254 A 4 A_Chase
+        D254 BB 4 A_Chase
+        D254 C 4 A_Chase
+        D254 C 0 A_PlaySound("Torm_Paladin/Step")
+        D254 C 4 A_Chase
+        D254 BB 4 A_Chase
+        Loop
+    Missile:
+	    D254 A 0
+	    D254 A 0 A_ChangeFlag("NOPAIN",True)
+	    D254 A 0 A_Jump(32,"LMine")
+        D254 DD 8 A_FaceTarget
+	    D254 A 0 A_Jump(96,"Fire1")
+        D254 D 0 A_PlaySound("Torm_Paladin/Taunt",CHAN_VOICE)
+    Fire1:
+	    D254 A 0 A_Jump(32,"StrafeLeft","StrafeRight")
+	    D254 A 0 A_Jump(38,"Fire3")
+	    D254 A 0 A_Jump(42,"Fire2")
+	    D254 A 0 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_LaserBolt", 90, 17, 0, 0)
+        D254 D 3 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_LaserBolt", 90, 17, 0, 0)
+        D254 D 3 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_LaserBolt", 90, 17, 0, 0)
+        D254 D 3 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_LaserBolt", 90, 17, 0, 0)
+        D254 D 3 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_LaserBolt", 90, 17, 0, 0)
+		D254 D 3 A_Jump(32,"FireStop")
+        D254 D 3 A_SpidRefire		
+        Loop
+    StrafeLeft:
+	    TNT1 A 0 ThrustThing(Angle*256/360+192, 12, 0, 0)
+	    Goto Fire1
+    StrafeRight:
+	    TNT1 A 0 ThrustThing(Angle*256/360+64, 12, 0, 0)
+	    Goto Fire1
+    Fire2:
+	    D254 A 0 
+	    D254 A 0 A_PlaySound("Torm_Paladin/Ready2")
+	    D254 DDD 5 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_Redstar", 90, 17, random (-2, 2), 0)
+        D254 D 3 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_Redstar", 90, 17, random (-2, 2), 0)
+        D254 D 3 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_Redstar", 90, 17, random (-2, 2), 0)
+        D254 D 3 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_Redstar", 90, 17, random (-2, 2), 0)
+        D254 D 3 A_FaceTarget
+        D254 D 3 Bright A_CustomMissile("Torm_Redstar", 90, 17, random (-2, 2), 0)
+	    D254 D 10 A_Jump(32,"FireStop")
+	    Goto Fire1
+    Fire3:
+	    D254 D 8 A_FaceTarget
+        D254 D 5 Bright A_CustomMissile("Torm_LaserBlast", 90, 17, 0, 0)
+        D254 D 5 A_FaceTarget
+        D254 D 5 Bright A_CustomMissile("Torm_LaserBlast", 90, 17, 0, 0)
+        D254 D 5 A_FaceTarget
+        D254 D 5 Bright A_CustomMissile("Torm_LaserBlast", 90, 17, 0, 0)
+        D254 D 8 A_Jump(32,"FireStop")
+	    Goto Fire1 
+	FireStop:
+	    D254 D 10
+	    Goto See
+	LMine:
+	    D254 E 10 
+		D254 E 0 A_PlaySound("Torm_Paladin/ThrowMine")
+		D254 E 10 A_SpawnItemEx("Torm_LandMine1", 0, 0, 90, Random(12,24), 0, 0, 0, SXF_SETMASTER | SXF_NOCHECKPOSITION)
+	    Goto See 
+	Pain:
+	    D254 E 10 A_Pain
+	    Goto See
+    Death:
+		D254 E 5 A_Scream
+	    D254 EEEEEEEEEEEE 5 A_SpawnItemEx("Torm_PaladinBomb", random(-38,38), FRandom(-38,38), FRandom(5,105), 0, 0, 0, 0, 160)
+        D254 F 1 A_NoBlocking
+	    D254 FFFFF 0 A_SpawnItemEx ("Torm_PaladinBomb", FRandom(-38,38), FRandom(-38,38), FRandom(5,105), 0, 0, 0, 0, 160)
+		D254 F 0 A_Explode(256, 164)
+	    D254 FFFFFFFFFF 0 A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(32,82), 0, 0, 0, 0, 128)
+	    D254 FFFFFFFFFF 0 A_SpawnItemEx("Torm_MetalRandom2", 0, 0, FRandom(32,82), 0, 0, 0, 0, 128)
+        D254 F 3
+        D254 G 4
+        D254 H 4
+        D254 I 4 
+        D254 J 4
+        D254 K 4 A_PlaySound("Torm_Paladin/Fall")
+        D254 L -1 A_BossDeath
+        Stop
+    }
+}
+
+ACTOR Torm_PaladinBomb
+{
+    Height 0
+    Radius 0
+    Speed 10
+	
+    +MISSILE
+    +NOGRAVITY
+    +NOINTERACTION
+	+CLIENTSIDEONLY
+	
+    States
+    {
+    Spawn:
+        MISL B 2 Bright 
+        MISL B 4 Bright A_PlaySound("Weapons/RockLX")
+        MISL C 6 Bright
+        MISL D 4 Bright
+        Stop
+    }
+}
+
+ACTOR Torm_LaserBolt
+{
+    Speed 32
+	VSpeed 38
+    Radius 6
+    Height 6
+    Damage 7
+    Alpha 0.8
+    SeeSound "Torm_Paladin/Fire1"
+    DeathSound "Torm_Paladin/Hit1"
+    Decal "PlasmaScorchLower"
+    Projectile
+    RenderStyle Add
+	
+    +FOILINVUL
+    +DONTREFLECT
+    +SPAWNSOUNDSOURCE
+	
+    States
+    {
+    Spawn:
+        D255 A 1 Bright A_SpawnItemEx("Torm_LaserBoltTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        Loop
+    Death:
+        D255 LMN 2 Bright
+        Stop
+    }
+}
+
+ACTOR Torm_LaserBoltTrail
+{
+    Renderstyle Add
+	
+    +NOINTERACTION
+    +CLIENTSIDEONLY
+	
+    States
+    {
+    Spawn:
+        D255 ABCDEFGHIJK 1 Bright A_FadeOut (0.05)
+        Stop
+    }
+}
+
+ACTOR Torm_Redstar
+{
+    Radius 12
+    Height 12
+    Speed 22
+	VSpeed 27
+    Damage 9
+    Scale 0.8
+    Alpha 0.8
+    SeeSound "Torm_Paladin/Fire2"
+    DeathSound "Torm_Paladin/Hit2"
+    Decal "Torm_RedstarScorch"
+    Projectile
+    RenderStyle Add
+	
+    +FOILINVUL
+    +DONTREFLECT
+	+SEEKERMISSILE
+    +SPAWNSOUNDSOURCE
+	
+    States
+    {
+    Spawn:
+        D256 AA 2 Bright A_CustomMissile("Torm_RedstarFX2", 0, 0, 0, 0)
+        D256 BB 2 Bright A_CustomMissile("Torm_RedstarFX2", 0, 0, 0, 0)
+		D256 B 0 A_SeekerMissile(4,8)
+        D256 CC 2 Bright A_CustomMissile("Torm_RedstarFX2", 0, 0, 0, 0)
+        D256 DD 2 Bright A_CustomMissile("Torm_RedstarFX2", 0, 0, 0, 0)
+		D256 D 0 A_SeekerMissile(4,8)
+        Loop
+    Death:
+        D256 EFGHIJKLMNO 3 Bright
+        Stop
+    }
+}
+
+ACTOR Torm_RedstarFX2
+{   
+    Speed 0
+    Radius 2
+    Height 2
+    Scale 0.5
+    Alpha 0.67
+    Projectile
+    RenderStyle Add
+	
+    +CLIENTSIDEONLY
+	
+    States
+    {
+    Spawn:
+        TNT1 A 1
+        D256 PQ 3 Bright A_FadeOut(0.1)
+        Loop
+    }
+}
+
+ACTOR Torm_LaserBlast
+{
+	Radius 6
+	Height 6
+	Speed 40
+	VSpeed 46
+	Damage 13
+	Scale 0.65
+	SeeSound "Torm_Paladin/Fire3"
+	DeathSound "Torm_Paladin/Hit3"
+	Decal "HImpScorch"
+	Projectile
+	RenderStyle Add
+	
+    +FOILINVUL
+    +DONTREFLECT
+    +SPAWNSOUNDSOURCE
+	
+	States
+	{
+	Spawn:
+		D257 AAABBBCCC 1 Bright A_CustomMissile("Torm_SLM1Trail", FRandom(-5,5), FRandom(8,-8), 0)
+		Loop
+	Death:
+		D257 DEFG 3 Bright
+		Stop
+	}
+}
+
+ACTOR Torm_SLM1Trail
+{
+	Alpha 0.8
+	Scale 0.5
+	Damage 0
+	Projectile
+	RenderStyle Add
+	
+	+NOCLIP
+	+NOGRAVITY
+	+CLIENTSIDEONLY
+	
+	States
+	{
+	Spawn:
+		D255 ABCDDE 3 Bright
+		D255 F 1 Bright A_FadeOut(0.1)
+		Wait
+	}
+}

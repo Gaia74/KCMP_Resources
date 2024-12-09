@@ -1,0 +1,43 @@
+PointLight TORM_FLESHWIZARDBALL_FX
+{
+    Color 1.0 0.0 0.0
+    Size 64
+	attenuate 1
+}
+
+FlickerLight TORM_FLESHWIZARDBALL_FX1
+{
+    Color 1.0 0.05 0.05
+    Size 80
+    SecondarySize 88
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight TORM_FLESHWIZARDBALL_FX2
+{
+    Color 1.0 0.1 0.1
+    Size 96
+    SecondarySize 104
+    Chance 0.25
+	attenuate 1
+}
+
+FlickerLight TORM_FLESHWIZARDBALL_FX3
+{
+    Color 1.0 0.05 0.05
+    Size 112
+    SecondarySize 120
+    Chance 0.25
+	attenuate 1
+}
+		
+Object Torm_FleshWizardBall
+{
+    Frame D224A { Light TORM_FLESHWIZARDBALL_FX }
+    Frame D224B { Light TORM_FLESHWIZARDBALL_FX }
+
+    Frame D224C { Light TORM_FLESHWIZARDBALL_FX1 }
+    Frame D224D { Light TORM_FLESHWIZARDBALL_FX2 }
+    Frame D224E { Light TORM_FLESHWIZARDBALL_FX3 }
+}

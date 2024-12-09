@@ -1,0 +1,162 @@
+FlickerLight TORM_HORNBEAST_FX
+{
+    Color 1.0 0.9 0.0
+    Size 52
+    SecondarySize 60
+    Chance 0.6
+    Offset 0 30 0
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEAST_FX1
+{
+    Color 0.9 0.8 0.0
+    Size 52
+    SecondarySize 60
+    Chance 0.6
+    Offset 0 30 0
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEAST_FX2
+{
+    Color 0.8 0.7 0.0
+    Size 42
+    SecondarySize 50
+    Chance 0.6
+    Offset 0 30 0
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEAST_FX3
+{
+    Color 0.7 0.6 0.0
+    Size 32
+    SecondarySize 40
+    Chance 0.6
+    Offset 0 30 0
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEAST_FX4
+{
+    Color 0.6 0.5 0.0
+    Size 22
+    SecondarySize 30
+    Chance 0.6
+    Offset 0 30 0
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEAST_FX5
+{
+    Color 0.5 0.4 0.0
+    Size 16
+    SecondarySize 20
+    Chance 0.6
+    Offset 0 30 0
+	attenuate 1
+}
+
+Object Torm_HornBeast
+{
+	Frame D232A { Light TORM_HORNBEAST_FX }
+	Frame D232B { Light TORM_HORNBEAST_FX }
+	Frame D232C { Light TORM_HORNBEAST_FX }
+	Frame D232D { Light TORM_HORNBEAST_FX }
+	Frame D232E { Light TORM_HORNBEAST_FX }
+	Frame D232F { Light TORM_HORNBEAST_FX }
+	Frame D232G { Light TORM_HORNBEAST_FX }
+	Frame D232H { Light TORM_HORNBEAST_FX }
+	Frame D232I { Light TORM_HORNBEAST_FX }
+	Frame D232J { Light TORM_HORNBEAST_FX1 }
+	Frame D232K { Light TORM_HORNBEAST_FX2 }
+	Frame D232L { Light TORM_HORNBEAST_FX3 }
+	Frame D232M { Light TORM_HORNBEAST_FX4 }
+	Frame D232N { Light TORM_HORNBEAST_FX5 }
+}
+		
+FlickerLight TORM_HORNBEASTBALL_FX
+{
+    Color 1.0 0.95 0.0
+    Size 56
+    SecondarySize 64
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEASTBALL_FX1
+{
+    Color 1.0 0.95 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEASTBALL_FX2
+{
+    Color 0.8 0.8 0.0
+    Size 72
+    SecondarySize 80
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEASTBALL_FX3
+{
+    Color 0.5 0.5 0.0
+    Size 88
+    SecondarySize 96
+    Chance 0.5
+	attenuate 1
+}
+
+FlickerLight TORM_HORNBEASTBALL_FX4
+{
+    Color 0.2 0.2 0.0
+    Size 96
+    SecondarySize 104
+    Chance 0.5
+	attenuate 1
+}
+
+Object Torm_HornBeastBall
+{
+    Frame D233A { Light TORM_HORNBEASTBALL_FX }
+    Frame D233B { Light TORM_HORNBEASTBALL_FX }
+	
+    Frame D234A { Light TORM_HORNBEASTBALL_FX1 }
+    Frame D234B { Light TORM_HORNBEASTBALL_FX1 }
+    Frame D234C { Light TORM_HORNBEASTBALL_FX1 }
+    Frame D234D { Light TORM_HORNBEASTBALL_FX1 }
+    Frame D234E { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234F { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234G { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234H { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234I { Light TORM_HORNBEASTBALL_FX2 }
+    Frame D234J { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234K { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234L { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234M { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234N { Light TORM_HORNBEASTBALL_FX3 }
+    Frame D234O { Light TORM_HORNBEASTBALL_FX4 }
+    Frame D234P { Light TORM_HORNBEASTBALL_FX4 }
+    Frame D234Q { Light TORM_HORNBEASTBALL_FX4 }
+    Frame D234R { Light TORM_HORNBEASTBALL_FX4 }
+    Frame D234S { Light TORM_HORNBEASTBALL_FX4 }
+}
+
+FlickerLight TORM_HORNBEASTPARTICLE_FX
+{
+    Color 1.0 0.8 0.0
+    Size 26
+    SecondarySize 34
+    Chance 0.3
+	attenuate 1
+}
+
+Object Torm_HornBeastParticle
+{
+    Frame D236 { Light TORM_HORNBEASTPARTICLE_FX }
+}

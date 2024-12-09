@@ -1,0 +1,57 @@
+PointLight TORM_LANDMINE_FX
+{
+    Color 1.0 0.2 0.1
+    Size 32
+    Offset 0 8 0
+	attenuate 1
+}
+
+Object Torm_LandMine1
+{
+	Frame D258B { Light TORM_LANDMINE_FX }
+}
+
+Object Torm_LandMine2
+{
+	Frame D258B { Light TORM_LANDMINE_FX }
+}
+
+FlickerLight TORM_LANDMINEEXPLODE_FX1
+{
+    Color 1 0.6 0
+    Size 106
+    SecondarySize 86
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_LANDMINEEXPLODE_FX2
+{
+    Color 1 0.6 0
+    Size 82
+    SecondarySize 122
+    Chance 0.4
+	attenuate 1
+}
+
+FlickerLight TORM_LANDMINEEXPLODE_FX3
+{
+    Color 1 0.4 0
+    Size 90
+    SecondarySize 70
+    Chance 0.4
+	attenuate 1
+}
+
+Object Torm_LandMineSplode
+{
+    Frame D259A { Light TORM_LANDMINEEXPLODE_FX1 }
+    Frame D259B { Light TORM_LANDMINEEXPLODE_FX1 }
+    Frame D259C { Light TORM_LANDMINEEXPLODE_FX1 }
+    Frame D259D { Light TORM_LANDMINEEXPLODE_FX2 }
+    Frame D259E { Light TORM_LANDMINEEXPLODE_FX2 }
+    Frame D259F { Light TORM_LANDMINEEXPLODE_FX2 }
+    Frame D259G { Light TORM_LANDMINEEXPLODE_FX2 }
+    Frame D259H { Light TORM_LANDMINEEXPLODE_FX3 }
+    Frame D259I { Light TORM_LANDMINEEXPLODE_FX3 }
+}

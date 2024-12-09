@@ -1,0 +1,67 @@
+PointLight TORM_SENTRYGUN_FX
+{
+    Color 0.8 0.7 0.1
+    Size 52
+    Offset 0 32 0
+	attenuate 1
+}
+
+Object Torm_SentryGun
+{
+	Frame D218B { Light TORM_SENTRYGUN_FX }
+}
+	
+	FlickerLight TORM_SENTRYGBOMB_FX2
+{
+    Color 1.0 0.6 0.0
+    Size 48
+    SecondarySize 56
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_SENTRYGBOMB_FX3
+{
+    Color 0.8 0.4 0.0
+    Size 56
+    SecondarySize 64
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_SENTRYGBOMB_FX4
+{
+    Color 0.6 0.2 0.0
+    Size 64
+    SecondarySize 72
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_SENTRYGBOMB_FX5
+{
+    Color 0.4 0.0 0.0
+    Size 72
+    SecondarySize 80
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_SENTRYGBOMB_FX6
+{
+    Color 0.2 0.0 0.0
+    Size 80
+    SecondarySize 88
+    Chance 0.3
+	attenuate 1
+}
+
+Object Torm_SentryGunBoom
+{
+	Frame D218D { Light TORM_SENTRYGBOMB_FX1 }
+	Frame D218E { Light TORM_SENTRYGBOMB_FX2 }
+	Frame D218F { Light TORM_SENTRYGBOMB_FX3 }
+	Frame D218G { Light TORM_SENTRYGBOMB_FX4 }
+	Frame D218H { Light TORM_SENTRYGBOMB_FX5 }
+	Frame D218I { Light TORM_SENTRYGBOMB_FX6 }
+}

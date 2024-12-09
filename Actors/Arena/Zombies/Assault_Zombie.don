@@ -1,0 +1,841 @@
+//===========================================================================
+//
+//  Assault Zombie
+//
+//===========================================================================
+
+ACTOR Don_AssaultZombie1 : Don_SMGZombie 1203
+{
+	//$Category "Don Monsters"
+	
+	Tag "Assault Zombie 1"
+	
+	Health 70
+	Mass 120
+	PainChance 180
+	SeeSound "Don_ZombieOther/Sight"
+	PainSound "Don_ZombieOther/Pain"
+	DeathSound "Don_ZombieOther/Death"
+	ActiveSound "Don_ZombieOther/Active"
+	Obituary "%o was shot dead by a zombie's assault rifle."
+	
+	States
+	{
+	Spawn:
+		D000 AB 10 A_Look
+		Loop
+	See:
+		D000 AABB 4 A_Chase
+		D000 C 0 //A_PlaySound("Don_Zombie0/Step")
+		D000 CCDD 4 A_Chase
+		D000 A 0 //A_PlaySound("Don_Zombie0/Step")
+        Loop
+	Missile:
+		D000 E 8 A_FaceTarget
+        D000 E 0 A_PlaySound("Don_Zombie/Rifle",CHAN_WEAPON)
+		D000 E 0 A_FaceTarget
+	    D000 F 2 Bright A_CustomBulletAttack(7, 0, 1, FRandom(4,2), "BulletPuff")
+        D000 E 2 A_MonsterRefire(50, "See")
+		Goto Missile+1
+	Pain:
+		D000 G 3
+		D000 G 3 A_Pain
+		Goto See
+	Death:
+		D000 H 6
+		D000 I 6 A_Scream
+		D000 J 0 A_SpawnItemEx("Clip", 0, 0, 32, FRandom(-1,1), FRandom(-1,1), FRandom(3,5), 0, SXF_NOCHECKPOSITION)
+		D000 J 6 A_NoBlocking
+		D000 K 6
+		D000 L 0 A_PlaySound("Don_Body/Fall",CHAN_BODY,0.4)
+        D000 L -1
+		Stop
+	XDeath:
+        D000 G 1 A_NoBlocking
+        D000 G 0 A_PlaySound("Don_XDeath/Explode",CHAN_BODY)
+        D000 G 0 A_SpawnItemEx("Don_Gibbed", 0, 0, 0, 0, 0, 0, 0, 128)
+        D000 G 0 A_SpawnItemEx("Don_AssaultZombie1Head", 0, 0, 50, FRandom(4,6), FRandom(4,6), FRandom(4,6), FRandom(0,360), SXF_NOCHECKPOSITION)
+        D000 GG 0 A_SpawnItemEx("Don_AssaultZombie1Head", 0, 0, 12, FRandom(4,6), FRandom(4,6), FRandom(4,6), FRandom(0,360), SXF_NOCHECKPOSITION)
+		Stop
+	Raise:
+		D000 KL 6
+		D000 IH 6
+		Goto See
+	}
+}
+
+ACTOR Don_AssaultZombie2 : Don_AssaultZombie1 1202
+{
+	//$Category "Don Monsters"
+	
+	Tag "Assault Zombie 2"
+	
+	Health 60
+	Mass 110
+	PainChance 190
+	SeeSound "Don_ZombieFemale/Sight"
+	PainSound "Don_ZombieFemale/Pain"
+	DeathSound "Don_ZombieFemale/Death"
+	ActiveSound "Don_ZombieFemale/Active"
+	Obituary "%o was shot dead by a zombie's assault rifle."
+	
+	States
+	{
+	Spawn:
+		D001 AB 10 A_Look
+		Loop
+	See:
+		D001 AABB 4 A_Chase
+		D001 C 0 //A_PlaySound("Don_Zombie0/Step")
+		D001 CCDD 4 A_Chase
+		D001 A 0 //A_PlaySound("Don_Zombie0/Step")
+        Loop
+	Missile:
+		D001 E 9 A_FaceTarget
+        D001 E 0 A_PlaySound("Don_Zombie/Rifle",CHAN_WEAPON)
+		D001 E 0 A_FaceTarget
+	    D001 F 2 Bright A_CustomBulletAttack(7, 0, 1, FRandom(4,2), "BulletPuff")
+        D001 E 3 A_MonsterRefire(60, "See")
+		Goto Missile+1
+	Pain:
+		D001 G 3
+		D001 G 3 A_Pain
+		Goto See
+	Death:
+		D001 H 6
+		D001 I 6 A_Scream
+		D001 J 0 A_SpawnItemEx("Clip", 0, 0, 32, FRandom(-1,1), FRandom(-1,1), FRandom(3,5), 0, SXF_NOCHECKPOSITION)
+		D001 J 6 A_NoBlocking
+		D001 K 6
+		D001 L 6 A_PlaySound("Don_Body/Fall",CHAN_BODY,0.4)
+		D001 M 6
+        D001 N -1
+		Stop
+	XDeath:
+        D001 G 1 A_NoBlocking
+        D001 G 0 A_PlaySound("Don_XDeath/Explode",CHAN_BODY)
+        D001 G 0 A_SpawnItemEx("Don_Gibbed", 0, 0, 0, 0, 0, 0, 0, 128)
+        D001 G 0 A_SpawnItemEx("Don_AssaultZombie2Head", 0, 0, 50, FRandom(4,6), FRandom(4,6), FRandom(4,6), FRandom(0,360), SXF_NOCHECKPOSITION)
+        D001 GG 0 A_SpawnItemEx("Don_AssaultZombie2Leg", 0, 0, 12, FRandom(4,6), FRandom(4,6), FRandom(4,6), FRandom(0,360), SXF_NOCHECKPOSITION)
+		Stop
+	Raise:
+		D001 MLKJIH 6
+		Goto See
+	}
+}
+
+ACTOR Don_AssaultZombie3 : Don_AssaultZombie1 1201
+{
+	//$Category "Don Monsters"
+	
+	Tag "Assault Zombie 3"
+	
+	Health 50
+	Mass 100
+	PainChance 200
+	SeeSound "Don_ZombieFemale/Sight"
+	PainSound "Don_ZombieFemale/Pain"
+	DeathSound "Don_ZombieFemale/Death"
+	ActiveSound "Don_ZombieFemale/Active"
+	Obituary "%o was shot dead by a zombie's assault rifle."
+	
+	States
+	{
+	Spawn:
+		D002 AB 10 A_Look
+		Loop
+	See:
+		D002 AABB 4 A_Chase
+		D002 C 0 //A_PlaySound("Don_Zombie0/Step")
+		D002 CCDD 4 A_Chase
+		D002 A 0 //A_PlaySound("Don_Zombie0/Step")
+        Loop
+	Missile:
+		D002 E 10 A_FaceTarget
+        D002 E 0 A_PlaySound("Don_Zombie/Rifle",CHAN_WEAPON)
+		D002 E 0 A_FaceTarget
+	    D002 F 2 Bright A_CustomBulletAttack(7, 0, 1, FRandom(4,2), "BulletPuff")
+        D002 E 4 A_MonsterRefire(70, "See")
+		Goto Missile+1
+	Pain:
+		D002 G 3
+		D002 G 3 A_Pain
+		Goto See
+	Death:
+		D002 H 6
+		D002 I 6 A_Scream
+		D002 J 0 A_SpawnItemEx("Clip", 0, 0, 32, FRandom(-1,1), FRandom(-1,1), FRandom(3,5), 0, SXF_NOCHECKPOSITION)
+		D002 J 6 A_NoBlocking
+		D002 K 6
+		D002 L 6 A_PlaySound("Don_Body/Fall",CHAN_BODY,0.4)
+		D002 M 6
+        D002 N -1
+		Stop
+	XDeath:
+        D002 G 1 A_NoBlocking
+        D002 G 0 A_PlaySound("Don_XDeath/Explode",CHAN_BODY)
+        D002 G 0 A_SpawnItemEx("Don_Gibbed", 0, 0, 0, 0, 0, 0, 0, 128)
+        D002 G 0 A_SpawnItemEx("Don_AssaultZombie3Head", 0, 0, 50, FRandom(4,6), FRandom(4,6), FRandom(4,6), FRandom(0,360), SXF_NOCHECKPOSITION)
+        D002 GG 0 A_SpawnItemEx("Don_AssaultZombie3Leg", 0, 0, 12, FRandom(4,6), FRandom(4,6), FRandom(4,6), FRandom(0,360), SXF_NOCHECKPOSITION)
+		Stop
+	Raise:
+		D002 MLKJIH 6
+		Goto See
+	}
+}
+
+ACTOR Don_AssaultZombie1Head : Don_HeadBase
+{
+	//$Category "Don Monsters"
+	
+    States
+    {
+    Spawn:
+        D900 A 0 
+        D900 A 0 ThrustThingZ(0, 32, 0, 1)
+        Goto See 
+    See:      
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 0 ThrustThingZ(0, 6, 1, 1)
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+		Loop
+	See2:
+        D900 A 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D900 A 0 ThrustThingZ(0, 6, 1, 1)
+        D900 B 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D900 CD 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D900 ABCD 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        Loop
+    Death:
+        D900 A 0 A_Jump(256, "Death1", "Death2", "Death3", "Death4")
+		Goto Death1
+	Death1:
+        D900 A 300
+        D900 A 2 A_FadeOut(0.1)
+        Wait
+	Death2:
+        D900 B 300
+        D900 B 2 A_FadeOut(0.1)
+        Wait
+	Death3:
+        D900 C 300
+        D900 C 2 A_FadeOut(0.1)
+        Wait
+	Death4:
+        D900 D 300
+        D900 D 2 A_FadeOut(0.1)
+        Wait
+    }
+}
+
+ACTOR Don_AssaultZombie1Leg : Don_LegBase
+{
+	States
+    {
+    Spawn:
+        D900 E 0 
+        D900 E 0 A_Jump(128, 2)
+        D900 E 0 ThrustThingZ(0, 16, 0, 1)
+        Goto See 
+        D900 E 0 ThrustThingZ(0, 8, 0, 1)
+        Goto See 
+    See:       
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D900 F 0 ThrustThingZ(0, 6, 1, 1)      
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2") 
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D900 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D900 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		Loop
+	See2:
+        D900 E 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D900 E 0 ThrustThingZ(0, 6, 1, 1)
+        D900 FG 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D900 EFG 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        Loop
+    Death:
+        D900 E 0 A_Jump(256, "Death1", "Death2", "Death3")
+		Goto Death1
+	Death1:
+        D900 E 300
+        D900 E 2 A_FadeOut(0.1)
+        Wait 
+	Death2:
+        D900 F 300  
+        D900 F 2 A_FadeOut(0.1)
+        Wait
+	Death3:
+        D900 G 300 
+        D900 G 2 A_FadeOut(0.1)
+        Wait
+    }
+}
+
+ACTOR Don_AssaultZombie2Head : Don_HeadBase
+{
+    States
+    {
+    Spawn:
+        D901 A 0 
+        D901 A 0 ThrustThingZ(0, 32, 0, 1)
+        Goto See 
+    See:      
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 0 ThrustThingZ(0, 6, 1, 1)
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+		Loop
+	See2:
+        D901 A 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D901 A 0 ThrustThingZ(0, 6, 1, 1)
+        D901 B 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D901 CD 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D901 ABCD 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        Loop
+    Death:
+        D901 A 0 A_Jump(256, "Death1", "Death2", "Death3", "Death4")
+		Goto Death1
+	Death1:
+        D901 A 300
+        D901 A 2 A_FadeOut(0.1)
+        Wait
+	Death2:
+        D901 B 300
+        D901 B 2 A_FadeOut(0.1)
+        Wait
+	Death3:
+        D901 C 300
+        D901 C 2 A_FadeOut(0.1)
+        Wait
+	Death4:
+        D901 D 300
+        D901 D 2 A_FadeOut(0.1)
+        Wait
+    }
+}
+
+ACTOR Don_AssaultZombie2Leg : Don_LegBase
+{
+	States
+    {
+    Spawn:
+        D901 E 0 
+        D901 E 0 A_Jump(128, 2)
+        D901 E 0 ThrustThingZ(0, 16, 0, 1)
+        Goto See 
+        D901 E 0 ThrustThingZ(0, 8, 0, 1)
+        Goto See 
+    See:       
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D901 F 0 ThrustThingZ(0, 6, 1, 1)      
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2") 
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D901 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D901 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		Loop
+	See2:
+        D901 E 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D901 E 0 ThrustThingZ(0, 6, 1, 1)
+        D901 FG 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D901 EFG 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        Loop
+    Death:
+        D901 E 0 A_Jump(256, "Death1", "Death2", "Death3")
+		Goto Death1
+	Death1:
+        D901 E 300
+        D901 E 2 A_FadeOut(0.1)
+        Wait 
+	Death2:
+        D901 F 300  
+        D901 F 2 A_FadeOut(0.1)
+        Wait
+	Death3:
+        D901 G 300 
+        D901 G 2 A_FadeOut(0.1)
+        Wait
+    }
+}
+
+ACTOR Don_AssaultZombie3Head : Don_HeadBase
+{
+    States
+    {
+    Spawn:
+        D902 A 0 
+        D902 A 0 ThrustThingZ(0, 32, 0, 1)
+        Goto See 
+    See:      
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 0 ThrustThingZ(0, 6, 1, 1)
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 A 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 A 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 B 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 B 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 C 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 C 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 D 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 D 0 A_JumpIf(FloorZ-Z==0,"See2")
+		Loop
+	See2:
+        D902 A 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D902 A 0 ThrustThingZ(0, 6, 1, 1)
+        D902 B 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D902 CD 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D902 ABCD 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        Loop
+    Death:
+        D902 A 0 A_Jump(256, "Death1", "Death2", "Death3", "Death4")
+		Goto Death1
+	Death1:
+        D902 A 300
+        D902 A 2 A_FadeOut(0.1)
+        Wait
+	Death2:
+        D902 B 300
+        D902 B 2 A_FadeOut(0.1)
+        Wait
+	Death3:
+        D902 C 300
+        D902 C 2 A_FadeOut(0.1)
+        Wait
+	Death4:
+        D902 D 300
+        D902 D 2 A_FadeOut(0.1)
+        Wait
+    }
+}
+
+ACTOR Don_AssaultZombie3Leg : Don_LegBase
+{
+	States
+    {
+    Spawn:
+        D902 E 0 
+        D902 E 0 A_Jump(128, 2)
+        D902 E 0 ThrustThingZ(0, 16, 0, 1)
+        Goto See 
+        D902 E 0 ThrustThingZ(0, 8, 0, 1)
+        Goto See 
+    See:       
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+        D902 F 0 ThrustThingZ(0, 6, 1, 1)      
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2") 
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 E 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 E 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 F 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 F 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		D902 G 1 A_SpawnItemEx("Don_BloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+	    D902 G 0 A_JumpIf(FloorZ-Z==0,"See2")
+		Loop
+	See2:
+        D902 E 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D902 E 0 ThrustThingZ(0, 6, 1, 1)
+        D902 FG 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        D902 EFG 5 A_SpawnItemEx("Don_LittleBloodTrail", 0, 0, 0, 0, 0, 0, 0, 128)
+        Loop
+    Death:
+        D902 E 0 A_Jump(256, "Death1", "Death2", "Death3")
+		Goto Death1
+	Death1:
+        D902 E 300
+        D902 E 2 A_FadeOut(0.1)
+        Wait 
+	Death2:
+        D902 F 300  
+        D902 F 2 A_FadeOut(0.1)
+        Wait
+	Death3:
+        D902 G 300 
+        D902 G 2 A_FadeOut(0.1)
+        Wait
+    }
+}

@@ -1,0 +1,30 @@
+PointLight TORM_UACWALKER_FX1
+{
+    Color 1.0 0.6 0.1
+    Size 68
+    Offset 0 45 0
+	attenuate 1
+}
+
+PointLight TORM_UACWALKER_FX2
+{
+    Color 1.0 0.6 0.1
+    Size 58
+    Offset 0 70 0
+	attenuate 1
+}
+
+Object Torm_UACWalker
+{
+	Frame D241H { Light TORM_UACWALKER_FX1 }
+	Frame D241K { Light TORM_UACWALKER_FX2 }		
+	Frame D242K { Light TORM_SENTRYGBOMB_FX1 }
+	Frame D242L { Light TORM_SENTRYGBOMB_FX2 }
+	Frame D242M { Light TORM_SENTRYGBOMB_FX3 }
+	Frame D242N { Light TORM_SENTRYGBOMB_FX4 }	
+	Frame D242T { Light TORM_SENTRYGBOMB_FX3 }
+	Frame D242U { Light TORM_SENTRYGBOMB_FX4 }
+	Frame D242V { Light TORM_SENTRYGBOMB_FX5 }
+	Frame D242W { Light TORM_SENTRYGBOMB_FX6 }
+}
+		

@@ -1,0 +1,97 @@
+PointLight TORM_TERMINATOR_FX
+{
+    Color 1.0 0.6 0.1
+    Size 58
+    Offset 0 25 0
+	attenuate 1
+}
+
+PointLight TORM_TERMINATOR_FX2
+{
+    Color 0.8 0.7 0.0
+    Size 58
+    Offset 0 25 0
+	attenuate 1
+}
+
+Object Torm_Terminator
+{
+	Frame D227F { Light TORM_TERMINATOR_FX }
+	Frame D227H { Light TORM_TERMINATOR_FX2 }
+	Frame D227I { Light TORM_TERMINATOR_FX2 }
+	Frame D227O { Light TORM_SENTRYGBOMB_FX1 }
+	Frame D227P { Light TORM_SENTRYGBOMB_FX1 }
+	Frame D227Q { Light TORM_SENTRYGBOMB_FX2 }
+	Frame D227R { Light TORM_SENTRYGBOMB_FX3 }
+	Frame D227S { Light TORM_SENTRYGBOMB_FX4 }
+	Frame D227T { Light TORM_SENTRYGBOMB_FX5 }
+	Frame D227U { Light TORM_SENTRYGBOMB_FX5 }
+	Frame D227V { Light TORM_SENTRYGBOMB_FX6 }
+}
+		
+PointLight TORM_TERMINATORBLASTER_FX
+{
+    Color 1.0 0.6 0.0
+    Size 42
+	attenuate 1
+}
+
+FlickerLight TORM_TERMINATORBLASTER_FX2
+{
+    Color 1.0 0.6 0.0
+    Size 47
+    SecondarySize 54
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_TERMINATORBLASTER_FX3
+{
+    Color 0.8 0.4 0.0 
+    Size 56
+    SecondarySize 68
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_TERMINATORBLASTER_FX4
+{
+    Color 0.8 0.4 0.0 
+    Size 52
+    SecondarySize 43
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_TERMINATORBLASTER_FX5
+{
+    Color 0.6 0.2 0.0 
+    Size 26
+    SecondarySize 31
+    Chance 0.3
+	attenuate 1
+}
+
+FlickerLight TORM_TERMINATORBLASTER_FX6
+{
+    Color 0.6 0.2 0.0 
+    Size 18
+    SecondarySize 22
+    Chance 0.3
+	attenuate 1
+}
+
+Object Torm_TerminatorBlaster
+{
+	Frame D231A { Light TORM_TERMINATORBLASTER_FX }
+	Frame D231B { Light TORM_TERMINATORBLASTER_FX2 }
+	Frame D231C { Light TORM_TERMINATORBLASTER_FX2 }
+	Frame D231D { Light TORM_TERMINATORBLASTER_FX3 }
+	Frame D231E { Light TORM_TERMINATORBLASTER_FX3 }
+	Frame D231F { Light TORM_TERMINATORBLASTER_FX4 }
+	Frame D231G { Light TORM_TERMINATORBLASTER_FX4 }
+	Frame D231H { Light TORM_TERMINATORBLASTER_FX5 }
+	Frame D231I { Light TORM_TERMINATORBLASTER_FX5 }
+	Frame D231J { Light TORM_TERMINATORBLASTER_FX6 }
+	Frame D231K { Light TORM_TERMINATORBLASTER_FX6 }
+}
