@@ -37,3 +37,25 @@ Model KiradorTripodPart
 	USEACTORPITCH
 	FrameIndex KR00 H 0 0
 }
+
+Model KiradorMetalPlateGib
+{
+	Path "Models/Kirador/Gibs/metalplate"
+	Scale 0.8 0.8 0.8
+	SurfaceSkin 0 0 "metal1.png"
+	SurfaceSkin 0 1 "metal2.png"
+	USEACTORPITCH
+	INHERITACTORROLL
+
+	Model 0 "metalplategib1.md3" FrameIndex HGIB A 0 0
+	Model 0 "metalplategib2.md3" FrameIndex HGIB B 0 0
+	Model 0 "metalplategib3.md3" FrameIndex HGIB C 0 0
+	Model 0 "metalplategib4.md3" FrameIndex HGIB D 0 0
+	Model 0 "metalplategib5.md3" FrameIndex HGIB E 0 0
+	Model 0 "metalplategib6.md3" FrameIndex HGIB F 0 0
+	Model 0 "metalplategib7.md3" FrameIndex HGIB G 0 0
+	Model 0 "metalplategib8.md3" FrameIndex HGIB H 0 0
+	Model 0 "metalplategib9.md3" FrameIndex HGIB I 0 0
+	Model 0 "metalplategib10.md3" FrameIndex HGIB J 0 0
+	Model 0 "metalplategib11.md3" FrameIndex HGIB K 0 0
+}

@@ -1,0 +1,111 @@
+
+Class KiradorGib : Actor
+{
+	Default
+	{
+		Radius 2.5;
+		Height 5;
+		Projectile;
+		Speed 16;
+		-NOGRAVITY
+		+CLIENTSIDEONLY
+		+NOTRIGGER
+		+CANBOUNCEWATER
+		//+THRUACTORS
+		+BOUNCEONACTORS
+		+MOVEWITHSECTOR
+		+USEBOUNCESTATE
+		-NOBLOCKMAP
+		+SYNCHRONIZED
+		FloatbobPhase 0;
+		MaxStepHeight 1;
+		Gravity 0.66;
+		BounceType "Doom";
+		//BounceCount 2;
+		BounceFactor 0.5;
+		WallBounceFactor 0.5;
+	}
+	double dir, dir2;
+	Override Void Tick()
+	{
+		Super.Tick();
+		If(IsFrozen() || !bMissile) Return;
+		If(!dir)
+		{
+			dir=FRandomPick(-1,1)*FRandom(0.5,1)*8;
+			dir2=FRandomPick(-1,1)*FRandom(0.5,1)*8;
+		}
+		A_SetRoll(Roll+dir,2);
+		A_SetPitch(Pitch+dir2,2);
+	}
+	/*
+	Frame A (0): humen bone 1
+	Frame B (1): humen gib
+	Frame C (2): humen guts
+	Frame D (3): hugman heart
+	Frame E (4): humen leg
+	Frame F (5): hughman lung
+	Frame G (6): humen skull
+	Frame H (7): flesh1
+	Frame I (8): flesh2
+	Frame J (9): flesh3
+	Frame K (10): flesh4
+	Frame L (11): aliengib1
+	Frame M (12): aliengib2
+	Frame N (13): aliengib3
+	Frame O (14): aliengib4
+	*/
+	Virtual Void A_SprayBloodDecal(int ang=180) // little hack to spray the "colored" blood decal on walls.
+	{
+		If(!target || bNoBlood) Return;
+		Vector3 OldPos=target.Pos;
+		target.SetOrigin(Pos,1);
+		target.TraceBleedAngle(10,angle+ang,0);
+		target.SetOrigin(OldPos,1);
+	}
+	Override Void PostBeginPlay()
+	{
+		super.PostBeginPlay();
+		if(getAge()) Return;
+		A_QueueCorpse();
+	}
+	States
+	{
+	Spawn:
+		HGIB ABCDEFGHIJKLMNOPQRSTUVWXYZ -1;
+		Loop;
+	Fly:
+		"####" "#" -1;
+		Stop;
+	Death:
+		"####" "#" 700 { Tics=Random(700,1750); bInterpolateAngles=False; Pitch=Roll=0; /*A_QueueCorpse();*/ }
+		Stop;
+	Bounce.Wall:
+		"####" "#" -1 A_SprayBloodDecal;
+		Goto Spawn;
+	}
+}
+Class KiradorMetalPlateGib : KiradorGib
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOBLOOD
+		Gravity 0.33;
+		BounceSound "Kirador/metaldebris";
+		DeathSound "Kirador/metaldebris";
+	}
+	Override Void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		If(!GetAge()) Frame=Random[PlateGibs](0,10);
+	}
+	Override Void Tick()
+	{
+		Super.Tick();
+		If(IsFrozen()) Return;
+		special1++;;
+		if(special1>=175)
+		A_FadeOut(0.005);
+	}
+}

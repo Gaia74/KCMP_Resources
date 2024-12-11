@@ -14,7 +14,14 @@ Kirador/Metal6				"Sounds/kirador/hlmetal6.wav"
 $Random Kirador/BurstMetal { Kirador/BurstMetal1 Kirador/BurstMetal2 }
 Kirador/BurstMetal1				"Sounds/kirador/hlbustmetal1.wav"
 Kirador/BurstMetal2				"Sounds/kirador/hlbustmetal2.wav"
-$Volume Kirador/HitMetal 0.5
+$Volume Kirador/HitMetal 0.75
+
+
+$Random Kirador/metaldebris { Kirador/metaldebris1 Kirador/metaldebris2 Kirador/metaldebris3 }
+Kirador/metaldebris1	"sounds/kirador/hlmetal2.wav"
+Kirador/metaldebris2	"sounds/kirador/hlmetal4.wav"
+Kirador/metaldebris3	"sounds/kirador/hlmetal5.wav"
+$Volume Kirador/metaldebris 0.5
 
 $Random Kirador/HitWood { Kirador/HitWood1 Kirador/HitWood2 Kirador/HitWood3 }
 Kirador/HitWood1			"Sounds/kirador/hlwood1.wav"
