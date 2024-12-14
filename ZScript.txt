@@ -7,6 +7,7 @@ Version "4.10"
 #Include "Actors/Kirador/Tripod.zsc"
 #Include "Actors/Kirador/Destructible.zsc"
 #Include "Actors/Kirador/Gibs.zsc"
+#Include "Actors/Kirador/Triggereable.zsc"
 // LoR
 const DOOMRR_INCINERATOR_FLAME_DAMAGE = 5;
 const DOOMRR_INCINERATOR_FLAME_VELOCITY = 40;

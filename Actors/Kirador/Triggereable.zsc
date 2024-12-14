@@ -1,0 +1,43 @@
+Class KiradorTriggereable : Actor
+{
+	Default
+	{
+		//$Sprite IFOGA0
+		//$NotAngled 
+		+NOSECTOR
+		+NOBLOCKMAP
+		+NOINTERACTION
+		+SYNCHRONIZED
+		FloatbobPhase 0;
+		ReactionTime 0;
+	}
+	int user_delay;
+	bool user_activateonce;
+	bool user_notimereset;
+	Override Void Activate(Actor Activator)
+	{
+		if(bKilled || user_notimereset && reactiontime) Return;
+		if(user_delay)
+		{
+			ReactionTime=user_delay;
+			bKilled=user_activateonce;
+			target=Activator;
+		}
+		Else
+		TriggerSpecial(Activator);
+	}
+	Override Void Tick()
+	{
+		Super.Tick();
+		if(user_delay>0 && ReactionTime)
+		{
+			ReactionTime--;
+			if(!ReactionTime)
+			TriggerSpecial(Target);
+		}
+	}
+	Void TriggerSpecial(Actor Activator)
+	{
+		Activator.A_CallSpecial(self.special,Args[0],Args[1],Args[2],Args[3],Args[4]);
+	}
+}

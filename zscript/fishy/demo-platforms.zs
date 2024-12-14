@@ -1,5 +1,8 @@
+
 class DemoGenericPlat : FishyPlatform abstract
 {
+	//$Category "Fishy's 3D Platforms"
+	//$Color 9
 	States
 	{
 	Spawn:
@@ -10,6 +13,8 @@ class DemoGenericPlat : FishyPlatform abstract
 
 class DemoPlatWithSnd : FishyPlatform abstract
 {
+	//$Category "Fishy's 3D Platforms"
+	//$Color 9
 	bool wasMoving;
 	Name sndSeq;
 	Property Seq: sndSeq;
@@ -41,6 +46,8 @@ class DemoCavePlat : DemoGenericPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 32;
 		Height 24;
 	}
@@ -50,6 +57,8 @@ class DemoTwistingLift : DemoPlatWithSnd
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 64;
 		Height 128;
 		DemoPlatWithSnd.Seq 'Platform';
@@ -60,6 +69,8 @@ class DemoSpinningSegment1 : DemoGenericPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 40;
 		Height 136;
 	}
@@ -69,6 +80,8 @@ class DemoSpinningSegment2 : DemoGenericPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 32;
 		Height 128;
 	}
@@ -78,6 +91,8 @@ class DemoSlidingFloor : DemoPlatWithSnd
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 32;
 		Height 16;
 		DemoPlatWithSnd.Seq 'Floor';
@@ -88,6 +103,8 @@ class DemoWobblyMeatFloor : FishyPlatform
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 96;
 		Height 248;
 	}
@@ -105,6 +122,8 @@ class DemoWobblyMeatFloorNoEyes : DemoGenericPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 96;
 		Height 248;
 	}
@@ -114,6 +133,8 @@ class DemoFirebluSegment : DemoGenericPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 30;
 		Height 16;
 	}
@@ -123,6 +144,8 @@ class DemoFirebluSegmentTiny : DemoGenericPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Scale 0.2;
 		Radius 6;
 		Height 3.2;
@@ -133,6 +156,8 @@ class DemoDiabolicalCube : FishyPlatform //This one isn't a model user. Oooh!
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 32;
 		Height 24;
 		+FORCEXYBILLBOARD;

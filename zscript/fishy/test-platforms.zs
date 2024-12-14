@@ -1,5 +1,7 @@
 class TESTPlat : FishyPlatform abstract
 {
+	//$Category "Fishy's 3D Platforms"
+	//$Color 9
 	States
 	{
 	Spawn:
@@ -16,6 +18,8 @@ class TESTMooPlatform : TESTPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 64;
 		Height 32;
 	}
@@ -25,6 +29,8 @@ class TESTFloaty : TESTPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 32;
 		Height 80;
 	}
@@ -34,6 +40,8 @@ class TESTFlyingDoor : TESTPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 64;
 		Height 8;
 	}
@@ -43,6 +51,8 @@ class TESTSprite : TESTPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 64;
 		Height 16;
 		+ROLLSPRITE;
@@ -64,6 +74,8 @@ class TESTSPritePitchIndicator : Actor
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		+NOINTERACTION;
 		+NOBLOCKMAP;
 	}
@@ -90,6 +102,8 @@ class TESTBlueishPlatform : TESTPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 64;
 		Height 16;
 	}
@@ -99,6 +113,8 @@ class TESTPushCrate : TESTPlat
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Radius 48;
 		Height 80;
 		+PUSHABLE;
@@ -109,6 +125,8 @@ class TESTPushCrate : TESTPlat
 
 class TESTSmallCrate : TESTPushCrate
 {
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 	States
 	{
 	Spawn:
@@ -126,6 +144,8 @@ class TESTTorchZombo : ZombieMan
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		//$Title Torch zombo!
 	}
 
@@ -199,6 +219,8 @@ class TESTNastyHeart : FishyPlatform
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Health 300;
 		Radius 30;
 		Height 16;
@@ -265,6 +287,8 @@ class TESTCybie : FishyPlatform
 {
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
+		//$Color 9
 		Health 4000;
 		Radius 40;
 		Height 110;

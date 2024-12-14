@@ -130,7 +130,9 @@ class FishyPlatformNode : InterpolationPoint
 
 	Default
 	{
+		//$Category "Fishy's 3D Platforms"
 		//$Title Platform Interpolation Point
+		//$Color 9
 
 		//$Arg0 Next Point
 		//$Arg0Type 14

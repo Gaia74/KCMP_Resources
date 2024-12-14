@@ -12,17 +12,21 @@ DoomEdNums
 	906 = "JGP_FuelAmmoLarge"
 	907 = "KiradorTripod"
 	908 = "KiradorParallaxSkyBox"
+	//909 = "Maptren"
+	910 = "KiradorTriggereable"
 	
+	///////////////////////
+	// Fishy's platforms //
+	///////////////////////
 	
-	
-		15000 = FishyPlatformNode
+	15000 = FishyPlatformNode
 	15001 = FishyPlatformGeneric
 
 	//Demomap
 	15100 = DemoCavePlat
 	15101 = DemoTwistingLift
 	15102 = DemoSpinningSegment1
-	15103 = DemoSpinningSegment2
+	15103 = DemoSpinningSegment2	
 	15104 = DemoSlidingFloor
 	15105 = DemoWobblyMeatFloor
 	15106 = DemoWobblyMeatFloorNoEyes
