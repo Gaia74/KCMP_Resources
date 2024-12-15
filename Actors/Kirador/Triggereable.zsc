@@ -10,34 +10,60 @@ Class KiradorTriggereable : Actor
 		+SYNCHRONIZED
 		FloatbobPhase 0;
 		ReactionTime 0;
+		Radius 10;
+		Scale 0.5;
 	}
 	int user_delay;
 	bool user_activateonce;
 	bool user_notimereset;
+	bool user_startactive;
+	bool user_looping;
+	int user_randomdelay;
+	Override Void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if(GetAge()) Return;
+		if(user_startactive)
+		Activate(Self);
+	}
 	Override Void Activate(Actor Activator)
 	{
 		if(bKilled || user_notimereset && reactiontime) Return;
-		if(user_delay)
+		
+		if(user_randomdelay)
+		ReactionTime+=abs(Random(1,user_randomdelay));
+		
+		if(user_delay || user_randomdelay || ReactionTime)
 		{
-			ReactionTime=user_delay;
+			ReactionTime+=abs(user_delay);
 			bKilled=user_activateonce;
 			target=Activator;
 		}
 		Else
-		TriggerSpecial(Activator);
+		{
+			TriggerSpecial(Activator);
+			bKilled=user_activateonce;
+		}
 	}
 	Override Void Tick()
 	{
 		Super.Tick();
-		if(user_delay>0 && ReactionTime)
+		if(ReactionTime)
 		{
 			ReactionTime--;
 			if(!ReactionTime)
-			TriggerSpecial(Target);
+			{
+				TriggerSpecial(Target);
+				if(user_looping && user_delay || user_randomdelay)
+				{
+					Activate(Target);
+				}
+			}
 		}
 	}
 	Void TriggerSpecial(Actor Activator)
 	{
+		if(!Activator) Activator=Self;
 		Activator.A_CallSpecial(self.special,Args[0],Args[1],Args[2],Args[3],Args[4]);
 	}
 }
