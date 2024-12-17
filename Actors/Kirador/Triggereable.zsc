@@ -14,11 +14,11 @@ Class KiradorTriggereable : Actor
 		Scale 0.5;
 	}
 	int user_delay;
+	int user_randomdelay;
 	bool user_activateonce;
 	bool user_notimereset;
 	bool user_startactive;
 	bool user_looping;
-	int user_randomdelay;
 	Override Void PostBeginPlay()
 	{
 		Super.PostBeginPlay();

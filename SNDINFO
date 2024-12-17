@@ -33,7 +33,7 @@ ssgguy/attack                   dssggatk
 /* ADDITIONAL SOUNDS FROM TCTF.WAD FOR SKULLTAG				   */
 /*									   */
 /***************************************************************************/
-
+$playersound	player	male	*taunt		dstaunt
 WindSound            wind
 Thunder	             thndr1
 WaterFallSound       waters1

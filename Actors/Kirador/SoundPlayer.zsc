@@ -1,0 +1,53 @@
+Class KiradorSoundPlayer : Actor
+{
+	Default
+	{
+		//$Sprite SPKRA0
+		//$NotAngled
+		
+		//$Arg0 "Channel"
+		//$Arg0ToolTip "0 = Auto\n1 = Weapon \n2 = Voice \n3 = Item \n4 = Body\n it's not limited to just these, you can use any channel"
+		
+		//$Arg1 "Flags"
+		//$Arg1Type 12
+		//$Arg1Enum { 0 = "CHANF_DEFAULT"; 8 = "CHANF_LISTENERZ"; 16 = "CHANF_MAYBE_LOCAL"; 32 = "CHANF_UI"; 64 = "CHANF_NOPAUSE"; 256 = "CHANF_LOOP"; 4096 = "CHANF_NOSTOP"; 8192 = "CHANF_OVERLAP"; 16384 = "CHANF_LOCAL"; }
+		//$Arg1ToolTip "Check A_StartSound wiki for more info"
+		
+		//$Arg2 "Volume%"
+		//$Arg2Default 100
+		
+		//$Arg3 "Attenuation% (check tooltip)"
+		//$Arg3Default 100
+		//$Arg3ToolTip "distance is percentage, but reversed, ie: 50% = double distance, 200% = half distance"
+		
+		//$Arg4 "Pitch%"
+		//$Arg4Default 100
+		
+		+NOBLOCKMAP
+		+SYNCHRONIZED
+		FloatbobPhase 0;
+		ReactionTime 0;
+		Radius 10;
+		Scale 0.25;
+	}
+	string user_soundname;
+	bool user_startactive;
+	bool user_activateonce;
+	bool user_playonactivator;
+	double user_startpoint;
+	Override Void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if(GetAge()) Return;
+		if(user_startactive)
+		Activate(Self);
+	}
+	Override Void Activate(Actor Activator)
+	{
+		if(bKilled && user_activateonce) Return;
+		if(!Activator || !user_playonactivator) Activator=Self;
+		
+		bKilled=user_activateonce;
+		Activator.A_StartSound(user_soundname,Args[0],Args[1],Args[2]*0.01,Args[3]*0.01,Args[4]*0.01,user_startpoint);
+	}
+}

@@ -14,6 +14,7 @@ DoomEdNums
 	908 = "KiradorParallaxSkyBox"
 	//909 = "Maptren"
 	910 = "KiradorTriggereable"
+	911 = "KiradorSoundPlayer"
 	
 	///////////////////////
 	// Fishy's platforms //
