@@ -1,0 +1,123 @@
+Class KiradorThingSpawner : Actor
+{
+	enum Flags
+	{
+		ARG_WAIT			= 1,
+		ARG_NOSPACECHECK			= 2,
+		ARG_STARTACTIVE		= 4,
+		ARG_NORESET		= 8,
+		ARG_ONCE			= 16,
+		ARG_SPAWNFOG			= 32
+	}
+	Default
+	{
+		//$Sprite TFOGC0
+		
+		//$Arg0 "Count"
+		//$Arg0ToolTip "set an amount to spawn \nnegative values means infinite"
+		
+		//$Arg1 "Flags"
+		//$Arg1Type 12
+		//$Arg1Enum { 1 = "wait for death/pickup"; 2 = "Don't check for space"; 4 = "Starts active"; 8 = "Dont reset timer"; 16 = "Activate Once"; 32 = "Spawn fog"; }
+		
+		//$Arg2 "Delay (tics)"
+		//$Arg2Default 1
+		
+		//$Arg3 "Spawned thing tag"
+		
+		//$Arg4 "Speed"
+		
+		
+		+NOBLOCKMAP
+		+SYNCHRONIZED
+		FloatbobPhase 0;
+		ReactionTime 0;
+		Radius 10;
+		Scale 0.5;
+	}
+	string user_actorname;
+	Override Void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		if(GetAge()) Return;
+		special2=Args[0];
+		if(Args[1] & ARG_STARTACTIVE)
+		if(!Args[2]) Args[2]=1;
+		Activate(Self);
+	}
+	Override Void Activate(Actor Activator)
+	{
+		if(bKilled && (Args[1] & ARG_ONCE) || special2==0 && Args[0]>0) Return;
+		
+		if(special1 && (Args[1] & ARG_NORESET))  Return;
+		special1=Abs(Args[2]);
+	}
+	Override Void Tick()
+	{
+		Super.Tick();
+		if(isFrozen()) Return;
+		if((Args[1] & ARG_WAIT) && Target)
+		{
+			let inv=Inventory(Target);
+			if(inv && inv.owner || target.Default.bMissile && !target.bMissile)
+			target=null;
+			else if(Target.Health>0) Return;
+			target=null;
+			Activate(self);
+		}
+		if(special1)
+		{
+			special1--;
+			if(!special1)
+			{
+				bool spawned=SpawnThing();
+				if(bJustHit) special1++;
+			}
+		}
+	}
+	bool SpawnThing()
+	{
+		bool spawned=false;
+		Class<Actor> cls=user_actorname;
+		if(!cls)
+		{
+			console.Printf("Unknown class "..user_actorname);
+			Return false;
+		}
+		if(!(Args[1] & ARG_NOSPACECHECK))
+		{
+			A_SetSize(GetDefaultByType(cls).Radius,GetDefaultByType(cls).Height);
+			A_ChangeLinkFlags(false);
+			bSolid=GetDefaultByType(cls).bSolid;
+			bCanPass=GetDefaultByType(cls).bCanPass;
+			bool check=CheckMove(pos.xy+(0,0.1),PCM_DROPOFF);
+			A_ChangeLinkFlags(true);
+			if(!check) { bJustHit=True; /*A_Log("no space");*/ Return False; }
+		}
+		bJustHit=False; 
+		/*A_Log("Spawn: ".. user_actorname);*/
+		target=Spawn(cls,pos,ALLOW_REPLACE);
+		target.Angle=Angle;
+		target.pitch=pitch;
+		if(Args[3])
+		target.ChangeTid(Abs(Args[3]));
+		if(target.bMissile || Args[4])
+		{
+			double speed=Args[4]? Args[4]:target.speed;
+			target.Vel3DFromAngle(target.speed,angle,pitch);
+		}
+		
+		if(Args[1] & ARG_SPAWNFOG)
+		{
+			Spawn("TeleportFog",Pos,ALLOW_REPLACE);
+		}
+		
+		bKilled=Args[1] & ARG_ONCE;
+		If(special2>0) special2--;
+		if((special2>0 || special2<0) && !(Args[1] & ARG_WAIT))
+		{
+			Activate(self);
+		}
+		Return true;
+	}
+}

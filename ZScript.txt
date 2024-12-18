@@ -9,6 +9,7 @@ Version "4.10"
 #Include "Actors/Kirador/Gibs.zsc"
 #Include "Actors/Kirador/Triggereable.zsc"
 #Include "Actors/Kirador/SoundPlayer.zsc"
+#Include "Actors/Kirador/Spawner.zsc"
 // LoR
 const DOOMRR_INCINERATOR_FLAME_DAMAGE = 5;
 const DOOMRR_INCINERATOR_FLAME_VELOCITY = 40;

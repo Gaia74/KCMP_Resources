@@ -15,6 +15,7 @@ DoomEdNums
 	//909 = "Maptren"
 	910 = "KiradorTriggereable"
 	911 = "KiradorSoundPlayer"
+	913 = "KiradorThingSpawner"
 	
 	///////////////////////
 	// Fishy's platforms //

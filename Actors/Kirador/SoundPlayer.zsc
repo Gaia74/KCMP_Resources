@@ -11,7 +11,7 @@ Class KiradorSoundPlayer : Actor
 		//$Arg1 "Flags"
 		//$Arg1Type 12
 		//$Arg1Enum { 0 = "CHANF_DEFAULT"; 8 = "CHANF_LISTENERZ"; 16 = "CHANF_MAYBE_LOCAL"; 32 = "CHANF_UI"; 64 = "CHANF_NOPAUSE"; 256 = "CHANF_LOOP"; 4096 = "CHANF_NOSTOP"; 8192 = "CHANF_OVERLAP"; 16384 = "CHANF_LOCAL"; }
-		//$Arg1ToolTip "Check A_StartSound wiki for more info"
+		//$Arg1ToolTip "Check A_StartSound wiki for detailed info"
 		
 		//$Arg2 "Volume%"
 		//$Arg2Default 100
