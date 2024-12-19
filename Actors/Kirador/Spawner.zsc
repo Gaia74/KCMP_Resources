@@ -7,7 +7,9 @@ Class KiradorThingSpawner : Actor
 		ARG_STARTACTIVE		= 4,
 		ARG_NORESET		= 8,
 		ARG_ONCE			= 16,
-		ARG_SPAWNFOG			= 32
+		ARG_SPAWNFOG			= 32,
+		ARG_TRANSFERTID			= 64,
+		ARG_PROJSOUND			= 128
 	}
 	Default
 	{
@@ -18,7 +20,7 @@ Class KiradorThingSpawner : Actor
 		
 		//$Arg1 "Flags"
 		//$Arg1Type 12
-		//$Arg1Enum { 1 = "wait for death/pickup"; 2 = "Don't check for space"; 4 = "Starts active"; 8 = "Dont reset timer"; 16 = "Activate Once"; 32 = "Spawn fog"; }
+		//$Arg1Enum { 1 = "Wait for death/pickup"; 2 = "Don't check for space"; 4 = "Starts active"; 8 = "Dont reset timer"; 16 = "Activate Once"; 32 = "Spawn fog"; 64 = "Transfer TID"; 128="Play projectile sound"; }
 		
 		//$Arg2 "Delay (tics)"
 		//$Arg2Default 1
@@ -41,13 +43,20 @@ Class KiradorThingSpawner : Actor
 		Super.PostBeginPlay();
 		if(GetAge()) Return;
 		special2=Args[0];
-		if(Args[1] & ARG_STARTACTIVE)
 		if(!Args[2]) Args[2]=1;
+		if(Args[1] & ARG_STARTACTIVE)
 		Activate(Self);
+	}
+	Override Void Deactivate(Actor Activator)
+	{
+		Super.Deactivate(activator);
+		bDormant=True;
 	}
 	Override Void Activate(Actor Activator)
 	{
 		if(bKilled && (Args[1] & ARG_ONCE) || special2==0 && Args[0]>0) Return;
+		
+		bDormant=False;
 		
 		if(special1 && (Args[1] & ARG_NORESET))  Return;
 		special1=Abs(Args[2]);
@@ -55,11 +64,11 @@ Class KiradorThingSpawner : Actor
 	Override Void Tick()
 	{
 		Super.Tick();
-		if(isFrozen()) Return;
+		if(isFrozen() || bDormant) Return;
 		if((Args[1] & ARG_WAIT) && Target)
 		{
 			let inv=Inventory(Target);
-			if(inv && inv.owner || target.Default.bMissile && !target.bMissile)
+			if(inv && (inv.owner || !inv.bSpecial) || target.Default.bMissile && !target.bMissile)
 			target=null;
 			else if(Target.Health>0) Return;
 			target=null;
@@ -95,16 +104,24 @@ Class KiradorThingSpawner : Actor
 			if(!check) { bJustHit=True; /*A_Log("no space");*/ Return False; }
 		}
 		bJustHit=False; 
-		/*A_Log("Spawn: ".. user_actorname);*/
+		//A_Log("Spawn: ".. user_actorname);
 		target=Spawn(cls,pos,ALLOW_REPLACE);
 		target.Angle=Angle;
 		target.pitch=pitch;
-		if(Args[3])
-		target.ChangeTid(Abs(Args[3]));
+		if(Args[3] || (Args[1] & ARG_TRANSFERTID) && TID)
+		target.ChangeTid((Args[1] & ARG_TRANSFERTID)? TID:Abs(Args[3]));
+		target.Health*=Health*1.0/Default.Health;
+		target.bAmbush=bAmbush;
 		if(target.bMissile || Args[4])
 		{
 			double speed=Args[4]? Args[4]:target.speed;
 			target.Vel3DFromAngle(target.speed,angle,pitch);
+			if((Args[1] & ARG_PROJSOUND) && target.bMissile)
+			{
+				actor emitter=target;
+				if(target.bSpawnSoundSource) emitter=self;
+				emitter.A_StartSound(target.seesound);
+			}
 		}
 		
 		if(Args[1] & ARG_SPAWNFOG)
