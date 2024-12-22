@@ -38,6 +38,7 @@ Class KiradorThingSpawner : Actor
 		Scale 0.5;
 	}
 	string user_actorname;
+	string user_spawnfog;
 	Override Void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
@@ -126,12 +127,20 @@ Class KiradorThingSpawner : Actor
 		
 		if(Args[1] & ARG_SPAWNFOG)
 		{
-			class<Actor> fogType;
+			class<Actor> fogType="TeleportFog";
 			
-			if(TeleFogDestType) fogType=TeleFogDestType;
-			else if(TeleFogSourceType) fogType=TeleFogSourceType;
-			else fogType="TeleportFog";
-			Spawn("TeleportFog",Pos,ALLOW_REPLACE);
+			if(user_spawnfog=="")
+			{
+				a_log(user_spawnfog);
+				if(TeleFogDestType) fogType=TeleFogDestType;
+				else if(TeleFogSourceType) fogType=TeleFogSourceType;
+				else fogType="TeleportFog";
+			}
+			else
+			fogType=user_spawnfog;
+			
+			if(fogtype)
+			Spawn(fogType,Pos,ALLOW_REPLACE);
 		}
 		
 		bKilled=Args[1] & ARG_ONCE;

@@ -18,6 +18,7 @@ DoomEdNums
 	913 = "KiradorThingSpawner"
 	914 = "KamikaziGuy"
 	//915 = "PerforatorCannon"
+	//916 = "PerforatorCannonAmmo"
 	
 	///////////////////////
 	// Fishy's platforms //
