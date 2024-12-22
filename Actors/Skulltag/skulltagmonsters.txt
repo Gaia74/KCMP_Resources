@@ -289,15 +289,15 @@ ACTOR BloodDemon : Demon 5016
 		SRG2 AB 10 A_Look
 		Loop
 	See:
-		SRG2 AABBCCDD 2 A_Chase
+		SRG2 AABBCCDD 2 Fast A_Chase
 		Loop
 	Pain:
 		SRG2 H 2
 		SRG2 H 2 A_Pain
 		Goto See
 	Melee:
-		SRG2 EF 8 A_FaceTarget
-		SRG2 G 8 A_SargAttack
+		SRG2 EF 8 Fast A_FaceTarget
+		SRG2 G 8 Fast A_SargAttack
 		Goto See
 	Death:
 		SRG2 I 8
