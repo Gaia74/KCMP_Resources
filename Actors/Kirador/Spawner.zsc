@@ -130,7 +130,7 @@ Class KiradorThingSpawner : Actor
 			
 			if(TeleFogDestType) fogType=TeleFogDestType;
 			else if(TeleFogSourceType) fogType=TeleFogSourceType;
-			else fogType="TeleportFog");
+			else fogType="TeleportFog";
 			Spawn("TeleportFog",Pos,ALLOW_REPLACE);
 		}
 		
