@@ -19,6 +19,8 @@ Class KiradorTriggereable : Actor
 	bool user_notimereset;
 	bool user_startactive;
 	bool user_looping;
+	bool user_nostartdelay;
+	bool firstactive;
 	Override Void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
@@ -33,7 +35,7 @@ Class KiradorTriggereable : Actor
 		if(user_randomdelay)
 		ReactionTime+=abs(Random(1,user_randomdelay));
 		
-		if(user_delay || user_randomdelay || ReactionTime)
+		if(!firstactive && !user_nostartdelay && (user_delay || user_randomdelay || ReactionTime))
 		{
 			ReactionTime+=abs(user_delay);
 			bKilled=user_activateonce;
@@ -44,6 +46,7 @@ Class KiradorTriggereable : Actor
 			TriggerSpecial(Activator);
 			bKilled=user_activateonce;
 		}
+		firstactive=true;
 	}
 	Override Void Tick()
 	{

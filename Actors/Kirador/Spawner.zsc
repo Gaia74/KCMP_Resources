@@ -9,7 +9,8 @@ Class KiradorThingSpawner : Actor
 		ARG_ONCE			= 16,
 		ARG_SPAWNFOG			= 32,
 		ARG_TRANSFERTID			= 64,
-		ARG_PROJSOUND			= 128
+		ARG_PROJSOUND			= 128,
+		ARG_NOSTARTDELAY			= 256
 	}
 	Default
 	{
@@ -20,7 +21,7 @@ Class KiradorThingSpawner : Actor
 		
 		//$Arg1 "Flags"
 		//$Arg1Type 12
-		//$Arg1Enum { 1 = "Wait for death/pickup"; 2 = "Don't check for space"; 4 = "Starts active"; 8 = "Dont reset timer"; 16 = "Activate Once"; 32 = "Spawn fog"; 64 = "Transfer TID"; 128="Play projectile sound"; }
+		//$Arg1Enum { 1 = "Wait for death/pickup"; 2 = "Don't check for space"; 4 = "Starts active"; 8 = "Dont reset timer"; 16 = "Activate Once"; 32 = "Spawn fog"; 64 = "Transfer TID"; 128="Play projectile sound"; 256="No start delay"; }
 		
 		//$Arg2 "Delay (tics)"
 		//$Arg2Default 1
@@ -39,6 +40,7 @@ Class KiradorThingSpawner : Actor
 	}
 	string user_actorname;
 	string user_spawnfog;
+	bool firstactive;
 	Override Void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
@@ -60,7 +62,15 @@ Class KiradorThingSpawner : Actor
 		bDormant=False;
 		
 		if(special1 && (Args[1] & ARG_NORESET))  Return;
+		
 		special1=Abs(Args[2]);
+		
+		if(!firstActive && Args[1] & ARG_NOSTARTDELAY)
+		{
+			SpawnThing();
+		}
+		
+		firstActive=True;
 	}
 	Override Void Tick()
 	{
