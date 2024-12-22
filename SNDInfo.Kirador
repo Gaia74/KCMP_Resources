@@ -69,3 +69,8 @@ Kirador/M603				"Sounds/Kirador/km60_3.wav"
 Kirador/M604				"Sounds/Kirador/km60_4.wav"
 Kirador/M605				"Sounds/Kirador/km60_5.wav"
 Kirador/Explode2			"Sounds/Kirador/hl2explode_2.wav"
+
+kamikazi/scream		DSKAMAAH
+kamikazi/idle		DSKAMIDL
+kamikazi/pain		"Sounds/Kirador/Kamikaze/wound.wav"
+kamikazi/explode	"Sounds/Kirador/Kamikaze/Explosion02.wav"
