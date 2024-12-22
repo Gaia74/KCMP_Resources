@@ -16,6 +16,7 @@ DoomEdNums
 	910 = "KiradorTriggereable"
 	911 = "KiradorSoundPlayer"
 	913 = "KiradorThingSpawner"
+	914 = "KamikaziGuy"
 	
 	///////////////////////
 	// Fishy's platforms //
