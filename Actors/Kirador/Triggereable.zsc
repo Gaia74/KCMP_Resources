@@ -31,18 +31,22 @@ Class KiradorTriggereable : Actor
 	Override Void Activate(Actor Activator)
 	{
 		if(bKilled || user_notimereset && reactiontime) Return;
-		
+		reactiontime=0;
 		if(user_randomdelay)
 		ReactionTime+=abs(Random(1,user_randomdelay));
 		
-		if(!firstactive && !user_nostartdelay && (user_delay || user_randomdelay || ReactionTime))
+		//if(tid==25) a_log("triggereable" ..self..": \cdactivado");
+		if((user_delay || user_randomdelay || ReactionTime) || firstactive && (user_delay || user_randomdelay || ReactionTime))
 		{
+			//if(tid==25) a_log("triggereable" ..self..": \cgnofirst");
 			ReactionTime+=abs(user_delay);
 			bKilled=user_activateonce;
 			target=Activator;
 		}
 		Else
 		{
+			
+			//if(tid==25) a_log("triggereable" ..self..": \cdinsta");
 			TriggerSpecial(Activator);
 			bKilled=user_activateonce;
 		}
@@ -66,6 +70,7 @@ Class KiradorTriggereable : Actor
 	}
 	Void TriggerSpecial(Actor Activator)
 	{
+		//if(tid==25) a_log("triggereable" ..self..": \cftriggereado".." accion=\cd"..special);
 		if(!Activator) Activator=Self;
 		Activator.A_CallSpecial(self.special,Args[0],Args[1],Args[2],Args[3],Args[4]);
 	}

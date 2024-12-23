@@ -59,7 +59,12 @@ Class KiradorThingWaiter : Actor
 	Override Void Activate(Actor Activator)
 	{
 		if(bKilled) Return;
+		//a_log("waiter: \cvReactivado");
 		bDormant=False;
+		maxhp=0;
+		maxcount=0;
+		special1=0;
+		special2=0;
 	}
 	Override Void Tick()
 	{
@@ -80,10 +85,10 @@ Class KiradorThingWaiter : Actor
 			int count=CountThings();
 			int percent=100*health/(maxhp? maxhp:1);
 			int countpercent=100*count/(maxcount? maxcount:1);
-			//a_log("yo esperando="..count.. " percent="..percent.." countpercento="..countpercent);
+			//a_log("waiter: yo esperando="..count.. " percent="..percent.." countpercento="..countpercent);
 			if(count<1 || user_percenttrigger && (countpercent<=user_percenttrigger && !user_percent_usehealth || user_percent_usehealth && percent<=user_percenttrigger))
 			{
-				//A_Log("\ciConteo triggereado");
+				//A_Log("waiter: \ciConteo triggereado");
 				special2=user_delay+1;
 			}
 		}
@@ -93,7 +98,7 @@ Class KiradorThingWaiter : Actor
 		if(!Activator) Activator=Self;
 		Activator.A_CallSpecial(self.special,Args[0],Args[1],Args[2],Args[3],Args[4]);
 		bKilled=user_activateonce;
-		//A_Log("\cnEJECUTADO");
+		//A_Log("waiter: \cnEJECUTADO");
 		bDormant=True;
 	}
 }
