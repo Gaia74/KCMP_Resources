@@ -121,7 +121,7 @@ Class KiradorTripod : Actor
 				mo.A_SetRenderStyle(1.0,STYLE_NORMAL);
 				mo.bBright=True;
 				mo.sprite=sprite;
-				mo.frame=Random[kiradorfx](8,11);
+				mo.frame=Random[kiradorfx](8,10);
 				mo.bXFlip=FRandomPick[kiradorfx](0,1);
 				mo.bYFlip=FRandomPick[kiradorfx](0,1);
 				mo.tics=2;
