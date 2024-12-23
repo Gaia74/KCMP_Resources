@@ -64,7 +64,7 @@ Class KiradorThingWaiter : Actor
 	Override Void Tick()
 	{
 		Super.Tick();
-		//if(bDormant) Return;
+		if(bDormant) Return;
 		if(special2)
 		{
 			special2--;
