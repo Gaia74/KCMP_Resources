@@ -2,7 +2,7 @@ Class KiradorThingWaiter : Actor
 {
 	Default
 	{
-		//$Sprite IFOGA0
+		//$Sprite KR00P0
 		//$NotAngled 
 		+NOSECTOR
 		+NOBLOCKMAP
@@ -29,6 +29,11 @@ Class KiradorThingWaiter : Actor
 		if(user_startactive)
 		Activate(Self);
 	}*/
+	Override Void Deactivate(Actor activator)
+	{
+		super.deactivate(activator);
+		bDormant=True;
+	}
 	int CountThings()
 	{
 		
@@ -60,6 +65,7 @@ Class KiradorThingWaiter : Actor
 	{
 		if(bKilled) Return;
 		//a_log("waiter: \cvReactivado");
+		if(tid==64) a_log("desdurmiendo");
 		bDormant=False;
 		maxhp=0;
 		maxcount=0;
@@ -69,6 +75,7 @@ Class KiradorThingWaiter : Actor
 	Override Void Tick()
 	{
 		Super.Tick();
+		//if(tid==64) a_log("bdormant="..bDormant);
 		if(bDormant) Return;
 		if(special2)
 		{

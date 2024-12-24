@@ -60,6 +60,7 @@ Class KiradorThingSpawner : Actor
 	{
 		if(Args[1] & ARG_RESETCOUNTER) special2=Args[0];
 		if(bKilled && (Args[1] & ARG_ONCE) || special2==0 && Args[0]>0) Return;
+		bDormant=False;
 		
 		DoTrigger(Activator);
 	}
@@ -67,13 +68,12 @@ Class KiradorThingSpawner : Actor
 	{
 		if(bKilled && (Args[1] & ARG_ONCE) || special2==0 && Args[0]>0) Return;
 		
-		bDormant=False;
 		
 		if(special1 && (Args[1] & ARG_NORESET))  Return;
 		
 		special1=Abs(Args[2]);
 		
-		if(!firstActive && Args[1] & ARG_NOSTARTDELAY)
+		if(!firstActive && (Args[1] & ARG_NOSTARTDELAY) && special2==Args[0])
 		{
 			SpawnThing();
 		}
@@ -129,7 +129,7 @@ Class KiradorThingSpawner : Actor
 		target.pitch=pitch;
 		if(Args[3] || (Args[1] & ARG_TRANSFERTID) && TID)
 		target.ChangeTid((Args[1] & ARG_TRANSFERTID)? TID:Abs(Args[3]));
-		target.Health*=Health*1.0/Default.Health;
+		target.Health*=int(Health*1.0/Default.Health);
 		target.bAmbush=bAmbush;
 		if(target.bMissile || Args[4])
 		{

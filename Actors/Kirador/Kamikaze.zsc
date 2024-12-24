@@ -120,4 +120,13 @@ Class KamikaziGuy : Actor //10300 - remember to move this on your mapinfo - ozy8
 		A_Stop();
 		A_StopSound(CHAN_5);
 	}
+	Override int DoSpecialDamage (actor target, int damage, name damagetype)
+	{
+		int dmg=super.DoSpecialDamage(target,damage,damagetype);
+		if(!(target is 'PlayerPawn') && target.GetClass()!=GetClass()) dmg*=3;
+		
+		if(isTeammate(target)) dmg=0;
+		
+		return dmg;
+	}
 }
