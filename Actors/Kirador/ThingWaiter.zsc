@@ -32,7 +32,7 @@ Class KiradorThingWaiter : Actor
 	Override Void Deactivate(Actor activator)
 	{
 		super.deactivate(activator);
-		bDormant=True;
+		bDormant=True;		
 	}
 	int CountThings()
 	{

@@ -92,7 +92,8 @@ ACTOR Torm_Terminator 1251
         D227 M 6 A_Scream
         D227 N 4 
         D227 OP 4 Bright
-        D227 Q 4 Bright A_NoBlocking	
+        D227 Q 4 Bright A_NoBlocking
+		D227 A 0 { A_SpawnItem("KiradorRocketExplosion",0,54); A_QuakeEx(1.4,1.4,1.4,20,0,1024,"",QF_SCALEDOWN); }
 		D227 RR 0 A_SpawnItemEx("Torm_MetalRandom", 0, 0, FRandom(24,33), 0, 0, 0, 0, 128)
 		D227 RR 0 A_SpawnItemEx("Torm_MetalRandom2", 0, 0, FRandom(24,33), 0, 0, 0, 0, 128)
         D227 R 0 A_SpawnItemEx("Torm_TerminatorHead", 0, 0, 54, FRandom(4,6), FRandom(4,6), FRandom(4,6), FRandom(0,360), 128) 
