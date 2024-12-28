@@ -149,7 +149,7 @@ Class KiradorThingSpawner : Actor
 			
 			if(user_spawnfog=="")
 			{
-				a_log(user_spawnfog);
+				//a_log(user_spawnfog);
 				if(TeleFogDestType) fogType=TeleFogDestType;
 				else if(TeleFogSourceType) fogType=TeleFogSourceType;
 				else fogType="TeleportFog";

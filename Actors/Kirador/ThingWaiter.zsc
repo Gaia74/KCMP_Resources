@@ -65,7 +65,7 @@ Class KiradorThingWaiter : Actor
 	{
 		if(bKilled) Return;
 		//a_log("waiter: \cvReactivado");
-		if(tid==64) a_log("desdurmiendo");
+		//if(tid==64) a_log("desdurmiendo");
 		bDormant=False;
 		maxhp=0;
 		maxcount=0;
