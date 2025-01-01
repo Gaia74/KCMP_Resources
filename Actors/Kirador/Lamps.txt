@@ -1,0 +1,688 @@
+/*
+Light Column Variations
+By ChronoSeth
+
+Set the first argument on the actor to 1, 2, or 3 to change the light column's behaviour.
+Arg = 1: Flickering light (mostly on)
+Arg = 2: Flickering light (mostly off)
+Arg = 3: Flashing light
+Arg = 4: Off
+*/
+
+
+Actor NewColumnBase : Column 30500 //Base definition for below actors, also used for flickering/flashing/dead standard column
+{
+	//$Category Light Sources
+	
+	States
+	{
+		Spawn:
+			COLU A 8 Bright
+			
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kBlueColumn : NewColumnBase 30501
+{
+	States
+	{
+		Spawn:
+			COLB A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kCyanColumn : NewColumnBase 30502
+{
+	States
+	{
+		Spawn:
+			COLC A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kGreenColumn : NewColumnBase 30503
+{
+	States
+	{
+		Spawn:
+			COLG A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kOrangeColumn : NewColumnBase 30504
+{
+	States
+	{
+		Spawn:
+			COLO A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kPurpleColumn : NewColumnBase 30505
+{
+	States
+	{
+		Spawn:
+			COLP A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kWhiteColumn : NewColumnBase 30506
+{
+	States
+	{
+		Spawn:
+			COLW A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kRedColumn : NewColumnBase 30507
+{
+	States
+	{
+		Spawn:
+			COLR A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kTallColumn : NewColumnBase 30508
+{
+	Height 67
+	States
+	{
+		Spawn:
+			TCOL A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kTallBlueColumn : kTallColumn 30509
+{
+	States
+	{
+		Spawn:
+			TCLB A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kTallCyanColumn : kTallColumn 30510
+{
+	States
+	{
+		Spawn:
+			TCLC A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kTallGreenColumn : kTallColumn 30511
+{
+	States
+	{
+		Spawn:
+			TCLG A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kTallOrangeColumn : kTallColumn 30512
+{
+	States
+	{
+		Spawn:
+			TCLO A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kTallPurpleColumn : kTallColumn 30513
+{
+	States
+	{
+		Spawn:
+			TCLP A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor TkallRedColumn : kTallColumn 30514
+{
+	States
+	{
+		Spawn:
+			TCLR A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kTallWhiteColumn : kTallColumn 30515
+{
+	States
+	{
+		Spawn:
+			TCLW A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kShortColumn : NewColumnBase 30516
+{
+	Height 23
+	States
+	{
+		Spawn:
+			SCOL A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kShortBlueColumn : kShortColumn 30517
+{
+	States
+	{
+		Spawn:
+			SCLB A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kShortCyanColumn : kShortColumn 30518
+{
+	States
+	{
+		Spawn:
+			SCLC A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kShortGreenColumn : kShortColumn 30519
+{
+	States
+	{
+		Spawn:
+			SCLG A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kShortOrangeColumn : kShortColumn 30520
+{
+	States
+	{
+		Spawn:
+			SCLO A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kShortPurpleColumn : kShortColumn 30521
+{
+	States
+	{
+		Spawn:
+			SCLP A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kShortRedColumn : kShortColumn 30522
+{
+	States
+	{
+		Spawn:
+			SCLR A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}
+
+Actor kShortWhiteColumn : kShortColumn 30523
+{
+	States
+	{
+		Spawn:
+			SCLW A 8 Bright
+		Spawn2:
+			"####" A 0 Bright A_JumpIf (Args[0] == 1, "Flicker")
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			"####" A 0 A_JumpIf (Args[0] == 3, "Flash")
+			"####" A 0 A_JumpIf (Args[0] == 4, "Spawn3")
+			Goto Spawn
+		Spawn3:
+			"####" B 8
+			"####" A 0 A_JumpIf (Args[0] == 2, "Flicker2")
+			Loop
+		Flicker:
+			"####" B 1 A_Jump (128, "Spawn")
+			Loop
+		Flicker2:
+			"####" A 1 Bright A_Jump (128, "Spawn3")
+			Loop
+		Flash:
+			"####" B 8
+			Goto Spawn
+	}
+}

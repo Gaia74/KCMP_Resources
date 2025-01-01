@@ -6,6 +6,8 @@
 #Include "Actors/skulltag/skulltagweapons.txt"
 #Include "Actors/skulltag/skulltagitems.txt"
 
+#Include "Actors/Kirador/Lamps.txt"
+
 #Include "Actors/Arena/Gibs.don"
 #Include "Actors/Arena/Zombies/SMG_Zombie.don"
 #Include "Actors/Arena/Zombies/Assault_Zombie.don"
