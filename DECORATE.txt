@@ -39,6 +39,7 @@
 #Include "Actors/Arena/Cerebral Sentient/Cerebral_Sentient(Fly).don"
 
 #Include "Actors/Items/UltraSphere.txt"
+#Include "Actors/Decorations/Trees.txt"
 
 #Include "Actors/Torm/Gibs.torm"
 #Include "Actors/Torm/Guardian Cube/Guardian_Cube.torm"
