@@ -129,7 +129,7 @@ Class KiradorThingSpawner : Actor
 		target.pitch=pitch;
 		if(Args[3] || (Args[1] & ARG_TRANSFERTID) && TID)
 		target.ChangeTid((Args[1] & ARG_TRANSFERTID)? TID:Abs(Args[3]));
-		target.Health*=int(Health*1.0/Default.Health);
+		target.Health=int(target.Health*1.0*Health/Default.Health);
 		target.bAmbush=bAmbush;
 		if(target.bMissile || Args[4])
 		{
