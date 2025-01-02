@@ -1,0 +1,341 @@
+ACTOR KXTree1 301
+{
+//$Category KXDecorations
+	+NOINTERACTION
+	States
+	{
+	Spawn:
+		KXAR A -1
+	    Stop
+	}
+}
+
+ACTOR KXTree2 : KXTree1 302
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR B -1
+	    Stop
+	}
+}
+
+ACTOR KXTree3 : KXTree1 303
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR C -1
+	    Stop
+	}
+}
+
+ACTOR KXTree4 : KXTree1 304
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR D -1
+	    Stop
+	}
+}
+
+ACTOR KXTree5 : KXTree1 305
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR E -1
+	    Stop
+	}
+}
+
+ACTOR KXTree6 : KXTree1 306
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR F -1
+	    Stop
+	}
+}
+
+ACTOR KXTree7 : KXTree1 307
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR G -1
+	    Stop
+	}
+}
+
+ACTOR KXTree8 : KXTree1 308
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR H -1
+	    Stop
+	}
+}
+
+ACTOR KXTree9 : KXTree1 309
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR I -1
+	    Stop
+	}
+}
+
+ACTOR KXTree10 : KXTree1 310
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR J -1
+	    Stop
+	}
+}
+
+ACTOR KXTree11 : KXTree1 311
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR K -1
+	    Stop
+	}
+}
+
+ACTOR KXTree12 : KXTree1 312
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR L -1
+	    Stop
+	}
+}
+
+ACTOR KXTree13 : KXTree1 313
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR M -1
+	    Stop
+	}
+}
+
+ACTOR KXTree14 : KXTree1 314
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR N -1
+	    Stop
+	}
+}
+
+ACTOR KXTree15 : KXTree1 315
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR O -1
+	    Stop
+	}
+}
+
+ACTOR KXTree16 : KXTree1 316
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR P -1
+	    Stop
+	}
+}
+
+ACTOR KXTree17 : KXTree1 317
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR Q -1
+	    Stop
+	}
+}
+
+ACTOR KXTree18 : KXTree1 318
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR R -1
+	    Stop
+	}
+}
+
+ACTOR KXTree19 : KXTree1 319
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR S -1
+	    Stop
+	}
+}
+
+ACTOR KXTree20 : KXTree1 320
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR T -1
+	    Stop
+	}
+}
+
+ACTOR KXTree21 : KXTree1 321
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR U -1
+	    Stop
+	}
+}
+
+ACTOR KXTree22 : KXTree1 322
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR V -1
+	    Stop
+	}
+}
+
+ACTOR KXTree23 : KXTree1 323
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR W -1
+	    Stop
+	}
+}
+
+ACTOR KXTree24 : KXTree1 324
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR X -1
+	    Stop
+	}
+}
+
+ACTOR KXTree25 : KXTree1 325
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR Y -1
+	    Stop
+	}
+}
+
+ACTOR KXTree26 : KXTree1 326
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KXAR Z -1
+	    Stop
+	}
+}
+
+ACTOR KXTree27 : KXTree1 327
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KAR2 A -1
+	    Stop
+	}
+}
+
+ACTOR KXTree28 : KXTree1 328
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KAR2 B -1
+	    Stop
+	}
+}
+
+ACTOR KXTree29 : KXTree1 329
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KAR2 C -1
+	    Stop
+	}
+}
+
+ACTOR KXTree30 : KXTree1 330
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KAR2 D -1
+	    Stop
+	}
+}
+
+ACTOR KXTree31 : KXTree1 331
+{
+    //$Category KXDecorations
+	States
+	{
+	Spawn:
+		KAR2 E -1
+	    Stop
+	}
+}
