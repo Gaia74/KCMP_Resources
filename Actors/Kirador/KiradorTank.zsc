@@ -46,11 +46,11 @@ Class KiradorSegment : KiradorEffect
 	{
 		Actor.Tick();
 	}
-	KiradorSegment prev, next;
+	KiradorSegment sprev, snext;
 	Override Void OnDestroy()
 	{
-		if(prev) prev.next=next;
-		if(next && prev) next.prev=prev;
+		if(sprev) sprev.snext=snext;
+		if(snext && sprev) snext.sprev=sprev;
 	}
 	//int special1; //index
 	//double specialf11; // interpolated index
