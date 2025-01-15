@@ -104,8 +104,16 @@ Class KiradorMetalPlateGib : KiradorGib
 	{
 		Super.Tick();
 		If(IsFrozen()) Return;
-		special1++;;
+		special1++;
 		if(special1>=175)
 		A_FadeOut(0.005);
+	}
+}
+Class KiradorWoodGibbers : KiradorMetalPlateGib
+{
+	Default
+	{
+		BounceSound "Kirador/HitWood";
+		DeathSound "Kirador/HitWood";
 	}
 }
