@@ -1,0 +1,1109 @@
+/// BONUS ENEMIES (for fun)
+///	I also threw in some variants of the Legacy of Rust monsters, for more variety!
+///	You can expect to fight these fellas in game, if you activate the bonus monsters
+/// setting! But feel free to use them in Doom Builder as well, as they have their
+///	own DoomEd number!
+
+
+//FLAMETROOPER
+
+//	Is it hot in here, or is it just this guy?
+//	A dumb undead whose obsession is to fry you alive. Dont get close!
+//	These guys have limited range, but will try their best to catch you up.
+class Flametrooper : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust/Bonus"
+		Health 100;
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 10;
+		PainChance 30;
+		MaxTargetRange 362;
+		Monster;
+		+FLOORCLIP
+		+DONTHARMSPECIES
+		//SeeSound "shocktrooper/act";
+		PainSound "shocktrooper/pain";
+		DeathSound "shocktrooper/death";
+		ActiveSound "shocktrooper/act";
+		Obituary "%o got too close of a flametrooper.";
+		Tag "Flametrooper";
+	}
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;
+	/*	
+		if(GetCVAR("troopsee"))
+			SeeSound = "shocktrooper/act";
+		else
+			SeeSound = "";
+			
+		if(!GetCVAR("flametrooperinfight"))
+			bDONTHARMSPECIES = true;
+		else
+			bDONTHARMSPECIES = false;*/
+
+	}		
+	States
+	{
+	Spawn:
+		PPO8 AB 10 A_Look;
+		Loop;
+	See:
+		PPO8 AABBCCDD 2 fast A_FlametrooperChase();
+		Loop;
+	Missile:
+		PPO8 A 0;
+		PPO8 E 1 A_FaceTarget();		
+		PPO8 E 10 fast A_FaceTarget;
+		goto FlamethrowerLoop;
+	FlamethrowerLoop:
+		PPO8 F 1 fast BRIGHT A_FlametrooperCombo();
+		PPO8 E 1 fast A_FaceTarget;
+		PPO8 E 0 A_FlametrooperCheck();
+		PPO8 E 0 A_SpidReFire();
+		loop;
+	FinishFire:
+		PPO8 E 3 fast A_FaceTarget;
+		Goto See;
+	Pain:
+		PPO8 G 5;
+		PPO8 G 5 fast A_Pain;
+		Goto See;
+	Death:
+		PPO8 Q 0;
+		PPO8 Q 0 A_FaceTarget();		
+		PPO8 H 5 A_SpawnItemEx("FlametrooperHead",0,0,32,-5,0,5,flags:SXF_NOCHECKPOSITION|SXF_TRANSFERALPHA|SXF_TRANSFERRENDERSTYLE|SXF_TRANSFERTRANSLATION);
+		PPO8 I 5 A_FlametrooperDeath("JGP_FuelAmmoSmall","JGP_Incinerator",false);
+		PPO8 J 5 A_NoBlocking;
+		PPO8 KL 5;
+		PPO8 M -1;
+		Stop;
+	XDeath:
+		PPO8 N 5;
+		PPO8 O 5 A_FlametrooperDeath("JGP_FuelAmmoSmall","JGP_Incinerator",true);
+		PPO8 P 5 A_NoBlocking;
+		PPO8 Q 0 A_FaceTarget();		
+		PPO8 Q 5 A_SpawnItemEx("FlametrooperTorso",0,0,32,-5,0,5,flags:SXF_NOCHECKPOSITION|SXF_TRANSFERALPHA|SXF_TRANSFERRENDERSTYLE|SXF_TRANSFERTRANSLATION);
+		PPO8 RST 5;
+		PPO8 U -1;
+		Stop;
+	Raise:
+		PPO8 M 5;
+		PPO8 LKJIH 5;
+		Goto See;
+	}
+	void A_FlametrooperChase()
+	{
+		A_Chase();
+		if(target && target.health > 0)
+		{
+			if(distance3d(target) <= 362 && checksight(target))
+				SetStateLabel("Missile");
+		}
+	}		
+	void A_FlametrooperCheck()
+	{
+		if(target && (Distance3D(target) >= 400 || !Checksight(target)))
+		{
+			//A_logInt(Distance3D(target));
+			SetStateLabel("FinishFire");
+		}
+	}
+	void A_FlametrooperDeath(Class<Actor> ammo,Class<Actor> weapon,bool extremedeath)
+	{
+		if(extremedeath)
+			A_XScream();
+		else
+			A_Scream();
+		//if(GetCVAR("troopersdrop")==1)
+			A_DropItem(ammo);
+		//else if(GetCVAR("troopersdrop")==2)
+			//A_DropItem(weapon);
+	}	
+	void A_FlametrooperCombo()
+	{
+		A_FaceTarget();
+		A_StartSound("incinerator/crackle");
+		A_SpawnProjectile("IncineratorFire2",32);
+	}
+}
+class WeakerFlametrooper : Flametrooper
+{
+	Default
+	{
+		Health 40;
+	}
+}
+class IncineratorFire2 : JGP_IncineratorFlame
+{
+	Default
+	{
+		//Damage 2;
+		Speed 16;
+	}/*
+	States
+	{
+	Death:
+		IFLM I 2 Bright A_Explode(2,64);
+		IFLM JI 2 Bright;
+		IFLM J 2 Bright A_Explode(2,64);
+		IFLM KL 2 Bright;
+		IFLM K 2 Bright A_Explode(2,64);
+		IFLM LM 2 Bright;
+		IFLM N 2 Bright A_Explode(2,64);
+		IFLM MN 2 Bright;
+		IFLM O 2 Bright A_Explode(2,64);
+		IFLM PO 2 Bright;
+		IFLM P 2 Bright A_Explode(2,64);
+		Stop;
+	}	*/
+	override int DoSpecialDamage(actor target, int damage, name damagetype)
+	{
+		return int(damage*0.33);
+	}
+}
+
+//CALAMITY TROOPER
+
+//	Well shit, looks like the Calamity Blade ended in the wrong hands.
+//	A dangerous foe, ready to scorch you in a matter of seconds.
+//	A bit beefier than the Shocktrooper, but thank god these guys take
+//	a while to charge. Devastating in tight areas.
+class Calamitytrooper : Actor
+{
+	int ChargeLevel;
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust/Bonus"
+		//$Title "Calamity Trooper"
+		Health 120;
+		Obituary "%o has been sliced and burned by a calamity trooper.";
+		Tag "Calamity Trooper";
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 8;
+		PainChance 10;
+		MinMissileChance 120;
+		Monster;
+		+FLOORCLIP
+		+DONTHARMSPECIES
+		//SeeSound "shocktrooper/act";
+		PainSound "shocktrooper/pain";
+		DeathSound "shocktrooper/death";
+		ActiveSound "shocktrooper/act";
+	}
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;
+		/*
+		if(GetCVAR("troopsee"))
+			SeeSound = "shocktrooper/act";
+		else
+			SeeSound = "";
+			
+		if(!GetCVAR("calamityinfight"))
+		{
+			bDONTHARMSPECIES = true;
+			bDOHARMSPECIES = false;
+		}
+		else
+		{
+			bDONTHARMSPECIES = false;
+			bDOHARMSPECIES = true;
+		}*/
+
+	}		
+	States
+	{
+	Spawn:
+		PPO9 AB 10 fast A_Look;
+		Loop;
+	See:
+		PPO9 AABBCCDD 2 fast A_Chase;
+		Loop;
+	Missile:
+		PPO9 E 10 fast A_FaceTarget;
+		goto CalamityCharge;
+	CalamityCharge:
+		PPO9 A 0;
+		PPO9 A 0 A_JumpIf(ChargeLevel >= 5, "ShootTheFlame");
+		PPO9 E 0 A_FaceTarget();
+		PPO9 E 5 fast A_CalamityTrooperCharge();
+		PPO9 EEEEEEEEEEEEEEE 1 A_FaceTarget();
+		PPO9 E 0 A_Jump(78, "ShootTheFlame");
+		loop;
+	ShootTheFlame:
+		PPO9 E 2 fast A_FaceTarget();
+		PPO9 E 0 A_StartSound("calamity/fire");
+		PPO9 F 8 fast BRIGHT A_CalamityTrooperFire();
+		PPO9 E 15 fast A_FaceTarget;
+		Goto See;
+	Pain:
+		PPO9 G 5;
+		PPO9 G 5 fast A_Pain;
+		Goto See;
+	Death:
+		PPO9 Q 0;
+		PPO9 Q 0 A_FaceTarget();		
+		PPO9 H 5 A_SpawnItemEx("CalamitytrooperHead",0,0,32,-5,0,3,flags:SXF_NOCHECKPOSITION|SXF_TRANSFERALPHA|SXF_TRANSFERRENDERSTYLE|SXF_TRANSFERTRANSLATION);
+		PPO9 I 5 A_CalamitytrooperDeath("JGP_FuelAmmoLarge","JGP_Heatwave",false);
+		PPO9 J 5 A_NoBlocking;
+		PPO9 KL 5;
+		PPO9 M -1;
+		Stop;
+	XDeath:
+		PPO9 N 5;
+		PPO9 O 5 A_CalamitytrooperDeath("JGP_FuelAmmoLarge","JGP_Heatwave",false);
+		PPO9 P 5 A_NoBlocking;
+		PPO9 Q 0 A_FaceTarget();		
+		PPO9 Q 5 A_SpawnItemEx("CalamitytrooperTorso",0,0,32,-5,0,3,flags:SXF_NOCHECKPOSITION|SXF_TRANSFERALPHA|SXF_TRANSFERRENDERSTYLE|SXF_TRANSFERTRANSLATION);
+		PPO9 RST 5;
+		PPO9 U -1;
+		Stop;
+	Raise:
+		PPO9 M 5;
+		PPO9 LKJIH 5;
+		Goto See;
+	}	
+	void A_CalamitytrooperDeath(Class<Actor> ammo,Class<Actor> weapon,bool extremedeath)
+	{
+		if(extremedeath)
+			A_XScream();
+		else
+			A_Scream();
+		A_DropItem(ammo);
+		/*if(GetCVAR("troopersdrop")==1)
+			A_DropItem(ammo);
+		else if(GetCVAR("troopersdrop")==2)
+			A_DropItem(weapon);*/
+	}		
+	void A_CalamityTrooperCharge()
+	{
+		A_StartSound("calamity/charge");
+		ChargeLevel++;
+		//A_logInt(ChargeLevel);
+	}
+	void A_CalamityTrooperFire()
+	{
+		A_FaceTarget();
+		if(ChargeLevel == 1)
+		{
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,0);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-5);
+		}
+		if(ChargeLevel == 2)
+		{
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,12.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,7.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,2.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-2.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-7.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-12.5);
+		}
+		if(ChargeLevel == 3)
+		{
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,20);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,15);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,10);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,0);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-10);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-15);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-20);
+		}
+		if(ChargeLevel == 4)
+		{
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,27.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,22.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,17.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,12.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,7.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,2.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-2.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-7.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-12.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-17.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-22.5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-27.5);
+		}
+		if(ChargeLevel == 5)
+		{
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,35);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,30);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,25);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,20);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,15);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,10);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,0);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-5);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-10);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-15);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-20);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-25);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-30);
+			A_SpawnProjectile("JGP_HeatWaveRipperDue",32,0,-35);
+		}
+		ChargeLevel = 0;
+	}
+}
+Class JGP_HeatWaveRipperDue : JGP_HeatWaveRipper
+{
+	override int DoSpecialDamage(actor target, int damage, name damagetype)
+	{
+		if(target is 'playerpawn')
+		return int(damage*0.33);
+		return damage;
+	}
+}
+class WeakerCalamitytrooper : CalamityTrooper
+{
+	Default
+	{
+		Health 50;
+	}
+}
+class FlametrooperHead : ShocktrooperHead
+{
+ 	States
+	{
+	Spawn:
+		PHE8 ABCDEFGHI 3;
+		Loop;
+	Death:
+		PHE8 J 0;
+		PHE8 J 0{bMOVEWITHSECTOR = true;}			
+		PHE8 J -1;
+		Loop;
+	}
+}
+
+class FlametrooperTorso : ShocktrooperTorso
+{
+ 	States
+	{ 	
+	Spawn:
+		PPO8 V 3;
+		Loop;
+	Death:
+		PPO8 W 4;
+		goto Stay;
+	Stay:
+		PPO8 X 0;
+		PPO8 X 0{bMOVEWITHSECTOR = true;}			
+		PPO8 X -1;
+		Loop;
+	}
+}
+
+class CalamitytrooperHead : ShocktrooperHead
+{
+ 	States
+	{
+	Spawn:
+		PHE9 ABCDEFGHI 3;
+		Loop;
+	Death:
+		PHE9 J 0;
+		PHE9 J 0{bMOVEWITHSECTOR = true;}	
+		PHE9 J -1;
+		Loop;
+	}
+}
+
+class CalamitytrooperTorso : ShocktrooperTorso
+{
+ 	States
+	{ 	
+	Spawn:
+		PPO9 V 3;
+		Loop;
+	Death:
+		PPO9 W 4;
+		goto Stay;
+	Stay:
+		PPO9 X 0;
+		PPO9 X 0{bMOVEWITHSECTOR = true;}			
+		PPO9 X -1;
+		Loop;
+	}
+}
+
+//SCORCHED
+
+//	What the hell is this? More flying skulls?
+//	These suckers are less tanky than the Ghouls, but pack a punch with
+//	their fire attacks! You've got a flying, weaker Vassago to deal with...
+//	in packs! Thank god their fire doesnt last long enough!
+//  Oh, and... they leave a pool of fire when they die too...
+class Scorched : Ghoul
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust/Bonus"
+		Health 30;
+		Speed 10;
+		PainChance 128;
+		Obituary "%o has been severely burned by a scorched.";
+		Tag "Scorched";
+	}
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;
+		
+		if(!GetCVAR("scorchedinfight"))
+			bDONTHARMSPECIES = true;
+		else
+			bDONTHARMSPECIES = false;
+
+	}			
+	States
+	{
+	Spawn:
+		GHL2 AB 10 A_Look;
+		Loop;
+	See:
+		GHL2 AABBCCBB 3 A_Chase;
+		Loop;
+	Missile:
+		GHL2 A 0 A_JumpIf(GetCVAR("smoothghoul"),"MissileSmooth");
+		GHL2 DE 4 A_FaceTarget;
+		GHL2 F 4 A_SpawnProjectile("ScorchedFireball",22);
+		GHL2 G 4;
+		Goto See;
+	MissileSmooth:
+		GHL2 BCDE 3 A_FaceTarget;
+		GHL2 F 3 A_SpawnProjectile("ScorchedFireball",22);
+		GHL2 G 3;
+		Goto See;	
+	Pain:
+		GHL2 H 3;
+		GHL2 I 2 A_Pain;
+		GHL2 JK 2;
+		Goto See;
+	Death:
+		GHL2 L 5;
+		GHL2 M 5 { A_Scream(); A_SpawnProjectile("ScorchedFirepool"); }
+		GHL2 NO 5;
+		GHL2 P 5 A_Fall;
+		GHL2 QR 5 A_NoBlocking;
+		GHL2 S -1;
+		Stop;
+	Raise:
+		GHL2 SRQOINM 4;
+		GHL2 L 4 BRIGHT;
+		goto See;		
+	}
+}
+
+class ScorchedFireball : VassagoFireball
+{
+	Default
+	{
+		Radius 4;
+		Height 8;
+		Scale 0.55;
+		Damage 2;
+	}
+	States
+	{
+	Spawn:
+		VFLM AB 4 BRIGHT;
+		Loop;
+	Death:
+		VFLM C 0;
+		VFLM C 0
+		{
+			bNOGRAVITY = false;
+			bMOVEWITHSECTOR = true;
+		}
+		VFLM CDE 4 BRIGHT;
+		goto FireStay;	
+	FireStay:
+		VFLM C 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM D 4 bright;
+		VFLM E 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM I 0 bright A_StartSound("vassagofire/crackle");
+		VFLM I 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM J 4 bright;
+		VFLM K 4 bright;
+		VFLM I 0 bright A_StartSound("vassagofire/crackle");
+		VFLM I 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM J 4 bright;
+		VFLM K 4 bright;
+		VFLM I 0 bright A_StartSound("vassagofire/crackle");
+		VFLM I 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM J 4 bright;
+		VFLM K 4 bright;
+		VFLM L 4 bright A_Explode(3,GetCVAR("scorchedfireradius"),XF_NOSPLASH,0,0,0,0,"BulletPuff");
+		VFLM MNOPQ 4 bright;
+		stop;
+	}
+}
+
+class ScorchedFirePool : ScorchedFireball
+{
+	Default
+	{
+		Radius 4;
+		Height 8;
+		Scale 0.55;
+		Damage 2;
+		Speed 0;
+		-NOGRAVITY
+	}
+	States
+	{
+	Spawn:
+		goto FireStay;
+	}
+}
+//ROT
+
+//	Tortured, rotten souls, these guys are no fun. They behave just
+//	like Banshees, but are less beefier, and they spawn a toxic cloud
+//	once you take them out. They can quickly deny you space to run around.
+class Rot : Banshee
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust/Bonus"
+		Health 60;
+		BloodColor "DarkGreen";
+		Obituary "%o was intoxicated by a rot.";
+		DamageFactor "Rot", 0.0;
+		Tag "Rot";
+	}	
+	States
+	{
+	Spawn:
+		BAH2 AB 10 BRIGHT A_Look;
+		Loop;
+	See:
+		BAH2 A 0 fast Bright A_StartSound("banshee/act",CHAN_VOICE);
+		BAH2 AAABBBCCCAAABBBCCC 2 fast Bright A_Chase();
+		Loop;
+	Melee:
+		BAH2 A 0 A_BansheeDeath();
+		Goto Death;
+	Pain:
+		BAH2 D 3 fast BRIGHT A_Pain;
+		BAH2 D 3 fast BRIGHT;
+		Goto See;
+	Death:
+		BAH2 D 4 BRIGHT;
+		BAH2 E 6 BRIGHT {A_Scream(); A_NoBlocking(); A_Explode(128,128,XF_NOTMISSILE); A_SpawnItemEx("RotToxicZone",0,0,28,flags:SXF_ISTARGET|SXF_NOCHECKPOSITION); A_Stop();}
+		BAH2 F 8 BRIGHT;
+		BAH2 G 6 BRIGHT;
+		BAH2 H 4 BRIGHT;
+		TNT1 A 20;
+		Stop;
+	}
+}
+
+class RotToxicZone: Actor
+{
+ int PoisonDuration;
+ Default
+ {
+   Radius 32;
+   Height 32;
+   Obituary "%o couldnt escape from the rot's foul gases.";
+   +NOCLIP
+   +NOGRAVITY
+   +FORCERADIUSDMG
+ }
+ override void Tick() 
+ {	
+	super.Tick();
+	if (isFrozen())
+		return; 
+	if((Level.Time%7) == 0 && !InStateSequence(curstate, FindState("Death")))
+	{
+		//A_logInt(PoisonDuration);
+		if(!GetCVAR("rotradsuit"))
+			A_Explode(3,10,XF_NOTMISSILE|XF_NOSPLASH,0,10,damagetype:"Rot");
+		else
+		{
+			Actor t;
+
+			ThinkerIterator ti = ThinkerIterator.Create("Actor");
+			uint fxcount;
+			
+			while (t = Actor(ti.Next()))
+			{
+				if(!t.bSHOOTABLE || t.health < 1 || t.CountInv("PowerIronFeet"))
+				{
+					continue;
+				}
+
+				if(Distance2D(t) <= 10 && CheckSight(t))
+				{
+					t.DamageMobj(self, target, random(2,3), "Rot");
+				}
+			}   		
+		}
+	}
+ }
+ States
+ {
+ Spawn:
+   TNT1 A 0; 
+   TNT1 AAAAAAAA 4 A_SpawnItemEx("RotToxicCloud",frandom(-32,32),frandom(-32,32),frandom(-32,32),0,0,frandom(0,0.15));
+   TNT1 A 1 
+   {
+		/*if(GetCVAR("rotpoisonduration") < 100) 112
+		{
+			if(PoisonDuration >= GetCVAR("rotpoisonduration"))
+				SetStateLabel("Death");
+			else if (PoisonDuration < GetCVAR("rotpoisonduration"))
+			{
+				PoisonDuration++;
+				A_SpawnItemEx("RotToxicCloud",frandom(-32,32),frandom(-32,32),frandom(-32,32),0,0,frandom(0,0.15));
+			}
+		}
+		else*/
+			A_SpawnItemEx("RotToxicCloud",frandom(-32,32),frandom(-32,32),frandom(-32,32),0,0,frandom(0,0.15));
+
+   }
+   loop;
+  Death:
+   TNT1 A 0;
+   TNT1 A 1;
+   stop;
+ }
+}
+
+class RotToxicCloud : Actor
+{
+ Default
+ {
+   Radius 2;
+   Height 2;
+   Speed 0;
+   +RANDOMIZE
+   +NOGRAVITY
+   RenderStyle "Translucent";
+   Alpha 0.4;
+ }
+ States
+ {
+ Spawn:
+   TXRT ABC 16;
+   stop;
+ }
+}
+
+//INCINERATRON
+
+//	Can those spiders get lost for a minute? They're always trying to copy you!
+//	These bad boys are equiped with a devastating incinerator, ready to burn
+//	your socks off. They're also beefier, have fun!
+class Incineratron : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust/Bonus"
+		Health 700;
+		Speed 18;
+		PainChance 32;	
+		Radius 64;
+		Height 64;
+		Mass 1000;
+		MaxTargetRange 586;
+		Monster;
+		+FLOORCLIP
+		+BOSSDEATH
+		+DONTHARMSPECIES
+		SeeSound "mindweaver/sight";
+		PainSound "baby/pain";
+		DeathSound "mindweaver/death";
+		ActiveSound "mindweaver/act";	
+		Obituary "%o was burned to a crisp by an incineratron.";
+		Tag "Incineratron";
+	}
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;
+		
+		/*if(!GetCVAR("Incineratroninfight"))
+			bDONTHARMSPECIES = true;
+		else
+			bDONTHARMSPECIES = false;*/
+	}		
+	States
+	{
+	Spawn:
+		MSP2 AB 10 A_Look;
+		Loop;
+	See:
+		MSP2 A 20;
+		MSP2 A 3 A_IncineratronMetal();
+		MSP2 ABBCC 3 A_IncineratronChase();
+		MSP2 D 3 A_IncineratronMetal();
+		MSP2 DEEFF 3 A_IncineratronChase();
+		Goto See+1;
+	CancelFire:
+		Goto See+1;
+	Missile:
+		MSP2 A 0;
+		MSP2 A 1 A_FaceTarget();
+		Goto SprayFire;
+	SprayFire:
+		MSP2 A 6 BRIGHT A_FaceTarget;
+		MSP2 G 0 BRIGHT A_IncineratronCheck();
+		MSP2 G 1 BRIGHT A_FaceTarget();
+		MSP2 H 1 BRIGHT A_IncineratronSpray();
+		MSP2 H 1 BRIGHT A_SpidRefire();
+		Goto SprayFire+1;
+	Pain:
+		MSP2 I 3;
+		MSP2 I 3 A_Pain;
+		Goto See+1;
+	Death:
+		MSP2 J 20 A_Scream;
+		MSP2 K 7 A_NoBlocking;
+		MSP2 LMNO 7;
+		MSP2 P -1 A_BossDeath;
+		Stop;
+	Raise:
+		MSP2 P 5;
+		MSP2 ONMLKJ 5;
+		Goto See+1;
+	}
+	void A_IncineratronChase()
+	{
+		A_Chase();
+		if(target && target.health > 0)
+		{
+			if(distance3d(target) <= 586 && checksight(target))
+				SetStateLabel("Missile");
+		}
+	}		
+	void A_IncineratronMetal()
+	{
+		A_StartSound ("mindweaver/walk");
+	}	
+	void A_IncineratronCheck()
+	{
+		if(target && (Distance3D(target) >= 622 || !Checksight(target)))
+		{
+			//A_logInt(Distance3D(target));
+			SetStateLabel("CancelFire");
+		}
+	}
+	void A_IncineratronSpray()
+	{
+		if (target)
+		{
+			A_FaceTarget();
+			A_StartSound("incinerator/crackle");
+			A_SpawnProjectile("IncineratorFire3",24,0,frandom(-4,4));
+		}	
+	}
+}
+
+class IncineratorFire3 : IncineratorFire2
+{
+	Default
+	{
+		//Damage 2;
+		Speed 27;
+	}
+	/*States
+	{
+	Death:
+		IFLM I 2 Bright A_Explode(3,64);
+		IFLM JI 2 Bright;
+		IFLM J 2 Bright A_Explode(3,64);
+		IFLM KL 2 Bright;
+		IFLM K 2 Bright A_Explode(3,64);
+		IFLM LM 2 Bright;
+		IFLM N 2 Bright A_Explode(3,64);
+		IFLM MN 2 Bright;
+		IFLM O 2 Bright A_Explode(3,64);
+		IFLM PO 2 Bright;
+		IFLM P 2 Bright A_Explode(3,64);
+		Stop;
+	}	*/
+}
+//ORIAS
+
+//	Looks like Hell does not stop throwing things at you huh?
+//	Ascended Vassagos are not here to play. They're twice as tough, faster,
+//	their fire is strong, and burns longer. Nuff said.
+class Orias : Vassago
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust/Bonus"
+		Health 2000;
+		Speed 10;
+		Scale 0.95;
+		PainChance 15;
+		DamageFactor "Vassago", 1.0;
+		DamageFactor "Orias", 0.0;
+		ReactionTime 8;
+		BloodColor "Blue";
+		Obituary "%o's soul has been consummed by an orias.";
+		Tag "Orias";
+	}
+	States
+	{
+	Spawn:
+		VAS2 AB 10 A_Look ;
+		Loop;
+	See:
+		VAS2 AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		VAS2 E 0;
+		VAS2 E 0 A_VassagoReady();
+		VAS2 E 6 A_FaceTarget;
+		VAS2 FG 3 A_FaceTarget;
+		VAS2 H 5 A_SpawnProjectile("OriasFireball",32);
+		Goto See;
+	Pain:
+		VAS2 I  2;
+		VAS2 I  2 A_Pain;
+		Goto See;
+	Death:
+		VAS2 J  8 BRIGHT;
+		VAS2 K  8 BRIGHT A_Scream;
+		VAS2 L  7 BRIGHT;
+		VAS2 M  6 BRIGHT A_NoBlocking;
+		VAS2 NO 6 BRIGHT ;
+		VAS2 P 7 BRIGHT ;
+		VAS2 Q -1 A_BossDeath;
+		Stop;
+	Raise:
+		VAS2 Q 8;
+		VAS2 PONMLKJ 8 BRIGHT;
+		Goto See;
+	}
+	void A_VassagoReady()
+	{
+		A_FaceTarget();
+		A_StartSound("vassago/attack");
+	}
+}
+
+class OriasFireball : VassagoFireball
+{
+	Default
+	{
+		Speed 20;
+		FastSpeed 25;
+		Damage 8;
+	}
+	States
+	{
+	Spawn:
+		VFL2 AB 4 BRIGHT;
+		Loop;
+	Death:
+		VFL2 C 0;
+		VFL2 C 0
+		{
+			bNOGRAVITY = false;
+			bMOVEWITHSECTOR = true;
+		}
+		VFL2 CDE 4 BRIGHT;
+		goto FireStay;
+	FireStay:
+		VFL2 C 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 D 4 bright;
+		VFL2 E 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 F 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 F 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 G 4 bright;
+		VFL2 H 4 bright;
+		VFL2 I 0 bright A_StartSound("vassagofire/crackle");
+		VFL2 I 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 J 4 bright;
+		VFL2 K 4 bright;
+		VFL2 L 4 bright A_Explode(7,182,XF_NOSPLASH,0,0,0,0,"BulletPuff","Orias");
+		VFL2 MNOPQ 4 bright;
+		stop;
+	}
+}
+
+// CYBERLING
+
+//	Lesser Tyrants, even lesser than Cyberdemons, these troops are clearly easier
+//	to take out. But they still hold all the danger of Cyberdemon, and might come
+//	in groups, so beware!
+class Cyberling : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust/Bonus"
+		Health 500;
+		Radius 24;
+		Height 62;
+		Scale 0.76;
+		Mass 1000;
+		Speed 14;
+		PainChance 50;
+		MinMissileChance 180;	
+		Monster;
+		+MISSILEMORE
+		+FLOORCLIP
+		+NORADIUSDMG
+		+DONTMORPH
+		+BOSSDEATH	
+		-DONTMORPH
+		-BOSS
+		SeeSound "tyrant/sight";
+		PainSound "cyber/pain";
+		DeathSound "tyrant/death";
+		ActiveSound "cyber/act";
+		Obituary "%o has been blown apart by a cyberling.";
+		Tag "Cyberling";
+	}
+	States
+	{
+	Spawn:
+		CYB3 AB 10 A_Look;
+		Loop;
+	See:
+		CYB3 A 3 A_TyrantHoof;
+		CYB3 ABBCC 3 A_Chase;
+		CYB3 D 3 A_TyrantHoof;
+		CYB3 D 3 A_Chase;
+		Loop;
+	Missile:
+		CYB3 E 6 A_FaceTarget;
+		CYB3 F 12 A_CyberlingAttack();
+		CYB3 E 8 A_FaceTarget;
+		Goto See;
+	Pain:
+		CYB3 G 10 A_Pain;
+		Goto See;
+	Death:
+		CYB3 H 10;
+		CYB3 I 10 A_Scream;
+		CYB3 JKL 10;
+		CYB3 M 10 A_NoBlocking;
+		CYB3 NO 10;
+		CYB3 P 30;
+		CYB3 P -1 A_BossDeath;
+		Stop;
+	}
+	void A_TyrantHoof()
+	{
+		A_StartSound("tyrant/walk");
+	}
+	void A_CyberlingAttack()
+	{
+		A_FaceTarget();
+		A_SpawnProjectile("Rocket",33,-15);
+	}
+}

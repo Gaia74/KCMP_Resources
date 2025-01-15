@@ -1,0 +1,678 @@
+//	Legacy of Rust monsters and weapons both converted into ZScript!
+//	I tried to make them as accurate as possible, with a few enhancements,
+//	and little bonuses there and there, like GLDEFS, and brightmaps!
+//	Feel free to use them into your maps if you wish, they have been
+//	configured for mapping.
+
+//GHOUL
+class Ghoul : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust"
+		Health 50;
+		Radius 16;
+		Height 40;
+		Reactiontime 8;
+		Mass 50;
+		Speed 12;
+		PainChance 128;
+		Monster;
+		+FLOAT +NOGRAVITY +MISSILEMORE +SOLID +NOBLOOD
+		SeeSound "ghoul/sight";
+		PainSound "ghoul/pain";
+		DeathSound "ghoul/death";
+		ActiveSound "ghoul/active";
+		Obituary "%o has been toasted by a ghoul.";
+		Tag "Ghoul";
+	}
+	States
+	{
+	Spawn:
+		GHLR AB 10 A_Look;
+		Loop;
+	See:
+		GHLR AABBCCBB 3 A_Chase;
+		Loop;
+	Missile:/*
+		GHLR A 0 A_JumpIf(GetCVAR("smoothghoul"),"MissileSmooth");
+		GHLR DE 4 A_FaceTarget;
+		GHLR F 4 A_SpawnProjectile("GhoulFireball",22);
+		GHLR G 4;
+		Goto See;
+	MissileSmooth:*/
+		GHLR BCDE 3 A_FaceTarget;
+		GHLR F 3 A_SpawnProjectile("GhoulFireball",22);
+		GHLR G 3;
+		Goto See;	
+	Pain:/*
+		GHLR A 0 A_JumpIf(GetCVAR("smoothghoul"),"PainSmooth");
+		GHLR H 3;
+		GHLR I 2 A_Pain;
+		GHLR JK 2;
+		Goto See;
+	PainSmooth:*/
+		GHLR I 3;
+		GHLR K 3 A_Pain;
+		Goto See;
+	Death:
+		GHLR L 5;
+		GHLR M 5 A_Scream;
+		GHLR NO 5;
+		GHLR P 5 A_Fall;
+		GHLR QR 5 A_NoBlocking;
+		GHLR S -1;
+		Stop;
+	Raise:
+		GHLR SRQOINM 4;
+		GHLR L 4 BRIGHT;
+		goto See;	
+	}
+}
+
+class GhoulFireball : Actor
+{
+ Default
+ {
+   Radius 6;
+   Height 6;
+   Scale 0.95;
+   Speed 15;
+   FastSpeed 30;
+   Damage 3;
+   Projectile;
+   +RANDOMIZE
+   RenderStyle "Add";
+   Alpha 0.95;
+   SeeSound "imp/attack";
+   DeathSound "imp/shotx";
+ }
+ States
+ {
+ Spawn:
+   GBAL AB 4 BRIGHT;
+   Loop;
+ Death:
+   GBAL C 5 BRIGHT;
+   APBX BCDE 5 BRIGHT;
+   Stop;
+ }
+}
+
+//BANSHEE
+class Banshee : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust"
+		Health 100;
+		Radius 20;
+		Height 56;
+		Mass 500;
+		Speed 8;
+		PainChance 128;
+		MeleeRange 64;
+		Monster;
+		+SOLID
+		+SHOOTABLE
+		+COUNTKILL
+		+FLOAT
+		+NOGRAVITY
+		+DONTFALL
+		PainSound "banshee/pain";
+		DeathSound "banshee/death";
+		Obituary "%o has been sacrified to a Banshee.";
+		Tag "Banshee";
+	}
+	/*override int DamageMobj (Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if (GetCVAR("bansheepoison") && inflictor && inflictor is "RotToxicZone")
+		{
+			return 0;
+		}
+		
+		return super.DamageMobj(inflictor, source, damage, mod, flags, angle);
+	}	*/
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;/*
+		if(GetCVAR("bansheeinfight")) // INFIGHT OPTION
+			bNOINFIGHTING = false;
+		else
+			bNOINFIGHTING = true;
+			
+		if(GetCVAR("bansheefall")) // FALLING DEATH
+			bDONTFALL = false;
+		else
+			bDONTFALL = true;	*/	
+	}
+	States
+	{
+	Spawn:
+		BSHE AB 10 BRIGHT A_Look;
+		Loop;
+	See:
+		BSHE A 0 fast Bright A_StartSound("banshee/act",CHAN_VOICE);
+		BSHE AAABBBCCCAAABBBCCC 2 fast Bright A_Chase();
+		Loop;
+	Melee:
+		BSHE A 0 A_BansheeDeath;
+		Goto Death;
+	Pain:
+		BSHE D 3 fast BRIGHT A_Pain;
+		BSHE D 3 fast BRIGHT;
+		Goto See;
+	Death:
+		BSHE D 4 BRIGHT;
+		BSHE E 6 BRIGHT {A_Scream(); A_NoBlocking(); A_Explode(128,128,XF_NOTMISSILE); A_Stop();}
+		BSHE F 8 BRIGHT;
+		BSHE G 6 BRIGHT;
+		BSHE H 4 BRIGHT;
+		TNT1 A 20;
+		Stop;
+	}
+	void A_BansheeDeath()
+	{
+		/*if(GetCVAR("bansheeolddeath"))
+		{
+			if(GetCVAR("fixolddeath"))
+				A_Explode(128,128,XF_NOTMISSILE);
+			else
+				A_Explode(128,8,XF_NOTMISSILE);
+			A_Die();
+		}
+		else*/
+			A_Die();
+	}
+}
+
+//SHOCKTROOPER
+class Shocktrooper : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust"
+		Health 100;
+		Radius 20;
+		Height 56;
+		Mass 100;
+		Speed 10;
+		PainChance 30;
+		Monster;
+		+FLOORCLIP
+		SeeSound "shocktrooper/act";
+		AttackSound "weapons/plasmaf";
+		PainSound "shocktrooper/pain";
+		DeathSound "shocktrooper/death";
+		ActiveSound "shocktrooper/act";
+		Obituary "%o has been shocked by a shocktrooper.";
+		Tag "Shocktrooper";
+	}
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;
+		/*
+		if(GetCVAR("troopsee"))// TYRANT BOSS CVAR
+			SeeSound = "shocktrooper/act";
+		else
+			SeeSound = "";*/
+
+	}		
+	States
+	{
+	Spawn:
+		PPOS AB 10 A_Look;
+		Loop;
+	See:
+		PPOS AABBCCDD 2 fast A_Chase;
+		Loop;
+	Missile:
+		PPOS E 10 A_FaceTarget;
+		PPOS F 2 fast A_ShocktrooperCombo();
+		PPOS E 4 fast A_FaceTarget;
+		PPOS F 2 fast A_ShocktrooperCombo();
+		PPOS E 4 fast A_FaceTarget;
+		PPOS F 2 fast A_ShocktrooperCombo();
+		PPOS E 4 fast A_FaceTarget;
+		Goto See;
+	Pain:
+		PPOS G 5 fast;
+		PPOS G 5 fast A_Pain;
+		Goto See;
+	Death:
+		PPOS Q 0;
+		PPOS Q 0 A_FaceTarget();
+		PPOS H 5 A_SpawnItemEx("ShocktrooperHead",0,0,32,-5,0,5,flags:SXF_NOCHECKPOSITION|SXF_TRANSFERALPHA|SXF_TRANSFERRENDERSTYLE|SXF_TRANSFERTRANSLATION);
+		PPOS I 5 A_ShocktrooperDeath("Cell","PlasmaRifle",false);
+		PPOS J 5 A_NoBlocking;
+		PPOS KL 5;
+		PPOS M -1;
+		Stop;
+	XDeath:
+		PPOS N 5;
+		PPOS O 5 A_ShocktrooperDeath("Cell","PlasmaRifle",true);
+		PPOS P 5 A_NoBlocking;
+		PPOS Q 0 A_FaceTarget();
+		PPOS Q 5 A_SpawnItemEx("ShocktrooperTorso",0,0,32,-5,0,5,flags:SXF_NOCHECKPOSITION|SXF_TRANSFERALPHA|SXF_TRANSFERRENDERSTYLE|SXF_TRANSFERTRANSLATION);
+		PPOS RST 5;
+		PPOS U -1;
+		Stop;
+	Raise:
+		PPOS M 5;
+		PPOS LKJIH 5;
+		Goto See;
+	}
+	void A_ShocktrooperDeath(Class<Actor> ammo,Class<Actor> weapon,bool extremedeath)
+	{
+		if(extremedeath)
+			A_XScream();
+		else
+			A_Scream();
+		//if(GetCVAR("troopersdrop")==1)
+			A_DropItem(ammo);
+		//else if(GetCVAR("troopersdrop")==2)
+			//A_DropItem(weapon);
+	}
+	void A_ShocktrooperCombo()
+	{
+		A_FaceTarget();
+		A_SpawnProjectile("ShocktrooperPlasma",32);
+	}
+}
+class WeakerShocktrooper : Shocktrooper
+{
+	Default
+	{
+		Health 40;
+	}
+}
+
+class ShocktrooperPlasma : PlasmaBall
+{
+	Default
+	{
+		RenderStyle "Add";
+		Alpha 0.95;
+		Seesound "shocktrooper/plasma";
+		Deathsound "shocktrooper/plasmx";
+	}
+	States
+	{
+ 	Spawn:
+		SHPS AB 6 Bright;
+		Loop;
+	Death:
+		SHPE ABCDE 4 Bright;
+		Stop;
+	}
+}
+
+class ShocktrooperHead : Actor
+{
+	Default
+	{
+		Radius 2;
+		Height 2;
+		Speed 10;
+		BounceFactor 0.3;
+		Gravity 0.4;
+		SeeSound "shocktrooper/head";
+		Projectile;
+		+DOOMBOUNCE
+		-NOGRAVITY
+		+NOBLOCKMAP
+		+DROPOFF
+	}
+	States
+	{
+ 	Spawn:
+		PHED ABCDEFGHI 3;
+		Loop;
+	Death:
+		PHED J 0;
+		PHED J 0{bMOVEWITHSECTOR = true;}
+		PHED J -1;
+		Loop;
+	}
+}
+
+class ShocktrooperTorso : Actor
+{
+	Default
+	{
+		Radius 2;
+		Height 2;
+		Speed 10;
+		BounceFactor 0.2;
+		SeeSound "shocktrooper/head";
+		Projectile;
+		+DOOMBOUNCE
+		-NOGRAVITY
+		+NOBLOCKMAP
+		+DROPOFF
+	}
+	States
+	{
+ 	Spawn:
+		PPOS V 3;
+		Loop;
+	Death:
+		PPOS W 4;
+		goto Stay;
+	Stay:
+		PPOS X 0;
+		PPOS X 0{bMOVEWITHSECTOR = true;}		
+		PPOS X -1;
+		Loop;
+	}
+}
+
+//VASSAGO
+class Vassago : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust"
+		Health 1000;
+		Radius 24;
+		Height 64;
+		Mass 1000;
+		Speed 8;
+		Scale 0.9;
+		PainChance 100;
+		ReactionTime 8;
+		BloodColor "Orange";
+		DamageFactor "Vassago", 0.0;
+		Monster;
+		+FLOORCLIP
+		+BOSSDEATH
+		SeeSound "vassago/sight";
+		PainSound "vassago/pain";
+		DeathSound "vassago/death";
+		ActiveSound "vassago/act";
+		Obituary "%o was burned to a crisp by a Vassago.";
+		Tag "Vassago";
+	}
+	States
+	{
+	Spawn:
+		VASS AB 10 A_Look ;
+		Loop;
+	See:
+		VASS AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		VASS E 0;
+		VASS E 0 A_VassagoReady();
+		VASS E 8 A_FaceTarget;
+		VASS FG 4 A_FaceTarget;
+		VASS H 8 A_SpawnProjectile("VassagoFireball",32);
+		Goto See;
+	Pain:
+		VASS I  2;
+		VASS I  2 A_Pain;
+		Goto See;
+	Death:
+		VASS J  8 BRIGHT;
+		VASS K  8 BRIGHT A_Scream;
+		VASS L  7 BRIGHT;
+		VASS M  6 BRIGHT A_NoBlocking;
+		VASS NO 6 BRIGHT ;
+		VASS P 7 BRIGHT ;
+		VASS Q -1 A_BossDeath;
+		Stop;
+	Raise:
+		VASS Q 8;
+		VASS PONMLKJ 8 BRIGHT;
+		Goto See;
+	}
+	void A_VassagoReady()
+	{
+		A_FaceTarget();
+		A_StartSound("vassago/attack");
+	}
+}
+
+class VassagoFireball : Actor
+{
+	Default
+	{
+		Radius 6;
+		Height 16;
+		Speed 15;
+		FastSpeed 20;
+		Damage 5;
+		Projectile ;
+		Damagetype "Vassago";
+		+RANDOMIZE
+		+FORCERADIUSDMG
+		+DROPOFF
+		RenderStyle "Add";
+		Alpha 0.8;
+		SeeSound "vassagofire/fire";
+		DeathSound "vassagofire/explode";
+		Decal "BaronScorch";
+	}
+	States
+	{
+	Spawn:
+		VFLM AB 4 BRIGHT;
+		Loop;
+	Death:
+		VFLM C 0;
+		VFLM C 0
+		{
+			bNOGRAVITY = false;
+			bMOVEWITHSECTOR = true;
+		}
+		goto FireStay;
+	FireStay:
+		VFLM C 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM D 4 bright;
+		VFLM E 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM F 0 bright A_StartSound("vassagofire/crackle");
+		VFLM F 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM G 4 bright;
+		VFLM H 4 bright;
+		VFLM I 0 bright A_StartSound("vassagofire/crackle");
+		VFLM I 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM J 4 bright;
+		VFLM K 4 bright;
+		VFLM L 4 bright A_Explode(5,128,XF_NOSPLASH,0,0,0,0,"BulletPuff","Vassago");
+		VFLM MNOPQ 4 bright;
+		stop;
+	}
+}
+
+//MINDWEAVER
+class Mindweaver : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust"
+		Health 500;
+		Radius 64;
+		Height 64;
+		Mass 600;
+		Speed 12;
+		PainChance 40;
+		Monster;
+		+FLOORCLIP
+		+BOSSDEATH
+		SeeSound "mindweaver/sight";
+		PainSound "baby/pain";
+		DeathSound "mindweaver/death";
+		ActiveSound "mindweaver/act";
+		AttackSound "mindweaver/attack";
+		Obituary "%o has been riddled with bullets by a mind weaver.";
+		Tag "Mindweaver";
+	}
+	States
+	{
+	Spawn:
+		MSPI AB 10 A_Look;
+		Loop;
+	See:
+		MSPI A 20;
+		MSPI A 3 A_MindweaverMetal;
+		MSPI ABBCC 3 A_Chase;
+		MSPI D 3 A_MindweaverMetal;
+		MSPI DEEFF 3 A_Chase;
+		Goto See+1;
+	Missile:
+		MSPI A 20 A_FaceTarget;
+		MSPI G 4 A_MindweaverAttack;
+		MSPI H 4 A_MindweaverAttack;
+		MSPI H 1 A_SpidRefire;
+		Goto Missile+1;
+	Pain:
+		MSPI I 3;
+		MSPI I 3 A_Pain;
+		Goto See+1;
+	Death:
+		MSPI J 20 A_Scream;
+		MSPI K 7 A_NoBlocking;
+		MSPI LMNO 7;
+		MSPI P -1 A_BossDeath;
+		Stop;
+	Raise:
+		MSPI P 5;
+		MSPI ONMLKJ 5;
+		Goto See+1;
+	}
+	void A_MindweaverAttack()
+	{
+		A_StartSound (attacksound);
+		//if(GetCVAR("MindweaverWeakerChaingun"))
+			//A_CustomBulletAttack(22.5, 0, 1, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM);
+		//else
+			A_CustomBulletAttack(22.5, 0, 3, random(1,5)*3, "BulletPuff", 0, CBAF_NORANDOM);
+	}	
+	void A_MindweaverMetal()
+	{
+		A_StartSound ("mindweaver/walk");
+	}
+}
+
+//TYRANT
+class Tyrant : Actor
+{
+	Default
+	{
+		//$Category "Monsters/Legacy of Rust"
+		Health 1000;/*
+		Radius 40;
+		Height 72;
+		Scale 0.94;*/
+		Radius 24;
+		Height 62;
+		Scale 0.89;
+		Mass 1000;
+		Speed 16;
+		PainChance 20;
+		Monster;
+		MinMissileChance 160;
+		+MISSILEMORE
+		+FLOORCLIP
+		+NORADIUSDMG
+		+DONTMORPH
+		+BOSSDEATH
+		SeeSound "tyrant/sight";
+		PainSound "cyber/pain";
+		DeathSound "tyrant/death";
+		ActiveSound "cyber/act";
+		Obituary "%o got taken out by a Tyrant.";
+		Tag "Tyrant";
+	}
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;
+		/*
+		if(GetCVAR("tyrantboss"))// TYRANT BOSS CVAR
+			bBOSS = true;
+		else
+			bBOSS = false;*/
+		/*
+		if(GetCVAR("tyrantsizefix"))// TYRANT SIZE FIX CVAR
+		{
+			A_SetSize(24,62);
+			A_SetScale(0.89,0.89);
+		}
+		else
+		{
+			A_SetSize(40,96);
+			A_SetScale(1,1);
+		}*/
+	}	
+	States
+	{
+	Spawn:
+		CYB2 AB 10 A_Look;
+		Loop;
+	See:
+		CYB2 A 3 A_Hoof;
+		CYB2 ABBCC 3 A_Chase;
+		CYB2 D 3 A_TyrantHoof;
+		CYB2 D 3 A_Chase;
+		Loop;
+	Missile:
+		CYB2 E 6 A_FaceTarget;
+		CYB2 F 12 A_TyrantAttack();
+		CYB2 E 12 A_FaceTarget;
+		CYB2 F 12 A_TyrantAttack();
+		CYB2 E 12 A_FaceTarget;
+		CYB2 F 12 A_TyrantAttack();
+		Goto See;
+	Pain:
+		CYB2 G 10 A_Pain;
+		Goto See;
+	Death:
+		CYB2 H 10;
+		CYB2 I 10 A_Scream;
+		CYB2 JKL 10;
+		CYB2 M 10 A_NoBlocking;
+		CYB2 NO 10;
+		CYB2 P 30;
+		CYB2 P -1 A_BossDeath;
+		Stop;
+	}
+	void A_TyrantHoof()
+	{
+		A_StartSound("tyrant/walk");
+	}
+	void A_TyrantAttack()
+	{
+		A_FaceTarget();
+		A_SpawnProjectile("Rocket",40,-18);
+	}
+}

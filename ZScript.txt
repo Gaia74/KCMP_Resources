@@ -20,9 +20,18 @@ const DOOMRR_INCINERATOR_BURN_RADIUS = 64;
 
 const DOOMRR_HEATWAVE_RIPPER_DAMAGE = 10;
 const DOOMRR_HEATWAVE_RIPPER_VELOCITY = 20;
-#include "Actors/Kirador/fuelammo.zs"
-#include "Actors/Kirador/incinerator.zs"
-#include "Actors/Kirador/heatwave.zs"
+#include "Actors/LOR/jgp_fuelammo.zs"
+#include "Actors/LOR/jgp_incinerator.zs"
+#include "Actors/LOR/jgp_heatwave.zs"
+
+
+#Include "Actors/lor/base.zsc"
+//#Include "Actors/lor/weapons.zsc"
+#Include "Actors/lor/bonus.zsc"
+//#Include "Actors/lor/spawners.zsc"
+//#Include "Actors/lor/legacyreplacer.zsc"
+//#Include "Actors/lor/ACSTools.zsc"
+
 
 
 //PLATFORMS

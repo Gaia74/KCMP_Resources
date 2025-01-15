@@ -1,0 +1,116 @@
+Class LoRReplacement : EventHandler
+{
+    override void CheckReplacement(replaceEvent e)
+    {
+		CVar NOREP = CVar.FindCVar('NoReplaceMonsters');
+		CVar NOREP2 = CVar.FindCVar('NoReplaceWeapons');
+		CVar INCREP = CVar.FindCVar('ReplaceCompleteWeapons');
+		let rpld = e.Replacee.GetClassName(); /// Puts the name of the monster as the condition
+		{
+		  if(NOREP.getInt() == 0)
+		  {
+			switch (rpld)
+			{
+			case 'Zombieman': // SHOCKTROOPER
+				e.Replacement = "ShockTrooperSpawn1";
+				break;
+			case 'ShotgunGuy': // SHOCKTROOPER
+				e.Replacement = "ShockTrooperSpawn2";
+				break;
+			case 'ChaingunGuy': // SHOCKTROOPER
+				e.Replacement = "ShockTrooperSpawn3";
+				break;
+			case 'DoomImp': // GHOUL
+				e.Replacement = "GhoulSpawn";
+				break;
+			case 'Demon': // BANSHEE
+				e.Replacement = "BansheeSpawn1";
+				break;
+			case 'Spectre': // BANSHEE
+				e.Replacement = "BansheeSpawn2";
+				break;
+			case 'LostSoul': // GHOUL + BANSHEE
+				e.Replacement = "SoulSpawner";
+				break;
+			case 'HellKnight': // CYBERLING
+				e.Replacement = "CyberlingSpawn";
+				break;
+			case 'BaronOfHell': // VASSAGO + TYRANT
+				e.Replacement = "BaronOfHellSpawn";
+				break;
+			case 'Arachnotron': // MINDWEAVER
+				e.Replacement = "MindweaverSpawn";
+				break;
+		    }
+		  }
+		  if(NOREP2.getInt() == 0)
+		  {
+			switch (rpld)
+			{		  
+			case 'PlasmaRifle': // INCINERATOR
+				e.Replacement = "IncineratorSpawn";
+				break;
+			case 'BFG9000': // CALAMITY BLADE
+				e.Replacement = "BladeSpawn";
+				break;
+			case 'Cell': // FUEL
+				e.Replacement = "FuelSpawn";
+				break;
+			case 'CellPack': // FUEL TANK
+				e.Replacement = "FuelTankSpawn";
+				break;
+			}
+		  }
+		  if(INCREP.getInt() == 1)
+		  {
+			switch (rpld)
+			{		  
+			case 'Incinerator': // INCINERATOR
+				e.Replacement = "R_Incinerator";
+				break;
+			case 'Heatwave': // CALAMITY BLADE
+				e.Replacement = "R_CalamityBlade";
+				break;
+			case 'Fuel': // FUEL
+				e.Replacement = "R_Fuel";
+				break;
+			case 'FuelTank': // FUEL TANK
+				e.Replacement = "R_FuelTank";
+				break;
+			}
+		  }		
+		}
+	}
+}
+Class LegacyVanillaReplacement : EventHandler
+{
+    override void CheckReplacement(replaceEvent e)
+    {
+        CVar VRREP = CVar.FindCVar('ReplaceVanilla');
+		let rpld = e.Replacee.GetClassName(); /// Puts the name of the monster as the condition
+		if(VRREP.getInt() == 1)
+		{
+			switch (rpld)
+			{
+			case 'Deh_Actor_150': // GHOUL
+				e.Replacement = "GhoulReplacer";
+				break;
+			case 'Deh_Actor_151': // BANSHEE
+				e.Replacement = "BansheeReplacer";
+				break;
+			case 'Deh_Actor_153': // SHOCKTROOPER
+				e.Replacement = "ShocktrooperReplacer";
+				break;
+			case 'Deh_Actor_152': // MINDWEAVER
+				e.Replacement = "MindweaverReplacer";
+				break;
+			case 'Deh_Actor_154': // VASSAGO
+				e.Replacement = "VassagoReplacer";
+				break;
+			case 'Deh_Actor_155': // TYRANT
+				e.Replacement = "TyrantReplacer";
+				break;
+			}
+		}
+	}
+}

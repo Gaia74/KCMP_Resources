@@ -1,0 +1,47 @@
+/*
+
+Huge thanks to ZDoom forum user Blue Shadow for most of this code!
+I only edited what I needed.
+Also thanks to Player701 for more helpful information!
+
+*/
+
+
+class ACSTools
+{
+    static bool SpecialLowerFloor ()
+    {
+        let info = LevelInfo.FindLevelInfo(level.mapname);
+        return info && ((info.flags & LEVEL_SPECLOWERFLOOR));
+    }
+	
+	static bool SpecialOpenDoor ()
+    {
+        let info = LevelInfo.FindLevelInfo(level.mapname);
+        return info && ((info.flags & LEVEL_SPECOPENDOOR));
+    }
+			
+	static bool HasBaronSpecial ()
+    {
+        let info = LevelInfo.FindLevelInfo(level.mapname);
+        return info &&   ((info.flags & LEVEL_BRUISERSPECIAL) || (info.flags3 & LEVEL3_E1M8SPECIAL));
+    }
+	
+    static bool HasCyberdemonSpecial ()
+    {
+        let info = LevelInfo.FindLevelInfo(level.mapname);
+        return info && ((info.flags & LEVEL_CYBORGSPECIAL) || (info.flags3 & LEVEL3_E2M8SPECIAL) || (info.flags3 & LEVEL3_E4M6SPECIAL));
+    }
+
+    static bool HasSpidermastermindSpecial ()
+    {
+        let info = LevelInfo.FindLevelInfo(level.mapname);
+        return info && ((info.flags & LEVEL_SPIDERSPECIAL) || (info.flags3 & LEVEL3_E3M8SPECIAL) || (info.flags3 & LEVEL3_E4M8SPECIAL));
+    }
+
+    static bool HasMAP07Special ()
+    {
+        let info = LevelInfo.FindLevelInfo(level.mapname);
+        return info && (info.flags & LEVEL_MAP07SPECIAL);
+    }
+}

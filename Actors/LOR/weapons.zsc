@@ -1,0 +1,362 @@
+////////
+//WEAPONS
+
+//INCINERATOR
+class R_Incinerator : Weapon
+{
+	Default
+	{
+		//$Category "Weapons/Legacy of Rust"
+		Weapon.SelectionOrder 80;
+		Weapon.SlotPriority 255;
+		Weapon.SlotNumber 6;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 20;
+		Weapon.AmmoType "R_Fuel";
+		Inventory.PickupMessage "You got the incinerator!";
+		Tag "Incinerator";
+	}
+	States
+	{
+	Ready:
+		FLMG A 1 A_WeaponReady;
+		Loop;
+	Deselect:
+		FLMG A 1 A_Lower;
+		Loop;
+	Select:
+		FLMG A 1 A_Raise;
+		Loop;
+	Fire:
+		FLMG A 1 {A_FireSpray(); A_GunFlash("Flash1");}
+		FLMG B 1; 
+		FLMG C 1 A_GunFlash("Flash2");
+		FLMG A 0 A_ReFire;
+		Goto Ready;
+	Flash1:
+		FLFF A 1 BRIGHT A_Light1;
+		goto LightDone;
+	Flash2:
+		FLFF B 1 BRIGHT A_Light1;
+		goto LightDone;
+	Spawn:
+		PLAS B -1;
+		Stop;
+	}
+	action void A_FireSpray()
+	{
+		A_StartSound("incinerator/crackle");
+		A_FireProjectile("IncineratorFire");
+	}
+}
+
+class IncineratorFire : Actor
+{
+	Default
+	{
+		Radius 8;
+		Height 12;
+		Speed 25;
+		Damage 5;
+		Projectile;
+		+RANDOMIZE
+		+FORCERADIUSDMG
+		RenderStyle "Add";
+		Alpha 0.5;
+		SeeSound "vassagofire/fire";
+		DeathSound "vassagofire/crackle";
+	}
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;
+		
+		if(!GetCVAR("incineratorsplash"))//Buff if no splash damage
+			Damage == default.Damage+2;
+		else
+			Damage == default.Damage;
+	}	
+	States
+	{
+	Spawn:
+		IFLM ABABCDCD 2 Bright;
+		IFLM EFEFGHGH 1 Bright;
+		stop;
+	Death:
+		IFLM I 2 Bright A_IncineratorSplash;
+		IFLM JI 2 Bright;
+		IFLM J 2 Bright A_IncineratorSplash;
+		IFLM KL 2 Bright;
+		IFLM K 2 Bright A_IncineratorSplash;
+		IFLM LM 2 Bright;
+		IFLM N 2 Bright A_IncineratorSplash;
+		IFLM MN 2 Bright;
+		IFLM O 2 Bright A_IncineratorSplash;
+		IFLM PO 2 Bright;
+		IFLM P 2 Bright A_IncineratorSplash;
+		Stop;
+	}
+	void A_IncineratorSplash()
+	{
+		if(GetCVAR("incineratorsplash"))
+		{
+			if(GetCVAR("incineratorstronger"))
+				A_Explode(random(5,6),64);
+			else
+				A_Explode(2,64);
+		}
+	}
+}
+
+//CALAMITY BLADE(HEATWAVE GENERATOR)
+class R_CalamityBlade : Weapon
+{
+	int ChargeLevel;
+	Default
+	{
+		//$Category "Weapons/Legacy of Rust"
+		Height 20;
+		Weapon.SlotNumber 7;
+		Weapon.SelectionOrder 80;
+		Weapon.SlotPriority 255;
+		Weapon.AmmoUse 10;
+		Weapon.AmmoGive 20;
+		Weapon.AmmoType "R_Fuel";
+		+WEAPON.NOAUTOFIRE;
+		Inventory.PickupMessage "You got the calamity blade!  Hot damn!";
+		Tag "Calamity Blade";
+	}
+	States
+	{
+	Ready:
+		HETG A 0;
+		HETG A 0 A_ClearOverlays();	
+		HETG A 1 A_WeaponReady;
+		Loop;
+	Deselect:
+		HETG A 0;
+		HETG A 0 A_ClearOverlays();			
+		HETG A 1 A_Lower;
+		Loop;
+	Select:
+		HETG A 0;
+		HETG A 0 A_ClearOverlays();		
+		HETG A 1 A_Raise;
+		Loop;
+	Fire:
+	Charging:
+		HETG A 0;
+		HETG A 0 A_ChargeShow();
+		HETG A 20 A_CalamityBladeCharge();
+		HETG A 0
+		{
+			if(invoker.ChargeLevel >= 5 || CountInv("R_Fuel") < 10)
+				return ResolveState("Unleash");
+			return ResolveState(null);
+		}
+		HETG A 0 A_Refire("Charging");
+		goto Unleash;
+	Unleash:
+		HEFT A 0 A_CalamityBladeFire();
+		HEFT A 0 A_ClearOverlays();		
+		HETF A 3 bright A_GunFlash();
+		HETF B 5 Bright;
+		HETG D 4;
+		HETG C 4 A_CheckReload();
+		HETG B 4;
+		HETG A 0 A_Refire();
+		Goto Ready;
+	Flash:
+		TNT1 A 3 A_Light1;
+		TNT1 A 5 A_Light2;
+		Goto LightDone;	
+	Charge1:
+		HETC ABCD 6 Bright A_Light1;
+		goto LightDone;
+	Charge2:
+		HETC EFGH 6 Bright A_Light1;
+		goto LightDone;
+	Charge3:
+		HETC IJKL 6 Bright A_Light1;
+		goto LightDone;
+	Charge4:
+		HETC MNOP 6 Bright A_Light1;
+		goto LightDone;
+	Charge5:
+		HETC QRST 6 Bright A_Light1;
+		goto LightDone;
+	Spawn:
+		BFUG B -1;
+		Stop;
+	}	
+	action void A_CalamityBladeCharge()
+	{
+		A_StartSound("calamity/charge");
+		if(invoker.ChargeLevel < 5 && CountInv("R_Fuel") >= 10)
+		{
+			if(!sv_infiniteammo)
+				A_TakeInventory("R_Fuel",10);
+			invoker.ChargeLevel++;	
+		}
+	}
+	action void A_ChargeShow()
+	{
+		if(invoker.ChargeLevel == 0)
+			A_Overlay(2,"Charge1",FALSE);
+		if(invoker.ChargeLevel == 1)
+			A_Overlay(2,"Charge2",FALSE);
+		if(invoker.ChargeLevel == 2)
+			A_Overlay(2,"Charge3",FALSE);
+		if(invoker.ChargeLevel == 3)
+			A_Overlay(2,"Charge4",FALSE);
+		if(invoker.ChargeLevel >= 4)
+			A_Overlay(2,"Charge5",FALSE);	
+	}
+	action void A_CalamityBladeFire()
+	{
+		A_StartSound("calamity/fire");
+		if(invoker.ChargeLevel == 1)
+		{	
+			A_FireProjectile("CalamitySlice",5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",0,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-5,0,flags:FPF_NOAUTOAIM);	
+		}
+		if(invoker.ChargeLevel == 2)
+		{	
+			A_FireProjectile("CalamitySlice",12.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",7.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",2.5,0,flags:FPF_NOAUTOAIM);	
+			A_FireProjectile("CalamitySlice",-2.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-7.5,0,flags:FPF_NOAUTOAIM);			
+			A_FireProjectile("CalamitySlice",-12.5,0,flags:FPF_NOAUTOAIM);		
+		}
+		if(invoker.ChargeLevel == 3)
+		{	
+			A_FireProjectile("CalamitySlice",20,0,flags:FPF_NOAUTOAIM);	
+			A_FireProjectile("CalamitySlice",15,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",10,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",0,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-10,0,flags:FPF_NOAUTOAIM);			
+			A_FireProjectile("CalamitySlice",-15,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-20,0,flags:FPF_NOAUTOAIM);			
+		}
+		if(invoker.ChargeLevel == 4)
+		{	
+			A_FireProjectile("CalamitySlice",27.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",22.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",17.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",12.5,0,flags:FPF_NOAUTOAIM);	
+			A_FireProjectile("CalamitySlice",7.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",2.5,0,flags:FPF_NOAUTOAIM);			
+			A_FireProjectile("CalamitySlice",-2.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-7.5,0,flags:FPF_NOAUTOAIM);			
+			A_FireProjectile("CalamitySlice",-12.5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-17.5,0,flags:FPF_NOAUTOAIM);			
+			A_FireProjectile("CalamitySlice",-22.5,0,flags:FPF_NOAUTOAIM);			
+			A_FireProjectile("CalamitySlice",-27.5,0,flags:FPF_NOAUTOAIM);			
+		}
+		if(invoker.ChargeLevel >= 5)
+		{	
+			A_FireProjectile("CalamitySlice",35,0,flags:FPF_NOAUTOAIM);	
+			A_FireProjectile("CalamitySlice",30,0,flags:FPF_NOAUTOAIM);	
+			A_FireProjectile("CalamitySlice",25,0,flags:FPF_NOAUTOAIM);	
+			A_FireProjectile("CalamitySlice",20,0,flags:FPF_NOAUTOAIM);	
+			A_FireProjectile("CalamitySlice",15,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",10,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",0,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-5,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-10,0,flags:FPF_NOAUTOAIM);			
+			A_FireProjectile("CalamitySlice",-15,0,flags:FPF_NOAUTOAIM);
+			A_FireProjectile("CalamitySlice",-20,0,flags:FPF_NOAUTOAIM);				
+			A_FireProjectile("CalamitySlice",-25,0,flags:FPF_NOAUTOAIM);				
+			A_FireProjectile("CalamitySlice",-30,0,flags:FPF_NOAUTOAIM);				
+			A_FireProjectile("CalamitySlice",-35,0,flags:FPF_NOAUTOAIM);				
+		}
+		invoker.ChargeLevel = 0;
+	}
+}
+
+class CalamitySlice : Actor
+{
+	Default
+	{
+		Radius 16;
+		Height 8;
+		Speed 15;
+		Damage 10;
+		Projectile ;
+		+RANDOMIZE
+		+RIPPER
+		+DOHARMSPECIES
+		RenderStyle "Add";
+		Alpha 0.9;
+		DeathSound "calamity/explosion";
+	}
+	override void Tick() 
+	{	
+		super.Tick();
+		if (isFrozen())
+			return;
+		if(GetCVAR("calamitygib")) // ALWAYS GIB
+			bEXTREMEDEATH = true;
+		else
+			bEXTREMEDEATH = false;		
+	}	
+	States
+	{
+	Spawn:
+		HETB ABC 3 BRIGHT;
+		Loop;
+	Death:
+		HETB DEFGHI 3 BRIGHT;
+		Stop;
+	}
+}
+////////
+//AMMO
+
+//FUEL
+class R_Fuel : Ammo
+{
+  Default
+  {
+  //$Category "Ammunition/Legacy of Rust"
+  Inventory.PickupMessage "Picked up a fuel can.";
+  Inventory.Amount 10;
+  Inventory.MaxAmount 150;
+  Ammo.BackpackAmount 10;
+  Ammo.BackpackMaxAmount 300;
+  Inventory.Icon "FCPUA0";
+  Tag "Fuel can";
+  }
+  States
+  {
+  Spawn:
+    CELL B -1;
+    stop;
+  }
+}
+//FUEL TANK
+class R_FuelTank : R_Fuel
+{
+  Default
+  {
+  //$Category "Ammunition/Legacy of Rust"
+  Inventory.PickupMessage "Picked up a fuel tank.";
+  Inventory.Amount 50;
+  Tag "Fuel tank";
+  }
+  States
+  {
+  Spawn:
+    CELP B -1;
+    stop;
+  }
+}
+//MORE FUEL
+class Fuel2x: R_Fuel {Default{Inventory.Amount 20; Ammo.BackpackAmount 20;}}
+class FuelTank2x: R_FuelTank {Default{Inventory.Amount 100;}}

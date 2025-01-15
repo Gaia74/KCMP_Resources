@@ -21,6 +21,26 @@ DoomEdNums
 	//916 = "PerforatorCannonAmmo"
 	917 = "KiradorThingWaiter"
 	
+	
+	
+	/*20446 = R_Incinerator
+	20447 = R_CalamityBlade
+	20448 = R_Fuel
+	20449 = R_FuelTank*/
+	20450 = Ghoul
+	20451 = Banshee
+	20452 = Shocktrooper
+	20453 = Mindweaver
+	20454 = Vassago
+	20455 = Tyrant
+	20456 = Scorched
+	20457 = Rot
+	20458 = Flametrooper
+	20459 = Calamitytrooper
+	20460 = Incineratron
+	20461 = Orias
+	20462 = Cyberling
+	
 	///////////////////////
 	// Fishy's platforms //
 	///////////////////////

@@ -1,0 +1,1277 @@
+flickerlight IncineratorFire0
+{
+	color 1.0 0.3 0.0
+	size 24
+	secondarySize 30
+	chance 0.7
+}
+
+
+flickerlight IncineratorFire1
+{
+	color 1.0 0.3 0.0
+	size 48
+	secondarySize 52
+	chance 0.7
+}
+
+flickerlight IncineratorFire2
+{
+	color 1.0 0.3 0.0
+	size 56
+	secondarySize 62
+	chance 0.7
+}
+
+flickerlight IncineratorFire3
+{
+	color 1.0 0.3 0.0
+	size 75
+	secondarySize 78
+	chance 0.7
+}
+/*
+object CalamitySlice
+{
+	frame HETBA {light IncineratorFire2}
+	frame HETBB {light IncineratorFire2}
+	frame HETBC {light IncineratorFire3}
+	frame HETBD {light IncineratorFire3}
+	frame HETBE {light IncineratorFire2}
+	frame HETBF {light IncineratorFire2}
+	frame HETBG {light IncineratorFire1}
+	frame HETBH {light IncineratorFire1}
+	frame HETBI {light IncineratorFire0}
+}
+
+object IncineratorFire
+{
+	frame IFLMA {light IncineratorFire0}
+	frame IFLMB {light IncineratorFire0}
+	frame IFLMC {light IncineratorFire0}
+	frame IFLMD {light IncineratorFire1}
+	frame IFLME {light IncineratorFire1}
+	frame IFLMF {light IncineratorFire0}
+	frame IFLMG {light IncineratorFire0}
+	frame IFLMH {light IncineratorFire0}
+	frame IFLMI {light IncineratorFire0}
+	frame IFLMJ {light IncineratorFire1}
+	frame IFLMK {light IncineratorFire1}
+	frame IFLML {light IncineratorFire2}
+	frame IFLMM {light IncineratorFire2}
+	frame IFLMN {light IncineratorFire1}
+	frame IFLMO {light IncineratorFire1}
+	frame IFLMP {light IncineratorFire0}
+}
+*/
+object IncineratorFire2
+{
+	frame IFLMA {light IncineratorFire0}
+	frame IFLMB {light IncineratorFire0}
+	frame IFLMC {light IncineratorFire0}
+	frame IFLMD {light IncineratorFire1}
+	frame IFLME {light IncineratorFire1}
+	frame IFLMF {light IncineratorFire0}
+	frame IFLMG {light IncineratorFire0}
+	frame IFLMH {light IncineratorFire0}
+	frame IFLMI {light IncineratorFire0}
+	frame IFLMJ {light IncineratorFire1}
+	frame IFLMK {light IncineratorFire1}
+	frame IFLML {light IncineratorFire2}
+	frame IFLMM {light IncineratorFire2}
+	frame IFLMN {light IncineratorFire1}
+	frame IFLMO {light IncineratorFire1}
+	frame IFLMP {light IncineratorFire0}
+}
+
+object IncineratorFire3
+{
+	frame IFLMA {light IncineratorFire0}
+	frame IFLMB {light IncineratorFire0}
+	frame IFLMC {light IncineratorFire0}
+	frame IFLMD {light IncineratorFire1}
+	frame IFLME {light IncineratorFire1}
+	frame IFLMF {light IncineratorFire0}
+	frame IFLMG {light IncineratorFire0}
+	frame IFLMH {light IncineratorFire0}
+	frame IFLMI {light IncineratorFire0}
+	frame IFLMJ {light IncineratorFire1}
+	frame IFLMK {light IncineratorFire1}
+	frame IFLML {light IncineratorFire2}
+	frame IFLMM {light IncineratorFire2}
+	frame IFLMN {light IncineratorFire1}
+	frame IFLMO {light IncineratorFire1}
+	frame IFLMP {light IncineratorFire0}
+}
+
+pointlight GhoulAttack1
+{
+	color 1.0 1.0 0.0
+	size 36
+}
+pointlight GhoulAttack2
+{
+	color 1.0 1.0 0.0
+	size 40
+}
+pointlight GhoulAttack3
+{
+	color 1.0 1.0 0.0
+	size 52
+}
+pointlight GhoulAttack4
+{
+	color 1.0 1.0 0.0
+	size 64
+}
+pointlight GhoulPain1
+{
+	color 0.2 0.2 1.0
+	size 24
+}
+pointlight GhoulPain2
+{
+	color 0.2 0.2 1.0
+	size 32
+}
+pointlight GhoulPain3
+{
+	color 0.2 0.2 1.0
+	size 42
+}
+pointlight GhoulPain4
+{
+	color 0.2 0.2 1.0
+	size 52
+}
+pointlight GhoulDeath1
+{
+	color 0.2 1.0 0.1
+	size 24
+}
+pointlight GhoulDeath
+{
+	color 0.2 1.0 0.1
+	size 32
+}
+pointlight GhoulDeath2
+{
+	color 0.2 1.0 0.1
+	size 42
+}
+pointlight GhoulDeath3
+{
+	color 0.2 1.0 0.1
+	size 52
+}
+pointlight GhoulDeath4
+{
+	color 0.2 1.0 0.1
+	size 64
+}
+pointlight GhoulFireball1
+{
+	color 1.0 1.0 0.0
+	size 42
+}
+pointlight GhoulFireball2
+{
+	color 1.0 1.0 0.0
+	size 36
+}
+pointlight GhoulFireball3
+{
+	color 1.0 1.0 0.0
+	size 30
+}
+pointlight GhoulFireball4
+{
+	color 1.0 1.0 0.0
+	size 18
+}
+
+object Ghoul
+{
+	frame GHLRL {light GhoulAttack1}
+	frame GHLRM {light GhoulAttack2}
+	frame GHLRN {light GhoulAttack3}
+	frame GHLRO {light GhoulAttack4}
+	frame GHLRP {light GhoulPain1}
+	frame GHLRQ {light GhoulPain2}
+	frame GHLRR {light GhoulPain3}
+	frame GHLRK {light GhoulPain4}
+	frame GHLRL {light GhoulPain4}
+	frame GHLRM {light GhoulDeath1}
+	frame GHLRN {light GhoulDeath2}
+	frame GHLRO {light GhoulDeath3}
+	frame GHLRP {light GhoulDeath4}
+	frame GHLRQ {light GhoulDeath3}
+	frame GHLRR {light GhoulDeath2}
+}
+object GhoulFireball
+{
+	frame GBALA {light GhoulFireball3}
+	frame GBALB {light GhoulFireball2}
+	frame GBALC {light GhoulFireball1}
+	frame APBXA {light GhoulFireball3}
+	frame APBXB {light GhoulFireball2}
+	frame APBXC {light GhoulFireball2}
+	frame APBXD {light GhoulFireball1}
+	frame APBXE {light GhoulFireball4}
+}
+
+pointlight ScorchedAttack1
+{
+	color 1.0 0.2 0.0
+	size 36
+}
+pointlight ScorchedAttack2
+{
+	color 1.0 0.2 0.0
+	size 40
+}
+pointlight ScorchedAttack3
+{
+	color 1.0 0.2 0.0
+	size 52
+}
+pointlight ScorchedAttack4
+{
+	color 1.0 0.2 0.0
+	size 64
+}
+pointlight ScorchedPain1
+{
+	color 0.1 1.0 0.1
+	size 24
+}
+pointlight ScorchedPain2
+{
+	color 0.1 1.0 0.1
+	size 32
+}
+pointlight ScorchedPain3
+{
+	color 0.1 1.0 0.1
+	size 42
+}
+pointlight ScorchedPain4
+{
+	color 1.0 0.6 0.0
+	size 52
+}
+pointlight ScorchedDeath1
+{
+	color 1.0 0.6 0.0
+	size 24
+}
+pointlight ScorchedDeath
+{
+	color 1.0 0.6 0.0
+	size 32
+}
+pointlight ScorchedDeath2
+{
+	color 1.0 0.6 0.0
+	size 42
+}
+pointlight ScorchedDeath3
+{
+	color 1.0 0.6 0.0
+	size 52
+}
+pointlight ScorchedDeath4
+{
+	color 1.0 0.6 0.0
+	size 64
+}
+object Scorched
+{
+	frame GHL2L {light ScorchedAttack1}
+	frame GHL2M {light ScorchedAttack2}
+	frame GHL2N {light ScorchedAttack3}
+	frame GHL2O {light ScorchedAttack4}
+	frame GHL2P {light ScorchedPain1}
+	frame GHL2Q {light ScorchedPain2}
+	frame GHL2R {light ScorchedPain3}
+	frame GHL2K {light ScorchedPain4}
+	frame GHL2L {light ScorchedPain4}
+	frame GHL2M {light ScorchedDeath1}
+	frame GHL2N {light ScorchedDeath2}
+	frame GHL2O {light ScorchedDeath3}
+	frame GHL2P {light ScorchedDeath4}
+	frame GHL2Q {light ScorchedDeath3}
+	frame GHL2R {light ScorchedDeath2}
+}
+BrightMap Sprite GHLRA1 	{Map GHOLA1 DisableFullBright}
+BrightMap Sprite GHLRA2A8 	{Map GHOLA2A8 DisableFullBright}
+BrightMap Sprite GHLRA3A7 	{Map GHOLA3A7 DisableFullBright}
+BrightMap Sprite GHLRB1 	{Map GHOLB1 DisableFullBright}
+BrightMap Sprite GHLRB2B8 	{Map GHOLB2B8 DisableFullBright}
+BrightMap Sprite GHLRB3B7 	{Map GHOLB3B7 DisableFullBright}
+BrightMap Sprite GHLRC1 	{Map GHOLC1 DisableFullBright}
+BrightMap Sprite GHLRC2C8 	{Map GHOLC2C8 DisableFullBright}
+BrightMap Sprite GHLRC3C7 	{Map GHOLC3C7 DisableFullBright}
+BrightMap Sprite GHLRD1 	{Map GHOLD1 DisableFullBright}
+BrightMap Sprite GHLRD2D8 	{Map GHOLD2D8 DisableFullBright}
+BrightMap Sprite GHLRD3D7 	{Map GHOLD3D7 DisableFullBright}
+BrightMap Sprite GHLRE1 	{Map GHOLE1 DisableFullBright}
+BrightMap Sprite GHLRE2E8 	{Map GHOLE2E8 DisableFullBright}
+BrightMap Sprite GHLRE3E7 	{Map GHOLE3E7 DisableFullBright}
+BrightMap Sprite GHLRE4E6 	{Map GHOLE4E6 DisableFullBright}
+BrightMap Sprite GHLRE5 	{Map GHOLE5 DisableFullBright}
+BrightMap Sprite GHLRF1 	{Map GHOLF1 DisableFullBright}
+BrightMap Sprite GHLRF2F8 	{Map GHOLF2F8 DisableFullBright}
+BrightMap Sprite GHLRF3F7 	{Map GHOLF3F7 DisableFullBright}
+BrightMap Sprite GHLRF4F6 	{Map GHOLF4F6 DisableFullBright}
+BrightMap Sprite GHLRF5 	{Map GHOLF5 DisableFullBright}
+BrightMap Sprite GHLRG1 	{Map GHOLG1 DisableFullBright}
+BrightMap Sprite GHLRG2G8 	{Map GHOLG2G8 DisableFullBright}
+BrightMap Sprite GHLRG3G7 	{Map GHOLG3G7 DisableFullBright}
+BrightMap Sprite GHLRG4G6 	{Map GHOLG4G6 DisableFullBright}
+BrightMap Sprite GHLRG5 	{Map GHOLG5 DisableFullBright}
+BrightMap Sprite GHLRH1 	{Map GHOLH1 DisableFullBright}
+BrightMap Sprite GHLRH2H8 	{Map GHOLH2H8 DisableFullBright}
+BrightMap Sprite GHLRH3H7 	{Map GHOLH3H7 DisableFullBright}
+BrightMap Sprite GHLRH4H6 	{Map GHOLH4H6 DisableFullBright}
+BrightMap Sprite GHLRH5 	{Map GHOLH5 DisableFullBright}
+BrightMap Sprite GHLRI1 	{Map GHOLI1 DisableFullBright}
+BrightMap Sprite GHLRI2I8 	{Map GHOLI2I8 DisableFullBright}
+BrightMap Sprite GHLRI3I7 	{Map GHOLI3I7 DisableFullBright}
+BrightMap Sprite GHLRI4I6 	{Map GHOLI4I6 DisableFullBright}
+BrightMap Sprite GHLRI5 	{Map GHOLI5 DisableFullBright}
+BrightMap Sprite GHLRJ1 	{Map GHOLJ1 DisableFullBright}
+BrightMap Sprite GHLRJ2J8 	{Map GHOLJ2J8 DisableFullBright}
+BrightMap Sprite GHLRJ3J7 	{Map GHOLJ3J7 DisableFullBright}
+BrightMap Sprite GHLRJ4J6 	{Map GHOLJ4J6 DisableFullBright}
+BrightMap Sprite GHLRJ5 	{Map GHOLJ5 DisableFullBright}
+BrightMap Sprite GHLRK1 	{Map GHOLK1 DisableFullBright}
+BrightMap Sprite GHLRK2K8 	{Map GHOLK2K8 DisableFullBright}
+BrightMap Sprite GHLRK3K7 	{Map GHOLK3K7 DisableFullBright}
+BrightMap Sprite GHLRK4K6 	{Map GHOLK4K6 DisableFullBright}
+BrightMap Sprite GHLRK5 	{Map GHOLK5 DisableFullBright}
+BrightMap Sprite GHLRM0 	{Map GHOLM0 DisableFullBright}
+BrightMap Sprite GHLRN0 	{Map GHOLN0 DisableFullBright}
+BrightMap Sprite GHLRO0 	{Map GHOLO0 DisableFullBright}
+BrightMap Sprite GHLRP0 	{Map GHOLP0 DisableFullBright}
+BrightMap Sprite GHLRQ0 	{Map GHOLQ0 DisableFullBright}
+BrightMap Sprite GHLRR0 	{Map GHOLR0 DisableFullBright}
+
+BrightMap Sprite GHL2A1 	{Map GHOLA1 DisableFullBright}
+BrightMap Sprite GHL2A2A8 	{Map GHOLA2A8 DisableFullBright}
+BrightMap Sprite GHL2A3A7 	{Map GHOLA3A7 DisableFullBright}
+BrightMap Sprite GHL2B1 	{Map GHOLB1 DisableFullBright}
+BrightMap Sprite GHL2B2B8 	{Map GHOLB2B8 DisableFullBright}
+BrightMap Sprite GHL2B3B7 	{Map GHOLB3B7 DisableFullBright}
+BrightMap Sprite GHL2C1 	{Map GHOLC1 DisableFullBright}
+BrightMap Sprite GHL2C2C8 	{Map GHOLC2C8 DisableFullBright}
+BrightMap Sprite GHL2C3C7 	{Map GHOLC3C7 DisableFullBright}
+BrightMap Sprite GHL2D1 	{Map GHOLD1 DisableFullBright}
+BrightMap Sprite GHL2D2D8 	{Map GHOLD2D8 DisableFullBright}
+BrightMap Sprite GHL2D3D7 	{Map GHOLD3D7 DisableFullBright}
+BrightMap Sprite GHL2E1 	{Map GHOLE1 DisableFullBright}
+BrightMap Sprite GHL2E2E8 	{Map GHOLE2E8 DisableFullBright}
+BrightMap Sprite GHL2E3E7 	{Map GHOLE3E7 DisableFullBright}
+BrightMap Sprite GHL2E4E6 	{Map GHOLE4E6 DisableFullBright}
+BrightMap Sprite GHL2E5 	{Map GHOLE5 DisableFullBright}
+BrightMap Sprite GHL2F1 	{Map GHOLF1 DisableFullBright}
+BrightMap Sprite GHL2F2F8 	{Map GHOLF2F8 DisableFullBright}
+BrightMap Sprite GHL2F3F7 	{Map GHOLF3F7 DisableFullBright}
+BrightMap Sprite GHL2F4F6 	{Map GHOLF4F6 DisableFullBright}
+BrightMap Sprite GHL2F5 	{Map GHOLF5 DisableFullBright}
+BrightMap Sprite GHL2G1 	{Map GHOLG1 DisableFullBright}
+BrightMap Sprite GHL2G2G8 	{Map GHOLG2G8 DisableFullBright}
+BrightMap Sprite GHL2G3G7 	{Map GHOLG3G7 DisableFullBright}
+BrightMap Sprite GHL2G4G6 	{Map GHOLG4G6 DisableFullBright}
+BrightMap Sprite GHL2G5 	{Map GHOLG5 DisableFullBright}
+BrightMap Sprite GHL2H1 	{Map GHOLH1 DisableFullBright}
+BrightMap Sprite GHL2H2H8 	{Map GHOLH2H8 DisableFullBright}
+BrightMap Sprite GHL2H3H7 	{Map GHOLH3H7 DisableFullBright}
+BrightMap Sprite GHL2H4H6 	{Map GHOLH4H6 DisableFullBright}
+BrightMap Sprite GHL2H5 	{Map GHOLH5 DisableFullBright}
+BrightMap Sprite GHL2I1 	{Map GHOLI1 DisableFullBright}
+BrightMap Sprite GHL2I2I8 	{Map GHOLI2I8 DisableFullBright}
+BrightMap Sprite GHL2I3I7 	{Map GHOLI3I7 DisableFullBright}
+BrightMap Sprite GHL2I4I6 	{Map GHOLI4I6 DisableFullBright}
+BrightMap Sprite GHL2I5 	{Map GHOLI5 DisableFullBright}
+BrightMap Sprite GHL2J1 	{Map GHOLJ1 DisableFullBright}
+BrightMap Sprite GHL2J2J8 	{Map GHOLJ2J8 DisableFullBright}
+BrightMap Sprite GHL2J3J7 	{Map GHOLJ3J7 DisableFullBright}
+BrightMap Sprite GHL2J4J6 	{Map GHOLJ4J6 DisableFullBright}
+BrightMap Sprite GHL2J5 	{Map GHOLJ5 DisableFullBright}
+BrightMap Sprite GHL2K1 	{Map GHOLK1 DisableFullBright}
+BrightMap Sprite GHL2K2K8 	{Map GHOLK2K8 DisableFullBright}
+BrightMap Sprite GHL2K3K7 	{Map GHOLK3K7 DisableFullBright}
+BrightMap Sprite GHL2K4K6 	{Map GHOLK4K6 DisableFullBright}
+BrightMap Sprite GHL2K5 	{Map GHOLK5 DisableFullBright}
+BrightMap Sprite GHL2M0 	{Map GHOLM0 DisableFullBright}
+BrightMap Sprite GHL2N0 	{Map GHOLN0 DisableFullBright}
+BrightMap Sprite GHL2O0 	{Map GHOLO0 DisableFullBright}
+BrightMap Sprite GHL2P0 	{Map GHOLP0 DisableFullBright}
+BrightMap Sprite GHL2Q0 	{Map GHOLQ0 DisableFullBright}
+BrightMap Sprite GHL2R0 	{Map GHOLR0 DisableFullBright}
+
+pointlight BansheeLight
+{
+	color 1.0 0.0 0.0
+	size 64
+}
+pointlight BansheeLightX1
+{
+	color 1.0 0.2 0.0
+	size 68
+}
+pointlight BansheeLightX2
+{
+	color 1.0 0.4 0.0
+	size 94
+}
+pointlight BansheeLightX3
+{
+	color 1.0 0.3 0.0
+	size 76
+}
+pointlight BansheeLightX4
+{
+	color 1.0 0.1 0.0
+	size 48
+}
+pointlight RotLight
+{
+	color 0.1 1.0 0.1
+	size 64
+}
+pointlight RotLightX1
+{
+	color 0.2 1.0 0.2
+	size 68
+}
+pointlight RotLightX2
+{
+	color 0.2 1.0 0.2
+	size 94
+}
+pointlight RotLightX3
+{
+	color 0.1 1.0 0.1
+	size 76
+}
+pointlight RotLightX4
+{
+	color 0.0 0.7 0.0
+	size 48
+}
+
+object Banshee
+{
+	frame BSHEA {light BansheeLight}
+	frame BSHEB {light BansheeLight}
+	frame BSHEC {light BansheeLight}
+	frame BSHED {light BansheeLight}
+	frame BSHEE {light BansheeLightX1}
+	frame BSHEF {light BansheeLightX2}
+	frame BSHEG {light BansheeLightX3}
+	frame BSHEH {light BansheeLightX4}
+}
+///////// Does not fit well :/
+//BrightMap Sprite BSHEA0 	{Map BANSHE1 DisableFullBright}
+//BrightMap Sprite BSHEB0 	{Map BANSHE2 DisableFullBright}
+//BrightMap Sprite BSHEC0 	{Map BANSHE3 DisableFullBright}
+//BrightMap Sprite BSHED0 	{Map BANSHE4 DisableFullBright}
+//BrightMap Sprite BSHEE0 	{Map BANSHE5 DisableFullBright}
+//BrightMap Sprite BSHEF0 	{Map BANSHE6 DisableFullBright}
+//BrightMap Sprite BSHEG0 	{Map BANSHE7 DisableFullBright}
+//BrightMap Sprite BSHEH0 	{Map BANSHE8 DisableFullBright}
+
+object Rot
+{
+	frame BAH2A {light RotLight}
+	frame BAH2B {light RotLight}
+	frame BAH2C {light RotLight}
+	frame BAH2D {light RotLight}
+	frame BAH2E {light RotLightX1}
+	frame BAH2F {light RotLightX2}
+	frame BAH2G {light RotLightX3}
+	frame BAH2H {light RotLightX4}
+}
+//BrightMap Sprite BSH2A0 	{Map BANSHE1 DisableFullBright}
+//BrightMap Sprite BSH2B0 	{Map BANSHE2 DisableFullBright}
+//BrightMap Sprite BSH2C0 	{Map BANSHE3 DisableFullBright}
+//BrightMap Sprite BSH2D0 	{Map BANSHE4 DisableFullBright}
+//BrightMap Sprite BSH2E0 	{Map BANSHE5 DisableFullBright}
+//BrightMap Sprite BSH2F0 	{Map BANSHE6 DisableFullBright}
+//BrightMap Sprite BSH2G0 	{Map BANSHE7 DisableFullBright}
+//BrightMap Sprite BSH2H0 	{Map BANSHE8 DisableFullBright}
+
+pointlight MindweaverF1
+{
+	color 1.0 0.9 0.0
+	size 82
+}
+pointlight MindweaverF2
+{
+	color 1.0 0.8 0.0
+	size 52
+}
+pointlight MindweaverX1
+{
+	color 1.0 0.6 0.0
+	size 108
+}
+pointlight MindweaverX2
+{
+	color 1.0 0.3 0.0
+	size 88
+}
+pointlight MindweaverX3
+{
+	color 1.0 0.1 0.0
+	size 64
+}
+pointlight MindweaverX4
+{
+	color 1.0 0.0 0.0
+	size 48
+}
+
+object Mindweaver
+{
+	frame MSPIG {light MindweaverF2}
+	frame MSPIH {light MindweaverF1}
+	frame MSPIL {light MindweaverX1}
+	frame MSPIM {light MindweaverX2}
+	frame MSPIN {light MindweaverX3}
+	frame MSPIO {light MindweaverX4}
+}
+BrightMap Sprite MSPIA1D1 	{Map MDWV1 DisableFullBright}
+BrightMap Sprite MSPIA3A7 	{Map MDWV2 DisableFullBright}
+BrightMap Sprite MSPIB1E1 	{Map MDWV3 DisableFullBright}
+BrightMap Sprite MSPIB3B7 	{Map MDWV4 DisableFullBright}
+BrightMap Sprite MSPIC1F1 	{Map MDWV5 DisableFullBright}
+BrightMap Sprite MSPIC2C8 	{Map MDWV6 DisableFullBright}
+BrightMap Sprite MSPIF2F8 	{Map MDWV7 DisableFullBright}
+BrightMap Sprite MSPIG1 	{Map MDWV8 DisableFullBright}
+BrightMap Sprite MSPIG2G8 	{Map MDWV9 DisableFullBright}
+BrightMap Sprite MSPIH1		{Map MDWV10 DisableFullBright}
+BrightMap Sprite MSPIH2H8 	{Map MDWV11 DisableFullBright}
+BrightMap Sprite MSPIH3H7 	{Map MDWV12 DisableFullBright}
+BrightMap Sprite MSPIH4H6 	{Map MDWV13 DisableFullBright}
+BrightMap Sprite MSPIH5 	{Map MDWV14 DisableFullBright}
+BrightMap Sprite MSPII1 	{Map MDWV15 DisableFullBright}
+BrightMap Sprite MSPII2 	{Map MDWV16 DisableFullBright}
+BrightMap Sprite MSPII3 	{Map MDWV17 DisableFullBright}
+BrightMap Sprite MSPII8 	{Map MDWV18 DisableFullBright}
+BrightMap Sprite MSPIJ0 	{Map MDWV19 DisableFullBright}
+BrightMap Sprite MSPIK0 	{Map MDWV20 DisableFullBright}
+BrightMap Sprite MSPIL0 	{Map MDWV21 DisableFullBright}
+BrightMap Sprite MSPIM0 	{Map MDWV22 DisableFullBright}
+BrightMap Sprite MSPIN0 	{Map MDWV23 DisableFullBright}
+BrightMap Sprite MSPIO0 	{Map MDWV24 DisableFullBright}
+
+pointlight IncineratronF1
+{
+	color 1.0 0.4 0.0
+	size 82
+}
+pointlight IncineratronF2
+{
+	color 1.0 0.4 0.0
+	size 52
+}
+object Incineratron
+{
+	frame MSP2G {light IncineratronF2}
+	frame MSP2H {light IncineratronF1}
+	frame MSP2L {light MindweaverX1}
+	frame MSP2M {light MindweaverX2}
+	frame MSP2N {light MindweaverX3}
+	frame MSP2O {light MindweaverX4}
+}
+BrightMap Sprite MSP2A1D1 	{Map MDWV1 DisableFullBright}
+BrightMap Sprite MSP2A3A7 	{Map MDWV2 DisableFullBright}
+BrightMap Sprite MSP2B1E1 	{Map MDWV3 DisableFullBright}
+BrightMap Sprite MSP2B3B7 	{Map MDWV4 DisableFullBright}
+BrightMap Sprite MSP2C1F1 	{Map MDWV5 DisableFullBright}
+BrightMap Sprite MSP2C2C8 	{Map MDWV6 DisableFullBright}
+BrightMap Sprite MSP2F2F8 	{Map MDWV7 DisableFullBright}
+BrightMap Sprite MSP2G1 	{Map INCIT1 DisableFullBright}
+BrightMap Sprite MSP2G2G8 	{Map INCIT2 DisableFullBright}
+BrightMap Sprite MSP2H1		{Map INCIT3 DisableFullBright}
+BrightMap Sprite MSP2H2H8 	{Map INCIT4 DisableFullBright}
+BrightMap Sprite MSP2H3H7 	{Map INCIT5 DisableFullBright}
+BrightMap Sprite MSP2H4H6 	{Map INCIT6 DisableFullBright}
+BrightMap Sprite MSP2H5 	{Map INCIT7 DisableFullBright}
+BrightMap Sprite MSP2I1 	{Map MDWV15 DisableFullBright}
+BrightMap Sprite MSP2I2 	{Map MDWV16 DisableFullBright}
+BrightMap Sprite MSP2I3 	{Map MDWV17 DisableFullBright}
+BrightMap Sprite MSP2I8 	{Map MDWV18 DisableFullBright}
+BrightMap Sprite MSP2J0 	{Map MDWV19 DisableFullBright}
+BrightMap Sprite MSP2K0 	{Map MDWV20 DisableFullBright}
+BrightMap Sprite MSP2L0 	{Map MDWV21 DisableFullBright}
+BrightMap Sprite MSP2M0 	{Map MDWV22 DisableFullBright}
+BrightMap Sprite MSP2M0 	{Map MDWV23 DisableFullBright}
+BrightMap Sprite MSP2N0 	{Map MDWV24 DisableFullBright}
+
+pointlight ShocktrooperPlasmaFire
+{
+	color 0.1 0.1 1.0
+	size 48
+}
+pointlight FlametrooperFire
+{
+	color 1.0 0.4 0.0
+	size 48
+}
+pulselight CalamitytrooperCharge
+{
+	color 1.0 0.8 0.0
+	size 32
+	secondarySize 64
+    interval 0.6
+}
+pointlight CalamitytrooperFire
+{
+	color 1.0 0.4 0.0
+	size 128
+}
+
+pointlight ShocktrooperPlasma
+{
+	color 0.0 0.2 0.5
+	size 48
+}
+flickerlight2 ShocktrooperPlasmaX1
+{
+	color 0.0 0.2 0.5
+	size 32
+	secondarysize 24
+}
+flickerlight2 ShocktrooperPlasmaX2
+{
+	color 0.0 0.2 0.5
+	size 48
+	secondarysize 24
+}
+flickerlight2 ShocktrooperPlasmaX3
+{
+	color 0.0 0.2 0.5
+	size 24
+	secondarysize 12
+}
+flickerlight2 ShocktrooperPlasmaX4
+{
+	color 0.0 0.2 0.5
+	size 12
+	secondarysize 6
+}
+object ShocktrooperPlasma
+{
+	frame SHPSA { light ShocktrooperPlasma }
+	frame SHPSB { light ShocktrooperPlasma }
+	frame SHPEA { light ShocktrooperPlasmaX1 }
+	frame SHPEB { light ShocktrooperPlasmaX2 }
+	frame SHPEC { light ShocktrooperPlasmaX1 }
+	frame SHPED { light ShocktrooperPlasmaX3 }
+	frame SHPEE { light ShocktrooperPlasma4 }
+}
+
+object Shocktrooper
+{
+	frame PPOSF {light ShocktrooperPlasmaFire}
+}
+object WeakerShocktrooper
+{
+	frame PPOSF {light ShocktrooperPlasmaFire}
+}
+object Flametrooper
+{
+	frame PPO8F {light FlametrooperFire}
+}
+object WeakerFlametrooper
+{
+	frame PPO8F {light FlametrooperFire}
+}
+object Calamitytrooper
+{
+	frame PPO9E {light CalamitytrooperCharge}
+	frame PPO9F {light CalamitytrooperFire}
+}
+object WeakerCalamitytrooper
+{
+	frame PPO9E {light CalamitytrooperCharge}
+	frame PPO9F {light CalamitytrooperFire}
+}
+BrightMap Sprite PPOSF1 	{Map SCTKP1 DisableFullBright}
+BrightMap Sprite PPOSF2 	{Map SCTKP2 DisableFullBright}
+BrightMap Sprite PPOSF3 	{Map SCTKP3 DisableFullBright}
+BrightMap Sprite PPOSF4 	{Map SCTKP4 DisableFullBright}
+BrightMap Sprite PPOSF5 	{Map SCTKP5 DisableFullBright}
+BrightMap Sprite PPOSF6 	{Map SCTKP6 DisableFullBright}
+BrightMap Sprite PPOSF7 	{Map SCTKP7 DisableFullBright}
+BrightMap Sprite PPOSF8 	{Map SCTKP8 DisableFullBright}
+BrightMap Sprite PPO8F1 	{Map SCTKP1 DisableFullBright}
+BrightMap Sprite PPO8F2 	{Map SCTKP2 DisableFullBright}
+BrightMap Sprite PPO8F3 	{Map SCTKP3 DisableFullBright}
+BrightMap Sprite PPO8F4 	{Map SCTKP4 DisableFullBright}
+BrightMap Sprite PPO8F5 	{Map SCTKP5 DisableFullBright}
+BrightMap Sprite PPO8F6 	{Map SCTKP6 DisableFullBright}
+BrightMap Sprite PPO8F7 	{Map SCTKP7 DisableFullBright}
+BrightMap Sprite PPO8F8 	{Map SCTKP8 DisableFullBright}
+BrightMap Sprite PPO9F1 	{Map SCTKP1 DisableFullBright}
+BrightMap Sprite PPO9F2 	{Map SCTKP2 DisableFullBright}
+BrightMap Sprite PPO9F3 	{Map SCTKP3 DisableFullBright}
+BrightMap Sprite PPO9F4 	{Map SCTKP4 DisableFullBright}
+BrightMap Sprite PPO9F5 	{Map SCTKP5 DisableFullBright}
+BrightMap Sprite PPO9F6 	{Map SCTKP6 DisableFullBright}
+BrightMap Sprite PPO9F7 	{Map SCTKP7 DisableFullBright}
+BrightMap Sprite PPO9F8 	{Map SCTKP8 DisableFullBright}
+
+flickerlight VassagoFireball
+{
+	color 1.0 0.7 0.0
+	size 48
+	secondarysize 56
+	chance 0.8
+}
+pointlight VassagoFireballX1
+{
+	color 1.0 0.7 0.0
+	size 78
+}
+pointlight VassagoFireballX2
+{
+	color 1.0 0.7 0.0
+	size 88
+}
+pointlight VassagoFireballX3
+{
+	color 1.0 0.7 0.0
+	size 80
+}
+flickerlight VassagoFire1
+{
+	color 1.0 0.7 0.0
+	size 64
+	secondarysize 68
+	chance 0.8
+}
+flickerlight VassagoFire2
+{
+	color 1.0 0.7 0.0
+	size 52
+	secondarysize 56
+	chance 0.8
+}
+flickerlight VassagoFire3
+{
+	color 1.0 0.7 0.0
+	size 40
+	secondarysize 44
+	chance 0.8
+}
+flickerlight VassagoFire4
+{
+	color 1.0 0.7 0.0
+	size 20
+	secondarysize 23
+	chance 0.8
+}
+object Vassago
+{
+	frame VASSJ0 {light VassagoFireballX2}
+	frame VASSK0 {light VassagoFireballX2}
+	frame VASSL0 {light VassagoFireballX3}
+	frame VASSM0 {light VassagoFireballX3}
+	frame VASSN0 {light VassagoFireballX3}
+	frame VASSO0 {light VassagoFireballX1}
+	frame VASSP0 {light VassagoFireball}
+}
+object VassagoFireball
+{
+	frame VFLMA {light VassagoFireball}
+	frame VFLMB {light VassagoFireball}
+	frame VFLMC {light VassagoFireballX1}
+	frame VFLMD {light VassagoFireballX2}
+	frame VFLME {light VassagoFireballX3}
+	frame VFLMF {light VassagoFire1}
+	frame VFLMG {light VassagoFire1}
+	frame VFLMH {light VassagoFire1}
+	frame VFLMI {light VassagoFire1}
+	frame VFLMJ {light VassagoFire2}
+	frame VFLMK {light VassagoFire2}
+	frame VFLML {light VassagoFire3}
+	frame VFLMM {light VassagoFire3}
+	frame VFLMN {light VassagoFire3}
+	frame VFLMO {light VassagoFire4}
+	frame VFLMP {light VassagoFire4}
+	frame VFLMQ {light VassagoFire4}
+}
+
+flickerlight OriasFireball
+{
+	color 0.2 0.2 1.0
+	size 48
+	secondarysize 56
+	chance 0.8
+}
+pointlight OriasFireballX1
+{
+	color 0.2 0.2 1.0
+	size 78
+}
+pointlight OriasFireballX2
+{
+	color 0.2 0.2 1.0
+	size 88
+}
+pointlight OriasFireballX3
+{
+	color 0.2 0.2 1.0
+	size 80
+}
+flickerlight OriasFire1
+{
+	color 0.2 0.2 1.0
+	size 64
+	secondarysize 68
+	chance 0.8
+}
+flickerlight OriasFire2
+{
+	color 0.2 0.2 1.0
+	size 52
+	secondarysize 56
+	chance 0.8
+}
+flickerlight OriasFire3
+{
+	color 0.2 0.2 1.0
+	size 40
+	secondarysize 44
+	chance 0.8
+}
+flickerlight OriasFire4
+{
+	color 0.2 0.2 1.0
+	size 20
+	secondarysize 23
+	chance 0.8
+}
+object Orias
+{
+	frame VAS2J0 {light OriasFireballX2}
+	frame VAS2K0 {light OriasFireballX2}
+	frame VAS2L0 {light OriasFireballX3}
+	frame VAS2M0 {light OriasFireballX3}
+	frame VAS2N0 {light OriasFireballX3}
+	frame VAS2O0 {light OriasFireballX1}
+	frame VAS2P0 {light OriasFireball}
+}
+object OriasFireball
+{
+	frame VFL2A {light OriasFireball}
+	frame VFL2B {light OriasFireball}
+	frame VFL2C {light OriasFireballX1}
+	frame VFL2D {light OriasFireballX2}
+	frame VFL2E {light OriasFireballX3}
+	frame VFL2F {light OriasFire1}
+	frame VFL2G {light OriasFire1}
+	frame VFL2H {light OriasFire1}
+	frame VFL2I {light OriasFire1}
+	frame VFL2J {light OriasFire2}
+	frame VFL2K {light OriasFire2}
+	frame VFL2L {light OriasFire3}
+	frame VFL2M {light OriasFire3}
+	frame VFL2N {light OriasFire3}
+	frame VFL2O {light OriasFire4}
+	frame VFL2P {light OriasFire4}
+	frame VFL2Q {light OriasFire4}
+}
+object ScorchedFireball
+{
+	frame VFLMA {light VassagoFireball}
+	frame VFLMB {light VassagoFireball}
+	frame VFLMC {light VassagoFireballX1}
+	frame VFLMD {light VassagoFireballX2}
+	frame VFLME {light VassagoFireballX3}
+	frame VFLMF {light VassagoFire1}
+	frame VFLMG {light VassagoFire1}
+	frame VFLMH {light VassagoFire1}
+	frame VFLMI {light VassagoFire1}
+	frame VFLMJ {light VassagoFire2}
+	frame VFLMK {light VassagoFire2}
+	frame VFLML {light VassagoFire3}
+	frame VFLMM {light VassagoFire3}
+	frame VFLMN {light VassagoFire3}
+	frame VFLMO {light VassagoFire4}
+	frame VFLMP {light VassagoFire4}
+	frame VFLMQ {light VassagoFire4}
+}
+object ScorchedFirePool
+{
+	frame VFLMF {light VassagoFire1}
+	frame VFLMG {light VassagoFire1}
+	frame VFLMH {light VassagoFire1}
+	frame VFLMI {light VassagoFire1}
+	frame VFLMJ {light VassagoFire2}
+	frame VFLMK {light VassagoFire2}
+	frame VFLML {light VassagoFire3}
+	frame VFLMM {light VassagoFire3}
+	frame VFLMN {light VassagoFire3}
+	frame VFLMO {light VassagoFire4}
+	frame VFLMP {light VassagoFire4}
+	frame VFLMQ {light VassagoFire4}
+}
+BrightMap Sprite VASSA1 	{Map VASSAG1 DisableFullBright}
+BrightMap Sprite VASSA2 	{Map VASSAG2 DisableFullBright}
+BrightMap Sprite VASSA3 	{Map VASSAG3 DisableFullBright}
+BrightMap Sprite VASSA4 	{Map VASSAG4 DisableFullBright}
+BrightMap Sprite VASSA5 	{Map VASSAG5 DisableFullBright}
+BrightMap Sprite VASSA6 	{Map VASSAG6 DisableFullBright}
+BrightMap Sprite VASSA7 	{Map VASSAG7 DisableFullBright}
+BrightMap Sprite VASSA8 	{Map VASSAG8 DisableFullBright}
+BrightMap Sprite VASSB1 	{Map VASSAG9 DisableFullBright}
+BrightMap Sprite VASSB2 	{Map VASSAG10 DisableFullBright}
+BrightMap Sprite VASSB3 	{Map VASSAG11 DisableFullBright}
+BrightMap Sprite VASSB4 	{Map VASSAG12 DisableFullBright}
+BrightMap Sprite VASSB5 	{Map VASSAG13 DisableFullBright}
+BrightMap Sprite VASSB6 	{Map VASSAG14 DisableFullBright}
+BrightMap Sprite VASSB7 	{Map VASSAG15 DisableFullBright}
+BrightMap Sprite VASSB8 	{Map VASSAG16 DisableFullBright}
+BrightMap Sprite VASSC1 	{Map VASSAG17 DisableFullBright}
+BrightMap Sprite VASSC2 	{Map VASSAG18 DisableFullBright}
+BrightMap Sprite VASSC3 	{Map VASSAG19 DisableFullBright}
+BrightMap Sprite VASSC4 	{Map VASSAG20 DisableFullBright}
+BrightMap Sprite VASSC5 	{Map VASSAG21 DisableFullBright}
+BrightMap Sprite VASSC6 	{Map VASSAG22 DisableFullBright}
+BrightMap Sprite VASSC7 	{Map VASSAG23 DisableFullBright}
+BrightMap Sprite VASSC8 	{Map VASSAG24 DisableFullBright}
+BrightMap Sprite VASSD1 	{Map VASSAG25 DisableFullBright}
+BrightMap Sprite VASSD2 	{Map VASSAG26 DisableFullBright}
+BrightMap Sprite VASSD3 	{Map VASSAG27 DisableFullBright}
+BrightMap Sprite VASSD4 	{Map VASSAG28 DisableFullBright}
+BrightMap Sprite VASSD5 	{Map VASSAG29 DisableFullBright}
+BrightMap Sprite VASSD6 	{Map VASSAG30 DisableFullBright}
+BrightMap Sprite VASSD7 	{Map VASSAG31 DisableFullBright}
+BrightMap Sprite VASSD8 	{Map VASSAG32 DisableFullBright}
+BrightMap Sprite VASSE1 	{Map VASSAG33 DisableFullBright}
+BrightMap Sprite VASSE2 	{Map VASSAG34 DisableFullBright}
+BrightMap Sprite VASSE3 	{Map VASSAG35 DisableFullBright}
+BrightMap Sprite VASSE4 	{Map VASSAG36 DisableFullBright}
+BrightMap Sprite VASSE5 	{Map VASSAG37 DisableFullBright}
+BrightMap Sprite VASSE6 	{Map VASSAG38 DisableFullBright}
+BrightMap Sprite VASSE7 	{Map VASSAG39 DisableFullBright}
+BrightMap Sprite VASSE8 	{Map VASSAG40 DisableFullBright}
+BrightMap Sprite VASSF1 	{Map VASSAG41 DisableFullBright}
+BrightMap Sprite VASSF2 	{Map VASSAG42 DisableFullBright}
+BrightMap Sprite VASSF3 	{Map VASSAG43 DisableFullBright}
+BrightMap Sprite VASSF4 	{Map VASSAG44 DisableFullBright}
+BrightMap Sprite VASSF5 	{Map VASSAG45 DisableFullBright}
+BrightMap Sprite VASSF6 	{Map VASSAG46 DisableFullBright}
+BrightMap Sprite VASSF7 	{Map VASSAG47 DisableFullBright}
+BrightMap Sprite VASSF8 	{Map VASSAG48 DisableFullBright}
+BrightMap Sprite VASSG1 	{Map VASSAG49 DisableFullBright}
+BrightMap Sprite VASSG2 	{Map VASSAG50 DisableFullBright}
+BrightMap Sprite VASSG3 	{Map VASSAG51 DisableFullBright}
+BrightMap Sprite VASSG4 	{Map VASSAG52 DisableFullBright}
+BrightMap Sprite VASSG5 	{Map VASSAG53 DisableFullBright}
+BrightMap Sprite VASSG6 	{Map VASSAG54 DisableFullBright}
+BrightMap Sprite VASSG7 	{Map VASSAG55 DisableFullBright}
+BrightMap Sprite VASSG8 	{Map VASSAG56 DisableFullBright}
+BrightMap Sprite VASSH1 	{Map VASSAG57 DisableFullBright}
+BrightMap Sprite VASSH2 	{Map VASSAG58 DisableFullBright}
+BrightMap Sprite VASSH3 	{Map VASSAG59 DisableFullBright}
+BrightMap Sprite VASSH4 	{Map VASSAG60 DisableFullBright}
+BrightMap Sprite VASSH5 	{Map VASSAG61 DisableFullBright}
+BrightMap Sprite VASSH6 	{Map VASSAG62 DisableFullBright}
+BrightMap Sprite VASSH7 	{Map VASSAG63 DisableFullBright}
+BrightMap Sprite VASSH8 	{Map VASSAG64 DisableFullBright}
+BrightMap Sprite VASSI1 	{Map VASSAG65 DisableFullBright}
+BrightMap Sprite VASSI2 	{Map VASSAG66 DisableFullBright}
+BrightMap Sprite VASSI3 	{Map VASSAG67 DisableFullBright}
+BrightMap Sprite VASSI4 	{Map VASSAG68 DisableFullBright}
+BrightMap Sprite VASSI5 	{Map VASSAG69 DisableFullBright}
+BrightMap Sprite VASSI6 	{Map VASSAG70 DisableFullBright}
+BrightMap Sprite VASSI7 	{Map VASSAG71 DisableFullBright}
+BrightMap Sprite VASSI8 	{Map VASSAG72 DisableFullBright}
+BrightMap Sprite VASSJ0 	{Map VASSAG73 DisableFullBright}
+BrightMap Sprite VASSK0 	{Map VASSAG74 DisableFullBright}
+BrightMap Sprite VASSL0 	{Map VASSAG75 DisableFullBright}
+BrightMap Sprite VASSM0 	{Map VASSAG76 DisableFullBright}
+BrightMap Sprite VASSN0 	{Map VASSAG77 DisableFullBright}
+BrightMap Sprite VASSO0 	{Map VASSAG78 DisableFullBright}
+BrightMap Sprite VASSP0 	{Map VASSAG79 DisableFullBright}
+//BrightMap Sprite VASSQ0 	{Map VASSAG80 DisableFullBright}
+
+BrightMap Sprite VAS2A1 	{Map VASSAG1 DisableFullBright}
+BrightMap Sprite VAS2A2 	{Map VASSAG2 DisableFullBright}
+BrightMap Sprite VAS2A3 	{Map VASSAG3 DisableFullBright}
+BrightMap Sprite VAS2A4 	{Map VASSAG4 DisableFullBright}
+BrightMap Sprite VAS2A5 	{Map VASSAG5 DisableFullBright}
+BrightMap Sprite VAS2A6 	{Map VASSAG6 DisableFullBright}
+BrightMap Sprite VAS2A7 	{Map VASSAG7 DisableFullBright}
+BrightMap Sprite VAS2A8 	{Map VASSAG8 DisableFullBright}
+BrightMap Sprite VAS2B1 	{Map VASSAG9 DisableFullBright}
+BrightMap Sprite VAS2B2 	{Map VASSAG10 DisableFullBright}
+BrightMap Sprite VAS2B3 	{Map VASSAG11 DisableFullBright}
+BrightMap Sprite VAS2B4 	{Map VASSAG12 DisableFullBright}
+BrightMap Sprite VAS2B5 	{Map VASSAG13 DisableFullBright}
+BrightMap Sprite VAS2B6 	{Map VASSAG14 DisableFullBright}
+BrightMap Sprite VAS2B7 	{Map VASSAG15 DisableFullBright}
+BrightMap Sprite VAS2B8 	{Map VASSAG16 DisableFullBright}
+BrightMap Sprite VAS2C1 	{Map VASSAG17 DisableFullBright}
+BrightMap Sprite VAS2C2 	{Map VASSAG18 DisableFullBright}
+BrightMap Sprite VAS2C3 	{Map VASSAG19 DisableFullBright}
+BrightMap Sprite VAS2C4 	{Map VASSAG20 DisableFullBright}
+BrightMap Sprite VAS2C5 	{Map VASSAG21 DisableFullBright}
+BrightMap Sprite VAS2C6 	{Map VASSAG22 DisableFullBright}
+BrightMap Sprite VAS2C7 	{Map VASSAG23 DisableFullBright}
+BrightMap Sprite VAS2C8 	{Map VASSAG24 DisableFullBright}
+BrightMap Sprite VAS2D1 	{Map VASSAG25 DisableFullBright}
+BrightMap Sprite VAS2D2 	{Map VASSAG26 DisableFullBright}
+BrightMap Sprite VAS2D3 	{Map VASSAG27 DisableFullBright}
+BrightMap Sprite VAS2D4 	{Map VASSAG28 DisableFullBright}
+BrightMap Sprite VAS2D5 	{Map VASSAG29 DisableFullBright}
+BrightMap Sprite VAS2D6 	{Map VASSAG30 DisableFullBright}
+BrightMap Sprite VAS2D7 	{Map VASSAG31 DisableFullBright}
+BrightMap Sprite VAS2D8 	{Map VASSAG32 DisableFullBright}
+BrightMap Sprite VAS2E1 	{Map VASSAG33 DisableFullBright}
+BrightMap Sprite VAS2E2 	{Map VASSAG34 DisableFullBright}
+BrightMap Sprite VAS2E3 	{Map VASSAG35 DisableFullBright}
+BrightMap Sprite VAS2E4 	{Map VASSAG36 DisableFullBright}
+BrightMap Sprite VAS2E5 	{Map VASSAG37 DisableFullBright}
+BrightMap Sprite VAS2E6 	{Map VASSAG38 DisableFullBright}
+BrightMap Sprite VAS2E7 	{Map VASSAG39 DisableFullBright}
+BrightMap Sprite VAS2E8 	{Map VASSAG40 DisableFullBright}
+BrightMap Sprite VAS2F1 	{Map VASSAG41 DisableFullBright}
+BrightMap Sprite VAS2F2 	{Map VASSAG42 DisableFullBright}
+BrightMap Sprite VAS2F3 	{Map VASSAG43 DisableFullBright}
+BrightMap Sprite VAS2F4 	{Map VASSAG44 DisableFullBright}
+BrightMap Sprite VAS2F5 	{Map VASSAG45 DisableFullBright}
+BrightMap Sprite VAS2F6 	{Map VASSAG46 DisableFullBright}
+BrightMap Sprite VAS2F7 	{Map VASSAG47 DisableFullBright}
+BrightMap Sprite VAS2F8 	{Map VASSAG48 DisableFullBright}
+BrightMap Sprite VAS2G1 	{Map VASSAG49 DisableFullBright}
+BrightMap Sprite VAS2G2 	{Map VASSAG50 DisableFullBright}
+BrightMap Sprite VAS2G3 	{Map VASSAG51 DisableFullBright}
+BrightMap Sprite VAS2G4 	{Map VASSAG52 DisableFullBright}
+BrightMap Sprite VAS2G5 	{Map VASSAG53 DisableFullBright}
+BrightMap Sprite VAS2G6 	{Map VASSAG54 DisableFullBright}
+BrightMap Sprite VAS2G7 	{Map VASSAG55 DisableFullBright}
+BrightMap Sprite VAS2G8 	{Map VASSAG56 DisableFullBright}
+BrightMap Sprite VAS2H1 	{Map VASSAG57 DisableFullBright}
+BrightMap Sprite VAS2H2 	{Map VASSAG58 DisableFullBright}
+BrightMap Sprite VAS2H3 	{Map VASSAG59 DisableFullBright}
+BrightMap Sprite VAS2H4 	{Map VASSAG60 DisableFullBright}
+BrightMap Sprite VAS2H5 	{Map VASSAG61 DisableFullBright}
+BrightMap Sprite VAS2H6 	{Map VASSAG62 DisableFullBright}
+BrightMap Sprite VAS2H7 	{Map VASSAG63 DisableFullBright}
+BrightMap Sprite VAS2H8 	{Map VASSAG64 DisableFullBright}
+BrightMap Sprite VAS2I1 	{Map VASSAG65 DisableFullBright}
+BrightMap Sprite VAS2I2 	{Map VASSAG66 DisableFullBright}
+BrightMap Sprite VAS2I3 	{Map VASSAG67 DisableFullBright}
+BrightMap Sprite VAS2I4 	{Map VASSAG68 DisableFullBright}
+BrightMap Sprite VAS2I5 	{Map VASSAG69 DisableFullBright}
+BrightMap Sprite VAS2I6 	{Map VASSAG70 DisableFullBright}
+BrightMap Sprite VAS2I7 	{Map VASSAG71 DisableFullBright}
+BrightMap Sprite VAS2I8 	{Map VASSAG72 DisableFullBright}
+BrightMap Sprite VAS2J0 	{Map VASSAG73 DisableFullBright}
+BrightMap Sprite VAS2K0 	{Map VASSAG74 DisableFullBright}
+BrightMap Sprite VAS2L0 	{Map VASSAG75 DisableFullBright}
+BrightMap Sprite VAS2M0 	{Map VASSAG76 DisableFullBright}
+BrightMap Sprite VAS2N0 	{Map VASSAG77 DisableFullBright}
+BrightMap Sprite VAS2O0 	{Map VASSAG78 DisableFullBright}
+BrightMap Sprite VAS2P0 	{Map VASSAG79 DisableFullBright}
+//BrightMap Sprite VAS2Q0 	{Map VASSAG80 DisableFullBright}
+
+pointlight TyrantFire
+{
+	color 1.0 0.3 0.0
+	size 72
+}
+pointlight TyrantX1
+{
+	color 1.0 0.1 0.0
+	size 64
+}
+pointlight TyrantX2
+{
+	color 1.0 0.0 0.0
+	size 82
+}
+pointlight TyrantX3
+{
+	color 1.0 0.0 0.0
+	size 90
+}
+pointlight TyrantX4
+{
+	color 0.8 0.0 0.0
+	size 100
+}
+pointlight TyrantX5
+{
+	color 0.6 0.0 0.0
+	size 103
+}
+pointlight TyrantX6
+{
+	color 0.3 0.0 0.0
+	size 96
+}
+pointlight TyrantX7
+{
+	color 0.1 0.0 0.0
+	size 64
+}
+object Tyrant
+{
+	frame CYB2F {light TyrantFire}
+	frame CYB2I {light TyrantX1}
+	frame CYB2J {light TyrantX2}
+	frame CYB2K {light TyrantX3}
+	frame CYB2L {light TyrantX4}
+	frame CYB2M {light TyrantX5}
+	frame CYB2N {light TyrantX6}
+	frame CYB2O {light TyrantX7}
+}
+BrightMap Sprite CYB2A1 	{Map TYRAN1 DisableFullBright}
+BrightMap Sprite CYB2A2 	{Map TYRAN2 DisableFullBright}
+BrightMap Sprite CYB2A3 	{Map TYRAN3 DisableFullBright}
+BrightMap Sprite CYB2A4 	{Map TYRAN4 DisableFullBright}
+BrightMap Sprite CYB2A5 	{Map TYRAN5 DisableFullBright}
+BrightMap Sprite CYB2A6 	{Map TYRAN6 DisableFullBright}
+BrightMap Sprite CYB2A7 	{Map TYRAN7 DisableFullBright}
+BrightMap Sprite CYB2A8 	{Map TYRAN8 DisableFullBright}
+BrightMap Sprite CYB2B1 	{Map TYRAN9 DisableFullBright}
+BrightMap Sprite CYB2B2 	{Map TYRAN10 DisableFullBright}
+BrightMap Sprite CYB2B3 	{Map TYRAN11 DisableFullBright}
+BrightMap Sprite CYB2B4 	{Map TYRAN12 DisableFullBright}
+BrightMap Sprite CYB2B5 	{Map TYRAN13 DisableFullBright}
+BrightMap Sprite CYB2B6 	{Map TYRAN14 DisableFullBright}
+BrightMap Sprite CYB2B7 	{Map TYRAN15 DisableFullBright}
+BrightMap Sprite CYB2B8 	{Map TYRAN16 DisableFullBright}
+BrightMap Sprite CYB2C1 	{Map TYRAN17 DisableFullBright}
+BrightMap Sprite CYB2C2 	{Map TYRAN18 DisableFullBright}
+BrightMap Sprite CYB2C3 	{Map TYRAN19 DisableFullBright}
+BrightMap Sprite CYB2C4 	{Map TYRAN20 DisableFullBright}
+BrightMap Sprite CYB2C5 	{Map TYRAN21 DisableFullBright}
+BrightMap Sprite CYB2C6 	{Map TYRAN22 DisableFullBright}
+BrightMap Sprite CYB2C7 	{Map TYRAN23 DisableFullBright}
+BrightMap Sprite CYB2C8 	{Map TYRAN24 DisableFullBright}
+BrightMap Sprite CYB2D1 	{Map TYRAN25 DisableFullBright}
+BrightMap Sprite CYB2D2 	{Map TYRAN26 DisableFullBright}
+BrightMap Sprite CYB2D3 	{Map TYRAN27 DisableFullBright}
+BrightMap Sprite CYB2D4 	{Map TYRAN28 DisableFullBright}
+BrightMap Sprite CYB2D5 	{Map TYRAN29 DisableFullBright}
+BrightMap Sprite CYB2D6 	{Map TYRAN30 DisableFullBright}
+BrightMap Sprite CYB2D7 	{Map TYRAN31 DisableFullBright}
+BrightMap Sprite CYB2D8 	{Map TYRAN32 DisableFullBright}
+BrightMap Sprite CYB2E1 	{Map TYRAN33 DisableFullBright}
+BrightMap Sprite CYB2E2 	{Map TYRAN34 DisableFullBright}
+BrightMap Sprite CYB2E3 	{Map TYRAN35 DisableFullBright}
+BrightMap Sprite CYB2E4 	{Map TYRAN36 DisableFullBright}
+BrightMap Sprite CYB2E5 	{Map TYRAN37 DisableFullBright}
+BrightMap Sprite CYB2E6 	{Map TYRAN38 DisableFullBright}
+BrightMap Sprite CYB2E7 	{Map TYRAN39 DisableFullBright}
+BrightMap Sprite CYB2E8 	{Map TYRAN40 DisableFullBright}
+BrightMap Sprite CYB2F1 	{Map TYRAN41 DisableFullBright}
+BrightMap Sprite CYB2F2 	{Map TYRAN42 DisableFullBright}
+BrightMap Sprite CYB2F3 	{Map TYRAN43 DisableFullBright}
+BrightMap Sprite CYB2F4 	{Map TYRAN44 DisableFullBright}
+BrightMap Sprite CYB2F5 	{Map TYRAN45 DisableFullBright}
+BrightMap Sprite CYB2F6 	{Map TYRAN46 DisableFullBright}
+BrightMap Sprite CYB2F7 	{Map TYRAN47 DisableFullBright}
+BrightMap Sprite CYB2F8 	{Map TYRAN48 DisableFullBright}
+BrightMap Sprite CYB2G1 	{Map TYRAN49 DisableFullBright}
+BrightMap Sprite CYB2G2 	{Map TYRAN50 DisableFullBright}
+BrightMap Sprite CYB2G3 	{Map TYRAN51 DisableFullBright}
+BrightMap Sprite CYB2G4 	{Map TYRAN52 DisableFullBright}
+BrightMap Sprite CYB2G5 	{Map TYRAN53 DisableFullBright}
+BrightMap Sprite CYB2G6 	{Map TYRAN54 DisableFullBright}
+BrightMap Sprite CYB2G7 	{Map TYRAN55 DisableFullBright}
+BrightMap Sprite CYB2G8 	{Map TYRAN56 DisableFullBright}
+BrightMap Sprite CYB2H0 	{Map TYRAN57 DisableFullBright}
+BrightMap Sprite CYB2I0 	{Map TYRAN58 DisableFullBright}
+BrightMap Sprite CYB2J0 	{Map TYRAN59 DisableFullBright}
+BrightMap Sprite CYB2K0 	{Map TYRAN60 DisableFullBright}
+BrightMap Sprite CYB2L0 	{Map TYRAN61 DisableFullBright}
+BrightMap Sprite CYB2M0 	{Map TYRAN62 DisableFullBright}
+BrightMap Sprite CYB2N0 	{Map TYRAN63 DisableFullBright}
+BrightMap Sprite CYB2O0 	{Map TYRAN64 DisableFullBright}
+
+object Cyberling
+{
+	frame CYB3F {light TyrantFire}
+	frame CYB3I {light TyrantX1}
+	frame CYB3J {light TyrantX2}
+	frame CYB3K {light TyrantX3}
+	frame CYB3L {light TyrantX4}
+	frame CYB3M {light TyrantX5}
+	frame CYB3N {light TyrantX6}
+	frame CYB3O {light TyrantX7}
+}
+BrightMap Sprite CYB3A1 	{Map TYRAN1 DisableFullBright}
+BrightMap Sprite CYB3A2 	{Map TYRAN2 DisableFullBright}
+BrightMap Sprite CYB3A3 	{Map TYRAN3 DisableFullBright}
+BrightMap Sprite CYB3A4 	{Map TYRAN4 DisableFullBright}
+BrightMap Sprite CYB3A5 	{Map TYRAN5 DisableFullBright}
+BrightMap Sprite CYB3A6 	{Map TYRAN6 DisableFullBright}
+BrightMap Sprite CYB3A7 	{Map TYRAN7 DisableFullBright}
+BrightMap Sprite CYB3A8 	{Map TYRAN8 DisableFullBright}
+BrightMap Sprite CYB3B1 	{Map TYRAN9 DisableFullBright}
+BrightMap Sprite CYB3B2 	{Map TYRAN10 DisableFullBright}
+BrightMap Sprite CYB3B3 	{Map TYRAN11 DisableFullBright}
+BrightMap Sprite CYB3B4 	{Map TYRAN12 DisableFullBright}
+BrightMap Sprite CYB3B5 	{Map TYRAN13 DisableFullBright}
+BrightMap Sprite CYB3B6 	{Map TYRAN14 DisableFullBright}
+BrightMap Sprite CYB3B7 	{Map TYRAN15 DisableFullBright}
+BrightMap Sprite CYB3B8 	{Map TYRAN16 DisableFullBright}
+BrightMap Sprite CYB3C1 	{Map TYRAN17 DisableFullBright}
+BrightMap Sprite CYB3C2 	{Map TYRAN18 DisableFullBright}
+BrightMap Sprite CYB3C3 	{Map TYRAN19 DisableFullBright}
+BrightMap Sprite CYB3C4 	{Map TYRAN20 DisableFullBright}
+BrightMap Sprite CYB3C5 	{Map TYRAN21 DisableFullBright}
+BrightMap Sprite CYB3C6 	{Map TYRAN22 DisableFullBright}
+BrightMap Sprite CYB3C7 	{Map TYRAN23 DisableFullBright}
+BrightMap Sprite CYB3C8 	{Map TYRAN24 DisableFullBright}
+BrightMap Sprite CYB3D1 	{Map TYRAN25 DisableFullBright}
+BrightMap Sprite CYB3D2 	{Map TYRAN26 DisableFullBright}
+BrightMap Sprite CYB3D3 	{Map TYRAN27 DisableFullBright}
+BrightMap Sprite CYB3D4 	{Map TYRAN28 DisableFullBright}
+BrightMap Sprite CYB3D5 	{Map TYRAN29 DisableFullBright}
+BrightMap Sprite CYB3D6 	{Map TYRAN30 DisableFullBright}
+BrightMap Sprite CYB3D7 	{Map TYRAN31 DisableFullBright}
+BrightMap Sprite CYB3D8 	{Map TYRAN32 DisableFullBright}
+BrightMap Sprite CYB3E1 	{Map TYRAN33 DisableFullBright}
+BrightMap Sprite CYB3E2 	{Map TYRAN34 DisableFullBright}
+BrightMap Sprite CYB3E3 	{Map TYRAN35 DisableFullBright}
+BrightMap Sprite CYB3E4 	{Map TYRAN36 DisableFullBright}
+BrightMap Sprite CYB3E5 	{Map TYRAN37 DisableFullBright}
+BrightMap Sprite CYB3E6 	{Map TYRAN38 DisableFullBright}
+BrightMap Sprite CYB3E7 	{Map TYRAN39 DisableFullBright}
+BrightMap Sprite CYB3E8 	{Map TYRAN40 DisableFullBright}
+BrightMap Sprite CYB3F1 	{Map TYRAN41 DisableFullBright}
+BrightMap Sprite CYB3F2 	{Map TYRAN42 DisableFullBright}
+BrightMap Sprite CYB3F3 	{Map TYRAN43 DisableFullBright}
+BrightMap Sprite CYB3F4 	{Map TYRAN44 DisableFullBright}
+BrightMap Sprite CYB3F5 	{Map TYRAN45 DisableFullBright}
+BrightMap Sprite CYB3F6 	{Map TYRAN46 DisableFullBright}
+BrightMap Sprite CYB3F7 	{Map TYRAN47 DisableFullBright}
+BrightMap Sprite CYB3F8 	{Map TYRAN48 DisableFullBright}
+BrightMap Sprite CYB3G1 	{Map TYRAN49 DisableFullBright}
+BrightMap Sprite CYB3G2 	{Map TYRAN50 DisableFullBright}
+BrightMap Sprite CYB3G3 	{Map TYRAN51 DisableFullBright}
+BrightMap Sprite CYB3G4 	{Map TYRAN52 DisableFullBright}
+BrightMap Sprite CYB3G5 	{Map TYRAN53 DisableFullBright}
+BrightMap Sprite CYB3G6 	{Map TYRAN54 DisableFullBright}
+BrightMap Sprite CYB3G7 	{Map TYRAN55 DisableFullBright}
+BrightMap Sprite CYB3G8 	{Map TYRAN56 DisableFullBright}
+BrightMap Sprite CYB3H0 	{Map TYRAN57 DisableFullBright}
+BrightMap Sprite CYB3I0 	{Map TYRAN58 DisableFullBright}
+BrightMap Sprite CYB3J0 	{Map TYRAN59 DisableFullBright}
+BrightMap Sprite CYB3K0 	{Map TYRAN60 DisableFullBright}
+BrightMap Sprite CYB3L0 	{Map TYRAN61 DisableFullBright}
+BrightMap Sprite CYB3M0 	{Map TYRAN62 DisableFullBright}
+BrightMap Sprite CYB3N0 	{Map TYRAN63 DisableFullBright}
+BrightMap Sprite CYB3O0 	{Map TYRAN64 DisableFullBright}

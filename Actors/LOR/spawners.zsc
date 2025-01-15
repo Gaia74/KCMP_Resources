@@ -1,0 +1,800 @@
+/////////////////
+//SPAWNERS
+Class C_Zombieman: Zombieman {
+	//$Category "Monsters"
+	//$Title "Former Human"
+}
+Class C_ShotgunGuy: ShotgunGuy {
+	//$Category "Monsters"
+	//$Title "Former Sergeant"
+}
+Class C_ChaingunGuy: ChaingunGuy {
+	//$Category "Monsters"
+	//$Title "Chaingunner"
+}
+Class C_DoomImp: DoomImp {
+	//$Category "Monsters"
+	//$Title "Imp"
+}
+Class C_Demon: Demon {
+	//$Category "Monsters"
+	//$Title "Demon"
+}
+Class C_Spectre: Spectre {
+	//$Category "Monsters"
+	//$Title "Spectre"
+}
+Class C_LostSoul: LostSoul {
+	//$Category "Monsters"
+	//$Title "Lost Soul"
+}
+Class C_HellKnight: HellKnight {
+	//$Category "Monsters"
+	//$Title "Hell Knight"
+}
+Class C_BaronOfHell: BaronOfHell {
+	//$Category "Monsters"
+	//$Title "Baron of Hell"
+}
+Class C_Arachnotron: Arachnotron {
+	//$Category "Monsters"
+	//$Title "Arachnotron"
+}
+Class C_PlasmaRifle: PlasmaRifle {
+	Default
+	{	
+	Weapon.SlotNumber 6;
+	}
+}
+Class C_BFG9000: BFG9000 {
+	Default
+	{
+	Weapon.SlotNumber 7;
+	}
+}
+Class C_Cell: Cell {
+}
+Class C_CellPack: CellPack {
+}
+//Meat-a-ball changes
+class C_PainElemental : PainElemental replaces PainElemental
+{
+	Default
+	{
+	//$Category "Monsters"
+	//$Title "Pain Elemental"
+	}
+	States
+	{
+	Missile:
+		PAIN D 5 A_FaceTarget;
+		PAIN E 5 A_FaceTarget;
+		PAIN F 5 BRIGHT A_FaceTarget;
+		PAIN F 0 BRIGHT A_PainDefAttack();
+		Goto See;
+	Death:
+		PAIN H 8 BRIGHT;
+		PAIN I 8 BRIGHT A_Scream;
+		PAIN JK 8 BRIGHT;
+		PAIN L 8 BRIGHT A_PainDefDeath();
+		PAIN M 8 BRIGHT;
+		Stop;
+	}
+	void A_PainDefAttack()
+	{
+		A_FaceTarget();
+		if(GetCVAR("painelementaloption")==0)
+			A_PainAttack("C_LostSoul");
+		if(GetCVAR("painelementaloption")==1)
+			A_PainAttack("Ghoul");
+		if(GetCVAR("painelementaloption")==2)
+			A_PainAttack("Scorched");
+		if(GetCVAR("painelementaloption")==3)
+			if(random(0,1)==0)
+				A_PainAttack("Ghoul");
+			else
+				A_PainAttack("Scorched");
+		if(GetCVAR("painelementaloption")==4)
+			A_PainAttack("Banshee");
+		if(GetCVAR("painelementaloption")==5)
+			A_PainAttack("Rot");
+		if(GetCVAR("painelementaloption")==6)
+			if(random(0,1)==0)
+				A_PainAttack("Banshee");
+			else
+				A_PainAttack("Rot");
+		if(GetCVAR("painelementaloption")==7)
+		{
+			switch(random(0,4))
+			{
+			case 0:	
+				A_PainAttack("C_LostSoul");
+				break;
+			case 1:	
+				A_PainAttack("Ghoul");
+				break;
+			case 2:	
+				A_PainAttack("Scorched");
+				break;
+			case 3:	
+				A_PainAttack("Banshee");
+				break;
+			case 4:	
+				A_PainAttack("Rot");
+				break;
+			}
+		}
+	}
+	void A_PainDefDeath()
+	{
+		if(GetCVAR("painelementaloption")==0)
+			A_PainDie("C_LostSoul");
+		if(GetCVAR("painelementaloption")==1)
+			A_PainDie("Ghoul");
+		if(GetCVAR("painelementaloption")==2)
+			A_PainDie("Scorched");
+		if(GetCVAR("painelementaloption")==3)
+			if(random(0,1)==0)
+				A_PainDie("Ghoul");
+			else
+				A_PainDie("Scorched");
+		if(GetCVAR("painelementaloption")==4)
+			A_PainDie("Banshee");
+		if(GetCVAR("painelementaloption")==5)
+			A_PainDie("Rot");
+		if(GetCVAR("painelementaloption")==6)
+			if(random(0,1)==0)
+				A_PainDie("Banshee");
+			else
+				A_PainDie("Rot");
+		if(GetCVAR("painelementaloption")==7)
+		{
+			switch(random(0,4))
+			{
+			case 0:	
+				A_PainDie("C_LostSoul");
+				break;
+			case 1:	
+				A_PainDie("Ghoul");
+				break;
+			case 2:	
+				A_PainDie("Scorched");
+				break;
+			case 3:	
+				A_PainDie("Banshee");
+				break;
+			case 4:	
+				A_PainDie("Rot");
+				break;
+			}
+		}
+	}
+}
+//////
+Class ShockTrooperSpawn1: Actor //ZOMBIEMAN
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("ShocktrooperChance1"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_Zombieman",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:
+		TNT1 A 0 
+		{
+			if(!GetCVAR("weakertroop"))
+				A_SpawnitemEx("Shocktrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+			else
+				A_SpawnitemEx("WeakerShocktrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		}
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusshocktrooper"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;
+	BonusSpawn:
+		TNT1 A 0 A_Jump(GetCVAR("CalamityChance"), "SecretSpawn");
+		TNT1 A 0
+		{
+			if(!GetCVAR("weakertroop"))
+				A_SpawnitemEx("Flametrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+			else
+				A_SpawnitemEx("WeakerFlametrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		}		
+		stop;	
+	SecretSpawn:
+		TNT1 A 0
+		{
+			if(!GetCVAR("weakertroop"))
+				A_SpawnitemEx("CalamityTrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+			else
+				A_SpawnitemEx("WeakerCalamityTrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		}		stop;	
+	}
+}
+Class ShockTrooperSpawn2: Actor //SHOTGUN GUY
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("ShocktrooperChance2"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_ShotgunGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:	
+		TNT1 A 0 A_SpawnitemEx("Shocktrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusshocktrooper"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;	
+	BonusSpawn:
+		TNT1 A 0 A_Jump(GetCVAR("CalamityChance"), "SecretSpawn");
+		TNT1 A 0 A_SpawnitemEx("Flametrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	SecretSpawn:
+		TNT1 A 0 A_SpawnitemEx("Calamitytrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class ShockTrooperSpawn3: Actor //CHAINGUN GUY
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("ShocktrooperChance3"),"SpecialSpawn");
+		goto NormalSpawn;	
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_ChaingunGuy",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusshocktrooper"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;	
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:
+		TNT1 A 0 A_SpawnitemEx("Shocktrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_Jump(GetCVAR("CalamityChance"), "SecretSpawn");
+		TNT1 A 0 A_SpawnitemEx("Flametrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	SecretSpawn:
+		TNT1 A 0 A_SpawnitemEx("Calamitytrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}		
+Class GhoulSpawn: Actor //IMP
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("GhoulChance1"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_DoomImp",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusghoul"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;	
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:
+		TNT1 A 0 A_SpawnitemEx("Ghoul",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("Scorched",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class SoulSpawner: Actor //LOST SOUL
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(256,"GhoulChoice","BansheeChoice");
+	GhoulChoice:
+		TNT1 A 0 A_Jump(GetCVAR("GhoulChance2"),"SpecialSpawn");
+		goto NormalSpawn;
+	BansheeChoice:
+		TNT1 A 0 A_Jump(GetCVAR("BansheeChance3"),"SpecialSpawn2");
+		goto NormalSpawn;	
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_LostSoul",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusghoul"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;	
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:
+		TNT1 A 0 A_SpawnitemEx("Ghoul",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("Scorched",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	BonusCheck2:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusbanshee"), "Replacement2");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn2");
+		goto Replacement2;	
+	SpecialSpawn2:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck2");
+	Replacement2:	
+		TNT1 A 0 A_SpawnitemEx("Banshee",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	BonusSpawn2:
+		TNT1 A 0 A_SpawnitemEx("Rot",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class BansheeSpawn1: Actor //BANSHEE
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("BansheeChance1"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_Demon",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusbanshee"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;	
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:	
+		TNT1 A 0 A_SpawnitemEx("Banshee",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("Rot",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class BansheeSpawn2: Actor //SPECTRE
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("BansheeChance2"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_Spectre",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusbanshee"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;	
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:
+		TNT1 A 0 A_SpawnitemEx("Banshee",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("Rot",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class MindweaverSpawn: Actor //ARACHNOTRON
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("MindweaverChance"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_Arachnotron",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusmindweaver"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;	
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:
+		TNT1 A 0 A_SpawnitemEx("Mindweaver",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("Incineratron",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class BaronOfHellSpawn: Actor // VASSAGO + TYRANT REPLACES BARON
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(256,"VassagoChoice","TyrantChoice");
+	VassagoChoice:
+		TNT1 A 0 A_Jump(GetCVAR("VassagoChance"),"SpecialSpawn");
+		goto NormalSpawn;
+	TyrantChoice:
+		TNT1 A 0 A_Jump(GetCVAR("TyrantChance"),"SpecialSpawn2");
+		goto NormalSpawn;	
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_BaronOfHell",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonusvassago"), "Replacement");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto Replacement;	
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+	Replacement:
+		TNT1 A 0 A_SpawnitemEx("Vassago",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("Orias",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	SpecialSpawn2:
+		TNT1 A 0 A_SpawnitemEx("Tyrant",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class CyberlingSpawn: Actor //CYBERLING
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("TyrantChance"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_HellKnight",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_JumpIf(!GetCVAR("bonustyrant"), "NormalSpawn");
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"BonusSpawn");
+		goto NormalSpawn;		
+	SpecialSpawn:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+		goto NormalSpawn;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("Cyberling",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class IncineratorSpawn: Actor //INCINERATOR
+{
+	states
+	{
+	Spawn:
+		TNT1  A 0;
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("IncineratorChance"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_PlasmaRifle",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	SpecialSpawn:
+		TNT1 A 0 A_SpawnitemEx("R_Incinerator",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class BladeSpawn: Actor //CALAMITY BLADE
+{
+	states
+	{
+	Spawn:
+		TNT1  A 0;
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("BladeChance"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_BFG9000",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	SpecialSpawn:
+		TNT1 A 0 A_SpawnitemEx("R_CalamityBlade",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class FuelSpawn: Actor //CELL
+{
+	states
+	{
+	Spawn:
+		TNT1  A 0;
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("FuelChance"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_Cell",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	SpecialSpawn:	
+		TNT1 A 0 A_SpawnitemEx("FuelPicker",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;		
+	}
+}
+Class FuelTankSpawn: Actor //CELL PACK
+{
+	states
+	{
+	Spawn:
+		TNT1  A 0;
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_Jump(GetCVAR("FuelChance"),"SpecialSpawn");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("C_CellPack",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	SpecialSpawn:
+		TNT1 A 0 A_SpawnitemEx("FuelTankPicker",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;		
+	}
+}
+Class FuelPicker: Actor //FUEL VARIANT
+{
+	states
+	{
+	Spawn:
+		TNT1  A 0;
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_JumpIf(GetCVAR("FuelPlus"),"BonusSpawn");	
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("R_Fuel",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("Fuel2x",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;		
+	}
+}
+Class FuelTankPicker: Actor //FUEL VARIANT
+{
+	states
+	{
+	Spawn:
+		TNT1  A 0;
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_JumpIf(GetCVAR("FuelPlus"),"BonusSpawn");	
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("R_FuelTank",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusSpawn:
+		TNT1 A 0 A_SpawnitemEx("FuelTank2x",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;		
+	}
+}
+
+///// LEGACY OF RUST VANILLA REPLACER
+Class GhoulReplacer: Actor	//GHOUL
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("Ghoul",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"AltSpawn");
+		goto NormalSpawn;		
+	AltSpawn:
+		TNT1 A 0 A_SpawnitemEx("Scorched",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class BansheeReplacer: Actor	//BANSHEE
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("Banshee",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"AltSpawn");
+		goto NormalSpawn;		
+	AltSpawn:
+		TNT1 A 0 A_SpawnitemEx("Rot",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class ShocktrooperReplacer: Actor	//SHOCKTROOPER
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("Shocktrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"AltSpawn");
+		goto NormalSpawn;		
+	AltSpawn:
+		TNT1 A 0 A_Jump(GetCVAR("CalamityChance"),"RareSpawn");
+		TNT1 A 0 A_SpawnitemEx("Flametrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	RareSpawn:
+		TNT1 A 0 A_SpawnitemEx("Calamitytrooper",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class MindweaverReplacer: Actor	//MINDWEAVER
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("Mindweaver",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"AltSpawn");
+		goto NormalSpawn;		
+	AltSpawn:
+		TNT1 A 0 A_SpawnitemEx("Incineratron",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class VassagoReplacer: Actor //VASSAGO
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_JumpIf(GetCVAR("BonusGuys"), "BonusCheck");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("Vassago",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"AltSpawn");
+		goto NormalSpawn;		
+	AltSpawn:
+		TNT1 A 0 A_SpawnitemEx("Orias",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+Class TyrantReplacer: Actor	//TYRANT
+{
+	states
+	{
+	Spawn:
+		TNT1 A 0 NoDelay {if(sv_nomonsters)Destroy();}
+		Goto Chances;
+	Chances:
+		TNT1 A 0 A_JumpIf(GetCVAR("VanillaTyrantReplacer") && GetCVAR("BonusGuys"), "BonusCheck");
+		goto NormalSpawn;
+	NormalSpawn:
+		TNT1 A 0 A_SpawnitemEx("Tyrant",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;
+	BonusCheck:
+		TNT1 A 0 A_Jump(GetCVAR("BonusChance"),"AltSpawn");
+		goto NormalSpawn;		
+	AltSpawn:
+		TNT1 A 0 A_SpawnitemEx("Cyberling",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION|SXF_TRANSFERSPECIAL|SXF_TRANSFERAMBUSHFLAG);
+		stop;	
+	}
+}
+/////
+///// Just menu stuff, dont worry about it
+
+class OptionMenuItemRustOption : OptionMenuItemOption
+{
+	String mTooltip;
+
+	OptionMenuItemRustOption Init(String label, String tooltip, Name command, Name values)
+	{
+		mTooltip = tooltip;
+		Super.Init(label, command, values);
+		return self;
+	}
+}
+
+class OptionMenuItemRustSlider : OptionMenuItemSlider
+{
+	String mTooltip;
+
+	OptionMenuItemRustSlider Init(String label, String tooltip, Name command, double min, double max, double step)
+	{
+		mTooltip = tooltip;
+		Super.Init(label, command, min, max, step);
+		return self;
+	}
+}
+
+class Rust_OptionMenu : OptionMenu
+{
+
+	int bgpicked;
+	int bgnum;
+	TextureID bg;
+	
+	override void Drawer ()
+	{
+		Super.Drawer();
+
+		String tt;
+
+		if (mDesc.mSelectedItem > 0)
+		{
+			if (mDesc.mItems[mDesc.mSelectedItem] is "OptionMenuItemRustOption")
+			{
+				tt = StringTable.Localize(OptionMenuItemRustOption(mDesc.mItems[mDesc.mSelectedItem]).mTooltip);
+			}
+			if (mDesc.mItems[mDesc.mSelectedItem] is "OptionMenuItemRustSlider")
+			{
+				tt = StringTable.Localize(OptionMenuItemRustSlider(mDesc.mItems[mDesc.mSelectedItem]).mTooltip);
+			}		
+		}
+
+		if (tt.Length() > 0)
+		{
+			screen.DrawTexture (TexMan.CheckForTexture("TOOLTIPB", TexMan.Type_MiscPatch), true, 0, (Screen.GetHeight() - (NewSmallFont.GetHeight() * CleanYfac_1 * 1.8)), DTA_CleanNoMove_1, true);
+			screen.DrawTexture (TexMan.CheckForTexture("TOOLTIPB", TexMan.Type_MiscPatch), true, 1024, (Screen.GetHeight() - (NewSmallFont.GetHeight() * CleanYfac_1 * 1.8)), DTA_CleanNoMove_1, true);
+			
+			Screen.DrawText (NewSmallFont, OptionMenuSettings.mFontColorValue,
+				(Screen.GetWidth() - NewSmallFont.StringWidth (tt) * CleanXfac_1) / 2,
+				(Screen.GetHeight() - (NewSmallFont.GetHeight() * CleanYfac_1) * 28.5),
+				tt,
+				DTA_CleanNoMove_1, true);
+		}
+	}
+}
