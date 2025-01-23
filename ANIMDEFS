@@ -279,3 +279,66 @@ switch SW2SMK05 off sound Switch2 pic SW1SMK05 tics 0
 
 texture WATRWAL1 range WATRWAL3 tics 4
 WARP2 texture wwater01
+
+
+//===========================================================================
+//
+//  Mafla
+//
+//===========================================================================
+
+//Camera noise
+texture CAMNOIS1
+	pic CAMNOIS1 tics 1
+	pic CAMNOIS2 tics 1
+	pic CAMNOIS3 tics 1
+	pic CAMNOIS4 tics 1
+	
+//New Fan textures
+flat mffanm1
+	pic mffanm1 tics 1
+	pic mffanm2 tics 1
+	pic mffanm3 tics 1
+	pic mffanm4 tics 1
+	
+flat mffanr1
+	pic mffanr1 tics 1
+	pic mffanr2 tics 1
+	pic mffanr3 tics 1
+	pic mffanr4 tics 1
+
+flat mffanrm1
+	pic mffanrm1 tics 1
+	pic mffanrm2 tics 1
+	pic mffanrm3 tics 1
+	pic mffanrm4 tics 1
+
+flat mffans1
+	pic mffans1 tics 1
+	pic mffans2 tics 1
+	pic mffans3 tics 1
+	pic mffans4 tics 1
+
+flat mffansm1
+	pic mffansm1 tics 1
+	pic mffansm2 tics 1
+	pic mffansm3 tics 1
+	pic mffansm4 tics 1
+
+//More liquids flats and walls
+texture n_gfall1
+	pic n_gfall1 tics 8
+	pic n_gfall2 tics 8
+	pic n_gfall3 tics 8
+	pic n_gfall4 tics 8
+
+texture n_gfllb1
+	pic n_gfllb1 tics 8
+	pic n_gfllb2 tics 8
+	pic n_gfllb3 tics 8
+	pic n_gfllb4 tics 8
+
+warp flat NFGSLM01
+warp flat NFGSLM05
+warp flat NFGSLM06
+warp flat MGSLIME1
