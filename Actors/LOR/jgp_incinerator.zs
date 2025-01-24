@@ -105,6 +105,7 @@ class JGP_IncineratorFlame : Actor
 		Speed DOOMRR_INCINERATOR_FLAME_VELOCITY;
 		ExplosionDamage DOOMRR_INCINERATOR_BURN_DAMAGE;
 		ExplosionRadius DOOMRR_INCINERATOR_BURN_RADIUS;
+		SeeSound "DoomRR/IncineratorFlame/burn";
 		+FORCERADIUSDMG
 		+BRIGHT
 		RenderStyle 'Add';
