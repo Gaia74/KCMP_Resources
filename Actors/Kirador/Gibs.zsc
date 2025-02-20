@@ -32,8 +32,8 @@ Class KiradorGib : Actor
 		If(IsFrozen() || !bMissile) Return;
 		If(!dir)
 		{
-			dir=FRandomPick(-1,1)*FRandom(0.5,1)*8;
-			dir2=FRandomPick(-1,1)*FRandom(0.5,1)*8;
+			dir=FRandomPick[kiradorfx](-1,1)*FRandom[kiradorfx](0.5,1)*8;
+			dir2=FRandomPick[kiradorfx](-1,1)*FRandom[kiradorfx](0.5,1)*8;
 		}
 		A_SetRoll(Roll+dir,2);
 		A_SetPitch(Pitch+dir2,2);
@@ -67,7 +67,7 @@ Class KiradorGib : Actor
 	{
 		super.PostBeginPlay();
 		if(getAge()) Return;
-		A_QueueCorpse();
+		//A_QueueCorpse();
 	}
 	States
 	{
@@ -78,7 +78,7 @@ Class KiradorGib : Actor
 		"####" "#" -1;
 		Stop;
 	Death:
-		"####" "#" 700 { Tics=Random(700,1750); bInterpolateAngles=False; Pitch=Roll=0; /*A_QueueCorpse();*/ }
+		"####" "#" 700 { Tics=Random[kiradorfx](700,1750); bInterpolateAngles=False; Pitch=Roll=0; /*A_QueueCorpse();*/ }
 		Stop;
 	Bounce.Wall:
 		"####" "#" -1 A_SprayBloodDecal;

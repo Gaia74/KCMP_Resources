@@ -107,15 +107,16 @@ ACTOR Torm_Terminator 1251
     }
 }
 
-ACTOR Torm_TerminatorHitcan1 
+ACTOR Torm_TerminatorHitcan1 : FastProjectile
 {
     Damage 1
-    Radius 7
+    Radius 3
     Height 7
     Speed 150
     Projectile
     Decal "Bulletchip"
 	
+	+STRIFEDAMAGE
 	+NOGRAVITY
 	+DONTBLAST
 	+NOBLOCKMAP
@@ -148,14 +149,14 @@ ACTOR Torm_TerminatorBlaster
     Height 12
     Speed 40
 	FastSpeed 47
-    Damage 4
+    Damage 15
     Projectile
     Alpha 0.85
     DeathSound "Torm_Terminator/Hit"
     Obituary "%o was blasted away by a Terminator."
     Decal "CacoScorch"
     RenderStyle Add
-	
+	+STRIFEDAMAGE
 	+FIREDAMAGE
 	
     States

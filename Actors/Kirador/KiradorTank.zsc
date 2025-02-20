@@ -164,7 +164,6 @@ Class KiradorRocketExplosion : KiradorEffect
 	Default
 	{
 		RenderStyle "Normal";
-		Scale 1.5;
 	}
 	States
 	{
@@ -175,8 +174,10 @@ Class KiradorRocketExplosion : KiradorEffect
 			{
 				Actor mo=Spawn("KiradorTankRocketfx1",pos,ALLOW_REPLACE);
 				if(!mo) continue;
-				mo.Vel3DFromAngle(16,FRandom[KiradorFX](1,360),FRandom[KiradorFX](0,-80));
+				mo.Vel3DFromAngle(16*Scale.X,FRandom[KiradorFX](1,360),FRandom[KiradorFX](0,-80));
 				mo.SetOrigin(mo.pos+mo.vel*2,1);
+				mo.Scale*=Scale.x;
+				mo.gravity*=Scale.X;
 			}
 		}
 		MISL BBFCCGDD 1 Bright;
