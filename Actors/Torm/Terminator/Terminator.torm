@@ -109,7 +109,7 @@ ACTOR Torm_Terminator 1251
 
 ACTOR Torm_TerminatorHitcan1 : FastProjectile
 {
-    Damage 1
+    Damage 2
     Radius 3
     Height 7
     Speed 150
