@@ -76,6 +76,7 @@ Class KiradorThingSpawner : Actor
 		if(!firstActive && (Args[1] & ARG_NOSTARTDELAY) && special2==Args[0])
 		{
 			SpawnThing();
+			special1=0;
 		}
 		
 		firstActive=True;
@@ -105,6 +106,7 @@ Class KiradorThingSpawner : Actor
 	}
 	bool SpawnThing()
 	{
+			console.printf("spawned: "..user_actorname);
 		bool spawned=false;
 		Class<Actor> cls=user_actorname;
 		if(!cls)
