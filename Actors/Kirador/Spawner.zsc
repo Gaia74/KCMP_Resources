@@ -75,8 +75,8 @@ Class KiradorThingSpawner : Actor
 		
 		if(!firstActive && (Args[1] & ARG_NOSTARTDELAY) && special2==Args[0])
 		{
-			SpawnThing();
 			special1=0;
+			SpawnThing();
 		}
 		
 		firstActive=True;
@@ -106,7 +106,6 @@ Class KiradorThingSpawner : Actor
 	}
 	bool SpawnThing()
 	{
-			console.printf("spawned: "..user_actorname);
 		bool spawned=false;
 		Class<Actor> cls=user_actorname;
 		if(!cls)
@@ -114,7 +113,7 @@ Class KiradorThingSpawner : Actor
 			console.Printf("Unknown class "..user_actorname);
 			Return false;
 		}
-		if(!(Args[1] & ARG_NOSPACECHECK))
+		if(!(Args[1] & ARG_NOSPACECHECK) && !GetDefaultByType(cls).bNoBlockmap && GetDefaultByType(cls).bSolid && !GetDefaultByType(cls).bSpecial)
 		{
 			A_SetSize(GetDefaultByType(cls).Radius,GetDefaultByType(cls).Height);
 			A_ChangeLinkFlags(false);
