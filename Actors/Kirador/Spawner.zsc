@@ -34,6 +34,7 @@ Class KiradorThingSpawner : Actor
 		
 		+NOBLOCKMAP
 		+SYNCHRONIZED
+		+MOVEWITHSECTOR
 		FloatbobPhase 0;
 		ReactionTime 0;
 		Radius 10;
