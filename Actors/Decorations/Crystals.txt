@@ -1,0 +1,807 @@
+//QUARTZ
+ACTOR CrystalClusterGiantQuartz 332
+{
+	//$Title Crystal Cluster Giant Quartz
+	//$Category KXDecorations/Crystals/Quartz/Floor
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	
+	States
+	{
+		Spawn:
+			CRYS A 0 NoDelay A_Jump (128, "Flip")
+			CRYS A -1
+			Stop
+		Flip:
+			CRYS I -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigQuartz : CrystalClusterGiantQuartz 333
+{
+	//$Title Crystal Cluster Big Quartz
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumQuartz : CrystalClusterGiantQuartz 334
+{
+	//$Title Crystal Cluster Medium Quartz
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallQuartz : CrystalClusterGiantQuartz 335
+{
+	//$Title Crystal Cluster Small Quartz
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+ACTOR CrystalClusterGiantCeilingQuartz 336
+{
+	//$Title Crystal Cluster Giant Ceiling Quartz
+	//$Category KXDecorations/Crystals/Quartz/Ceiling
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+			CRYC A 0 NoDelay A_Jump (128, "Flip")
+			CRYC A -1
+			Stop
+		Flip:
+			CRYC I -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigCeilingQuartz : CrystalClusterGiantCeilingQuartz 337
+{
+	//$Title Crystal Cluster Big Ceiling Quartz
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumCeilingQuartz : CrystalClusterGiantCeilingQuartz 338
+{
+	//$Title Crystal Cluster Medium Ceiling Quartz
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallCeilingQuartz : CrystalClusterGiantCeilingQuartz 339
+{
+	//$Title Crystal Cluster Small Ceiling Quartz
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+//GREEN
+ACTOR CrystalClusterGiantGreen 340
+{
+	//$Title Crystal Cluster Giant Green
+	//$Category KXDecorations/Crystals/Green/Floor
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	
+	States
+	{
+		Spawn:
+			CRYS B 0 NoDelay A_Jump (128, "Flip")
+			CRYS B -1
+			Stop
+		Flip:
+			CRYS J -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigGreen : CrystalClusterGiantGreen 341
+{
+	//$Title Crystal Cluster Big Green
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumGreen : CrystalClusterGiantGreen 342
+{
+	//$Title Crystal Cluster Medium Green
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallGreen : CrystalClusterGiantGreen 343
+{
+	//$Title Crystal Cluster Small Green
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+ACTOR CrystalClusterGiantCeilingGreen 344
+{
+	//$Title Crystal Cluster Giant Ceiling Green
+	//$Category KXDecorations/Crystals/Green/Ceiling
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+			CRYC B 0 NoDelay A_Jump (128, "Flip")
+			CRYC B -1
+			Stop
+		Flip:
+			CRYC J -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigCeilingGreen : CrystalClusterGiantCeilingGreen 345
+{
+	//$Title Crystal Cluster Big Ceiling Green
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumCeilingGreen : CrystalClusterGiantCeilingGreen 346
+{
+	//$Title Crystal Cluster Medium Ceiling Green
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallCeilingGreen : CrystalClusterGiantCeilingGreen 347
+{
+	//$Title Crystal Cluster Small Ceiling Green
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+//YELLOW
+ACTOR CrystalClusterGiantYellow 348
+{
+	//$Title Crystal Cluster Giant Yellow
+	//$Category KXDecorations/Crystals/Yellow/Floor
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	
+	States
+	{
+		Spawn:
+			CRYS C 0 NoDelay A_Jump (128, "Flip")
+			CRYS C -1
+			Stop
+		Flip:
+			CRYS K -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigYellow : CrystalClusterGiantYellow 349
+{
+	//$Title Crystal Cluster Big Yellow
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumYellow : CrystalClusterGiantYellow 350
+{
+	//$Title Crystal Cluster Medium Yellow
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallYellow : CrystalClusterGiantYellow 351
+{
+	//$Title Crystal Cluster Small Yellow
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+ACTOR CrystalClusterGiantCeilingYellow 352
+{
+	//$Title Crystal Cluster Giant Ceiling Yellow
+	//$Category KXDecorations/Crystals/Yellow/Ceiling
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+			CRYC C 0 NoDelay A_Jump (128, "Flip")
+			CRYC C -1
+			Stop
+		Flip:
+			CRYC K -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigCeilingYellow : CrystalClusterGiantCeilingYellow 353
+{
+	//$Title Crystal Cluster Big Ceiling Yellow
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumCeilingYellow : CrystalClusterGiantCeilingYellow 354
+{
+	//$Title Crystal Cluster Medium Ceiling Yellow
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallCeilingYellow : CrystalClusterGiantCeilingYellow 355
+{
+	//$Title Crystal Cluster Small Ceiling Yellow
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+//ROSE
+ACTOR CrystalClusterGiantRose 356
+{
+	//$Title Crystal Cluster Giant Rose
+	//$Category KXDecorations/Crystals/Rose/Floor
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	
+	States
+	{
+		Spawn:
+			CRYS D 0 NoDelay A_Jump (128, "Flip")
+			CRYS D -1
+			Stop
+		Flip:
+			CRYS L -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigRose : CrystalClusterGiantRose 357
+{
+	//$Title Crystal Cluster Big Rose
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumRose : CrystalClusterGiantRose 358
+{
+	//$Title Crystal Cluster Medium Rose
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallRose : CrystalClusterGiantRose 359
+{
+	//$Title Crystal Cluster Small Rose
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+ACTOR CrystalClusterGiantCeilingRose 360
+{
+	//$Title Crystal Cluster Giant Ceiling Rose
+	//$Category KXDecorations/Crystals/Rose/Ceiling
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+			CRYC D 0 NoDelay A_Jump (128, "Flip")
+			CRYC D -1
+			Stop
+		Flip:
+			CRYC L -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigCeilingRose : CrystalClusterGiantCeilingRose 361
+{
+	//$Title Crystal Cluster Big Ceiling Rose
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumCeilingRose : CrystalClusterGiantCeilingRose 362
+{
+	//$Title Crystal Cluster Medium Ceiling Rose
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallCeilingRose : CrystalClusterGiantCeilingRose 363
+{
+	//$Title Crystal Cluster Small Ceiling Rose
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+//RED
+ACTOR CrystalClusterGiantRed 364
+{
+	//$Title Crystal Cluster Giant Red
+	//$Category KXDecorations/Crystals/Red/Floor
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	
+	States
+	{
+		Spawn:
+			CRYS E 0 NoDelay A_Jump (128, "Flip")
+			CRYS E -1
+			Stop
+		Flip:
+			CRYS M -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigRed : CrystalClusterGiantRed 365
+{
+	//$Title Crystal Cluster Big Red
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumRed : CrystalClusterGiantRed 366
+{
+	//$Title Crystal Cluster Medium Red
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallRed : CrystalClusterGiantRed 367
+{
+	//$Title Crystal Cluster Small Red
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+ACTOR CrystalClusterGiantCeilingRed 368
+{
+	//$Title Crystal Cluster Giant Ceiling Red
+	//$Category KXDecorations/Crystals/Red/Ceiling
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+			CRYC E 0 NoDelay A_Jump (128, "Flip")
+			CRYC E -1
+			Stop
+		Flip:
+			CRYC M -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigCeilingRed : CrystalClusterGiantCeilingRed 369
+{
+	//$Title Crystal Cluster Big Ceiling Red
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumCeilingRed : CrystalClusterGiantCeilingRed 370
+{
+	//$Title Crystal Cluster Medium Ceiling Red
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallCeilingRed : CrystalClusterGiantCeilingRed 371
+{
+	//$Title Crystal Cluster Small Ceiling Red
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+//BLUE
+ACTOR CrystalClusterGiantBlue 372
+{
+	//$Title Crystal Cluster Giant Blue
+	//$Category KXDecorations/Crystals/Blue/Floor
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	
+	States
+	{
+		Spawn:
+			CRYS F 0 NoDelay A_Jump (128, "Flip")
+			CRYS F -1
+			Stop
+		Flip:
+			CRYS N -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigBlue : CrystalClusterGiantBlue 373
+{
+	//$Title Crystal Cluster Big Blue
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumBlue : CrystalClusterGiantBlue 374
+{
+	//$Title Crystal Cluster Medium Blue
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallBlue : CrystalClusterGiantBlue 375
+{
+	//$Title Crystal Cluster Small Blue
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+ACTOR CrystalClusterGiantCeilingBlue 376
+{
+	//$Title Crystal Cluster Giant Ceiling Blue
+	//$Category KXDecorations/Crystals/Blue/Ceiling
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+			CRYC F 0 NoDelay A_Jump (128, "Flip")
+			CRYC F -1
+			Stop
+		Flip:
+			CRYC N -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigCeilingBlue : CrystalClusterGiantCeilingBlue 377
+{
+	//$Title Crystal Cluster Big Ceiling Blue
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumCeilingBlue : CrystalClusterGiantCeilingBlue 378
+{
+	//$Title Crystal Cluster Medium Ceiling Blue
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallCeilingBlue : CrystalClusterGiantCeilingBlue 379
+{
+	//$Title Crystal Cluster Small Ceiling Blue
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+//PURPLE
+ACTOR CrystalClusterGiantPurple 380
+{
+	//$Title Crystal Cluster Giant Purple
+	//$Category KXDecorations/Crystals/Purple/Floor
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	
+	States
+	{
+		Spawn:
+			CRYS G 0 NoDelay A_Jump (128, "Flip")
+			CRYS G -1
+			Stop
+		Flip:
+			CRYS O -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigPurple : CrystalClusterGiantPurple 381
+{
+	//$Title Crystal Cluster Big Purple
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumPurple : CrystalClusterGiantPurple 382
+{
+	//$Title Crystal Cluster Medium Purple
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallPurple : CrystalClusterGiantPurple 383
+{
+	//$Title Crystal Cluster Small Purple
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+ACTOR CrystalClusterGiantCeilingPurple 384
+{
+	//$Title Crystal Cluster Giant Ceiling Purple
+	//$Category KXDecorations/Crystals/Purple/Ceiling
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+			CRYC G 0 NoDelay A_Jump (128, "Flip")
+			CRYC G -1
+			Stop
+		Flip:
+			CRYC O -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigCeilingPurple : CrystalClusterGiantCeilingPurple 385
+{
+	//$Title Crystal Cluster Big Ceiling Purple
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumCeilingPurple : CrystalClusterGiantCeilingPurple 386
+{
+	//$Title Crystal Cluster Medium Ceiling Purple
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallCeilingPurple : CrystalClusterGiantCeilingPurple 387
+{
+	//$Title Crystal Cluster Small Ceiling Purple
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+//ORANGE
+ACTOR CrystalClusterGiantOrange 388
+{
+	//$Title Crystal Cluster Giant Orange
+	//$Category KXDecorations/Crystals/Orange/Floor
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	
+	States
+	{
+		Spawn:
+			CRYS P 0 NoDelay A_Jump (128, "Flip")
+			CRYS P -1
+			Stop
+		Flip:
+			CRYS H -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigOrange : CrystalClusterGiantOrange 389
+{
+	//$Title Crystal Cluster Big Orange
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumOrange : CrystalClusterGiantOrange 390
+{
+	//$Title Crystal Cluster Medium Orange
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallOrange : CrystalClusterGiantOrange 391
+{
+	//$Title Crystal Cluster Small Orange
+	Radius 8
+	Height 14
+	Scale 0.2
+}
+
+ACTOR CrystalClusterGiantCeilingOrange 392
+{
+	//$Title Crystal Cluster Giant Ceiling Orange
+	//$Category KXDecorations/Crystals/Orange/Ceiling
+	//$NotAngled
+	//$IsDecoration
+
+	Radius 20
+	Height 64
+	RenderStyle Translucent
+	Alpha 0.9
+	+SOLID
+	+NOGRAVITY
+	+SPAWNCEILING
+	
+	States
+	{
+		Spawn:
+			CRYC P 0 NoDelay A_Jump (128, "Flip")
+			CRYC P -1
+			Stop
+		Flip:
+			CRYC H -1
+			Stop
+	}
+}
+
+ACTOR CrystalClusterBigCeilingOrange : CrystalClusterGiantCeilingOrange 393
+{
+	//$Title Crystal Cluster Big Ceiling Orange
+	Radius 16
+	Height 52
+	Scale 0.8
+}
+
+ACTOR CrystalClusterMediumCeilingOrange : CrystalClusterGiantCeilingOrange 394
+{
+	//$Title Crystal Cluster Medium Ceiling Orange
+	Radius 12
+	Height 26
+	Scale 0.4
+}
+
+ACTOR CrystalClusterSmallCeilingOrange : CrystalClusterGiantCeilingOrange 395
+{
+	//$Title Crystal Cluster Small Ceiling Orange
+	Radius 8
+	Height 14
+	Scale 0.2
+}

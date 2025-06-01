@@ -159,7 +159,7 @@ ACTOR Torm_UACWalker 1254
 
 ACTOR Torm_UACWalkerHitcan1 
 {
-    Damage 2
+    Damage (random(1,12))
     Radius 7
     Height 7
     Speed 150

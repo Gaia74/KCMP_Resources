@@ -40,6 +40,7 @@
 
 #Include "Actors/Items/UltraSphere.txt"
 #Include "Actors/Decorations/Trees.txt"
+#Include "Actors/Decorations/Crystals.txt"
 
 #Include "Actors/Torm/Gibs.torm"
 #Include "Actors/Torm/Guardian Cube/Guardian_Cube.torm"
@@ -64,3 +65,5 @@
 #Include "Actors/Torm/Ethereal Soul/Ethereal_Soul.torm"
 #Include "Actors/Torm/Nightmare/Nightmare.torm"
 #Include "Actors/Torm/Darkness Rift/DarknessRift.torm"
+
+#Include "Actors/Gaia74/Moonlight.txt"

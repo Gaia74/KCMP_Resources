@@ -46,20 +46,22 @@ ACTOR Torm_SentryGun 1246
 	    D218 A 10 A_Pain
 		Goto See
 	 Missile: 
+		D218 A 0 A_PlaySound("Torm_SentryGun/Alert")
+		D218 A 20 A_FaceTarget
 		D218 A 0 A_Jumpifcloser(200, "Missile2")
 		D218 A 3 A_FaceTarget
 		D218 B 0 A_PlaySound("Torm_SentryGun/Shot")
 		D218 B 1 Bright A_CustomMissile("Torm_SentryGunHitcan1",42,0,FRandom(-9,9))
 		D218 B 2 Bright
 		D218 A 0 A_MonsterRefire(50, "See")
-        Goto Missile
+        Goto Missile+2
     Missile2: 
 		D218 A 3 A_FaceTarget
 		D218 B 0 A_PlaySound("Torm_SentryGun/Shot")
 		D218 B 1 Bright A_CustomMissile("Torm_SentryGunHitcan2",42,0,FRandom(-9,9))
 		D218 B 2 Bright
 		D218 A 0 A_MonsterRefire(50, "See")
-        Goto Missile 
+        Goto Missile+2
     Death:
         D218 A 1 A_Scream
 		D218 C 0 A_NoBlocking
@@ -93,7 +95,7 @@ ACTOR Torm_SentryGunBoom
 
 ACTOR Torm_SentryGunHitcan1 
 {
-    Damage 1
+    Damage (random(1,4))
     Radius 7
     Height 7
     Speed 150

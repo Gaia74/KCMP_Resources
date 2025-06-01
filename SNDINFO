@@ -1019,6 +1019,7 @@ Torm_SentryGun/Active                        D218ACTI
 Torm_SentryGun/Shot                          D218SHOT
 Torm_SentryGun/Pain                          D218PAIN
 Torm_SentryGun/Death                         D218DETH
+Torm_SentryGun/Alert                         D218ALER
 
 $Limit Torm_SentryGun/Sight 0
 $Limit Torm_SentryGun/Active 0

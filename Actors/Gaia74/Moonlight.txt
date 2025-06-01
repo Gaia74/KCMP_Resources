@@ -1,0 +1,26 @@
+ACTOR KXMoonlight 400
+{
+  Health 1500
+  Mass 10000000
+  PainChance 255
+  +SOLID
+  +SHOOTABLE
+  +NOICEDEATH
+  PainSound "brain/pain"
+  DeathSound "brain/death"
+  Scale 4.0
+  States
+  {
+  Spawn:
+    KWOV A -1
+    Stop
+  Pain:
+    KWOV A 1
+    Goto Spawn
+  Death:
+    KWOV A 100 A_BrainScream
+    KWOV AA 10
+    KWOV A -1 A_BrainDie
+    Stop
+  }
+}
