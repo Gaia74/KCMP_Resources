@@ -21,9 +21,27 @@ Class KiradorTripod : Actor
 	Override void Deactivate(Actor activator) { bAmbush=True; }
 	Double UseAnim;
 	Name LastWeapon;
+	void RestoreWeapon()
+	{
+		let pending=Weapon(master.player.PendingWeapon);
+		if(!master) return;
+		master.A_TakeInventory("NoWeapon");
+		if(master.health<1) return;
+
+		let w=Weapon(master.FindInventory(LastWeapon));
+		if(pending) w=pending;
+		if(!w) return;
+		master.player.ReadyWeapon=w;
+		state st=w.FindState("Select");
+		master.player.SetPSprite(PSP_WEAPON,st);
+	}
 	Override Bool Used (Actor user)
 	{
 		if(bAmbush || Distance3D(user)-user.Radius>64 || !user.player) return false;
+		if(user!=master) // already in use by other player
+		{
+			user.A_StartSound("Kirador/Broc",CHAN_ITEM);
+		}
 		if(master)
 		{
 			if(master!=user)
@@ -38,6 +56,8 @@ Class KiradorTripod : Actor
 			LastWeapon=user.player.ReadyWeapon.GetClassName();
 			let w=Weapon(user.FindInventory("NoWeapon"));
 			user.player.ReadyWeapon=W;
+			state st=w.FindState("Ready");
+			user.player.SetPSprite(PSP_WEAPON,st);
 			A_StartSound("Kirador/TripodUse");
 			Master=User;
 			UseAnim=1.0;
@@ -45,8 +65,10 @@ Class KiradorTripod : Actor
 		}
 		Else
 		{
-			user.player.PendingWeapon=Pending;
-			A_TakeInventory("NoWeapon");
+			RestoreWeapon();
+			master=null;
+			//user.player.PendingWeapon=Pending;
+			//master.A_TakeInventory("NoWeapon");
 		}
 		Return True;
 	}
@@ -97,9 +119,10 @@ Class KiradorTripod : Actor
 			int bt=master.GetPlayerInput(MODINPUT_BUTTONS);
 			if(!reactiontime && (bt & BT_USE) || Distance3D(master)-master.Radius>80 || master.health<1)
 			{
-				master.A_TakeInventory("NoWeapon");
-				if(master.health)
-				master.A_SelectWeapon(LastWeapon);
+				//master.A_TakeInventory("NoWeapon");
+				//if(master.health)
+				//master.A_SelectWeapon(LastWeapon);
+				RestoreWeapon();
 				master=null;
 				return;
 			}
