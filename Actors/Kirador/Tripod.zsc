@@ -23,7 +23,6 @@ Class KiradorTripod : Actor
 	Name LastWeapon;
 	void RestoreWeapon()
 	{
-		if(!master || !master.player) return;
 		let pending=Weapon(master.player.PendingWeapon);
 		if(!master) return;
 		master.A_TakeInventory("NoWeapon");
