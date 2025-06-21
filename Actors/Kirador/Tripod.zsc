@@ -41,7 +41,7 @@ Class KiradorTripod : Actor
 		if(master && user!=master) // already in use by other player
 		{
 			user.A_StartSound("Kirador/Broc",CHAN_ITEM);
-			return false
+			return false;
 		}
 		if(master)
 		{
