@@ -630,7 +630,7 @@ class Rot : Banshee
 	}
 }
 
-class RotToxicZone: Actor
+class RotToxicZone : Actor
 {
  int PoisonDuration;
  Default
@@ -641,6 +641,7 @@ class RotToxicZone: Actor
    +NOCLIP
    +NOGRAVITY
    +FORCERADIUSDMG
+   +NODAMAGETHRUST
  }
  Override int DoSpecialDamage(Actor victim, int damage, Name damagetype)
 {
@@ -698,6 +699,11 @@ class RotToxicZone: Actor
 		}
 		else*/
 			A_SpawnItemEx("RotToxicCloud",frandom(-32,32),frandom(-32,32),frandom(-32,32),0,0,frandom(0,0.15));
+
+			
+				PoisonDuration++;
+				//console.printf("PoisonDuration: %d", PoisonDuration);
+				Return A_JumpIf(PoisonDuration >= 15, "Death");
 
    }
    loop;
@@ -875,7 +881,7 @@ class Orias : Vassago
 		//$Category "Monsters/Legacy of Rust/Bonus"
 		Health 2000;
 		Speed 10;
-		Scale 0.95;
+		//Scale 0.95;
 		PainChance 15;
 		DamageFactor "Vassago", 1.0;
 		DamageFactor "Orias", 0.0;
@@ -1045,7 +1051,7 @@ class OriasFireball : VassagoFireball
 //	Lesser Tyrants, even lesser than Cyberdemons, these troops are clearly easier
 //	to take out. But they still hold all the danger of Cyberdemon, and might come
 //	in groups, so beware!
-class Cyberling : Actor
+class Cyberling : Cyberdemon
 {
 	Default
 	{

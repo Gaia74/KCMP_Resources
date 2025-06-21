@@ -382,7 +382,6 @@ class Vassago : Actor
 		Height 64;
 		Mass 1000;
 		Speed 8;
-		Scale 0.9;
 		PainChance 100;
 		ReactionTime 8;
 		BloodColor "Orange";
@@ -583,7 +582,7 @@ class Mindweaver : Actor
 }
 
 //TYRANT
-class Tyrant : Actor
+class Tyrant : Cyberdemon
 {
 	Default
 	{
@@ -592,10 +591,7 @@ class Tyrant : Actor
 		Radius 40;
 		Height 72;
 		Scale 0.94;*/
-		Radius 24;
-		Height 62;
-		Scale 0.89;
-		Mass 1000;
+		
 		Speed 16;
 		PainChance 20;
 		Monster;
