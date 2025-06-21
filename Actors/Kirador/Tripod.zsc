@@ -38,9 +38,10 @@ Class KiradorTripod : Actor
 	Override Bool Used (Actor user)
 	{
 		if(bAmbush || Distance3D(user)-user.Radius>64 || !user.player) return false;
-		if(user!=master) // already in use by other player
+		if(master && user!=master) // already in use by other player
 		{
 			user.A_StartSound("Kirador/Broc",CHAN_ITEM);
+			return false
 		}
 		if(master)
 		{
