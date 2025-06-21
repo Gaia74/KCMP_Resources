@@ -88,7 +88,10 @@ class RandomPowerup : CustomInventory
 		Loop;
 	Pickup:
 		TNT1 A 0
-		{
+		{/*
+			PPShader.SetEnabled("ColormapVignette", true);
+			PPShader.SetUniform3f("ColormapVignette", "regebe", (-1,-1,-1));
+			PPShader.SetUniform3f("ColormapVignette", "regebe2", (1,1,1));*/
 			name pType;
 			switch ( invoker.special1 )
 			{
