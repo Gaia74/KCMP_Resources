@@ -89,6 +89,7 @@ class RandomPowerup : CustomInventory
 	Pickup:
 		TNT1 A 0
 		{
+			//PPShader.SetEnabled("Colormap_Invul", true);
 			name pType;
 			switch ( invoker.special1 )
 			{

@@ -21,3 +21,27 @@
 #Include "Actors/Arena/Overlord/Gl_Overlord.don"
 #Include "Actors/Arena/Krieger/Gl_Krieger.don"
 #Include "Actors/Arena/Cerebral Sentient/Gl_Cerebral_Sentient.don"
+
+
+
+
+//===========================================================================
+//
+//  Malingo
+//
+//===========================================================================
+
+
+HardwareShader PostProcess scene
+{
+	Name "ColormapVignette"
+    Uniform vec3 regebe
+    Uniform vec3 regebe2
+	Shader "shaders/glsl/kirador/ColormapVignette.fp" 330
+}
+
+HardwareShader PostProcess scene
+{
+	Name "Colormap_Invul"
+	Shader "shaders/glsl/kirador/Colormap_Invul.fp" 330
+}
