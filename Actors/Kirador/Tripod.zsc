@@ -25,16 +25,15 @@ Class KiradorTripod : Actor
 	{
 		if(!master || !master.player) return;
 		let pending=Weapon(master.player.PendingWeapon);
-		if(!master) return;
 		master.A_TakeInventory("NoWeapon");
 		if(master.health<1) return;
 
+		console.printf("last weapon: %s",LastWeapon);
 		let w=Weapon(master.FindInventory(LastWeapon));
+		console.printf("restoring weapon: %s",w.GetClassName());
 		if(pending) w=pending;
 		if(!w) return;
-		master.player.ReadyWeapon=w;
-		state st=w.FindState("Select");
-		master.player.SetPSprite(PSP_WEAPON,st);
+		master.A_SelectWeapon(w.GetClassName());
 	}
 	Override Bool Used (Actor user)
 	{
@@ -47,10 +46,10 @@ Class KiradorTripod : Actor
 		}
 		Weapon Pending=user.player.PendingWeapon;
 		user.A_StartSound("Kirador/Broc",CHAN_ITEM);
-		user.A_GiveInventory("NoWeapon");
 		if(!(user.player.WeaponState & WF_DISABLESWITCH) && (user.player.WeaponState & WF_WEAPONSWITCHOK))
 		{
 			LastWeapon=user.player.ReadyWeapon.GetClassName();
+			user.A_GiveInventory("NoWeapon");
 			let w=Weapon(user.FindInventory("NoWeapon"));
 			user.player.ReadyWeapon=W;
 			state st=w.FindState("Ready");
