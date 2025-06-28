@@ -28,9 +28,9 @@ Class KiradorTripod : Actor
 		master.A_TakeInventory("NoWeapon");
 		if(master.health<1) return;
 
-		console.printf("last weapon: %s",LastWeapon);
+		//console.printf("last weapon: %s",LastWeapon);
 		let w=Weapon(master.FindInventory(LastWeapon));
-		console.printf("restoring weapon: %s",w.GetClassName());
+		//console.printf("restoring weapon: %s",w.GetClassName());
 		if(pending) w=pending;
 		if(!w) return;
 		master.A_SelectWeapon(w.GetClassName());
