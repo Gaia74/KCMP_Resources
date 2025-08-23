@@ -15,6 +15,7 @@ Class KamikaziGuy : Actor //10300 - remember to move this on your mapinfo - ozy8
 		+FLOORCLIP
 		+NOVERTICALMELEERANGE
 		+QUICKTORETALIATE
+		+SLIDESONWALLS
 		Painsound "Kamikazi/Pain";
 		Obituary "%o fell victim to a beheaded kamikazi!";
 	}
