@@ -11,7 +11,8 @@ Class KiradorThingSpawner : Actor
 		ARG_TRANSFERTID			= 64,
 		ARG_PROJSOUND			= 128,
 		ARG_NOSTARTDELAY			= 256,
-		ARG_RESETCOUNTER			= 512
+		ARG_RESETCOUNTER			= 512,
+		ARG_NOCOUNT			= 1024
 	}
 	Default
 	{
@@ -22,7 +23,7 @@ Class KiradorThingSpawner : Actor
 		
 		//$Arg1 "Flags"
 		//$Arg1Type 12
-		//$Arg1Enum { 1 = "Wait for death/pickup"; 2 = "Don't check for space"; 4 = "Starts active"; 8 = "Dont reset timer"; 16 = "Activate Once"; 32 = "Spawn fog"; 64 = "Transfer TID"; 128="Play projectile sound"; 256="No start delay"; 512="Reset counter on activation"; }
+		//$Arg1Enum { 1 = "Wait for death/pickup"; 2 = "Don't check for space"; 4 = "Starts active"; 8 = "Dont reset timer"; 16 = "Activate Once"; 32 = "Spawn fog"; 64 = "Transfer TID"; 128="Play projectile sound"; 256="No start delay"; 512="Reset counter on activation"; 1024="No completion count(monster/item)"; }
 		
 		//$Arg2 "Delay (tics)"
 		//$Arg2Default 1
@@ -162,7 +163,10 @@ Class KiradorThingSpawner : Actor
 			if(fogtype)
 			Spawn(fogType,Pos,ALLOW_REPLACE);
 		}
-		
+		if(Args[1] & ARG_NOCOUNT)
+		{
+			target.A_ChangeCountFlags(0,0);
+		}
 		bKilled=Args[1] & ARG_ONCE;
 		If(special2>0) special2--;
 		if((special2>0 || special2<0) && !(Args[1] & ARG_WAIT))
