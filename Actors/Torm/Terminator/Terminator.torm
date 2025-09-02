@@ -30,22 +30,27 @@ ACTOR Torm_Terminator 1251
     +MISSILEMORE
     +QUICKTORETALIATE
 	
+	var int user_fire;
     States
     {
     Spawn: 
 		D227 AB 10 A_Look
 		Loop
     See:
-        D227 AABBCCDD 4 A_Chase
+        D227 AABB 4 A_Chase
+        TNT1 A 0 A_StartSound("Torm_UACWalker/Step",CHAN_BODY,0,1.0,ATTN_NORM,1.1)
+        D227 CCDD 4 A_Chase
+        TNT1 A 0 A_StartSound("Torm_UACWalker/Step",CHAN_BODY,0,1.0,ATTN_NORM,1.1)
         Loop 
     Pain:
+        TNT1 A 0 { if(user_fire) { user_fire=0; A_PlayWeaponSound("Don_Zombie/ChaingunStop2"); } }
         D227 L 3 	
         D227 L 3 A_Pain
         Goto See
     Missile:
-        D227 E 0 
-        D227 E 0 A_JumpIfCloser(745,"Chaingun1")		
-        D227 E 0 
+        D227 E 0 A_Jump(96,"CheckFire")
+        D227 E 0 A_JumpIfCloser(745,"Chaingun1")
+        D227 E 0 A_Jump(64,"Chaingun1")
     CheckFire: 
         D227 E 7 A_FaceTarget
 		D227 F 0 A_Playsound("Torm_Terminator/Fire")
@@ -75,21 +80,23 @@ ACTOR Torm_Terminator 1251
         D227 E 7
 		Goto See	
 	Chaingun1:
+        TNT1 A 0 A_SetUserVar(user_fire,0)
         D227 GG 5 A_FaceTarget
-		D227 G 0 A_Jumpifcloser(200, "Chaingun2")
+    Chaingunning:
+        TNT1 A 0 A_SetUserVar(user_fire,user_fire+1)
+		D227 G 1 A_FaceTarget
+		D227 H 2 Bright { A_CustomMissile("Torm_TerminatorHitcan1",36,-14,FRandom(-8,8),CMF_OFFSETPITCH,FRandom(-2,2)); A_PlayWeaponSound("Don_Zombie/Chaingun"); }
 		D227 G 2 A_FaceTarget
-		D227 B 0 A_PlaySound("Torm_Terminator/Shot")
-		D227 HH 1 Bright A_CustomMissile("Torm_TerminatorHitcan1",38,0,FRandom(-8,8))
-		D227 A 0 A_MonsterRefire(40, "See")
-        Goto Chaingun1+2
-    Chaingun2: 
-		D227 G 2 A_FaceTarget
-		D227 G 0 A_PlaySound("Torm_Terminator/Shot")
-		D227 HH 1 Bright A_CustomMissile("Torm_TerminatorHitcan2",38,0,FRandom(-8,8))
-		D227 A 0 A_MonsterRefire(40, "See")
-        Goto Chaingun1+2
+		D227 I 2 Bright { A_CustomMissile("Torm_TerminatorHitcan1",36,-14,FRandom(-8,8),CMF_OFFSETPITCH,FRandom(-2,2)); A_PlayWeaponSound("Don_Zombie/Chaingun"); }
+		D227 A 0 A_MonsterRefire(40, "ChainStop")
+        TNT1 A 0 A_JumpIf(user_fire>=20,"ChainStop")
+        Loop
+    ChainStop:
+        TNT1 A 0 A_SetUserVar(user_fire,0)
+        TNT1 A 0 A_PlayWeaponSound("Don_Zombie/ChaingunStop2")
+        Goto See
 	Death:
-        D227 M 6 A_Scream
+        D227 M 6 { A_Scream; A_StopSound(CHAN_WEAPON); }
         D227 N 4 
         D227 OP 4 Bright
         D227 Q 4 Bright A_NoBlocking
@@ -112,10 +119,13 @@ ACTOR Torm_TerminatorHitcan1 : FastProjectile
     Damage 2
     Radius 3
     Height 7
-    Speed 150
+    //Speed 150
+    Speed 100
     Projectile
     Decal "Bulletchip"
 	
+    RenderStyle Add
+    +BRIGHT
 	+STRIFEDAMAGE
 	+NOGRAVITY
 	+DONTBLAST
@@ -126,14 +136,15 @@ ACTOR Torm_TerminatorHitcan1 : FastProjectile
     States
     {
     Spawn:
-        TNT1 A 1
+        NULL A 1
         Loop
 	Crash:
 	Death:
-        TNT1 A 1 A_SpawnItemEx("BulletPuff", 0, 0, 0, 0, 0, 1, 0, SXF_NOCHECKPOSITION)
+        TNT1 A 0 // pondria un sonido de ricochet aqui... SI TUVIERA UNO !
+        TNT1 A 1 A_SpawnItemEx("KiradorTankPuff", 0, 0, 0, 0, 0, 1, 0, SXF_NOCHECKPOSITION)
         Stop
 	XDeath:
-	    TNT1 A 1
+        TNT1 A 1 A_SpawnItemEx("KiradorTankPuff", 0, 0, 0, 0, 0, 1, 0, SXF_NOCHECKPOSITION)
         Stop
     }
 }
