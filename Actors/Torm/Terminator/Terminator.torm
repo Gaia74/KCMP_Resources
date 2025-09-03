@@ -166,7 +166,7 @@ ACTOR Torm_TerminatorBlaster
     DeathSound "Torm_Terminator/Hit"
     Obituary "%o was blasted away by a Terminator."
     Decal "CacoScorch"
-    RenderStyle Add
+    //RenderStyle Add
 	+STRIFEDAMAGE
 	+FIREDAMAGE
 	
