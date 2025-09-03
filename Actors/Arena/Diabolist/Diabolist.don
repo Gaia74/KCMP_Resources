@@ -29,7 +29,8 @@ ACTOR Don_Diabolist 1224
 	+FIRERESIST
 	+DONTHARMSPECIES
 	+QUICKTORETALIATE 
-	
+	var int user_nohitscanattack;
+
 	States
 	{
 	Spawn:
@@ -43,10 +44,10 @@ ACTOR Don_Diabolist 1224
 		Loop
 	Missile:
         D024 A 0 A_JumpIfCloser(280,"FireSpread")
-		D024 A 0 A_Jump(64,3)
-		D024 A 0 A_Jump(256,5)
+		D024 A 0 A_Jump(64,4)
+		D024 A 0 A_Jump(256,6)
 		Goto See
-		D024 A 0 
+		D024 A 0 A_JumpIf(user_nohitscanattack,4)
 		D024 A 0 A_JumpIfCloser(1024,"Burning")
 		D024 A 0 A_Jump(256,2)
 		Goto See
