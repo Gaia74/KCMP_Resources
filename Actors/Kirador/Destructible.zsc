@@ -26,4 +26,20 @@ Class KiradorEventHandler : EventHandler
 		Emitter.bNoTimeFreeze=True;
 		Emitter.bNoInteraction=True;
 	}
+	override void NetworkProcess (ConsoleEvent e)
+	{
+		if (e.name ~== "monstercount")
+		{
+			int count;
+			foreach (Actor mo : ThinkerIterator.Create('Actor'))
+			{
+				if(mo.bIsMonster && mo.health>0 && mo.bCountKill)
+				{
+					console.printf(""..mo.GetClassName().." at "..mo.pos);
+					count++;
+				}
+			}
+			console.printf("%d antikiradores found",count);
+		}
+	}
 }
