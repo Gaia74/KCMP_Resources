@@ -1,4 +1,3 @@
-
 Class KiradorEventHandler : EventHandler
 {
 	Actor Emitter;
@@ -13,10 +12,6 @@ Class KiradorEventHandler : EventHandler
 		Emitter.tics=35;
 		Emitter.bNoTimeFreeze=True;
 		Emitter.bNoInteraction=True;
-		//console.printf("snd="..snd);
-		/*Class<Actor> cls=e.DamageSector.GetUDMFString("user_hiteffect");
-		if(cls)
-		Actor.Spawn(cls,e.DamagePosition,ALLOW_REPLACE);*/
 	}
     Override void WorldLineDamaged(WorldEvent e)
 	{
@@ -29,12 +24,21 @@ Class KiradorEventHandler : EventHandler
 		Emitter.tics=35;
 		Emitter.bNoTimeFreeze=True;
 		Emitter.bNoInteraction=True;
-		//console.printf("snd="..snd);
-		/*Class<Actor> cls=e.DamageLine.GetUDMFString("user_hiteffect");
-		Actor mo;
-		if(cls)
-		mo=Actor.Spawn(cls,e.DamagePosition,ALLOW_REPLACE);
-		if(!mo) return;
-		mo.BlockingLine=e.DamageLine;*/
+	}
+	override void NetworkProcess (ConsoleEvent e)
+	{
+		if (e.name ~== "monstercount")
+		{
+			int count;
+			foreach (Actor mo : ThinkerIterator.Create('Actor'))
+			{
+				if(mo.bIsMonster && mo.health>0 && mo.bCountKill)
+				{
+					console.printf(""..mo.GetClassName().." at "..mo.pos);
+					count++;
+				}
+			}
+			console.printf("%d antikiradores found",count);
+		}
 	}
 }

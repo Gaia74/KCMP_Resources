@@ -80,3 +80,13 @@ Model KiradorWoodGibbers
 	Model 0 "metalplategib10.md3" FrameIndex HGIB J 0 0
 	Model 0 "metalplategib11.md3" FrameIndex HGIB K 0 0
 }
+Model Torm_TerminatorHitcan1
+{
+	Path "Models/Kirador"
+	Model 0 "lightning.md3"
+	Scale 2 8 8
+	PitchOffset -90
+	PITCHFROMMOMENTUM
+
+	Skin 0 "tracer1.png"		FrameIndex NULL A 0 0 //0
+}

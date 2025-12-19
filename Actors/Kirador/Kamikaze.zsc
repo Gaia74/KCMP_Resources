@@ -15,6 +15,7 @@ Class KamikaziGuy : Actor //10300 - remember to move this on your mapinfo - ozy8
 		+FLOORCLIP
 		+NOVERTICALMELEERANGE
 		+QUICKTORETALIATE
+		+SLIDESONWALLS
 		Painsound "Kamikazi/Pain";
 		Obituary "%o fell victim to a beheaded kamikazi!";
 	}
@@ -23,20 +24,20 @@ Class KamikaziGuy : Actor //10300 - remember to move this on your mapinfo - ozy8
 	{
 	Spawn:
 		BKAM A 0 A_StopSound(CHAN_5);
-		BKAM A 10 A_LookEx(0, 0, 896, 0, 45);
+		BKAM A 10 A_Look;
 		Wait;
 	Idle.Noise:
 		BKAM A 0 A_StartSound("kamikazi/idle");
 	Idle:
 		BKAM A 0 A_StopSound(CHAN_5);
 		BKAM A 1 A_Wander();
-		BKAM AAA 1 A_LookEx(0, 0, 896, 0, 45);
+		BKAM AAA 1 A_Look;
 		BKAM B 1 A_Wander();
-		BKAM BBB 1 A_LookEx(0, 0, 896, 0, 45);
+		BKAM BBB 1 A_Look;
 		BKAM C 1 A_Wander();
-		BKAM CCC 1 A_LookEx(0, 0, 896, 0, 45);
+		BKAM CCC 1 A_Look;
 		BKAM D 1 A_Wander();
-		BKAM DDD 1 A_LookEx(0, 0, 896, 0, 45);
+		BKAM DDD 1 A_Look;
 		BKAM A 0 A_Jump(8, "IdleNoise");
 		Loop;
 	See:

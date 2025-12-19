@@ -25,16 +25,37 @@ Class KiradorTripod : Actor
 	{
 		if(!master || !master.player) return;
 		let pending=Weapon(master.player.PendingWeapon);
-		if(!master) return;
-		master.A_TakeInventory("NoWeapon");
-		if(master.health<1) return;
+		if(master.health<1)
+		{
+			master.A_TakeInventory("KCMPNoWeapon");
+			//console.printf("takesito 0");
+			return;
+		}
+
+		//console.printf("last weapon: %s",LastWeapon);
+
+		//if(pending)
+		//console.printf("pending weapon: %s",pending.GetClassName());
 
 		let w=Weapon(master.FindInventory(LastWeapon));
-		if(pending) w=pending;
-		if(!w) return;
+		//if(w) console.printf("found ".. w.GetClassName());
+		//console.printf("restoring weapon: %s",w.GetClassName());
+		if(pending && pending!=WP_NOCHANGE && pending!=master.player.ReadyWeapon) w=pending;  
+		if(!w)
+		{
+			master.A_TakeInventory("KCMPNoWeapon");
+			return;
+		}
+		
 		master.player.ReadyWeapon=w;
 		state st=w.FindState("Select");
 		master.player.SetPSprite(PSP_WEAPON,st);
+		//master.player.PendingWeapon=w;
+		master.A_TakeInventory("KCMPNoWeapon");
+		master.player.PendingWeapon=w;
+		//console.printf("restoring weapon: %s",w.GetClassName());
+		/*
+		master.A_SelectWeapon(w.GetClassName());*/
 	}
 	Override Bool Used (Actor user)
 	{
@@ -47,11 +68,11 @@ Class KiradorTripod : Actor
 		}
 		Weapon Pending=user.player.PendingWeapon;
 		user.A_StartSound("Kirador/Broc",CHAN_ITEM);
-		user.A_GiveInventory("NoWeapon");
 		if(!(user.player.WeaponState & WF_DISABLESWITCH) && (user.player.WeaponState & WF_WEAPONSWITCHOK))
 		{
 			LastWeapon=user.player.ReadyWeapon.GetClassName();
-			let w=Weapon(user.FindInventory("NoWeapon"));
+			user.A_GiveInventory("KCMPNoWeapon");
+			let w=Weapon(user.FindInventory("KCMPNoWeapon"));
 			user.player.ReadyWeapon=W;
 			state st=w.FindState("Ready");
 			user.player.SetPSprite(PSP_WEAPON,st);
@@ -64,8 +85,6 @@ Class KiradorTripod : Actor
 		{
 			RestoreWeapon();
 			master=null;
-			//user.player.PendingWeapon=Pending;
-			//master.A_TakeInventory("NoWeapon");
 		}
 		Return True;
 	}
@@ -116,7 +135,7 @@ Class KiradorTripod : Actor
 			int bt=master.GetPlayerInput(MODINPUT_BUTTONS);
 			if(!reactiontime && (bt & BT_USE) || Distance3D(master)-master.Radius>80 || master.health<1)
 			{
-				//master.A_TakeInventory("NoWeapon");
+				//master.A_TakeInventory("KCMPNoWeapon");
 				//if(master.health)
 				//master.A_SelectWeapon(LastWeapon);
 				RestoreWeapon();
@@ -218,13 +237,13 @@ Class KiradorTripodPart : KiradorEffect
 		Stop;
 	}
 }
-Class NoWeapon : Weapon
+Class KCMPNoWeapon : Weapon
 {
 	States
 	{
 	Select:
 	Ready:
-		TNT1 A -1;
+		TNT1 A -1 A_WeaponOffset(0,WEAPONBOTTOM);
 		Stop;
 	Deselect:
 		TNT1 A 1 A_Lower(WEAPONBOTTOM);
