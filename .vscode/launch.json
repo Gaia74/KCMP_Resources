@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "gzdoom",
+            "name": "gzdoom Launch",
+            "request": "launch",
+            "gzdoomPath": "c:/gzdoom/gzdoom.exe",
+            "cwd": "${workspaceFolder}",
+            "port": 19021,
+            "projects": [
+                "${workspaceFolder}",
+                "c:/gzdoom/git/lambda_resources"
+            ],
+            "iwad": "doom2.wad",
+            "configPath": "",
+            "map": "map32",
+            "additionalArgs": ["+skill 3;snd_musicvolume 0;wait 8;give everything"]
+        },
+        {
+            "type": "gzdoom",
+            "name": "gzdoom Attach",
+            "request": "attach",
+            "port": 19021,
+            "projects": [
+                "${workspaceFolder}"
+            ]
+        }
+    ]
+}

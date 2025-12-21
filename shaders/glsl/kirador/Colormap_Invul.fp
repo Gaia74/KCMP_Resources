@@ -9,7 +9,7 @@ void main()
 	float G = dot( C, LumWt );
 
     float distx=0.5-TexCoord.x;
-    distx*=.75;
+    distx*=.5;
     float disty=0.5-TexCoord.y;
     float dist=sqrt(distx*distx + disty*disty);
     dist*=dist*dist;
@@ -20,16 +20,19 @@ void main()
                mix(regebe2.y,regebe.y,G),
                mix(regebe2.z,regebe.z,G) );
 
+               /*
                vec3 plus=C.rgb*5;
-               plus.x=1-max(0,min(1,plus.x));
-               plus.y=1-max(0,min(1,plus.y));
-               plus.z=1-max(0,min(1,plus.z));
+               plus.x=max(0,min(1,plus.x));
+               plus.y=max(0,min(1,plus.y));
+               plus.z=max(0,min(1,plus.z));
                plus=plus*plus*plus*plus;
                rgb+=plus;
-                   //FragColor=vec4(plus.xyz,1.0);
+                FragColor=vec4(plus.xyz,1.0);
+                */
     vec3 final=vec3( mix(C.x,rgb.x,dist),
                      mix(C.y,rgb.y,dist),
                      mix(C.z,rgb.z,dist));
+                     
 	FragColor = vec4(final.xyz,1.0);
 
 

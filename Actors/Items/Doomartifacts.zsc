@@ -1,0 +1,119 @@
+// Invulnerability Sphere ---------------------------------------------------
+
+class KCMPInvulnerabilitySphere : InvulnerabilitySphere Replaces InvulnerabilitySphere
+{
+	Default
+	{
+		Powerup.Type "PowerInvulnerableKCMP";
+	}
+}
+Class PowerInvulnerableKCMP : PowerInvulnerable
+{
+	Override Void InitEffect()
+	{
+		//Colormap = ((BlendColor & 0xFFFF0000) == SPECIALCOLORMAP_MASK)? BlendColor & 0xffff : PlayerInfo.NOFIXEDCOLORMAP;
+		Super.InitEffect();
+		bAmbush=kcmp_colormapshader;
+		if(bAmbush)
+		{
+			Colormap=PlayerInfo.NOFIXEDCOLORMAP;
+			PPShader.SetEnabled("Colormap_Invul", true);
+		}
+	}
+	override void DoEffect ()
+	{
+		Super.DoEffect();
+		if(!bAmbush)  Return;
+		if (Owner == NULL || Owner.player == NULL)
+		{
+			return;
+		}
+
+		if (EffectTics > 0)
+		{
+			PPShader.SetEnabled("Colormap_Invul", !isBlinking());
+		}
+	}
+	override void EndEffect ()
+	{
+		Super.EndEffect();
+		if(!bAmbush)  Return;
+		PPShader.SetEnabled("Colormap_Invul", false);
+	}
+}
+/*
+// Invisibility -------------------------------------------------------------
+
+class BlurSphere : PowerupGiver
+{
+	Default
+	{
+		+COUNTITEM
+		+VISIBILITYPULSE
+		+ZDOOMTRANS
+		+INVENTORY.AUTOACTIVATE
+		+INVENTORY.ALWAYSPICKUP
+		+INVENTORY.BIGPOWERUP
+		Inventory.MaxAmount 0;
+		Powerup.Type "PowerInvisibility";
+		RenderStyle "Translucent";
+		Inventory.PickupMessage "$GOTINVIS";
+		Tag "$TAG_INVISSPHERE";
+	}
+	States
+	{
+	Spawn:
+		PINS ABCD 6 Bright;
+		Loop;
+	}
+}	*/
+
+// Radiation suit (aka iron feet) -------------------------------------------
+/*
+class RadSuit : PowerupGiver
+{
+	Default
+	{
+		Height 46;
+		+INVENTORY.AUTOACTIVATE
+		+INVENTORY.ALWAYSPICKUP
+		Inventory.MaxAmount 0;
+		Inventory.PickupMessage "$GOTSUIT";
+		Powerup.Type "PowerIronFeet";
+		Tag "$TAG_RADSUIT";
+	}
+	States
+	{
+	Spawn:
+		SUIT A -1 Bright;
+		Stop;
+	}
+}	
+
+// Berserk ------------------------------------------------------------------
+/*
+class Berserk : CustomInventory
+{
+	Default
+	{
+		+COUNTITEM
+		+INVENTORY.ALWAYSPICKUP
+		+INVENTORY.ISHEALTH
+		Inventory.PickupMessage "$GOTBERSERK";
+		Inventory.PickupSound "misc/p_pkup";
+		Tag "$TAG_BERSERK";
+	}
+	States
+	{
+	Spawn:
+		PSTR A -1 Bright;
+		Stop;
+	Pickup:
+		TNT1 A 0 A_GiveInventory("PowerStrength");
+		TNT1 A 0 HealThing(100, 0);
+		TNT1 A 0 A_SelectWeapon("Fist");
+		Stop;
+	}
+}
+	
+*/

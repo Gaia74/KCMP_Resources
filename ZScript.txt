@@ -1,5 +1,6 @@
 Version "4.10"
 
+#Include "Actors/items/Doomartifacts.zsc"
 #Include "Actors/skulltag/skulltagitems.zsc"
 #Include "Actors/skulltag/skulltagmisc.zsc"
 #Include "Actors/Kirador/Skybox.zsc"
