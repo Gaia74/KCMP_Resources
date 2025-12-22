@@ -45,3 +45,27 @@ HardwareShader PostProcess scene
 	Name "Colormap_Invul"
 	Shader "shaders/glsl/kirador/Colormap_Invul.fp" 330
 }
+
+HardwareShader PostProcess scene
+{
+	Name "Colormap_GuardSphere"
+	Shader "shaders/glsl/kirador/Colormap_GuardSphere.fp" 330
+}
+
+HardwareShader PostProcess scene
+{
+	Name "Colormap_DoomSphere"
+	Shader "shaders/glsl/kirador/Colormap_DoomSphere.fp" 330
+}
+
+HardwareShader PostProcess scene
+{
+	Name "Colormap_TimeFreezeSphere"
+	Shader "shaders/glsl/kirador/Colormap_TimeFreezeSphere.fp" 330
+}
+
+HardwareShader PostProcess scene
+{
+	Name "Colormap_DoomSphere"
+	Shader "shaders/glsl/kirador/Colormap_DoomSphere.fp" 330
+}

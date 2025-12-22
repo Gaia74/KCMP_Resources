@@ -128,10 +128,10 @@ ACTOR TimeFreezeSphere : PowerupGiver 5032
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	Inventory.MaxAmount 0
-	Powerup.Type TimeFreezer
+	Powerup.Type TimeFreezeSphereKCMP
 	Powerup.Color GoldMap
 	Inventory.PickupMessage "$PICKUP_TIMEFREEZER"
-	Inventory.PickupAnnouncerEntry "timefreeze"
+	Inventory.PickupAnnouncerEntry "TimeFreezeSphere"
 	States
 	{
 	Spawn:
@@ -174,9 +174,10 @@ ACTOR InvisibilitySphere : PowerupGiver 5035
 //
 //=================================================================================================
 
-ACTOR PowerQuadDamage : PowerDamage
+ACTOR PowerQuadDamage : PowerDoomSphereKCMP
 {
 	Damagefactor "normal", 4
+	Inventory.Icon "ARTIDMS1"
 }
 
 ACTOR Doomsphere : PowerupGiver 5036
@@ -209,9 +210,10 @@ ACTOR Doomsphere : PowerupGiver 5036
 //
 //=================================================================================================
 
-ACTOR PowerQuarterDamage: PowerProtection
+ACTOR PowerQuarterDamage: PowerGuardSphereKCMP
 {
 	Damagefactor "normal", 0.25
+	Inventory.Icon "ARTIGRD1"
 }
 
 ACTOR Guardsphere : PowerupGiver 5037
@@ -223,7 +225,7 @@ ACTOR Guardsphere : PowerupGiver 5037
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
 	Inventory.MaxAmount 0
-	Powerup.Type QuarterDamage
+	Powerup.Type PowerQuarterDamage
 	Powerup.Color GreenMap
 	Inventory.PickupMessage "$PICKUP_GUARDSPHERE"
 	Inventory.PickupAnnouncerEntry "guardsphere"

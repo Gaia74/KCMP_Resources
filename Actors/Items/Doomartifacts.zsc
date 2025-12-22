@@ -9,10 +9,11 @@ class KCMPInvulnerabilitySphere : InvulnerabilitySphere Replaces Invulnerability
 }
 Class PowerInvulnerableKCMP : PowerInvulnerable
 {
+	Default { Inventory.Icon "ARTIINV1"; }
 	Override Void InitEffect()
 	{
 		Super.InitEffect();
-		bAmbush=kcmp_colormapshader && vid_preferredbackend != 2;
+		bAmbush=kcmp_colormapshader && vid_preferbackend != 2;
 		if(bAmbush)
 		{
 			Colormap=PlayerInfo.NOFIXEDCOLORMAP;
@@ -31,6 +32,86 @@ Class PowerInvulnerableKCMP : PowerInvulnerable
 		Super.EndEffect();
 		if(!bAmbush)  Return;
 		PPShader.SetEnabled("Colormap_Invul", false);
+	}
+}
+
+Class PowerDoomSphereKCMP : PowerDamage
+{
+	Override Void InitEffect()
+	{
+		Super.InitEffect();
+		bAmbush=kcmp_colormapshader && vid_preferbackend != 2;
+		if(bAmbush)
+		{
+			Colormap=PlayerInfo.NOFIXEDCOLORMAP;
+			PPShader.SetEnabled("Colormap_DoomSphere", true); // not sure if having one shader for each effect is better or worse, but at least they can stack this way
+		}
+	}
+	override void DoEffect ()
+	{
+		Super.DoEffect();
+		if(!bAmbush)  Return;
+		if (Owner == NULL || Owner.player == NULL) return;
+		if (EffectTics > 0) PPShader.SetEnabled("Colormap_DoomSphere", !isBlinking());
+	}
+	override void EndEffect ()
+	{
+		Super.EndEffect();
+		if(!bAmbush)  Return;
+		PPShader.SetEnabled("Colormap_DoomSphere", false);
+	}
+}
+Class PowerGuardSphereKCMP : PowerProtection
+{
+	Override Void InitEffect()
+	{
+		Super.InitEffect();
+		bAmbush=kcmp_colormapshader && vid_preferbackend != 2;
+		if(bAmbush)
+		{
+			Colormap=PlayerInfo.NOFIXEDCOLORMAP;
+			PPShader.SetEnabled("Colormap_GuardSphere", true);
+		}
+	}
+	override void DoEffect ()
+	{
+		Super.DoEffect();
+		if(!bAmbush)  Return;
+		if (Owner == NULL || Owner.player == NULL) return;
+		if (EffectTics > 0) PPShader.SetEnabled("Colormap_GuardSphere", !isBlinking());
+	}
+	override void EndEffect ()
+	{
+		Super.EndEffect();
+		if(!bAmbush)  Return;
+		PPShader.SetEnabled("Colormap_GuardSphere", false);
+	}
+}
+Class PowerTimeFreezeSphereKCMP : PowerTimeFreezer
+{
+	Default { Inventory.Icon "ARTITME1"; }
+	Override Void InitEffect()
+	{
+		Super.InitEffect();
+		bAmbush=kcmp_colormapshader && vid_preferbackend != 2;
+		if(bAmbush)
+		{
+			Colormap=PlayerInfo.NOFIXEDCOLORMAP;
+			PPShader.SetEnabled("Colormap_TimeFreezeSphere", true);
+		}
+	}
+	override void DoEffect ()
+	{
+		Super.DoEffect();
+		if(!bAmbush)  Return;
+		if (Owner == NULL || Owner.player == NULL) return;
+		if (EffectTics > 0) PPShader.SetEnabled("Colormap_TimeFreezeSphere", !isBlinking());
+	}
+	override void EndEffect ()
+	{
+		Super.EndEffect();
+		if(!bAmbush)  Return;
+		PPShader.SetEnabled("Colormap_TimeFreezeSphere", false);
 	}
 }
 /*
