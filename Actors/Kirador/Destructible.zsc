@@ -42,3 +42,19 @@ Class KiradorEventHandler : EventHandler
 		}
 	}
 }
+
+// TODO: move this code somewhere else? tried to move it directly  to the root zscript file but it didn't work lol
+
+Extend Class KiradorEventHandler
+{
+    Override void CheckReplacement(ReplaceEvent e)
+	{ // these weapons do not exist yet in some old gzdoom versions, this code allows to replace them even if the class is not found
+		string perfname='ID24Incinerator';
+		Class<Actor> perfclass=perfname;
+		if(perfclass && e.Replacee.GetClassName() == 'ID24Incinerator') e.Replacement='jgp_incinerator';
+        
+		perfname='ID24CalamityBlade';
+		perfclass=null;
+		if(perfclass && e.Replacee.GetClassName() == 'ID24CalamityBlade') e.Replacement='jgp_heatwave';
+    }
+}
