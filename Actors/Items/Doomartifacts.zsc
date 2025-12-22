@@ -11,9 +11,8 @@ Class PowerInvulnerableKCMP : PowerInvulnerable
 {
 	Override Void InitEffect()
 	{
-		//Colormap = ((BlendColor & 0xFFFF0000) == SPECIALCOLORMAP_MASK)? BlendColor & 0xffff : PlayerInfo.NOFIXEDCOLORMAP;
 		Super.InitEffect();
-		bAmbush=kcmp_colormapshader;
+		bAmbush=kcmp_colormapshader && vid_preferredbackend != 2;
 		if(bAmbush)
 		{
 			Colormap=PlayerInfo.NOFIXEDCOLORMAP;
@@ -24,15 +23,8 @@ Class PowerInvulnerableKCMP : PowerInvulnerable
 	{
 		Super.DoEffect();
 		if(!bAmbush)  Return;
-		if (Owner == NULL || Owner.player == NULL)
-		{
-			return;
-		}
-
-		if (EffectTics > 0)
-		{
-			PPShader.SetEnabled("Colormap_Invul", !isBlinking());
-		}
+		if (Owner == NULL || Owner.player == NULL) return;
+		if (EffectTics > 0) PPShader.SetEnabled("Colormap_Invul", !isBlinking());
 	}
 	override void EndEffect ()
 	{
