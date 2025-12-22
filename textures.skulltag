@@ -25,6 +25,32 @@ Graphic "ARTITU4", 32, 32
 	Patch "TURBD0", 0, 0
 }
 
+//Doomsphere
+Graphic "ARTIDMS1", 32, 32 { Offset 8, 14 Patch "DOOMA0", 0, 0 }
+Graphic "ARTIDMS2", 32, 32 { Offset 8, 14 Patch "DOOMB0", 0, 0 }
+Graphic "ARTIDMS3", 32, 32 { Offset 8, 14 Patch "DOOMC0", 0, 0 }
+Graphic "ARTIDMS4", 32, 32 { Offset 8, 14 Patch "DOOMD0", 0, 0 }
+
+//Guardsphere
+Graphic "ARTIGRD1", 32, 32 { Offset 8, 14 Patch "GARDA0", 0, 0 }
+Graphic "ARTIGRD2", 32, 32 { Offset 8, 14 Patch "GARDB0", 0, 0 }
+Graphic "ARTIGRD3", 32, 32 { Offset 8, 14 Patch "GARDC0", 0, 0 }
+Graphic "ARTIGRD4", 32, 32 { Offset 8, 14 Patch "GARDD0", 0, 0 }
+
+//TimeFreezeSphere
+Graphic "ARTITME1", 32, 32 { Offset 8, 14 Patch "TIMEA0", 0, 0 }
+Graphic "ARTITME2", 32, 32 { Offset 8, 14 Patch "TIMEB0", 0, 0 }
+Graphic "ARTITME3", 32, 32 { Offset 8, 14 Patch "TIMEC0", 0, 0 }
+Graphic "ARTITME4", 32, 32 { Offset 8, 14 Patch "TIMED0", 0, 0 }
+
+
+//InvulnerabilitySphere
+Graphic "ARTIINV1", 32, 32 { Offset 8, 14 Patch "PINVA0", 0, 0 }
+Graphic "ARTIINV2", 32, 32 { Offset 8, 14 Patch "PINVB0", 0, 0 }
+Graphic "ARTIINV3", 32, 32 { Offset 8, 14 Patch "PINVC0", 0, 0 }
+Graphic "ARTIINV4", 32, 32 { Offset 8, 14 Patch "PINVD0", 0, 0 }
+
+
 Sprite "PINVZ0", 25, 25
 {
 	Offset 12, 32
