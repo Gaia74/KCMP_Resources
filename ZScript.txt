@@ -13,6 +13,8 @@ Version "4.10"
 #Include "Actors/Kirador/Spawner.zsc"
 #Include "Actors/Kirador/Kamikaze.zsc"
 #Include "Actors/Kirador/ThingWaiter.zsc"
+#Include "Actors/Kirador/Torch.zsc"
+
 // LoR
 const DOOMRR_INCINERATOR_FLAME_DAMAGE = 5;
 const DOOMRR_INCINERATOR_FLAME_VELOCITY = 40;

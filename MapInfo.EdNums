@@ -20,6 +20,7 @@ DoomEdNums
 	//915 = "PerforatorCannon"
 	//916 = "PerforatorCannonAmmo"
 	917 = "KiradorThingWaiter"
+	927 = "KiradorTorch"
 	
 	
 	
